@@ -672,6 +672,9 @@ const SOURCES = {
   tr_womack: { pub: "Times Record via Yahoo News", title: "Rep. Steve Womack mourns wife of 41 years after brief illness", date: "Jan 2026", url: "https://www.yahoo.com/news/articles/rep-womack-misses-votes-care-163933916.html" },
   zip_cd: { pub: "OpenSourceActivismTech / U.S. Census Bureau", title: "ZIP code tabulation areas to 119th Congress districts", date: "updated Jun 30, 2026", url: "https://github.com/OpenSourceActivismTech/us-zipcodes-congress" },
   us_legislators: { pub: "@unitedstates project", title: "congress-legislators: current members and IDs", date: "retrieved Oct 23, 2026", url: "https://github.com/unitedstates/congress-legislators" },
+  clerk_votes: { pub: "Office of the Clerk, U.S. House", title: "Roll-call votes, 2025–2026 (676 roll calls)", date: "retrieved Oct 24, 2026", url: "https://clerk.house.gov/Votes" },
+  cg_womack: { pub: "Congress.gov", title: "Rep. Steve Womack: sponsored legislation and cosponsors, 119th Congress", date: "retrieved Oct 24, 2026", url: "https://www.congress.gov/member/W000809" },
+  claimreview: { pub: "Google Fact Check Tools (ClaimReview): PolitiFact, The Washington Post, FactCheck.org", title: "Fact-check rulings on Vivek Ramaswamy", date: "retrieved Oct 24, 2026", url: "https://toolbox.google.com/factcheck/explorer" },
   ballotpedia_counts: { pub: "NCSL", title: "2026 elections put statehouses in the spotlight", date: "Sep 14, 2026", url: "https://www.ncsl.org/resources/details/2026-Elections-Put-Statehouses-Ballot-Measures-in-the-Spotlight" }
 };
 
@@ -733,6 +736,7 @@ const RACES = [
 const CANDS = {
   womack: {
     name: "Steve Womack", party: "Republican", role: "Incumbent since 2011", track: "veteran", initials: "SW",
+    ids: { bioguide: "W000809", fec: "H0AR03055", factcheck: "Steve Womack" },
     facts: [
       { label: "Prior office", text: "Mayor of Rogers for 12 years; retired Arkansas Army National Guard colonel after 30+ years.", src: "tbp_2017", src2: "tbp_2024p" },
       { label: "Committee role", text: "Chairs the House Appropriations subcommittee on Transportation, Housing and Urban Development (THUD).", src: "cr_cpf27" },
@@ -743,9 +747,9 @@ const CANDS = {
       promises: { status: "draft", from: "promises" },
       effectiveness: { status: "verified", norm: 0.347, display: "1.03 LES · meets expectations", sub: "Benchmark for members like him: 1.48 · 134th of 228 House Republicans · 118th Congress (2023–24)", src: "cel_api",
         note: "Counts bills he sponsored: 7 substantive and 1 substantive-and-significant, which became law. Projects he secures inside other bills don't count here." },
-      attendance: { status: "draft", norm: 0.467, display: "72 of 676 roll calls missed (10.7%)", sub: "119th Congress, since Jan 3, 2025 · Before that: 8,823 straight votes", src: "watchvote_womack", src2: "cr_firstmiss",
-        note: "Includes the weeks he was home caring for his wife. Held as draft until official House Clerk records are imported and absences with a stated family or medical reason are labeled." },
-      bipartisan: { status: "pending", note: "Cosponsor data not yet imported." },
+      attendance: { status: "draft", norm: 0.467, display: "72 of 675 roll calls missed (10.7%)", sub: "119th Congress, since Jan 3, 2025 · Before that: 8,823 straight votes", src: "clerk_votes", src2: "cr_firstmiss",
+        note: "Includes the weeks he was home caring for his wife. Held as draft until reviewers label absences with a stated family or medical reason from the Congressional Record." },
+      bipartisan: { status: "verified", norm: 0.6, display: "60% of bills", sub: "6 of 10 bills and joint resolutions drew a cosponsor from another party · 119th Congress", src: "cg_womack" },
       access: { status: "verified", norm: 1, display: "Debated", sub: "Arkansas TV, Oct 15, 2026", src: "pbs_ar3" },
       transparency: { status: "pending", note: "Questionnaire tracking not yet complete." },
       factcheck: { status: "pending", note: "Fewer than 5 rated claims found." },
@@ -765,7 +769,7 @@ const CANDS = {
     },
     money: { asOf: "Oct 14, 2026", src: "fec_womack", items: [
       { label: "Raised this cycle", value: "$2.36M" },
-      { label: "From PACs and other committees", value: "45%", sub: "$1.07M" },
+      { label: "From PACs and party committees", value: "45%", sub: "$1.07M" },
       { label: "From donors giving $200 or less", value: "1.6%", sub: "$37.8K" } ],
       note: "Large individual donors gave the remaining 47% ($1.10M). Incumbents typically draw more PAC money than challengers." },
     promises: [
@@ -783,6 +787,7 @@ const CANDS = {
   },
   ryerse: {
     name: "Robb Ryerse", party: "Democratic", role: "Challenger", track: "rookie", initials: "RR",
+    ids: { fec: "H6AR03128", factcheck: "Robb Ryerse" },
     facts: [
       { label: "Background", text: "Pastor and nonprofit leader; has lived in Springdale for 20 years and started the Vintage Fellowship church.", src: "ryerse_meet" },
       { label: "Prior campaign", text: "Challenged Womack in the 2018 Republican primary and lost.", src: "sentinel_2018" },
@@ -797,15 +802,15 @@ const CANDS = {
     },
     promises: [
       { text: "Refuse corporate PAC money, as he did in 2018.", src: "ryerse_blog", outcome: "Checkable now", effort: null, spec: { m: 1, t: 1, c: 0, p: 1 },
-        evidence: [{ text: "FEC shows $2,185.68 from other committees through Sep 30, 2026 (1.4% of receipts). Whether any came from a corporate PAC needs the itemized donor list.", src: "fec_ryerse" }] },
+        evidence: [{ text: "FEC shows about $7.6K from PACs and party committees combined through Oct 14, 2026 (4.7% of receipts). Whether any came from a corporate PAC needs the itemized donor list.", src: "fec_ryerse" }] },
       { text: "Lower the cost of living.", src: "ryerse_blog", outcome: "Not rated", effort: null, spec: { m: 0, t: 0, c: 0, p: 1 }, evidence: [] },
       { text: "Get big money out of politics.", src: "ryerse_blog", outcome: "Not rated", effort: null, spec: { m: 0, t: 0, c: 0, p: 1 }, evidence: [] }
     ],
-    money: { asOf: "Sep 30, 2026", src: "fec_ryerse", items: [
-      { label: "Raised this cycle", value: "$159K" },
-      { label: "From PACs and other committees", value: "1.4%", sub: "$2.2K" },
-      { label: "From donors giving $200 or less", value: "43%", sub: "$67.5K" } ],
-      note: "Larger individual donors gave 53% ($83.4K)." },
+    money: { asOf: "Oct 14, 2026", src: "fec_ryerse", items: [
+      { label: "Raised this cycle", value: "$161K" },
+      { label: "From PACs and party committees", value: "4.7%", sub: "$7.6K" },
+      { label: "From donors giving $200 or less", value: "42%", sub: "$68.0K" } ],
+      note: "Larger individual donors gave 53% ($84.9K)." },
     positions: {
       roads: null,
       money: { text: "Pledges no corporate PAC money.", src: "ryerse_blog" },
@@ -814,6 +819,7 @@ const CANDS = {
   },
   wilson: {
     name: "Bobby Wilson", party: "Libertarian", role: "Challenger", track: "rookie", initials: "BW",
+    ids: { fec: "H4AR03081", factcheck: "Bobby Wilson" },
     facts: [
       { label: "Background", text: "Business analyst from Bentonville.", src: "politics1_ar" },
       { label: "Prior campaign", text: "Libertarian nominee for this seat in 2024 and again in 2026.", src: "ada_lp" },
@@ -831,6 +837,7 @@ const CANDS = {
   },
   ramaswamy: {
     name: "Vivek Ramaswamy", party: "Republican", role: "Open-seat candidate", track: "rookie", initials: "VR",
+    ids: { factcheck: "Vivek Ramaswamy" },
     facts: [
       { label: "Background", text: "Biotech entrepreneur and 2024 Republican presidential candidate. Has not held elected office.", src: "wgcu_oh" },
       { label: "Campaign finance", text: "Reported putting $25M of his own money into the race and raising $50M.", src: "fox_self" },
@@ -841,8 +848,8 @@ const CANDS = {
       promises: { status: "na" }, effectiveness: { status: "na" }, attendance: { status: "na" }, bipartisan: { status: "na" },
       access: { status: "fact", display: "Accepted CNN invite", sub: "Not scored: no debate offered to all qualifying candidates was confirmed", src: "fox_self" },
       transparency: { status: "pending", note: "One questionnaire tracked; minimum is 3." },
-      factcheck: { status: "verified", norm: 0.229, display: "1 of 12 rated mostly true or better", sub: "PolitiFact: 1 mostly true · 3 half true · 2 mostly false · 3 false · 3 pants on fire", src: "pf_ramaswamy",
-        note: "Covers his full PolitiFact record, not just this race. Fact-checkers choose which claims to check, so the mix reflects attention as well as accuracy." },
+      factcheck: { status: "verified", norm: 0.176, display: "1 of 17 rated mostly true or better", sub: "17 rulings: PolitiFact 12 · The Washington Post 4 · FactCheck.org 1 · 8 more use labels outside the standard scale and aren't scored", src: "claimreview", src2: "pf_ramaswamy",
+        note: "Most date from his 2023 presidential campaign; one is from this race. Fact-checkers choose which claims to check, so the mix reflects attention as well as accuracy." },
       specificity: { status: "draft", from: "promises" }
     },
     promises: [
@@ -861,6 +868,7 @@ const CANDS = {
   },
   acton: {
     name: "Amy Acton", party: "Democratic", role: "Open-seat candidate", track: "rookie", initials: "AA",
+    ids: { factcheck: "Amy Acton" },
     facts: [
       { label: "Background", text: "Physician; former director of the Ohio Department of Health who led the state's early COVID-19 response; later worked at The Columbus Foundation. Has not held elected office.", src: "stateside_acton" },
       { label: "Debates", text: "Her campaign said she will not debate Ramaswamy.", src: "signal_debate" },
@@ -889,6 +897,7 @@ const CANDS = {
   },
   kissick: {
     name: "Don Kissick", party: "Libertarian", role: "Open-seat candidate", track: "rookie", initials: "DK",
+    ids: { factcheck: "Don Kissick" },
     facts: [
       { label: "Background", text: "U.S. Navy veteran and TV station control-room operator from Ottawa, Ohio. Has run for office several times, including U.S. Senate in 2024.", src: "ivoter_kissick", src2: "ocj_reader" },
       { label: "Voter questions", text: "Answered the Ohio Capital Journal's reader questions on 12 topics.", src: "ocj_reader" },
@@ -970,13 +979,13 @@ const POSITION_TOPICS = {
 
 /* Data feeds: what's connected, how, and when it last ran. */
 const FEEDS = [
-  { name: "Legislative Effectiveness Scores", org: "Center for Effective Lawmaking", stat: "Lawmaking effectiveness", state: "live", how: "CEL scores API", last: "Oct 23, 2026", note: "118th Congress; 119th scores publish after the term ends." },
-  { name: "Campaign finance", org: "Federal Election Commission", stat: "Campaign money (context)", state: "live", how: "FEC candidate summaries", last: "Oct 23, 2026", note: "Federal races only. Ohio governor money comes from the Ohio Secretary of State (not yet connected)." },
-  { name: "Fact-check rulings", org: "PolitiFact", stat: "Fact-check record", state: "live", how: "PolitiFact rulings scorecards", last: "Oct 23, 2026", note: "Next: other fact-checkers via the Google Fact Check API (ClaimReview)." },
+  { name: "Legislative Effectiveness Scores", org: "Center for Effective Lawmaking", stat: "Lawmaking effectiveness", state: "live", how: "CEL scores API", last: "Oct 24, 2026", note: "118th Congress; 119th scores publish after the term ends." },
+  { name: "Campaign finance", org: "Federal Election Commission", stat: "Campaign money (context)", state: "live", how: "OpenFEC API", last: "Oct 24, 2026", note: "Federal races only. Ohio governor money comes from the Ohio Secretary of State (not yet connected)." },
+  { name: "Fact-check rulings", org: "PolitiFact, The Washington Post, FactCheck.org and others", stat: "Fact-check record", state: "live", how: "Google Fact Check Tools (ClaimReview)", last: "Oct 24, 2026", note: "Labels outside the standard scale (\"Baseless\", \"Lacks evidence\") are shown but not scored." },
   { name: "ZIP to district", org: "U.S. Census Bureau via OpenSourceActivismTech", stat: "Ballot lookup", state: "live", how: "ZCTA relationship files, 119th Congress map", last: "Oct 23, 2026", note: "About 15% of ZIPs span two districts; the page asks you to confirm." },
   { name: "Member IDs", org: "@unitedstates congress-legislators", stat: "Links every dataset", state: "live", how: "Public YAML dataset", last: "Oct 23, 2026", note: "Bioguide, FEC and GovTrack IDs for all 539 current members." },
-  { name: "Roll-call votes", org: "Office of the Clerk, U.S. House", stat: "Attendance", state: "partial", how: "Secondary tracker for now", last: "Oct 23, 2026", note: "Pipeline written; direct Clerk import runs in the nightly job." },
-  { name: "Bills and cosponsors", org: "Congress.gov API", stat: "Bipartisanship", state: "next", how: "Pipeline written", last: "—", note: "Needs a free api.data.gov key." },
+  { name: "Roll-call votes", org: "Office of the Clerk, U.S. House", stat: "Attendance", state: "live", how: "Clerk roll-call XML", last: "Oct 24, 2026", note: "676 roll calls since Jan 2025. Each night adds only new votes." },
+  { name: "Bills and cosponsors", org: "Congress.gov API", stat: "Bipartisanship", state: "live", how: "Sponsored bills and cosponsors", last: "Oct 24, 2026", note: "Bills and joint resolutions only; simple resolutions are mostly ceremonial and left out." },
   { name: "Candidate questionnaires", org: "Vote411, Ballotpedia, newsrooms", stat: "Transparency", state: "next", how: "Manual tracking", last: "—", note: "Tracked by reviewers." },
   { name: "Promise ledgers", org: "Campaign sites, speeches, ads", stat: "Promises, specificity", state: "manual", how: "AI-assisted extraction + human review", last: "Oct 23, 2026", note: "All entries are drafts until two reviewers sign off." }
 ];
@@ -1522,20 +1531,74 @@ specificity   = average promise checklist score ÷ 4</div>
   renderLearn(); renderMethod();
   show(location.hash.slice(1) || "scout");
 
-  /* When hosted next to the pipeline's output (GitHub Pages), show each feed's real status
-     from the latest nightly run. In other hosts the file isn't there and nothing changes. */
+  /* When hosted next to the pipeline's output (GitHub Pages), read the latest nightly files and
+     update feed status and candidate stats. Elsewhere the files aren't there and the embedded
+     data stays as is. Live data never upgrades a draft to verified: review rules still apply. */
   const FEED_KEYS = { members: "Member IDs", zips: "ZIP to district", cel: "Legislative Effectiveness Scores", fec: "Campaign finance", votes: "Roll-call votes", bills: "Bills and cosponsors", factchecks: "Fact-check rulings" };
-  const fmtDate = (d) => { try { return new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); } catch (e) { return d; } };
-  fetch("data/manifest.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((m) => {
+  const fmtDate = (d) => { try { return new Date(String(d).slice(0, 10) + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); } catch (e) { return d; } };
+  const getJSON = (f) => fetch("data/" + f + ".json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  const pct = (x, d = 0) => (100 * x).toFixed(d) + "%";
+  const money = (x) => (x >= 1e6 ? "$" + (x / 1e6).toFixed(2) + "M" : "$" + (x / 1e3).toFixed(1) + "K");
+  function liveSource(key, dp, title) {
+    if (!SOURCES[key]) SRC_IDS.push(key);
+    SOURCES[key] = { pub: dp.publisher, title: title, date: "retrieved " + fmtDate(dp.retrieved_at), url: dp.source_url };
+    return key;
+  }
+  function setStat(c, key, upd) {
+    const cur = c.stats[key] || {};
+    c.stats[key] = Object.assign({}, cur, upd, { status: cur.status === "draft" ? "draft" : "verified" });
+  }
+  Promise.all(["manifest", "cel", "attendance", "bipartisanship", "fec", "factchecks"].map(getJSON)).then(([m, cel, att, bip, fec, fc]) => {
     if (!m) return;
     Object.entries(FEED_KEYS).forEach(([k, name]) => {
       const f = FEEDS.find((x) => x.name === name), e = m[k];
       if (!f || !e) return;
-      if (e.state === "live") { f.state = "live"; f.last = fmtDate(e.last); f.how += " · nightly"; }
+      if (e.state === "live") { f.state = "live"; f.last = fmtDate(e.last); }
       else if (e.state === "error") { f.state = "partial"; f.note = "Last nightly run couldn't reach this source (" + fmtDate(e.checked) + "). Showing the most recent good data. " + f.note; }
     });
-    if (m._run) { const a = $("#asof"); if (a) a.textContent = AS_OF + " · data refreshed " + fmtDate(m._run.date); }
+    if (m._run) { const a = $("#asof"); if (a) a.textContent = fmtDate(m._run.date); $$(".asof2").forEach((x) => (x.textContent = fmtDate(m._run.date))); }
+    Object.entries(CANDS).forEach(([id, c]) => {
+      const ids = c.ids; if (!ids) return;
+      const b = ids.bioguide;
+      if (b && cel && cel[b]) {
+        const v = cel[b].value, word = { MEETS: "meets", EXCEEDS: "exceeds", BELOW: "below" }[v.expectation] + " expectations";
+        setStat(c, "effectiveness", { norm: v.norm, display: v.les.toFixed(2) + " LES · " + word,
+          sub: "Benchmark for members like him: " + v.benchmark.toFixed(2) + " · " + v.party_rank + "th of " + v.party_total + " in the same party · " + v.congress + "th Congress",
+          src: liveSource("live_cel", cel[b], "Legislative Effectiveness Scores, " + v.congress + "th Congress") });
+      }
+      if (b && att && att[b]) {
+        const v = att[b].value;
+        setStat(c, "attendance", { norm: v.norm, display: v.missed + " of " + v.total + " roll calls missed (" + pct(v.missed / v.total, 1) + ")",
+          src: liveSource("live_votes", att[b], "Roll-call votes, " + v.years.join("–")) });
+      }
+      if (b && bip && bip[b]) {
+        const v = bip[b].value, n = Math.round(v.share * v.bills);
+        setStat(c, "bipartisan", { norm: v.share, display: pct(v.share) + " of bills",
+          sub: n + " of " + v.bills + " bills and joint resolutions drew a cosponsor from another party · " + v.congress + "th Congress",
+          src: liveSource("live_bills_" + b, bip[b], "Sponsored legislation and cosponsors, " + v.congress + "th Congress") });
+      }
+      if (ids.fec && fec && fec[ids.fec] && c.money) {
+        const v = fec[ids.fec].value, r = v.receipts;
+        c.money.items = [
+          { label: "Raised this cycle", value: money(r) },
+          { label: "From PACs and party committees", value: pct(v.pac_share, 1), sub: money(r * v.pac_share) },
+          { label: "From donors giving $200 or less", value: pct(v.small_donor_share, 1), sub: money(r * v.small_donor_share) } ];
+        c.money.note = "Larger individual donors gave " + pct(v.large_donor_share) + " (" + money(r * v.large_donor_share) + ").";
+        c.money.asOf = fmtDate(v.coverage_end_date);
+        c.money.src = liveSource("live_fec_" + ids.fec, fec[ids.fec], "Campaign finance summary, 2025–2026");
+      }
+      if (ids.factcheck && fc && fc[ids.factcheck] && fc[ids.factcheck].value.norm != null) {
+        const v = fc[ids.factcheck].value, pubs = {};
+        let good = 0;
+        v.reviews.forEach((r) => { const t = (r.rating || "").toLowerCase(); if (["true", "mostly true", "correct", "accurate", "mostly correct", "mostly accurate", "geppetto checkmark", "one pinocchio"].includes(t)) good++; pubs[r.publisher] = (pubs[r.publisher] || 0) + 1; });
+        setStat(c, "factcheck", { norm: v.norm, display: good + " of " + v.n + " rated mostly true or better",
+          sub: v.n + " scored rulings from " + Object.keys(pubs).join(", ") + (v.unmapped ? " · " + v.unmapped + " more use labels outside the standard scale and aren't scored" : ""),
+          src: liveSource("live_fc_" + id, fc[ids.factcheck], "Fact-check rulings on " + c.name), src2: null });
+      }
+    });
     renderMethod();
+    const v = location.hash.slice(1);   // re-render in place, without scrolling the reader
+    if (v === "races") renderRaces(); else if (v === "h2h") renderH2H();
   }).catch(() => {});
 })();
 </script>
