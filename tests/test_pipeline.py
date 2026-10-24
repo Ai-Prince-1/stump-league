@@ -135,3 +135,10 @@ def test_voteview_senate():
     votes = "congress,chamber,rollnumber,icpsr,cast_code\n119,Senate,1,41500,1\n119,Senate,2,41500,9\n119,Senate,3,41500,2\n119,Senate,4,41500,6\n119,Senate,5,41500,0\n"
     t = S.parse_voteview(votes, members)
     assert t["C001095"] == {"cast": 2, "missed": 2, "total": 4}
+
+
+@pytest.mark.parametrize("person,claimant,ok", [
+    ("Sarah Huckabee Sanders", "Bernie Sanders", False), ("Sarah Huckabee Sanders", "Sarah Sanders", True),
+    ("Chris Jones", "Jones", False), ("Tom Cotton", "Sen. Tom Cotton", True)])
+def test_claimant_matching(person, claimant, ok):
+    assert S.claimant_matches(person, claimant) is ok

@@ -319,11 +319,18 @@ def fetch_bipartisanship(bioguide: str, sponsor_party: str, congress: int) -> di
 FACTCHECK_URL = "https://factchecktools.googleapis.com/v1alpha1/claims:search"
 
 
+def claimant_matches(person: str, claimant: str) -> bool:
+    """Last name plus at least one first or middle name, so "Sarah Huckabee Sanders" never
+    matches "Bernie Sanders" and "Chris Jones" needs both names."""
+    toks = [t for t in person.lower().replace(".", "").split() if len(t) > 1]
+    c = (claimant or "").lower()
+    return bool(toks) and toks[-1] in c and any(t in c for t in toks[:-1])
+
+
 def parse_claimreviews(payload: dict, claimant: str) -> list[dict]:
-    last = claimant.split()[-1].lower()
     out = []
     for c in (payload or {}).get("claims", []):
-        if last not in (c.get("claimant") or "").lower():
+        if not claimant_matches(claimant, c.get("claimant")):
             continue
         for r in c.get("claimReview", []):
             out.append({"publisher": (r.get("publisher") or {}).get("name"), "rating": r.get("textualRating", ""),
