@@ -389,6 +389,25 @@
   "verified": true
  },
  "S6AR00223": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/S6AR00223/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "00",
+    "large_donor_share": 0.0937,
+    "name": "WADLIN, JEFFREY FRANCIS",
+    "office": "S",
+    "pac_share": 0.0,
+    "party": "LIBERTARIAN PARTY",
+    "receipts": 80063.0,
+    "self_funding": 71094.0,
+    "small_donor_share": 0.0183,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/S6AR00223/?cycle=2026",
