@@ -6,7 +6,7 @@ Stump League is a nonpartisan prototype that presents candidates' records the wa
 
 - **Website:** `docs/`, served by GitHub Pages
 - **Data pipeline:** `pipeline/`, run nightly by GitHub Actions
-- **Pilot races:** Arkansas's 3rd Congressional District and the Ohio governor's race (2026)
+- **Coverage:** every contested race on Arkansas's Nov 3, 2026 ballot (50 races, 105 candidates), the 80 unopposed seats, the 4 statewide ballot issues, and Ohio's governor race as a second pilot
 
 This is a proof of concept, built to be adopted and extended by a nonpartisan partner: a university research center, civic-tech foundation, nonprofit newsroom or voter-information organization.
 
@@ -47,6 +47,18 @@ Without keys, the free feeds (members, ZIPs, CEL, House votes) still run, and FE
 ## Scope
 
 `config.json` sets which races the nightly job covers. `"scope": "pilot"` keeps API use within free limits while the method is reviewed. Switching to `"all"` covers every member of Congress (about 539), which takes longer and needs your own api.data.gov key.
+
+## Website source
+
+`docs/index.html` is built from `site-src/`: `head.html` and `body.html` (markup and styles), `data.js` (pilot races and sources), `ar.js` (every contested Arkansas race, generated), `app.js` (scoring engine and interface) and `zipdata.js` (ZIP-to-district table). To refresh the Arkansas data embedded in the page after a nightly run:
+
+```bash
+cd site-src
+python3 gen_ar.py ..     # rebuilds ar.js from ../data/*.json
+sh build.sh              # writes stump-league.html; wrap it in a doctype as docs/index.html
+```
+
+On GitHub Pages the page also reads `docs/data/*.json` on load, so stats stay current between rebuilds.
 
 ## Run locally
 
