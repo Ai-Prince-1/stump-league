@@ -110,3 +110,21 @@ def test_no_party_input_in_scoring_formulas():
         params = inspect.signature(fn).parameters
         if name != "bipartisan_share":
             assert not any("party" in p for p in params), name
+
+
+def test_cel_state_parse():
+    payload = {"term": {"startYear": 2023, "endYear": 2024}, "data": [{"term": {"startYear": 2023, "endYear": 2024}, "chamber": "upper",
+               "state": "AR", "slesId": 42, "name": "Boyd, Justin", "party": "R", "district": 27, "sles": 1.062355005,
+               "benchmark": 0.926543621, "partyRank": 12, "partyTotal": 29, "isMajority": True}]}
+    v = S.parse_cel_state(payload)["42"]["value"]
+    assert v["expectation"] == "MEETS" and v["term"] == "2023-2024"
+    assert v["norm"] == pytest.approx(0.573, abs=1e-3)
+
+
+def test_fec_candidates_parse():
+    payload = {"results": [{"candidate_id": "S4AR00103", "name": "COTTON, TOM", "party_full": "REPUBLICAN PARTY", "office": "S",
+                            "state": "AR", "district": "00", "candidate_status": "C", "has_raised_funds": True}]}
+    m = S.parse_fec_candidates(payload)
+    assert m["S4AR00103"]["office"] == "S"
+    dp = S.parse_fec_totals("S4AR00103", {"results": [{"cycle": 2026, "receipts": 100}]}, 2026, m["S4AR00103"])
+    assert dp["value"]["name"] == "COTTON, TOM"

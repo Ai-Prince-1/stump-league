@@ -45,12 +45,12 @@ def merge_file(fname: str, new: dict | None):
 
 def main(argv=None):
     ap = argparse.ArgumentParser()
-    ap.add_argument("--only", nargs="*", help="feeds to run: members zips cel fec votes bills factchecks")
+    ap.add_argument("--only", nargs="*", help="feeds to run: members zips cel cel_state fec votes senate_votes bills factchecks")
     ap.add_argument("--bioguide", nargs="*", help="limit member-level feeds to these IDs")
     ap.add_argument("--scope", choices=["pilot", "all"], default=CONFIG.get("scope", "pilot"),
                     help="pilot = races in config.json (fits free API limits); all = every member of Congress")
     a = ap.parse_args(argv)
-    want = set(a.only or ["members", "zips", "cel", "fec", "votes", "bills", "factchecks"])
+    want = set(a.only or ["members", "zips", "cel", "cel_state", "fec", "votes", "senate_votes", "bills", "factchecks"])
     manifest = read_json("manifest.json", {}) or {}
 
     members = read_json("members.json")
@@ -76,10 +76,22 @@ def main(argv=None):
             write_json("zip_districts.json", z)
     if "cel" in want:
         merge_file("cel.json", run_step(manifest, "cel", lambda: S.fetch_cel(CEL_CONGRESS)))
+    if "cel_state" in want:
+        def cel_state():
+            out = {}
+            for st in CONFIG.get("states", []):
+                out.update(S.fetch_cel_state(st, *CONFIG["cel_state_term"]))
+            return out
+        merge_file("cel_state.json", run_step(manifest, "cel_state", cel_state))
     if "fec" in want:
-        extra = read_json("candidates.json", {}) or {}   # challengers: {fec_id: {...}} maintained by the roster team
-        all_ids = list(dict.fromkeys(fec_ids + list(extra)))
-        merge_file("fec.json", run_step(manifest, "fec", lambda: S.fetch_fec(all_ids, CYCLE)))
+        def fec():
+            meta = {}
+            for st in CONFIG.get("states", []):          # every federal candidate the FEC lists in these states
+                meta.update(S.fetch_fec_state_candidates(st, CYCLE))
+            extra = read_json("candidates.json", {}) or {}   # anyone else, as {fec_id: {...}}
+            ids = list(dict.fromkeys(fec_ids + [k for k, v in meta.items() if v.get("has_raised_funds") is not False] + list(extra)))
+            return S.fetch_fec(ids, CYCLE, meta)
+        merge_file("fec.json", run_step(manifest, "fec", fec))
     if "bills" in want:
         def bills():
             return {b: dp for b, m in scope.items() if (dp := S.fetch_bipartisanship(b, m["party"], CONGRESS))}
@@ -96,6 +108,12 @@ def main(argv=None):
         merge_file("attendance.json", run_step(manifest, "votes", lambda: S.fetch_house_attendance(VOTE_YEARS)))
         if "votes" in manifest:
             manifest["votes"]["progress"] = dict(S.VOTE_PROGRESS)
+    if "senate_votes" in want:
+        lis = {m["lis"]: b for b, m in members.items() if m.get("lis")}
+        merge_file("senate_attendance.json", run_step(manifest, "senate_votes",
+                   lambda: S.fetch_senate_attendance(CONGRESS, CONFIG.get("senate_sessions", [1, 2]), lis)))
+        if "senate_votes" in manifest:
+            manifest["senate_votes"]["progress"] = dict(S.SENATE_PROGRESS)
     manifest["_run"] = {"date": today(), "scope": a.scope}
     write_json("manifest.json", manifest)
     for k, v in manifest.items():

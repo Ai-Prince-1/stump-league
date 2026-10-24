@@ -2,12 +2,66 @@
   "cycle": 2026,
   "congress": 119,
   "cel_congress": 118,
-  "vote_years": [2025, 2026],
+  "vote_years": [
+    2025,
+    2026
+  ],
   "scope": "pilot",
   "pilot": {
-    "races": ["AR-3", "OH-GOV"],
-    "bioguide": ["W000809"],
-    "fec_ids": ["H0AR03055", "H6AR03128", "H4AR03081"],
-    "people": ["Steve Womack", "Robb Ryerse", "Bobby Wilson", "Vivek Ramaswamy", "Amy Acton", "Don Kissick"]
-  }
+    "races": [
+      "Arkansas: all contested races",
+      "OH-GOV"
+    ],
+    "bioguide": [
+      "W000809",
+      "C001087",
+      "H001072",
+      "W000821",
+      "C001095"
+    ],
+    "fec_ids": [
+      "H0AR03055",
+      "H6AR03128",
+      "H4AR03081"
+    ],
+    "people": [
+      "Tom Cotton",
+      "Hallie Shoffner",
+      "Jeff Wadlin",
+      "Rick Crawford",
+      "Terri Yarbrough Green",
+      "Steve Parsons",
+      "French Hill",
+      "Chris Jones",
+      "Steve Womack",
+      "Robb Ryerse",
+      "Bobby Wilson",
+      "Bruce Westerman",
+      "Rus Russell",
+      "Sarah Huckabee Sanders",
+      "Fred Love",
+      "Colt Shelby",
+      "Leslie Rutledge",
+      "Mike Kalagias",
+      "Kim Hammer",
+      "Kelly Grappe",
+      "Michael Pakko",
+      "Cole Jester",
+      "Chris Olson",
+      "Vivek Ramaswamy",
+      "Amy Acton",
+      "Don Kissick"
+    ]
+  },
+  "states": [
+    "AR"
+  ],
+  "cel_state_term": [
+    2023,
+    2024
+  ],
+  "senate_sessions": [
+    1,
+    2
+  ]
 }

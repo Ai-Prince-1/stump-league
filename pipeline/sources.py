@@ -82,19 +82,45 @@ def fetch_cel(congress: int) -> dict:
 FEC_TOTALS_URL = "https://api.open.fec.gov/v1/candidate/{cid}/totals/"
 
 
-def parse_fec_totals(cid: str, payload: dict, cycle: int) -> dict | None:
+def parse_fec_totals(cid: str, payload: dict, cycle: int, meta: dict | None = None) -> dict | None:
     rows = [r for r in (payload or {}).get("results", []) if r.get("cycle") == cycle]
     if not rows:
         return None
-    return datapoint(T.money_mix(rows[0]), source_url=f"https://www.fec.gov/data/candidate/{cid}/?cycle={cycle}",
+    value = T.money_mix(rows[0])
+    if meta:
+        value.update({k: meta.get(k) for k in ("name", "party", "office", "state", "district")})
+    return datapoint(value, source_url=f"https://www.fec.gov/data/candidate/{cid}/?cycle={cycle}",
                      publisher="Federal Election Commission", verified=True)
 
 
-def fetch_fec(candidate_ids: list[str], cycle: int) -> dict:
+FEC_CANDIDATES_URL = "https://api.open.fec.gov/v1/candidates/"
+
+
+def parse_fec_candidates(payload: dict) -> dict:
     out = {}
+    for r in (payload or {}).get("results", []):
+        out[r["candidate_id"]] = {"name": r.get("name"), "party": r.get("party_full") or r.get("party"),
+                                  "office": r.get("office"), "state": r.get("state"), "district": r.get("district"),
+                                  "status": r.get("candidate_status"), "has_raised_funds": r.get("has_raised_funds")}
+    return out
+
+
+def fetch_fec_state_candidates(state: str, cycle: int) -> dict:
+    """Every House and Senate candidate the FEC lists for a state and election year."""
+    out = {}
+    for office in ("H", "S"):
+        payload = get_json(FEC_CANDIDATES_URL, {"api_key": API_DATA_GOV_KEY, "state": state, "office": office,
+                                                "election_year": cycle, "per_page": 100, "is_active_candidate": "true"})
+        out.update(parse_fec_candidates(payload))
+    return out
+
+
+def fetch_fec(candidate_ids: list[str], cycle: int, meta: dict | None = None) -> dict:
+    out = {}
+    meta = meta or {}
     for cid in candidate_ids:
         payload = get_json(FEC_TOTALS_URL.format(cid=cid), {"api_key": API_DATA_GOV_KEY, "cycle": cycle, "per_page": 5})
-        dp = parse_fec_totals(cid, payload, cycle)
+        dp = parse_fec_totals(cid, payload, cycle, meta.get(cid))
         if dp:
             out[cid] = dp
     return out
@@ -204,6 +230,80 @@ def parse_senate_roll(xml_text: str, lis_to_bioguide: dict) -> dict:
         v = (m.findtext("vote_cast") or "").strip().lower()
         out[bid] = "cast" if v in CAST or v in {"guilty", "not guilty"} else "missed" if v == "not voting" else "other"
     return out
+
+
+def fetch_senate_attendance(congress: int, sessions: list[int], lis_to_bioguide: dict, max_votes: int = 1500,
+                            budget_min: float = 20.0) -> dict:
+    """Same incremental approach as the House feed, using senate.gov roll-call XML."""
+    import time as _t
+    from .common import read_json, write_json, FetchError
+    cache = read_json("senate_votes_tally.json", {}) or {}
+    t0, fetched, stopped = _t.monotonic(), 0, "complete"
+    for sess in sessions:
+        key = f"{congress}-{sess}"
+        sc = cache.setdefault(key, {"last": 0, "tally": {}})
+        fails = 0
+        for n in range(sc["last"] + 1, max_votes):
+            if (_t.monotonic() - t0) / 60 > budget_min:
+                stopped = "time budget reached; resumes next run"
+                break
+            try:
+                r = http_get(SENATE_URL.format(c=congress, s=sess, n=n), tries=2, timeout=15)
+            except FetchError:
+                fails += 1
+                if fails >= 3:
+                    stopped = f"3 failed downloads in a row at session {sess} vote {n}"
+                    break
+                continue
+            if r.status_code == 404 or "<roll_call_vote" not in r.text[:3000]:
+                break
+            fails = 0
+            add_roll(sc["tally"], parse_senate_roll(r.text, lis_to_bioguide))
+            sc["last"] = n
+            fetched += 1
+            if fetched % 50 == 0:
+                write_json("senate_votes_tally.json", cache)
+        write_json("senate_votes_tally.json", cache)
+        if stopped != "complete":
+            break
+    SENATE_PROGRESS.update({"fetched_this_run": fetched, "stopped": stopped, "minutes": round((_t.monotonic() - t0) / 60, 1),
+                            "last_vote": {k: v.get("last", 0) for k, v in cache.items()}})
+    combined: dict = {}
+    for sess in sessions:
+        for bid, c in cache.get(f"{congress}-{sess}", {}).get("tally", {}).items():
+            t = combined.setdefault(bid, {"cast": 0, "missed": 0, "total": 0})
+            for k in t:
+                t[k] += c[k]
+    if not combined:
+        raise FetchError("No Senate roll calls could be downloaded: " + stopped)
+    return {bid: datapoint({**c, "norm": T.attendance_norm(c["missed"], c["total"]), "congress": congress},
+                           source_url="https://www.senate.gov/legislative/votes_new.htm", publisher="U.S. Senate", verified=True)
+            for bid, c in combined.items()}
+
+
+SENATE_PROGRESS: dict = {}
+
+
+# ---------------------------------------------------------------- State legislative effectiveness (CEL)
+CEL_STATE_URL = "https://thelawmakers.org:3000/vis/stateTable"
+
+
+def parse_cel_state(payload: dict) -> dict:
+    out = {}
+    term = (payload or {}).get("term", {})
+    for row in (payload or {}).get("data", []):
+        sles, bench = row["sles"], row.get("benchmark")
+        out[str(row["slesId"])] = datapoint(
+            {"name": row["name"], "party": row.get("party"), "chamber": row.get("chamber"), "district": row.get("district"),
+             "state": row.get("state"), "term": f'{term.get("startYear")}-{term.get("endYear")}', "sles": sles, "benchmark": bench,
+             "expectation": T.cel_expectation(sles, bench), "norm": T.effectiveness_norm(sles, bench) if bench else None,
+             "party_rank": row.get("partyRank"), "party_total": row.get("partyTotal"), "majority": row.get("isMajority")},
+            source_url="https://thelawmakers.org/state-highlights", publisher="Center for Effective Lawmaking", verified=True)
+    return out
+
+
+def fetch_cel_state(state: str, start: int, end: int) -> dict:
+    return parse_cel_state(get_json(CEL_STATE_URL, {"state": state, "termStartYear": start, "termEndYear": end}))
 
 
 # ---------------------------------------------------------------- Congress.gov (bipartisanship)

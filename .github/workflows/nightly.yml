@@ -34,7 +34,7 @@ jobs:
         if: always()
         run: |
           mkdir -p docs/data
-          for f in manifest cel fec attendance bipartisanship factchecks; do
+          for f in manifest cel cel_state fec attendance senate_attendance bipartisanship factchecks; do
             [ -f "data/$f.json" ] && cp "data/$f.json" docs/data/ || true
           done
       - name: Commit changed data
