@@ -128,3 +128,10 @@ def test_fec_candidates_parse():
     assert m["S4AR00103"]["office"] == "S"
     dp = S.parse_fec_totals("S4AR00103", {"results": [{"cycle": 2026, "receipts": 100}]}, 2026, m["S4AR00103"])
     assert dp["value"]["name"] == "COTTON, TOM"
+
+
+def test_voteview_senate():
+    members = "congress,chamber,icpsr,bioguide_id\n119,Senate,41500,C001095\n119,House,12345,X000001\n"
+    votes = "congress,chamber,rollnumber,icpsr,cast_code\n119,Senate,1,41500,1\n119,Senate,2,41500,9\n119,Senate,3,41500,2\n119,Senate,4,41500,6\n119,Senate,5,41500,0\n"
+    t = S.parse_voteview(votes, members)
+    assert t["C001095"] == {"cast": 2, "missed": 2, "total": 4}

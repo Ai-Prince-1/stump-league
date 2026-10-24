@@ -232,53 +232,41 @@ def parse_senate_roll(xml_text: str, lis_to_bioguide: dict) -> dict:
     return out
 
 
-def fetch_senate_attendance(congress: int, sessions: list[int], lis_to_bioguide: dict, max_votes: int = 1500,
-                            budget_min: float = 20.0) -> dict:
-    """Same incremental approach as the House feed, using senate.gov roll-call XML."""
-    import time as _t
-    from .common import read_json, write_json, FetchError
-    cache = read_json("senate_votes_tally.json", {}) or {}
-    t0, fetched, stopped = _t.monotonic(), 0, "complete"
-    for sess in sessions:
-        key = f"{congress}-{sess}"
-        sc = cache.setdefault(key, {"last": 0, "tally": {}})
-        fails = 0
-        for n in range(sc["last"] + 1, max_votes):
-            if (_t.monotonic() - t0) / 60 > budget_min:
-                stopped = "time budget reached; resumes next run"
-                break
-            try:
-                r = http_get(SENATE_URL.format(c=congress, s=sess, n=n), tries=2, timeout=15)
-            except FetchError:
-                fails += 1
-                if fails >= 3:
-                    stopped = f"3 failed downloads in a row at session {sess} vote {n}"
-                    break
-                continue
-            if r.status_code == 404 or "<roll_call_vote" not in r.text[:3000]:
-                break
-            fails = 0
-            add_roll(sc["tally"], parse_senate_roll(r.text, lis_to_bioguide))
-            sc["last"] = n
-            fetched += 1
-            if fetched % 50 == 0:
-                write_json("senate_votes_tally.json", cache)
-        write_json("senate_votes_tally.json", cache)
-        if stopped != "complete":
-            break
-    SENATE_PROGRESS.update({"fetched_this_run": fetched, "stopped": stopped, "minutes": round((_t.monotonic() - t0) / 60, 1),
-                            "last_vote": {k: v.get("last", 0) for k, v in cache.items()}})
-    combined: dict = {}
-    for sess in sessions:
-        for bid, c in cache.get(f"{congress}-{sess}", {}).get("tally", {}).items():
-            t = combined.setdefault(bid, {"cast": 0, "missed": 0, "total": 0})
-            for k in t:
-                t[k] += c[k]
-    if not combined:
-        raise FetchError("No Senate roll calls could be downloaded: " + stopped)
+VOTEVIEW_VOTES = "https://voteview.com/static/data/out/votes/S{congress}_votes.csv"
+VOTEVIEW_MEMBERS = "https://voteview.com/static/data/out/members/S{congress}_members.csv"
+# Voteview cast codes: 1 yea, 6 nay, 7/8 present = voted. 2-5 paired or announced, 9 not voting = absent. 0 = not a member.
+VV_CAST, VV_MISSED = {"1", "6", "7", "8"}, {"2", "3", "4", "5", "9"}
+
+
+def parse_voteview(votes_csv: str, members_csv: str) -> dict:
+    icpsr_to_bio = {}
+    for r in csv.DictReader(io.StringIO(members_csv)):
+        if r.get("bioguide_id") and r.get("chamber") == "Senate":
+            icpsr_to_bio[r["icpsr"]] = r["bioguide_id"]
+    t: dict = {}
+    for r in csv.DictReader(io.StringIO(votes_csv)):
+        bid = icpsr_to_bio.get(r["icpsr"])
+        code = str(r.get("cast_code", "")).split(".")[0]
+        if not bid or code not in VV_CAST | VV_MISSED:
+            continue
+        c = t.setdefault(bid, {"cast": 0, "missed": 0, "total": 0})
+        c["cast" if code in VV_CAST else "missed"] += 1
+        c["total"] += 1
+    return t
+
+
+def fetch_senate_attendance(congress: int, *_args, **_kw) -> dict:
+    """Senate roll calls from Voteview (UCLA), which republishes every recorded Senate vote with
+    official member IDs. senate.gov refuses automated downloads."""
+    t = parse_voteview(http_get(VOTEVIEW_VOTES.format(congress=congress)).text,
+                       http_get(VOTEVIEW_MEMBERS.format(congress=congress)).text)
+    SENATE_PROGRESS.update({"members": len(t), "source": "voteview"})
+    if not t:
+        raise RuntimeError("Voteview returned no Senate votes")
     return {bid: datapoint({**c, "norm": T.attendance_norm(c["missed"], c["total"]), "congress": congress},
-                           source_url="https://www.senate.gov/legislative/votes_new.htm", publisher="U.S. Senate", verified=True)
-            for bid, c in combined.items()}
+                           source_url=f"https://voteview.com/congress/senate/{congress}", publisher="Voteview (UCLA), from U.S. Senate roll calls",
+                           verified=True, note="Paired and announced positions count as absences; they aren't recorded votes.")
+            for bid, c in t.items()}
 
 
 SENATE_PROGRESS: dict = {}
