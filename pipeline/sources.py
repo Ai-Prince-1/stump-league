@@ -66,7 +66,7 @@ def parse_cel_table(payload: dict) -> dict:
     for row in payload.get("data", []):
         les, bench = row["les"], row.get("benchmark")
         out[row["bioguide"]] = datapoint(
-            {"congress": congress, "les": les, "benchmark": bench,
+            {"congress": congress, "chamber": {"H": "house", "S": "senate"}.get(row.get("chamber"), row.get("chamber")), "les": les, "benchmark": bench,
              "expectation": T.cel_expectation(les, bench),
              "norm": T.effectiveness_norm(les, bench) if bench else None,
              "party_rank": row.get("partyRank"), "party_total": row.get("partyTotal")},
@@ -91,6 +91,24 @@ def parse_fec_totals(cid: str, payload: dict, cycle: int, meta: dict | None = No
         value.update({k: meta.get(k) for k in ("name", "party", "office", "state", "district")})
     return datapoint(value, source_url=f"https://www.fec.gov/data/candidate/{cid}/?cycle={cycle}",
                      publisher="Federal Election Commission", verified=True)
+
+
+FEC_BY_STATE_URL = "https://api.open.fec.gov/v1/schedules/schedule_a/by_state/by_candidate/"
+
+
+def parse_fec_by_state(payload: dict, home_state: str) -> dict | None:
+    """Itemized individual contributions by donor state -> share from the candidate's own state."""
+    rows = (payload or {}).get("results", [])
+    total = sum(float(r.get("total") or 0) for r in rows)
+    if total <= 0:
+        return None
+    home = sum(float(r.get("total") or 0) for r in rows if (r.get("state") or "").upper() == home_state.upper())
+    return {"in_state_share": round(home / total, 4), "itemized_total": round(total, 2), "home_state": home_state}
+
+
+def fetch_fec_in_state(cid: str, home_state: str, cycle: int) -> dict | None:
+    payload = get_json(FEC_BY_STATE_URL, {"api_key": API_DATA_GOV_KEY, "candidate_id": cid, "cycle": cycle, "per_page": 100})
+    return parse_fec_by_state(payload, home_state)
 
 
 FEC_CANDIDATES_URL = "https://api.open.fec.gov/v1/candidates/"
@@ -121,6 +139,14 @@ def fetch_fec(candidate_ids: list[str], cycle: int, meta: dict | None = None) ->
     for cid in candidate_ids:
         payload = get_json(FEC_TOTALS_URL.format(cid=cid), {"api_key": API_DATA_GOV_KEY, "cycle": cycle, "per_page": 5})
         dp = parse_fec_totals(cid, payload, cycle, meta.get(cid))
+        st = (meta.get(cid) or {}).get("state") or (cid[2:4] if len(cid) > 4 else None)
+        if dp and st:
+            try:
+                ins = fetch_fec_in_state(cid, st, cycle)
+                if ins:
+                    dp["value"].update(ins)
+            except Exception as e:  # in-state share is optional; keep the totals
+                dp["value"]["in_state_error"] = str(e)[:120]
         if dp:
             out[cid] = dp
     return out

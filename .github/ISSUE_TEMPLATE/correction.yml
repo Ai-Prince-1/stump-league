@@ -1,0 +1,50 @@
+name: Correction
+description: Report a wrong or missing fact, stat or source. Every correction stays public.
+title: "Correction: "
+labels: ["correction"]
+body:
+  - type: input
+    id: candidate
+    attributes:
+      label: Candidate or ballot issue
+      placeholder: e.g. Steve Womack
+    validations:
+      required: true
+  - type: dropdown
+    id: item
+    attributes:
+      label: What needs correcting
+      options:
+        - Answers to voters
+        - Who funds them
+        - Shows up
+        - Gets results
+        - Works across lines
+        - Plans
+        - Background fact
+        - Fact-check list
+        - Ballot issue explainer
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change
+      description: Quote what the site says now and what it should say.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source link
+      description: A primary source or established news outlet. Corrections without a source can't be made.
+      placeholder: https://
+    validations:
+      required: true
+  - type: checkboxes
+    id: ties
+    attributes:
+      label: Disclosure
+      options:
+        - label: I don't work or volunteer for a campaign, party or advocacy group in this race (or I've said so below).

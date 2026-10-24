@@ -1,9 +1,9 @@
 <header class="board">
   <div class="wrap">
-    <a class="brand" href="#scout"><b>Stump <span>League</span></b><span class="proto">Prototype</span></a>
+    <a class="brand" href="#scout" data-tab="scout"><b>Stump <span>League</span></b><span class="proto">Prototype</span></a>
     <nav class="tabs" aria-label="Sections">
       <a href="#scout" data-tab="scout">Scout</a>
-      <a href="#races" data-tab="races">Rankings</a>
+      <a href="#races" data-tab="races">Races</a>
       <a href="#h2h" data-tab="h2h">Head-to-Head</a>
       <a href="#learn" data-tab="learn">Learn</a>
       <a href="#play" data-tab="play">Play</a>
@@ -13,14 +13,13 @@
   </div>
 </header>
 <div class="ticker" aria-label="Election facts">
-  <div class="wrap">
+  <div class="wrap" tabindex="0" role="region" aria-label="Election facts, scrollable">
     <span><b>General election</b> Nov 3, 2026</span>
+    <span><b>Arkansas</b> <span id="tk-races"></span> contested races · 4 ballot issues</span>
     <span><b>435</b> House seats</span>
     <span><b>35</b> Senate seats</span>
     <span><b>36</b> governors</span>
-    <span><b>6,139</b> state legislative seats</span>
-    <span><b>Arkansas</b> 50 contested races · 4 ballot issues</span>
-    <span><b>Data as of</b> <span id="asof"></span></span>
+    <span><b id="tk-mode">Snapshot</b> <span id="asof"></span></span>
   </div>
 </div>
 
@@ -31,65 +30,66 @@
   <div class="hero">
     <div class="stack">
       <div class="eyebrow">Know your ballot like you know your fantasy roster</div>
-      <h1>What they <em>promised</em>. What they <em>did</em>.</h1>
-      <p class="lede">Stump League turns candidates' records into stat lines you can read in five minutes: promises against results, attendance, debates, and how each number compares to the league. Every stat links to its source. Nothing here tells you who to vote for.</p>
+      <h1>Who they are. What they <em>did</em>. What they <em>plan</em>.</h1>
+      <p class="lede">Stump League turns candidates' public records into stat lines you can read in five minutes: whether they face voters, who funds them, whether they show up, and whether they get things done. Every number links to its source. There's no overall grade, and nothing here tells you who to vote for.</p>
     </div>
     <div class="zipbox">
       <div class="eyebrow">Look up your ballot</div>
       <form id="zipform">
-        <input class="input" id="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" aria-label="ZIP code" value="72712">
+        <label for="zip" class="sr">ZIP code</label>
+        <input class="input" id="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" value="72712">
         <button class="btn primary" type="submit">Scout</button>
       </form>
       <p class="note">Works for any U.S. ZIP. Full stat sheets cover every contested Arkansas race, plus Ohio's governor race as a second pilot. Try 72201 for Little Rock or 43215 for Ohio.</p>
     </div>
   </div>
   <div class="stack">
-    <div class="row" style="justify-content:space-between"><h2 id="ballot-title">Your ballot</h2><span class="dim" id="ballot-where"></span></div>
+    <div class="row" style="justify-content:space-between"><h2>Your ballot</h2><span class="dim" id="ballot-where"></span></div>
     <div class="ballot" id="ballot"></div>
   </div>
   <div class="stack" id="arkansas" hidden>
     <div class="row" style="justify-content:space-between"><h2>Every Arkansas race</h2><span class="cov" id="ar-count"></span></div>
-    <p class="dim" style="max-width:68ch">All 50 contested races on Arkansas's Nov 3 ballot, plus the 4 statewide ballot issues. State legislative districts don't follow ZIP codes; find yours with Voter View on the <a href="https://www.sos.arkansas.gov/elections" target="_blank" rel="noopener">Arkansas Secretary of State's site</a>.</p>
+    <p class="dim" style="max-width:68ch">All contested races on Arkansas's Nov 3 ballot, plus the 4 statewide ballot issues. State legislative districts don't follow ZIP codes; find yours with Voter View on the <a href="https://www.sos.arkansas.gov/elections" target="_blank" rel="noopener">Arkansas Secretary of State's site</a>.</p>
     <div id="ar-list" class="stack"></div>
     <details class="drawer" id="ar-unopp"><summary id="ar-unopp-sum">Unopposed seats</summary><div id="ar-unopp-body"></div></details>
   </div>
   <div class="twocol">
     <div class="panel">
-      <div class="eyebrow">How to read the stats</div>
-      <div class="legend" style="display:grid;gap:8px">
-        <span><i class="dot v"></i> Verified by a reviewer, with sources</span>
-        <span><i class="dot d"></i> Draft rating, waiting on review; left out of scores unless you opt in</span>
-        <span><i class="dot f"></i> Fact shown, not scored, because a fairness rule wasn't met</span>
-        <span><i class="dot p"></i> Not collected yet</span>
+      <div class="eyebrow">How to read the labels</div>
+      <div class="legend">
+        <span><span class="badge o">Official record</span> Imported automatically from a named public source</span>
+        <span><span class="badge d">Draft</span> Written with AI help; no human has reviewed it yet</span>
+        <span><span class="badge p">Not collected yet</span> We don't have this data yet</span>
+        <span><span class="badge na">Doesn't apply</span> Not part of this office or candidacy</span>
+        <span><span class="badge s">Sample</span> Invented, in the demo race only</span>
       </div>
     </div>
     <div class="panel">
-      <div class="eyebrow">Two ways in</div>
-      <p><b>Scout</b> is for everyone: look up your ballot, read candidate cards, compare two candidates side by side.</p>
-      <p><b>Play</b> is for fans: draft a roster of officials and score points when they keep promises and show up for the job.</p>
-      <div class="row"><a class="btn" href="#learn">Take a 2-minute lesson</a><a class="btn" href="#play">See the fantasy league</a></div>
+      <div class="eyebrow">The five stats</div>
+      <ol class="kpilist" id="kpilist"></ol>
+      <p class="dim" style="font-size:13px">No overall grade. Labels like "Top 25%" compare an official with everyone in the same chamber, inside one stat. You can build your own ranking on any race page.</p>
     </div>
   </div>
 </section>
 
-<!-- RANKINGS -->
+<!-- RACES -->
 <section data-view="races" hidden>
   <div class="racepick" id="racepick"></div>
   <div id="racehead"></div>
   <div id="issuesbox" class="stack" hidden></div>
   <div class="rank-wrap" id="rankarea">
     <div class="stack">
-      <div class="row" style="justify-content:space-between"><h2>Power rankings</h2><span class="cov" id="rank-note"></span></div>
-      <div class="tablebox"><table class="rank-table" id="ranktable"></table></div>
-      <p class="banner" id="rank-caveat" hidden><b>Prototype ratings.</b> Tiers in real races use the prototype formulas, which outside advisors haven't reviewed yet. Incumbents can earn a tier before challengers because they have public records to score; a missing tier says nothing about a candidate.</p>
-      <p class="dim" style="font-size:13px">A tier appears only when a candidate has at least 4 verified stats. Draft ratings can move a score but never unlock a tier. Rankings re-sort as you move the sliders. Select a row to jump to that player card.</p>
+      <div class="row" style="justify-content:space-between"><h2>Stat sheet</h2><span class="cov" id="sheet-note"></span></div>
+      <div class="tablebox"><table class="sheet" id="sheet"></table></div>
+      <p class="dim" style="font-size:13px">Candidates are listed alphabetically. Select a name to jump to their player card.</p>
     </div>
-    <aside class="sliders" aria-label="What matters to you">
-      <div class="eyebrow">What matters to you</div>
+    <aside class="sliders" aria-label="Your ranking">
+      <div class="eyebrow">Your ranking</div>
+      <p style="font-size:13px">Choose the stats that matter to you. The ranking only uses stats every candidate in this race has, so nobody is ranked on data they can't have.</p>
       <div id="sliders" class="stack"></div>
-      <label class="toggle"><input type="checkbox" id="incdraft"> <span>Include draft ratings (promise ledger and specificity). Drafts haven't been reviewed yet.</span></label>
-      <div class="row"><button class="btn small" id="reset-w" type="button">Reset to equal</button><button class="btn small" id="open-quiz" type="button">Set by quiz</button></div>
-      <div id="quizbox" hidden class="quiz"></div>
+      <label class="toggle"><input type="checkbox" id="incdraft"> <span>Include draft stats (not yet reviewed)</span></label>
+      <div class="row"><button class="btn small primary" id="show-rank" type="button">Show my ranking</button><button class="btn small" id="reset-w" type="button">Reset</button></div>
+      <div id="rank-out" class="stack" aria-live="polite"></div>
     </aside>
   </div>
   <div class="stack" id="cardarea">
@@ -103,14 +103,14 @@
   <div class="stack">
     <div class="eyebrow">Head-to-head</div>
     <h1>Matchup</h1>
-    <p class="lede">Category by category, with an edge marker only where both candidates have a scored stat. Positions appear below, side by side and unscored.</p>
+    <p class="lede">Side by side, starting with the stats both candidates have. No winner is declared on any line.</p>
   </div>
   <div class="stack">
-    <label class="lab">Race <select class="input" id="h2h-race"></select></label>
+    <label class="lab" for="h2h-race">Race</label><select class="input" id="h2h-race"></select>
     <div class="h2h-pick">
-      <label class="lab">Left <select class="input" id="h2h-a"></select></label>
+      <div class="stack" style="gap:4px"><label class="lab" for="h2h-a">Left</label><select class="input" id="h2h-a"></select></div>
       <div class="vs">VS</div>
-      <label class="lab">Right <select class="input" id="h2h-b"></select></label>
+      <div class="stack" style="gap:4px"><label class="lab" for="h2h-b">Right</label><select class="input" id="h2h-b"></select></div>
     </div>
   </div>
   <div class="h2h" id="h2h"></div>
@@ -126,13 +126,13 @@
   <div class="lessons" id="lessons"></div>
   <div class="twocol">
     <div class="panel">
-      <div class="eyebrow">Classroom kit</div>
-      <h3>A semester league for civics class</h3>
+      <div class="eyebrow">For classrooms and political science students</div>
+      <h3>Adopt a district</h3>
       <ul>
-        <li>Each student drafts officials from any party at the start of the term.</li>
-        <li>Weekly scoring comes from public records the class can check together.</li>
-        <li>Students file one sourced correction per month, which teaches verification.</li>
-        <li>Teacher dashboard and printable guides are planned for the full build.</li>
+        <li>Each student or team adopts one race and collects the missing parts of "Answers to voters": questionnaires, town halls and disclosures.</li>
+        <li>Turn each candidate's statements into Plans entries with sources.</li>
+        <li>Every contribution goes through a public GitHub issue with a source, so the class learns verification in the open.</li>
+        <li>The contributor guide in the project repository explains the rules.</li>
       </ul>
     </div>
     <div class="panel">
@@ -147,7 +147,7 @@
   <div class="stack">
     <div class="eyebrow">Play mode · beta</div>
     <h1>Stump League Fantasy</h1>
-    <p class="banner"><b>Demo league with fictional officials.</b> Every player, team and point below is invented to show how the game works. In the full build, players are real officials and points come only from verified records. Free to play: points and badges, never money.</p>
+    <p class="banner"><b>Demo league with fictional officials.</b> Every player, team and point below is invented to show how the game could work after an election. Points follow the same rules as the five stats. It will stay fictional until those stats are reviewed. Free to play: points and badges, never money.</p>
   </div>
   <div class="score" id="scoreboard"></div>
   <div class="playgrid">
@@ -155,10 +155,10 @@
       <div class="row" style="justify-content:space-between"><h2>Your lineup</h2><button class="btn small" id="reset-roster" type="button">Reset demo</button></div>
       <div class="roster" id="roster"></div>
       <h3 style="margin-top:8px">Play-by-play</h3>
-      <div class="feed" id="feed"></div>
+      <div class="feed" id="feed" tabindex="0" role="region" aria-label="Scoring plays"></div>
     </div>
     <div class="stack">
-      <div class="row" style="justify-content:space-between"><h2>Draft room</h2><span class="cov">Week 6 · House in session</span></div>
+      <div class="row" style="justify-content:space-between"><h2>Draft room</h2><span class="cov">Week 6 · fictional</span></div>
       <div class="filters" id="posfilter" role="group" aria-label="Filter by position"></div>
       <div class="pool" id="pool"></div>
       <p class="toast" id="draftmsg" aria-live="polite"></p>
@@ -168,16 +168,14 @@
     <div class="panel">
       <div class="eyebrow">League structure</div>
       <ul>
-        <li><b>Conferences:</b> Senate, House, Governors</li>
-        <li><b>Divisions:</b> South, Midwest, Northeast, West</li>
         <li><b>Positions:</b> QB = Governor · WR = Senator · RB = U.S. House · FLEX = any</li>
-        <li><b>Season:</b> campaign season is the playoffs (pick'em); the term is the regular season; recess weeks are bye weeks</li>
+        <li><b>Season:</b> the term is the season; recess weeks are bye weeks</li>
         <li><b>Status:</b> Active, Limited or Inactive, from vote attendance</li>
         <li><b>Private leagues:</b> invite friends, coworkers or a class with a code</li>
       </ul>
     </div>
     <div class="panel">
-      <div class="eyebrow">Default scoring</div>
+      <div class="eyebrow">Scoring (fictional demo)</div>
       <table class="scoretable" id="scoretable"></table>
     </div>
   </div>
@@ -192,11 +190,13 @@
   <div class="method">
     <nav class="toc" aria-label="Methodology sections">
       <a href="#method" data-jump="m-principles">Principles</a>
-      <a href="#method" data-jump="m-stats">The stats</a>
-      <a href="#method" data-jump="m-score">Scoring and tiers</a>
-      <a href="#method" data-jump="m-promises">Promise rules</a>
-      <a href="#method" data-jump="m-fair">Fairness rules</a>
-      <a href="#method" data-jump="m-audit">Symmetry audit</a>
+      <a href="#method" data-jump="m-kpis">The five stats</a>
+      <a href="#method" data-jump="m-answers">Answers to voters rules</a>
+      <a href="#method" data-jump="m-leaders">Category leaders</a>
+      <a href="#method" data-jump="m-ranking">Your ranking</a>
+      <a href="#method" data-jump="m-plans">Plans and fact-checks</a>
+      <a href="#method" data-jump="m-review">Who reviews</a>
+      <a href="#method" data-jump="m-evidence">Evidence</a>
       <a href="#method" data-jump="m-limits">Limitations</a>
       <a href="#method" data-jump="m-feeds">Data feeds</a>
       <a href="#method" data-jump="m-corr">Corrections</a>
@@ -211,64 +211,47 @@
   <div class="stack">
     <div class="eyebrow">About this prototype</div>
     <h1>An open proof of concept</h1>
-    <p class="lede">Stump League is a working prototype of a nonpartisan platform that presents candidates' records the way sports media presents players. It is built to be adopted and extended by an established civic, academic or newsroom partner.</p>
+    <p class="lede">Stump League is an AI-assisted prototype of a nonpartisan way to present candidates' public records the way sports media presents players. It's open source so people with more technical and political expertise, including political science students, can adopt it, check it and build on it.</p>
   </div>
   <div class="twocol">
     <div class="panel">
       <div class="eyebrow">What's real today</div>
-      <ul>
-        <li>Ohio's governor race as a second pilot, showing how three first-time candidates look as scouting reports.</li>
-        <li>Every contested race on Arkansas's Nov 3 ballot (50 races, 102 candidates), the 80 unopposed seats, and plain-language explainers for the 4 statewide ballot issues.</li>
-        <li>Official data refreshed nightly: congressional and state legislative effectiveness scores, House and Senate roll calls, Congress.gov bills, FEC campaign money for every Arkansas federal candidate, fact-checks, and the Census ZIP-to-district map.</li>
-        <li>Every real-world fact links to a public source.</li>
-        <li>Promise ledgers and specificity checks are draft ratings, clearly labeled, awaiting review.</li>
-        <li>The scoring engine, tiers, sliders, head-to-head and lessons all work.</li>
-      </ul>
+      <ul id="about-real"></ul>
     </div>
     <div class="panel">
-      <div class="eyebrow">What's sample</div>
+      <div class="eyebrow">What isn't</div>
       <ul>
-        <li>The Fictional State 9th District race, built to show a fully populated stat sheet.</li>
-        <li>The entire fantasy league: players, teams and points.</li>
+        <li>The Fictional State 9th District race, and the whole fantasy league. Both are invented and labeled.</li>
+        <li>No human has reviewed anything yet. Official records are imported automatically; everything that took judgment is marked Draft.</li>
+        <li>Questionnaires, town halls, disclosures, state campaign finance and Arkansas legislature votes aren't collected yet.</li>
       </ul>
     </div>
   </div>
   <div class="stack">
     <h2>From prototype to product</h2>
-    <p class="lede">The code is the small part. A full product needs four things running every week: official data feeds, a roster of every candidate, reviewed promise ledgers, and a trust process people can check.</p>
     <div class="tablebox"><table class="rank-table">
       <tr><th>Workstream</th><th>What it takes</th><th>Effort (estimate)</th></tr>
-      <tr><td><b>Data feeds</b></td><td>Nightly jobs for Congress.gov bills and cosponsors, House and Senate roll calls, FEC filings, CEL scores, state campaign-finance portals and fact-checks. Free API keys from api.data.gov and Google. The pipeline for these is written.</td><td class="cov">1 engineer · 6–8 weeks</td></tr>
-      <tr><td><b>Candidate roster</b></td><td>Every House, Senate and governor candidate from FEC files and 50 state election offices, with IDs that link all the datasets.</td><td class="cov">1 data lead · 3–4 weeks per cycle</td></tr>
-      <tr><td><b>Promise ledgers</b></td><td>The hardest part. About 500 officials take office in January 2027; at roughly 10 promises each, that's about 5,000 promises to extract, source and rate. AI drafts them; two human reviewers sign off on each.</td><td class="cov">~800–1,200 reviewer hours, then weekly upkeep</td></tr>
-      <tr><td><b>Game and accounts</b></td><td>Sign-in, private leagues, drafts, weekly scoring and a classroom dashboard on a hosted database.</td><td class="cov">1 engineer · 6–8 weeks</td></tr>
-      <tr><td><b>Trust and legal</b></td><td>Published methodology, two named advisors from different sides, a corrections queue, candidate right of reply, terms and privacy (including student privacy rules for classrooms), and a trademark check on the name.</td><td class="cov">Advisors part-time · legal review</td></tr>
-      <tr><td><b>Running costs</b></td><td>Hosting and databases start free and stay in the tens to low hundreds of dollars a month at launch scale. People are the real cost.</td><td class="cov">Mostly staff time</td></tr>
-    </table></div>
-  </div>
-  <div class="stack">
-    <h2>Roadmap</h2>
-    <div class="tablebox"><table class="rank-table">
-      <tr><th>Phase</th><th>What ships</th><th>Data</th></tr>
-      <tr><td><b>1 · Now</b></td><td>Scout mode, player cards, rankings, head-to-head, lessons, methodology, nationwide ZIP lookup</td><td>2 pilot races; CEL, FEC, PolitiFact and Census imports</td></tr>
-      <tr><td><b>2 · Jan 2027 "season opener"</b></td><td>Every new House, Senate and governor officeholder, with a promise ledger that starts on day one of the term</td><td>Nightly pipeline; reviewer queue</td></tr>
-      <tr><td><b>3 · Spring 2027</b></td><td>Fantasy league with accounts, drafts and private leagues; classroom dashboard; Spanish</td><td>Weekly scoring from verified events</td></tr>
-      <tr><td><b>4 · 2028 cycle</b></td><td>State legislators, candidate right of reply, every challenger's scouting report</td><td>OpenStates, state portals, volunteer network</td></tr>
+      <tr><td><b>Answers to voters</b></td><td>Collect nonpartisan questionnaire responses, announced town halls and disclosure filings for every candidate, under the published rules.</td><td class="cov">Volunteers or students, per cycle</td></tr>
+      <tr><td><b>State data</b></td><td>State campaign-finance portals and legislature vote records, starting with Arkansas.</td><td class="cov">1 engineer · 4–6 weeks</td></tr>
+      <tr><td><b>Plans</b></td><td>Each candidate's own statements, sourced, with the four-point checklist. AI drafts; people review in public.</td><td class="cov">Reviewer time per race</td></tr>
+      <tr><td><b>Votes on your topics</b></td><td>Let voters pick topics and see every related vote. Federal first, state later.</td><td class="cov">1 engineer · 6–8 weeks</td></tr>
+      <tr><td><b>Executive stats</b></td><td>Budgets on time, vetoes, appointments for governors and mayors.</td><td class="cov">Design + data work</td></tr>
+      <tr><td><b>Access</b></td><td>Spanish and Marshallese versions; accessibility testing with real users.</td><td class="cov">Translation + testing</td></tr>
     </table></div>
   </div>
   <div class="twocol">
     <div class="panel">
-      <div class="eyebrow">For partners</div>
-      <p>The methodology, data schema and code are designed to be open. A partner gets a working product, a documented method and a launch moment: every official elected on Nov 3 starts a fresh promise ledger in January.</p>
-      <p class="dim">Best-fit homes are nonpartisan: university research centers, civic-tech foundations, nonprofit newsrooms and voter-information organizations.</p>
+      <div class="eyebrow">For builders</div>
+      <p>The code is MIT-licensed: anyone can copy, change and build on it. The data pipeline runs nightly on GitHub Actions for free, and the methodology is published in full. Best-fit homes are nonpartisan: university research centers, civic-tech groups, nonprofit newsrooms and voter-information organizations.</p>
+      <p><a id="repo-link" href="#" target="_blank" rel="noopener">View the code and contributor guide</a></p>
     </div>
     <div class="panel">
       <div class="eyebrow">Commitments</div>
       <ul>
-        <li>No endorsements and no "vote for" language</li>
+        <li>No overall grades for real candidates, no endorsements, no "vote for" language</li>
         <li>No scoring of policy positions or how anyone voted on an issue</li>
         <li>No party colors; party appears as text only</li>
-        <li>Public corrections log and candidate right of reply</li>
+        <li>Corrections in public, through GitHub issues</li>
         <li>Free to play; no money, ever</li>
       </ul>
     </div>
@@ -277,6 +260,6 @@
 
 </main>
 <footer><div class="wrap">
-  <span>Stump League · prototype · nonpartisan · not affiliated with any candidate, campaign or party</span>
-  <span>Data as of <span class="asof2"></span> · <a href="#method">Methodology</a> · <a href="#about">About</a></span>
+  <span>Stump League · open-source prototype · nonpartisan · not affiliated with any candidate, campaign or party</span>
+  <span><span class="asof2"></span> · <a href="#method" data-tab="method">Methodology</a> · <a href="#about" data-tab="about">About</a></span>
 </div></footer>

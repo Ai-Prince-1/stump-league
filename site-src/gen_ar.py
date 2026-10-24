@@ -1,33 +1,37 @@
-"""Generate ar.js: every contested Arkansas race on the Nov 3, 2026 ballot, the unopposed list,
-and the ballot issues. Stats come from the pipeline's data files (official sources); facts from
-the cited election references. Run after each data refresh to refresh the embedded copy."""
+"""Generate ar.js: every contested race on Arkansas's Nov 3, 2026 ballot, the unopposed list, the
+ballot issues, and dated fact-check lists. Stats come from the pipeline's data files (official
+sources). Run by the nightly job after each data refresh:  python3 gen_ar.py ..  (repo root)."""
 import json, re, sys
+from datetime import date
 from pathlib import Path
 
-REPO = Path(sys.argv[1] if len(sys.argv) > 1 else "/home/claude/stump-league")
-J = lambda f: json.loads((REPO / "data" / f"{f}.json").read_text()) if (REPO / "data" / f"{f}.json").exists() else {}
-CEL, CELS, ATT, SATT, BIP, FEC, FC = J("cel"), J("cel_state"), J("attendance"), J("senate_attendance"), J("bipartisanship"), J("fec"), J("factchecks")
+REPO = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent)
+def J(f):
+    p = REPO / "data" / f"{f}.json"
+    return json.loads(p.read_text()) if p.exists() else {}
+CEL, CELS, ATT, SATT, FEC, FC, MEM, LUG, MAN = (J(x) for x in ("cel", "cel_state", "attendance", "senate_attendance", "fec", "factchecks", "members", "lugar", "manifest"))
 
 SRC = {
   "wiki_arhouse": ["Wikipedia (from Arkansas Secretary of State filings)", "2026 Arkansas House of Representatives election", "retrieved Oct 23, 2026", "https://en.wikipedia.org/wiki/2026_Arkansas_House_of_Representatives_election"],
   "wiki_arsen": ["Wikipedia (from Arkansas Secretary of State filings)", "2026 Arkansas Senate election", "retrieved Oct 23, 2026", "https://en.wikipedia.org/wiki/2026_Arkansas_Senate_election"],
+  "tb_list": ["Talk Business & Politics", "Election 2026 candidate list", "updated Aug 2026", "https://talkbusiness.net/?p=286245"],
   "greenpapers_ar": ["The Green Papers", "Arkansas 2026 general election candidates", "retrieved Oct 23, 2026", "https://www.thegreenpapers.com/G26/AR"],
   "politics1_ar2": ["Politics1", "Arkansas candidate guide (candidate descriptions)", "retrieved Oct 23, 2026", "https://politics1.com/ar.htm"],
-  "artv_debates": ["Arkansas Advocate", "Arkansas TV announces lineup of state, federal debates", "Sep 25, 2026", "https://www.newsfromthestates.com/article/arkansas-tv-announces-lineup-state-federal-debates-next-month"],
+  "artv_debates": ["Arkansas Advocate", "Arkansas TV announces lineup of state, federal debates (invitations accepted)", "Sep 25, 2026", "https://www.newsfromthestates.com/article/arkansas-tv-announces-lineup-state-federal-debates-next-month"],
   "senate_debate_off": ["Arkansas Advocate", "Debate in Arkansas U.S. Senate race won't take place", "Oct 14, 2026", "https://www.newsfromthestates.com/article/debate-arkansas-us-senate-race-wont-take-place-cotton-and-shoffner-campaigns-say"],
   "hd8_special": ["Arkansas Advocate", "2 candidates file for Arkansas House vacancy", "Aug 28, 2026", "https://www.newsfromthestates.com/article/2-candidates-file-arkansas-house-vacancy-created-lawmakers-resignation"],
   "uaex_guide": ["University of Arkansas Cooperative Extension Service", "2026 Arkansas Ballot Issues Voter Guide", "Oct 2026", "https://www.uaex.uada.edu/business-communities/voter-education/docs/2026-Arkansas-Ballot-Issues-Voter-Guide.pdf"],
-  "cel_state_src": ["Center for Effective Lawmaking", "State Legislative Effectiveness Scores, Arkansas 2023–24", "retrieved Oct 24, 2026", "https://thelawmakers.org/state-highlights"],
-  "cel_fed_src": ["Center for Effective Lawmaking", "Legislative Effectiveness Scores, 118th Congress", "retrieved Oct 24, 2026", "https://thelawmakers.org/find-representatives"],
-  "clerk_src": ["Office of the Clerk, U.S. House", "Roll-call votes, 2025–2026", "retrieved Oct 24, 2026", "https://clerk.house.gov/Votes"],
-  "voteview_src": ["Voteview (UCLA), from U.S. Senate roll calls", "Senate roll-call votes, 119th Congress", "retrieved Oct 24, 2026", "https://voteview.com/congress/senate/119"],
-  "cg_src": ["Congress.gov", "Sponsored legislation and cosponsors, 119th Congress", "retrieved Oct 24, 2026", "https://www.congress.gov/"],
-  "claimreview_src": ["Google Fact Check Tools (ClaimReview): PolitiFact, The Washington Post, FactCheck.org", "Fact-check rulings", "retrieved Oct 24, 2026", "https://toolbox.google.com/factcheck/explorer"],
-  "sos_voterview": ["Arkansas Secretary of State", "Elections: Voter View (registration, polling place, sample ballot)", "2026", "https://www.sos.arkansas.gov/elections"],
+  "cel_state_src": ["Center for Effective Lawmaking", "State Legislative Effectiveness Scores, Arkansas 2023–24", "nightly", "https://thelawmakers.org/state-highlights"],
+  "cel_fed_src": ["Center for Effective Lawmaking", "Legislative Effectiveness Scores, 118th Congress", "nightly", "https://thelawmakers.org/find-representatives"],
+  "clerk_src": ["Office of the Clerk, U.S. House", "Roll-call votes, 2025–2026", "nightly", "https://clerk.house.gov/Votes"],
+  "voteview_src": ["Voteview (UCLA), from U.S. Senate roll calls", "Senate roll-call votes, 119th Congress", "nightly", "https://voteview.com/congress/senate/119"],
+  "lugar_house": ["The Lugar Center and Georgetown McCourt School", "Bipartisan Index, House, 2023", "retrieved Oct 24, 2026", "https://www.thelugarcenter.org/ourwork-86.html"],
+  "lugar_senate": ["The Lugar Center and Georgetown McCourt School", "Bipartisan Index, Senate, 2023", "retrieved Oct 24, 2026", "https://www.thelugarcenter.org/ourwork-85.html"],
+  "claimreview_src": ["Google Fact Check Tools (ClaimReview)", "Fact-check rulings from PolitiFact, The Washington Post, FactCheck.org and others", "nightly", "https://toolbox.google.com/factcheck/explorer"],
 }
 def fec_src(cid):
     key = "fec_" + cid
-    SRC[key] = ["Federal Election Commission", f"{cid} 2025–2026 financial summary", "through " + (FEC.get(cid, {}).get("value", {}).get("coverage_end_date") or "")[:10], f"https://www.fec.gov/data/candidate/{cid}/?cycle=2026"]
+    SRC[key] = ["Federal Election Commission", f"{cid} 2025–2026 financial summary", "nightly", f"https://www.fec.gov/data/candidate/{cid}/?cycle=2026"]
     return key
 
 # ---------------------------------------------------------------- helpers
@@ -38,94 +42,123 @@ def initials(n):
 PARTY = {"R": "Republican", "D": "Democratic", "L": "Libertarian", "I": "Independent"}
 pct = lambda x, d=0: f"{100*x:.{d}f}%"
 def money(x): return f"${x/1e6:.2f}M" if x >= 1e6 else f"${x/1e3:.1f}K"
-def ordn(n):
-    n = int(n); s = ["th", "st", "nd", "rd"]; v = n % 100
-    return f"{n}{s[(v-20)%10] if (v-20)%10 < 4 else s[0]}" if not 10 <= v <= 20 else f"{n}th"
 def ordinal(n):
     n = int(n)
-    if 10 <= n % 100 <= 20: return f"{n}th"
-    return f"{n}{ {1:'st',2:'nd',3:'rd'}.get(n%10,'th') }"
+    return f"{n}th" if 10 <= n % 100 <= 20 else f"{n}{ {1:'st',2:'nd',3:'rd'}.get(n%10,'th') }"
+def fmt_date(iso):
+    try: d = date.fromisoformat(str(iso)[:10]); return d.strftime("%b %-d, %Y")
+    except Exception: return str(iso or "")
 
-def na(): return {"status": "na"}
-def pend(note): return {"status": "pending", "note": note}
+def percentile(value, peers, higher_is_better=True):
+    """Share of peers this value beats, ties counted half. 1.0 = best in peer group."""
+    others = list(peers)
+    if len(others) < 2: return None
+    better = sum(1 for p in others if (value > p if higher_is_better else value < p))
+    ties = sum(1 for p in others if p == value) - 1
+    return round((better + 0.5 * max(ties, 0)) / (len(others) - 1), 3)
 
-def cel_fed(b):
+NA = lambda note: {"status": "na", "note": note}
+PEND = lambda note: {"status": "pending", "note": note}
+EXEC_NA = "Executive office. Legislative stats don't apply; an executive record (budgets, vetoes, appointments) isn't collected yet."
+
+# ---------------------------------------------------------------- KPI builders
+def chamber_of(b):
+    v = CEL.get(b, {}).get("value", {})
+    return v.get("chamber") or MEM.get(b, {}).get("chamber")
+
+def k_results_fed(b):
     v = CEL.get(b, {}).get("value")
-    if not v: return pend("Not imported yet.")
+    if not v: return PEND("Not imported yet.")
+    ch = chamber_of(b)
+    peers = [d["value"]["les"] / d["value"]["benchmark"] for k, d in CEL.items() if d["value"].get("benchmark") and chamber_of(k) == ch]
+    p = percentile(v["les"] / v["benchmark"], peers)
     word = {"MEETS": "meets", "EXCEEDS": "exceeds", "BELOW": "below"}[v["expectation"]]
-    return {"status": "verified", "norm": v["norm"], "display": f'{v["les"]:.2f} LES · {word} expectations',
-            "sub": f'Benchmark for members like this: {v["benchmark"]:.2f} · {ordinal(v["party_rank"])} of {v["party_total"]} in the same party · {v["congress"]}th Congress', "src": "cel_fed_src"}
+    return {"status": "official", "norm": p, "pct": p, "peer": f"{len(peers)} {'House members' if ch == 'house' else 'senators'}, {v['congress']}th Congress",
+            "display": f'{v["les"]:.2f} LES · {word} benchmark of {v["benchmark"]:.2f}',
+            "sub": f'{ordinal(v["party_rank"])} of {v["party_total"]} in the same party', "src": "cel_fed_src"}
 
-def find_sles(last, chamber=None, district=None):
-    hits = []
-    for k, d in CELS.items():
-        v = d["value"]
-        if v["name"].split(",")[0].strip().lower() != last.lower(): continue
-        if chamber and v["chamber"] != chamber: continue
-        if district is not None and str(v["district"]) != str(district): continue
-        hits.append((k, v))
+def k_attendance(b, senate=False):
+    src_data, src = (SATT, "voteview_src") if senate else (ATT, "clerk_src")
+    v = src_data.get(b, {}).get("value")
+    if not v: return PEND("Not imported yet.")
+    shares = [d["value"]["missed"] / d["value"]["total"] for d in src_data.values() if d["value"]["total"] >= 100]
+    miss = v["missed"] / v["total"]
+    p = percentile(miss, shares, higher_is_better=False)
+    return {"status": "official", "norm": p, "pct": p, "peer": f"{len(shares)} {'senators' if senate else 'House members'} with recorded votes, 119th Congress",
+            "display": f'{v["missed"]} of {v["total"]} roll calls missed ({pct(miss, 1)})', "src": src,
+            **({"note": "Paired and announced positions count as absences."} if senate else {})}
+
+def k_bipartisan_fed(b):
+    m = LUG.get("members", {}).get(b)
+    if not m: return PEND("Bipartisan Index not available for this member.")
+    n = LUG["house_total"] if m["chamber"] == "house" else LUG["senate_total"]
+    p = round(1 - (m["rank"] - 1) / (n - 1), 3)
+    return {"status": "official", "norm": p, "pct": p, "peer": f"{n} {'House members' if m['chamber'] == 'house' else 'senators'} ranked, 2023",
+            "display": f'Bipartisan Index {m["score"]:+.2f} · ranked {m["rank"]} of {n}',
+            "sub": "0 = the historical average for members in the same party position", "src": "lugar_house" if m["chamber"] == "house" else "lugar_senate"}
+
+def k_funding(cid):
+    d = FEC.get(cid, {}).get("value")
+    if not d or not d.get("receipts"): return PEND("No FEC financial summary for 2025–2026.")
+    parts = [d["small_donor_share"], 1 - d["pac_share"]] + ([d["in_state_share"]] if d.get("in_state_share") is not None else [])
+    ins = f' · {pct(d["in_state_share"])} of itemized individual money from in-state' if d.get("in_state_share") is not None else ""
+    return {"status": "official", "norm": round(sum(parts) / len(parts), 3),
+            "display": f'{pct(d["pac_share"])} from PACs and party committees · {pct(d["small_donor_share"])} from donors giving $200 or less{ins}',
+            "sub": f'Raised {money(d["receipts"])} through {fmt_date(d.get("coverage_end_date"))}' + ("" if d.get("in_state_share") is not None else " · in-state share arrives with the next nightly run"),
+            "src": fec_src(cid)}
+
+def find_sles(last, chamber, district):
+    hits = [(k, d["value"]) for k, d in CELS.items()
+            if d["value"]["name"].split(",")[0].strip().lower() == last.lower() and d["value"]["chamber"] == chamber and str(d["value"]["district"]) == str(district)]
     return hits[0] if len(hits) == 1 else (None, None)
 
-def cel_state(last, chamber, district, role_note):
+def k_results_state(last, chamber, district, note=None):
     k, v = find_sles(last, chamber, district)
     if not v: return None, None
+    peers = [d["value"]["sles"] / d["value"]["benchmark"] for d in CELS.values() if d["value"]["chamber"] == chamber and d["value"].get("benchmark")]
+    p = percentile(v["sles"] / v["benchmark"], peers)
+    ch = "Arkansas House" if chamber == "lower" else "Arkansas Senate"
     word = {"MEETS": "meets", "EXCEEDS": "exceeds", "BELOW": "below"}[v["expectation"]]
-    ch = "House" if chamber == "lower" else "Senate"
-    st = {"status": "verified", "norm": v["norm"], "display": f'{v["sles"]:.2f} SLES · {word} expectations',
-          "sub": f'Benchmark {v["benchmark"]:.2f} · {ordinal(v["party_rank"])} of {v["party_total"]} {"majority" if v["majority"] else "minority"}-party members · Arkansas {ch} 2023–24',
-          "src": "cel_state_src"}
-    if role_note: st["note"] = role_note
+    st = {"status": "official", "norm": p, "pct": p, "peer": f"{len(peers)} {ch} members, 2023–24",
+          "display": f'{v["sles"]:.2f} SLES · {word} benchmark of {v["benchmark"]:.2f}',
+          "sub": f'{ordinal(v["party_rank"])} of {v["party_total"]} {"majority" if v["majority"] else "minority"}-party members', "src": "cel_state_src"}
+    if note: st["note"] = note
     return st, k
 
-def house_att(b):
-    v = ATT.get(b, {}).get("value")
-    if not v: return pend("Not imported yet.")
-    return {"status": "verified", "norm": v["norm"], "display": f'{v["missed"]} of {v["total"]} roll calls missed ({pct(v["missed"]/v["total"],1)})',
-            "sub": "119th Congress, since Jan 3, 2025", "src": "clerk_src"}
-
-def senate_att(b):
-    v = SATT.get(b, {}).get("value")
-    if not v: return pend("Not imported yet.")
-    return {"status": "verified", "norm": v["norm"], "display": f'{v["missed"]} of {v["total"]} roll calls missed ({pct(v["missed"]/v["total"],1)})',
-            "sub": "119th Congress, since Jan 3, 2025", "src": "voteview_src", "note": "Paired and announced positions count as absences."}
-
-def bip(b):
-    v = BIP.get(b, {}).get("value")
-    if not v: return pend("Not imported yet.")
-    n = round(v["share"] * v["bills"])
-    return {"status": "verified", "norm": v["share"], "display": f'{pct(v["share"])} of bills',
-            "sub": f'{n} of {v["bills"]} bills and joint resolutions drew a cosponsor from another party · 119th Congress', "src": "cg_src"}
+# Debates: Arkansas TV invited every qualifying candidate (nonpartisan host) -> counts toward Answers.
+DEBATE_YES = {"shoffner", "wadlin", "crawford", "ygreen", "parsons", "hill", "cjones", "womack", "ryerse", "wilson",
+              "westerman", "rrussell", "sanders", "flove", "shelby", "hammer", "grappe", "pakko"}
+DEBATE_NO = {"cotton": "Declined the Arkansas TV debate with Shoffner and Wadlin, and an Oct 22 ASU-TV debate. Had accepted a Salem Media debate that didn't invite the Libertarian and was later withdrawn by the host."}
+def k_answers(cid):
+    if cid in DEBATE_NO:
+        deb = {"label": "Qualifying debates", "state": "no", "value": DEBATE_NO[cid], "src": "senate_debate_off"}
+    elif cid in DEBATE_YES:
+        deb = {"label": "Qualifying debates", "state": "yes", "value": "Accepted the Arkansas TV debate invitation (October 2026)", "src": "artv_debates"}
+    else:
+        deb = {"label": "Qualifying debates", "state": "pending", "value": "No debate offered to every qualifying candidate found yet"}
+    parts = [deb,
+             {"label": "Questionnaires", "state": "pending", "value": "Not collected yet (Vote411, Ballotpedia, newsroom guides)"},
+             {"label": "Town halls", "state": "pending", "value": "Not collected yet"},
+             {"label": "Disclosures", "state": "pending", "value": "Not collected yet"}]
+    got = [p for p in parts if p["state"] in ("yes", "no")]
+    if not got:
+        return {"status": "pending", "note": "No parts collected yet.", "parts": parts}
+    yes = sum(1 for p in got if p["state"] == "yes")
+    return {"status": "official", "norm": yes / len(got), "parts": parts,
+            "display": ("Accepted" if yes else "Declined") + " the only qualifying debate invitation tracked",
+            "sub": "1 of 4 parts collected: debates. Questionnaires, town halls and disclosures aren't collected yet."}
 
 GOOD = {"true", "mostly true", "correct", "accurate", "mostly correct", "mostly accurate", "geppetto checkmark", "one pinocchio"}
-def factcheck(name, note=None):
-    d = FC.get(name, {}).get("value")
-    if not d or d.get("norm") is None:
-        n = (d or {}).get("n", 0)
-        return pend(f"{n} rated claim{'s' if n != 1 else ''} found; minimum is 5.")
-    good = sum(1 for r in d["reviews"] if (r.get("rating") or "").lower() in GOOD)
-    pubs = sorted({r["publisher"] for r in d["reviews"] if r.get("publisher")})
-    st = {"status": "verified", "norm": d["norm"], "display": f'{good} of {d["n"]} rated mostly true or better',
-          "sub": f'{d["n"]} scored rulings from {", ".join(pubs)}' + (f' · {d["unmapped"]} more use labels outside the standard scale and aren\'t scored' if d["unmapped"] else ""),
-          "src": "claimreview_src"}
-    st["note"] = (note + " " if note else "") + "Fact-checkers choose which claims to check, so the mix reflects attention as well as accuracy."
-    return st
 
-def money_block(cid):
-    d = FEC.get(cid, {}).get("value")
-    if not d or not d.get("receipts"): return None
-    r = d["receipts"]
-    return {"asOf": d.get("coverage_end_date", "")[:10], "src": fec_src(cid), "items": [
-        {"label": "Raised this cycle", "value": money(r)},
-        {"label": "From PACs and party committees", "value": pct(d["pac_share"], 1), "sub": money(r * d["pac_share"])},
-        {"label": "From donors giving $200 or less", "value": pct(d["small_donor_share"], 1), "sub": money(r * d["small_donor_share"])}],
-        "note": f'Larger individual donors gave {pct(d["large_donor_share"])} ({money(r * d["large_donor_share"])}).'}
+RACES, CANDS = [], {}
+def add(cid, **c):
+    c.setdefault("initials", initials(c["name"]))
+    CANDS[cid] = c
+    return cid
 
-DEBATED = {"status": "verified", "norm": 1, "display": "Debated", "sub": "Arkansas TV, October 2026", "src": "artv_debates"}
-
-# ---------------------------------------------------------------- federal + statewide definitions
 CONG = {
   "house": {"can": ["Write, sponsor and vote on federal bills", "Request Community Project Funding (earmarks) for local projects", "Oversee federal agencies through committee work"],
-            "cant": ["Pass anything alone; 218 House votes and the Senate are needed", "Set state or local taxes"]},
+            "cant": ["Pass a bill alone; it needs a majority of the House members voting, then the Senate and the president's signature", "Set state or local taxes"]},
   "senate": {"can": ["Vote on federal laws", "Confirm federal judges and cabinet officials", "Approve treaties"],
              "cant": ["Start tax bills; those must begin in the House", "Pass most bills without 60 votes to end debate"]},
 }
@@ -143,110 +176,114 @@ STATE_OFFICES = {
   "state-senate": {"can": ["Write, sponsor and vote on state laws", "Vote on the state budget", "Confirm many of the governor's appointments"],
                    "cant": ["Pass a law alone; bills need the House and the governor's signature or a veto override"]},
 }
+def race(rid, short, name, office, level, blurb, cands, context=()):
+    o = CONG.get(office) or STATE_OFFICES[office]
+    RACES.append(dict(id=rid, short=short, name=name, state="Arkansas", office=office, level=level, election="Nov 3, 2026", sample=False,
+                      blurb=blurb, candidates=cands, context=list(context), can=o["can"], cant=o["cant"]))
 
-RACES, CANDS = [], {}
+def fed_officeholder(cid, name, party, role, b, fecid, senate, extra_facts=(), plans=(), funds=None, positions=None, attendance=None):
+    k = {"answers": k_answers(cid), "funding": k_funding(fecid),
+         "attendance": attendance or k_attendance(b, senate), "effectiveness": k_results_fed(b), "bipartisan": k_bipartisan_fed(b)}
+    c = dict(name=name, party=party, role=role, track="officeholder", ids={"bioguide": b, "fec": fecid, "factcheck": name}, kpi=k,
+             facts=[{"label": "Office", "text": role + ".", "src": "greenpapers_ar"}] + list(extra_facts), plans=list(plans), positions=positions or {})
+    if funds: c["funds"] = funds
+    return add(cid, **c)
 
-def add_cand(cid, **c):
-    c.setdefault("initials", initials(c["name"]))
-    CANDS[cid] = c
-    return cid
+def challenger(cid, name, party, role, desc=None, fecid=None, prior=None, facts=(), plans=(), positions=None, desc_src="politics1_ar2"):
+    k = {"answers": k_answers(cid), "funding": k_funding(fecid) if fecid else PEND("No campaign-finance filing connected for this race."),
+         "attendance": NA("Applies to officeholders"), "effectiveness": NA("Applies to legislators"), "bipartisan": NA("Applies to legislators")}
+    ids = {"factcheck": name}
+    if fecid: ids["fec"] = fecid
+    if prior and prior[0]:
+        k["effectiveness"] = prior[0]; ids["sles"] = prior[1]
+    f = ([{"label": "Background", "text": desc + ".", "src": desc_src}] if desc else []) + list(facts)
+    return add(cid, name=name, party=party, role=role, track="candidate", ids=ids, kpi=k, facts=f, plans=list(plans), positions=positions or {})
 
-def base_stats(rookie=True):
-    s = {"promises": na() if rookie else pend("Promise ledger not built yet."), "effectiveness": na(), "attendance": na(), "bipartisan": na(),
-         "access": pend("No nonpartisan debate found yet."), "transparency": pend("Questionnaire tracking not yet complete."),
-         "factcheck": pend("Fewer than 5 rated claims found."), "specificity": pend("No sourced promises collected yet.")}
-    return s
-
-def fed_incumbent(cid, name, party, role, bioguide, fecid, chamber, access, extra_facts=()):
-    s = base_stats(rookie=False)
-    s["effectiveness"] = cel_fed(bioguide)
-    s["attendance"] = house_att(bioguide) if chamber == "house" else senate_att(bioguide)
-    s["bipartisan"] = bip(bioguide)
-    s["access"] = access
-    s["factcheck"] = factcheck(name)
-    return add_cand(cid, name=name, party=party, role=role, track="veteran", stats=s,
-                    ids={"bioguide": bioguide, "fec": fecid, "factcheck": name},
-                    facts=[{"label": "Office", "text": role + ".", "src": "greenpapers_ar"}] + list(extra_facts),
-                    money=money_block(fecid), promises=[], positions={})
-
-def challenger(cid, name, party, role, desc, fecid=None, access=None, prior=None):
-    s = base_stats()
-    if access: s["access"] = access
-    s["factcheck"] = factcheck(name)
-    facts = [{"label": "Background", "text": desc + ".", "src": "politics1_ar2"}] if desc else []
-    if prior:
-        st, k = prior
-        if st:
-            s["effectiveness"] = st
-    c = dict(name=name, party=party, role=role, track="rookie", stats=s, ids={"factcheck": name}, facts=facts, promises=[], positions={})
-    if fecid:
-        c["ids"]["fec"] = fecid
-        c["money"] = money_block(fecid)
-    if prior and prior[1]:
-        c["ids"]["sles"] = prior[1]
-    return add_cand(cid, **c)
-
-def race(rid, short, name, office, level, blurb, cands, context=(), canSrc=None):
-    d = dict(id=rid, short=short, name=name, state="Arkansas", office=office, level=level, election="Nov 3, 2026", sample=False,
-             blurb=blurb, candidates=cands, context=list(context))
-    d.update({"can": (CONG.get(office) or STATE_OFFICES[office])["can"], "cant": (CONG.get(office) or STATE_OFFICES[office])["cant"]})
-    if canSrc: d["canSrc"] = canSrc
-    RACES.append(d)
-
-COTTON_ACCESS = {"status": "verified", "norm": 0, "display": "Declined Arkansas TV debate",
-                 "sub": "Had accepted a Salem Media debate, which the host withdrew; that invitation didn't include all qualifying candidates", "src": "senate_debate_off", "src2": "artv_debates"}
-
-# U.S. Senate
+# ---------------------------------------------------------------- Congress
 race("ar-sen", "AR-SEN", "U.S. Senate · Arkansas", "senate", "congress",
      "A two-term incumbent faces a farmer and a business consultant. The challengers debated on public TV; the incumbent declined.",
-     [fed_incumbent("cotton", "Tom Cotton", "Republican", "U.S. senator since 2015", "C001095", "S4AR00103", "senate", COTTON_ACCESS),
-      challenger("shoffner", "Hallie Shoffner", "Democratic", "Challenger", "Farmer", "S6AR00199", DEBATED),
-      challenger("wadlin", "Jeff Wadlin", "Libertarian", "Challenger", "Business consultant and 2018 justice of the peace candidate", "S6AR00223", DEBATED)],
-     [{"text": "Arkansas TV hosted a Senate debate on Oct 12 with Shoffner and Wadlin; Cotton declined.", "src": "artv_debates"},
-      {"text": "A separate Cotton–Shoffner debate offered by Salem Media was withdrawn by the host. Cotton also declined an Oct 22 ASU-TV debate with Shoffner and Wadlin.", "src": "senate_debate_off"}])
-
-# U.S. House 1, 2, 4 (3 exists already in data.js and is updated there)
+     [fed_officeholder("cotton", "Tom Cotton", "Republican", "U.S. senator since 2015", "C001095", "S4AR00103", True),
+      challenger("shoffner", "Hallie Shoffner", "Democratic", "Challenger", "Farmer", "S6AR00199"),
+      challenger("wadlin", "Jeff Wadlin", "Libertarian", "Challenger", "Business consultant and 2018 justice of the peace candidate", "S6AR00223")],
+     [{"text": "Arkansas TV invited all three nominees to an Oct 12 debate; Shoffner and Wadlin accepted, Cotton declined.", "src": "artv_debates"},
+      {"text": "A separate Cotton–Shoffner debate offered by Salem Media was withdrawn by the host. Cotton also declined an Oct 22 ASU-TV debate.", "src": "senate_debate_off"}])
 race("ar1", "AR-1", "U.S. House · Arkansas 1st District", "house", "congress", "Eastern Arkansas. An eight-term incumbent faces a retired pathologist and a Libertarian.",
-     [fed_incumbent("crawford", "Rick Crawford", "Republican", "U.S. representative since 2011", "C001087", "H0AR01083", "house", DEBATED),
-      challenger("ygreen", "Terri Yarbrough Green", "Democratic", "Challenger", "Retired pathologist", "H6AR01155", DEBATED),
-      challenger("parsons", "Steve Parsons", "Libertarian", "Challenger", "Retired consultant; 2024 nominee for this seat and 2022 state representative nominee", None, DEBATED)],
-     [{"text": "Arkansas TV hosted a debate with all three nominees in October 2026.", "src": "artv_debates"}])
+     [fed_officeholder("crawford", "Rick Crawford", "Republican", "U.S. representative since 2011", "C001087", "H0AR01083", False),
+      challenger("ygreen", "Terri Yarbrough Green", "Democratic", "Challenger", "Retired pathologist", "H6AR01155"),
+      challenger("parsons", "Steve Parsons", "Libertarian", "Challenger", "Retired consultant; 2024 nominee for this seat and 2022 state representative nominee")],
+     [{"text": "All three nominees accepted Arkansas TV's debate invitation.", "src": "artv_debates"}])
 race("ar2", "AR-2", "U.S. House · Arkansas 2nd District", "house", "congress", "Central Arkansas, including Little Rock. A six-term incumbent faces the 2022 Democratic nominee for governor.",
-     [fed_incumbent("hill", "French Hill", "Republican", "U.S. representative since 2015", "H001072", "H4AR02141", "house", DEBATED),
-      challenger("cjones", "Chris Jones", "Democratic", "Challenger", "Nuclear engineer, pastor and nonprofit executive; 2022 Democratic nominee for governor", "H6AR02286", DEBATED)],
-     [{"text": "Arkansas TV hosted a debate with both nominees in October 2026.", "src": "artv_debates"}])
+     [fed_officeholder("hill", "French Hill", "Republican", "U.S. representative since 2015", "H001072", "H4AR02141", False),
+      challenger("cjones", "Chris Jones", "Democratic", "Challenger", "Nuclear engineer, pastor and nonprofit executive; 2022 Democratic nominee for governor", "H6AR02286")],
+     [{"text": "Both nominees accepted Arkansas TV's debate invitation.", "src": "artv_debates"}])
+
+# AR-3 (moved here from the hand-written pilot so every Arkansas race comes from one generator)
+WOMACK_ATT = k_attendance("W000809")
+if WOMACK_ATT.get("status") == "official":
+    WOMACK_ATT.update({"status": "draft", "src2": "cr_firstmiss",
+                       "note": "Includes weeks he was home caring for his wife during her final illness. Held as draft until reviewers label absences with a stated family or medical reason; before Nov 2025 he hadn't missed a vote since 2011 (8,823 straight)."})
+race("ar3", "AR-3", "U.S. House · Arkansas 3rd District", "house", "congress",
+     "Northwest Arkansas and the Fort Smith area. A 15-year incumbent faces two challengers who have run before.",
+     [fed_officeholder("womack", "Steve Womack", "Republican", "U.S. representative since 2011", "W000809", "H0AR03055", False,
+        extra_facts=[{"label": "Prior office", "text": "Mayor of Rogers for 12 years; retired Arkansas Army National Guard colonel after 30+ years.", "src": "tbp_2017", "src2": "tbp_2024p"},
+                     {"label": "Committee role", "text": "Chairs the House Appropriations subcommittee on Transportation, Housing and Urban Development (THUD).", "src": "cr_cpf27"},
+                     {"label": "Last result", "text": "Won the 2024 general election with 63.8%.", "src": "nbc_2024"}],
+        plans=[{"text": "Make Northwest Arkansas and River Valley roads a top priority in Congress.", "src": "ardot_105", "checks": {"m": 0, "t": 0, "c": 0, "p": 1},
+                "notes": [{"text": "Related record: $59M for the Springdale Northern Bypass, requested by Womack, enacted in FY2026.", "src": "ardot_105"}]},
+               {"text": "Congress should deliver full-year government funding.", "src": "cr_fy26_pkg", "checks": {"m": 1, "t": 0, "c": 0, "p": 1},
+                "notes": [{"text": "Related record: full-year FY2026 funding passed in Feb 2026, after a shutdown and stopgap measures.", "src": "cr_reopen"}]}],
+        funds={"items": [{"label": "FY2026 earmarks", "value": "$108M+", "sub": "15 projects · all signed into law", "src": "tbp_cpf26", "src2": "cr_cpf26_law"},
+                         {"label": "FY2027 earmarks", "value": "$105.4M", "sub": "19 projects · advanced in committee", "src": "cr_cpf27"},
+                         {"label": "Largest single item", "value": "$59M", "sub": "Springdale Northern Bypass", "src": "ardot_105"}],
+               "context": [{"text": "Earmark totals rise with seniority and committee position; he chairs the subcommittee that writes the transportation bill.", "src": "cr_cpf27"},
+                           {"text": "He voted against the 2021 infrastructure law (IIJA), which separately sent $282.5M to Northwest Arkansas National Airport access.", "src": "tbp_iija"}],
+               "peer": "Peer comparison (same-committee members, per capita, predecessor) not yet imported."},
+        positions={"roads": {"text": "Calls regional roads a top priority; secured bypass funding.", "src": "ardot_105"}, "money": None, "cost": None},
+        attendance=WOMACK_ATT),
+      challenger("ryerse", "Robb Ryerse", "Democratic", "Challenger", None, "H6AR03128",
+        facts=[{"label": "Background", "text": "Pastor and nonprofit leader; has lived in Springdale for 20 years and started the Vintage Fellowship church.", "src": "ryerse_meet"},
+               {"label": "Prior campaign", "text": "Challenged Womack in the 2018 Republican primary and lost; now running as a Democrat.", "src": "sentinel_2018", "src2": "politics1_ar"}],
+        plans=[{"text": "Refuse corporate PAC money, as he did in 2018.", "src": "ryerse_blog", "checks": {"m": 1, "t": 1, "c": 0, "p": 1},
+                "notes": [{"text": "FEC filings show some money from PACs and party committees combined; whether any came from a corporate PAC needs the itemized donor list.", "src": "fec_ryerse"}]},
+               {"text": "Lower the cost of living.", "src": "ryerse_blog", "checks": {"m": 0, "t": 0, "c": 0, "p": 1}},
+               {"text": "Get big money out of politics.", "src": "ryerse_blog", "checks": {"m": 0, "t": 0, "c": 0, "p": 1}}],
+        positions={"roads": None, "money": {"text": "Pledges no corporate PAC money.", "src": "ryerse_blog"}, "cost": {"text": "Lists lowering the cost of living as a campaign issue.", "src": "ryerse_blog"}}),
+      challenger("wilson", "Bobby Wilson", "Libertarian", "Challenger", None, "H4AR03081",
+        facts=[{"label": "Background", "text": "Business analyst from Bentonville.", "src": "politics1_ar"},
+               {"label": "Prior campaign", "text": "Libertarian nominee for this seat in 2024 and again in 2026.", "src": "ada_lp"}])],
+     [{"text": "All three nominees accepted Arkansas TV's debate invitation; the debate aired in October 2026.", "src": "pbs_ar3", "src2": "artv_debates"}])
 race("ar4", "AR-4", "U.S. House · Arkansas 4th District", "house", "congress", "Southern and western Arkansas. A six-term incumbent faces a medical office manager and National Guard veteran.",
-     [fed_incumbent("westerman", "Bruce Westerman", "Republican", "U.S. representative since 2015", "W000821", "H4AR04048", "house", DEBATED),
-      challenger("rrussell", "Rus Russell", "Democratic", "Challenger", "Medical office manager and National Guard veteran; 2020 candidate for governor", "H6AR04084", DEBATED)],
-     [{"text": "Arkansas TV hosted a debate with both nominees in October 2026.", "src": "artv_debates"}])
+     [fed_officeholder("westerman", "Bruce Westerman", "Republican", "U.S. representative since 2015", "W000821", "H4AR04048", False),
+      challenger("rrussell", "Rus Russell", "Democratic", "Challenger", "Medical office manager and National Guard veteran; 2020 candidate for governor", "H6AR04084")],
+     [{"text": "Both nominees accepted Arkansas TV's debate invitation.", "src": "artv_debates"}])
 
-# Statewide
-def exec_incumbent(cid, name, role, access, fc_note=None):
-    s = base_stats(rookie=False)
-    s["effectiveness"] = {"status": "na", "note": "Applies to legislators"}
-    s["access"] = access or s["access"]
-    s["factcheck"] = factcheck(name, fc_note)
-    return add_cand(cid, name=name, party="Republican", role=role, track="veteran", stats=s, ids={"factcheck": name},
-                    facts=[{"label": "Office", "text": role + ".", "src": "greenpapers_ar"}], promises=[], positions={})
+# ---------------------------------------------------------------- statewide
+def exec_officeholder(cid, name, role):
+    k = {"answers": k_answers(cid), "funding": PEND("State campaign-finance filings not connected yet."),
+         "attendance": NA(EXEC_NA), "effectiveness": NA("Applies to legislators"), "bipartisan": NA("Applies to legislators")}
+    return add(cid, name=name, party="Republican", role=role, track="officeholder", ids={"factcheck": name}, kpi=k,
+               facts=[{"label": "Office", "text": role + ".", "src": "greenpapers_ar"}], plans=[], positions={})
+def state_challenger(cid, name, party, role, desc, prior=None, facts=()):
+    c = challenger(cid, name, party, role, desc, None, prior, facts)
+    CANDS[c]["kpi"]["funding"] = PEND("State campaign-finance filings not connected yet.")
+    return c
 
-love_prior = cel_state("Love", "upper", 15, "As a state senator, 2023–24.")
 race("ar-gov", "AR-GOV", "Governor · Arkansas", "governor", "statewide", "The incumbent governor faces a state senator and an oil rig operations supervisor.",
-     [exec_incumbent("sanders", "Sarah Huckabee Sanders", "Governor since 2023", DEBATED, "Most date from her 2017–19 role as White House press secretary, speaking for the administration."),
-      challenger("flove", "Fred Love", "Democratic", "Challenger", "State senator and former state representative", None, DEBATED, love_prior),
-      challenger("shelby", "Colt Shelby", "Libertarian", "Challenger", "Oil rig operations supervisor and farmer", None, DEBATED)],
-     [{"text": "Arkansas TV hosted a debate with all three nominees on Oct 13, 2026.", "src": "artv_debates"}])
+     [exec_officeholder("sanders", "Sarah Huckabee Sanders", "Governor since 2023"),
+      state_challenger("flove", "Fred Love", "Democratic", "Challenger", "State senator and former state representative", k_results_state("Love", "upper", 15, "As a state senator, 2023–24.")),
+      state_challenger("shelby", "Colt Shelby", "Libertarian", "Challenger", "Oil rig operations supervisor and farmer")],
+     [{"text": "All three nominees accepted Arkansas TV's Oct 13 debate invitation.", "src": "artv_debates"}])
 race("ar-ltgov", "AR-LTGOV", "Lieutenant Governor · Arkansas", "ltgov", "statewide", "The incumbent faces a Libertarian teacher, firefighter and Navy veteran. No Democrat is on the ballot.",
-     [exec_incumbent("rutledge", "Leslie Rutledge", "Lieutenant governor since 2023", None),
-      challenger("kalagias", "Mike Kalagias", "Libertarian", "Challenger", "Teacher, firefighter and Navy veteran")])
-hammer_prior = cel_state("Hammer", "upper", 16, "As a state senator, 2023–24.")
+     [exec_officeholder("rutledge", "Leslie Rutledge", "Lieutenant governor since 2023"),
+      state_challenger("kalagias", "Mike Kalagias", "Libertarian", "Challenger", "Teacher, firefighter and Navy veteran")])
 race("ar-sos", "AR-SOS", "Secretary of State · Arkansas", "sos", "statewide", "An open seat. A state senator, a marketing specialist and an economist are running for the office that oversees elections.",
-     [challenger("hammer", "Kim Hammer", "Republican", "Open-seat candidate", "State senator, Baptist pastor and radio show host", None, DEBATED, hammer_prior),
-      challenger("grappe", "Kelly Grappe", "Democratic", "Open-seat candidate", "Marketing specialist and community activist", None, DEBATED),
-      challenger("pakko", "Michael Pakko", "Libertarian", "Open-seat candidate", "Economist; 2024 Libertarian nominee for state treasurer", None, DEBATED)],
-     [{"text": "Arkansas TV hosted a debate with all three nominees on Oct 15, 2026.", "src": "artv_debates"}])
+     [state_challenger("hammer", "Kim Hammer", "Republican", "Open-seat candidate", "State senator, Baptist pastor and radio show host", k_results_state("Hammer", "upper", 16, "As a state senator, 2023–24.")),
+      state_challenger("grappe", "Kelly Grappe", "Democratic", "Open-seat candidate", "Marketing specialist and community activist"),
+      state_challenger("pakko", "Michael Pakko", "Libertarian", "Open-seat candidate", "Economist; 2024 Libertarian nominee for state treasurer")],
+     [{"text": "All three nominees accepted Arkansas TV's Oct 15 debate invitation.", "src": "artv_debates"}])
 race("ar-lands", "AR-LANDS", "Commissioner of State Lands · Arkansas", "lands", "statewide", "An open seat. The current secretary of state faces a Libertarian. No Democrat is on the ballot.",
-     [challenger("jester", "Cole Jester", "Republican", "Open-seat candidate", "Current secretary of state, former aide to the governor and attorney"),
-      challenger("olson", "Chris Olson", "Libertarian", "Open-seat candidate", "Mental health worker and Libertarian activist")])
+     [state_challenger("jester", "Cole Jester", "Republican", "Open-seat candidate", "Current secretary of state, former aide to the governor and attorney"),
+      state_challenger("olson", "Chris Olson", "Libertarian", "Open-seat candidate", "Mental health worker and Libertarian activist")])
 
 # ---------------------------------------------------------------- legislature
 HOUSE = """3|Stetson Painter*R;Carrie Huddleston D
@@ -289,6 +326,11 @@ SENATE = """9|Jessie McGruder D;Kenny Phillips R
 13|Brandon Achor R;Allison Sweatman D
 16|Rodney Wright R;Joshua Irby D
 27|Justin Boyd*R;Eduardo Guzman D"""
+EXTRA_FACTS = {  # backgrounds from a second candidate list
+  ("upper", 9, "McGruder"): {"label": "Current office", "text": "State representative.", "src": "tb_list"},
+  ("upper", 16, "Wright"): {"label": "Current office", "text": "County sheriff.", "src": "tb_list"},
+}
+MOVERS = {("lower", 24, "Fite"): ("lower", 24), ("upper", 13, "Achor"): ("lower", 71)}
 
 def parse_line(line):
     d, rest = line.split("|")
@@ -296,13 +338,9 @@ def parse_line(line):
     for tok in rest.split(";"):
         tok = tok.strip()
         inc = "*" in tok
-        m = re.match(r"(.+?)\*?\s?([RDLI])$", tok.replace("*", " ").strip())
-        name, p = m.group(1).strip(), m.group(2)
-        out.append((name, p, inc))
+        m = re.match(r"(.+?)\s?([RDLI])$", tok.replace("*", " ").strip())
+        out.append((m.group(1).strip(), m.group(2), inc))
     return int(d), out
-
-# Former legislators running for a different seat (matched to their 2023–24 district)
-MOVERS = {("lower", 24, "Fite"): ("lower", 24), ("upper", 13, "Achor"): ("lower", 71)}
 
 def leg_cands(chamber, dist, people, race_id):
     ids = []
@@ -312,27 +350,25 @@ def leg_cands(chamber, dist, people, race_id):
         last = name.replace(" Jr.", "").split()[-1]
         cid = f"{race_id}-{slug(last)}"
         role = f"Incumbent, Arkansas {chname} District {dist}" if inc else ("Open-seat candidate" if open_seat else "Challenger")
-        s = base_stats(rookie=not inc)
-        if inc:
-            s["promises"] = pend("Promise ledger not built yet.")
-            s["attendance"] = pend("Arkansas legislature vote records not connected yet.")
-            s["bipartisan"] = pend("Arkansas legislature bill records not connected yet.")
-        c = dict(name=name, party=PARTY[p], role=role, track="veteran" if inc else "rookie", stats=s, ids={},
-                 facts=[{"label": "On the ballot", "text": role + "." if inc else f"{role} for Arkansas {chname} District {dist}.", "src": "wiki_arhouse" if chamber == "lower" else "wiki_arsen"}],
-                 promises=[], positions={})
+        k = {"answers": k_answers(cid), "funding": PEND("State campaign-finance filings not connected yet."),
+             "attendance": PEND("Arkansas legislature vote records not connected yet.") if inc else NA("Applies to officeholders"),
+             "effectiveness": NA("Applies to legislators"),
+             "bipartisan": PEND("Arkansas legislature bill records not connected yet.") if inc else NA("Applies to legislators")}
+        facts = [{"label": "On the ballot", "text": role + "." if inc else f"{role} for Arkansas {chname} District {dist}.", "src": "wiki_arhouse" if chamber == "lower" else "wiki_arsen"}]
+        if (chamber, dist, last) in EXTRA_FACTS: facts.append(EXTRA_FACTS[(chamber, dist, last)])
+        c = dict(name=name, party=PARTY[p], role=role, track="officeholder" if inc else "candidate", ids={}, kpi=k, facts=facts, plans=[], positions={})
         mv = MOVERS.get((chamber, dist, last))
         lookup = mv if mv else ((chamber, dist) if inc else None)
         if lookup:
             note = None if (inc and not mv) else f"As a state {'representative' if lookup[0]=='lower' else 'senator'}, 2023–24 (District {lookup[1]})."
-            st, k = cel_state(last, lookup[0], lookup[1], note)
+            st, key = k_results_state(last, lookup[0], lookup[1], note)
             if st:
-                s["effectiveness"] = st
-                c["ids"]["sles"] = k
+                k["effectiveness"] = st; c["ids"]["sles"] = key
                 if not inc:
-                    c["facts"].append({"label": "Prior office", "text": f"Served in the Arkansas {'House' if lookup[0]=='lower' else 'Senate'} (District {lookup[1]}) in 2023–24.", "src": "cel_state_src"})
+                    facts.append({"label": "Prior office", "text": f"Served in the Arkansas {'House' if lookup[0]=='lower' else 'Senate'} (District {lookup[1]}) in 2023–24.", "src": "cel_state_src"})
             elif inc:
-                s["effectiveness"] = pend("No 2023–24 score; likely first elected in 2024 or later.")
-        add_cand(cid, **c)
+                k["effectiveness"] = PEND("No 2023–24 score; likely first elected in 2024 or later.")
+        add(cid, **c)
         ids.append(cid)
     return ids
 
@@ -349,14 +385,15 @@ for line in HOUSE.splitlines():
     inc = next((n for n, _, i in people if i), None)
     race(rid, f"HD-{d}", f"Arkansas House · District {d}", "state-house", "state-house",
          (f"Incumbent {inc} faces a challenger." if inc else "An open seat."), leg_cands("lower", d, people, rid),
-         [{"text": "All 100 Arkansas House seats are on the ballot; about two-thirds are unopposed.", "src": "wiki_arhouse"}])
-# HD-8 special election (rest of the current term)
+         [{"text": "All 100 Arkansas House seats are on the ballot; 64 are unopposed.", "src": "wiki_arhouse"}])
 race("ar-hd8s", "HD-8 SPECIAL", "Arkansas House · District 8 special election", "state-house", "state-house",
      "Fills the rest of the current term, through January 2027, after the incumbent resigned. Brian Armas (R) is unopposed for the full term that follows.",
-     [add_cand("ar-hd8s-armas", name="Kara Armas", party="Republican", role="Special-election candidate", track="rookie", stats=base_stats(), ids={},
-               facts=[{"label": "On the ballot", "text": "Candidate for the District 8 special election; wife of Brian Armas, who is unopposed for the next full term.", "src": "hd8_special"}], promises=[], positions={}),
-      add_cand("ar-hd8s-stohlton", name="Parker Stohlton", party="Democratic", role="Special-election candidate", track="rookie", stats=base_stats(), ids={},
-               facts=[{"label": "On the ballot", "text": "Candidate for the District 8 special election, from Bella Vista.", "src": "hd8_special"}], promises=[], positions={})],
+     [add("ar-hd8s-armas", name="Kara Armas", party="Republican", role="Special-election candidate", track="candidate", ids={},
+          kpi={"answers": k_answers("ar-hd8s-armas"), "funding": PEND("State campaign-finance filings not connected yet."), "attendance": NA("Applies to officeholders"), "effectiveness": NA("Applies to legislators"), "bipartisan": NA("Applies to legislators")},
+          facts=[{"label": "On the ballot", "text": "Candidate for the District 8 special election; wife of Brian Armas, who is unopposed for the next full term.", "src": "hd8_special"}], plans=[], positions={}),
+      add("ar-hd8s-stohlton", name="Parker Stohlton", party="Democratic", role="Special-election candidate", track="candidate", ids={},
+          kpi={"answers": k_answers("ar-hd8s-stohlton"), "funding": PEND("State campaign-finance filings not connected yet."), "attendance": NA("Applies to officeholders"), "effectiveness": NA("Applies to legislators"), "bipartisan": NA("Applies to legislators")},
+          facts=[{"label": "On the ballot", "text": "Candidate for the District 8 special election, from Bella Vista.", "src": "hd8_special"}], plans=[], positions={})],
      [{"text": "The governor called the special election to coincide with Nov 3.", "src": "hd8_special"}])
 
 # ---------------------------------------------------------------- unopposed
@@ -405,16 +442,38 @@ RACES.append(dict(id="ar-issues", short="ISSUES", name="Statewide ballot issues 
                   election="Nov 3, 2026", sample=False, blurb="Four questions the legislature sent to voters: three constitutional amendments and one bond question. Explained in neutral terms; nothing here is scored.",
                   candidates=[], can=[], cant=[], context=[{"text": "Summaries follow the University of Arkansas Cooperative Extension Service's nonpartisan voter guide.", "src": "uaex_guide"}], issues=ISSUES))
 
-# ---------------------------------------------------------------- output
+# ---------------------------------------------------------------- fact-check lists (every tracked name, Arkansas and Ohio)
+FACTCHECKS = {}
+for name, dp in FC.items():
+    rows = []
+    for r in dp.get("value", {}).get("reviews", []):
+        rows.append({"d": (r.get("date") or "")[:10], "pub": r.get("publisher") or "", "r": r.get("rating") or "", "url": r.get("url") or "", "claim": (r.get("claim") or "")[:180]})
+    rows.sort(key=lambda x: x["d"] or "0000", reverse=True)
+    FACTCHECKS[name] = rows
+
+# ---------------------------------------------------------------- checks + output
 contested = [r for r in RACES if r["level"] != "issues"]
-out = ["/* Arkansas: every contested race on the Nov 3, 2026 ballot. Generated by gen_ar.py from the pipeline's data files. */"]
-out.append("Object.assign(SOURCES, " + json.dumps({k: {"pub": v[0], "title": v[1], "date": v[2], "url": v[3]} for k, v in SRC.items()}, ensure_ascii=False) + ");")
-out.append("Object.assign(CANDS, " + json.dumps(CANDS, ensure_ascii=False) + ");")
-out.append("const AR_RACES = " + json.dumps(RACES, ensure_ascii=False) + ";")
-out.append("const AR_UNOPPOSED = " + json.dumps(UNOPPOSED, ensure_ascii=False) + ";")
-Path(__file__).with_name("ar.js").write_text("\n".join(out) + "\n")
+n_cands = sum(len(r["candidates"]) for r in contested)
 n_unopp = sum(len(v) for v in UNOPPOSED.values())
-print(f"races {len(contested)} (+ AR-3 in data.js = {len(contested)+1}) · candidates {len(CANDS)} · unopposed {n_unopp} · issues {len(ISSUES)}")
-no_money = [c["name"] for c in CANDS.values() if c.get("ids", {}).get("fec") and not c.get("money")]
-print("fec without money:", no_money)
-print("legislative scores:", sum(1 for c in CANDS.values() if c.get("ids", {}).get("sles")))
+assert len(contested) == 50, len(contested)
+assert n_cands == len(CANDS) == 105, (n_cands, len(CANDS))
+assert n_unopp == 80, n_unopp
+assert len(ISSUES) == 4
+for c in CANDS.values():
+    assert set(c["kpi"]) == {"answers", "funding", "attendance", "effectiveness", "bipartisan"}, c["name"]
+blob = json.dumps(RACES) + json.dumps(CANDS)
+assert not re.search(r"218 House votes|218 when all seats", blob), "218-vote error is back"
+asof = fmt_date((MAN.get("_run") or {}).get("date") or date.today().isoformat())
+
+out = ["/* Arkansas: every contested race on the Nov 3, 2026 ballot. Generated by gen_ar.py from the pipeline's data files. Do not edit by hand. */",
+       f"const DATA_AS_OF = {json.dumps(asof)};",
+       "Object.assign(SOURCES, " + json.dumps({k: {"pub": v[0], "title": v[1], "date": v[2], "url": v[3]} for k, v in SRC.items()}, ensure_ascii=False) + ");",
+       "Object.assign(CANDS, " + json.dumps(CANDS, ensure_ascii=False) + ");",
+       "const AR_RACES = " + json.dumps(RACES, ensure_ascii=False) + ";",
+       "const AR_UNOPPOSED = " + json.dumps(UNOPPOSED, ensure_ascii=False) + ";",
+       "const FACTCHECKS = " + json.dumps(FACTCHECKS, ensure_ascii=False) + ";"]
+Path(__file__).with_name("ar.js").write_text("\n".join(out) + "\n")
+print(f"data as of {asof} · races {len(contested)} · candidates {n_cands} · unopposed {n_unopp} · issues {len(ISSUES)} · fact-check names {len(FACTCHECKS)}")
+for cid in ("cotton", "crawford", "hill", "womack", "westerman"):
+    k = CANDS[cid]["kpi"]
+    print(cid, {x: (k[x].get("status"), k[x].get("pct")) for x in ("attendance", "effectiveness", "bipartisan")}, k["funding"].get("display", "")[:70])

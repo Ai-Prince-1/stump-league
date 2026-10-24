@@ -1,0 +1,14 @@
+{
+  "_about": "The Lugar Center and Georgetown McCourt School Bipartisan Index, 2023 (118th Congress, first session). Manually imported; updated when the Lugar Center publishes a new release. Score 0 = the historical baseline for the member's party position (majority or minority); higher is more bipartisan.",
+  "_sources": {"house": "https://www.thelugarcenter.org/ourwork-86.html", "senate": "https://www.thelugarcenter.org/ourwork-85.html", "method": "https://www.thelugarcenter.org/ourwork-44.html"},
+  "_retrieved": "2026-10-24",
+  "house_total": 435, "senate_total": 98,
+  "members": {
+    "W000809": {"name": "Steve Womack", "chamber": "house", "score": -0.32836, "rank": 193},
+    "C001087": {"name": "Rick Crawford", "chamber": "house", "score": -0.61977, "rank": 244},
+    "H001072": {"name": "French Hill", "chamber": "house", "score": -0.21943, "rank": 173},
+    "W000821": {"name": "Bruce Westerman", "chamber": "house", "score": -0.20531, "rank": 168},
+    "C001095": {"name": "Tom Cotton", "chamber": "senate", "score": -1.28330, "rank": 94},
+    "B001236": {"name": "John Boozman", "chamber": "senate", "score": 0.67637, "rank": 21}
+  }
+}

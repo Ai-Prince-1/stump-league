@@ -37,12 +37,22 @@ jobs:
           for f in manifest cel cel_state fec attendance senate_attendance bipartisanship factchecks; do
             [ -f "data/$f.json" ] && cp "data/$f.json" docs/data/ || true
           done
+      - name: Rebuild the website from tonight's data
+        if: always()
+        id: site
+        continue-on-error: true
+        run: |
+          cp docs/index.html /tmp/index.prev.html
+          python3 site-src/gen_ar.py .
+          sh site-src/build.sh
+          # Never publish a page that fails the checks (count checks, the 218-vote wording guard).
+          pytest -q || { cp /tmp/index.prev.html docs/index.html; git checkout -- site-src/ar.js; exit 1; }
       - name: Commit changed data
         if: always()
         run: |
           git config user.name "stump-league-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data docs/data
+          git add data docs/data docs/index.html site-src/ar.js
           git diff --cached --quiet && echo "No data changes" && exit 0
           git commit -m "Nightly data refresh $(date -u +%F)"
           git pull --rebase

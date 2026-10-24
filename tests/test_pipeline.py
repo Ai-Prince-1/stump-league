@@ -142,3 +142,24 @@ def test_voteview_senate():
     ("Chris Jones", "Jones", False), ("Tom Cotton", "Sen. Tom Cotton", True)])
 def test_claimant_matching(person, claimant, ok):
     assert S.claimant_matches(person, claimant) is ok
+
+
+def test_fec_in_state_share():
+    payload = {"results": [{"state": "AR", "total": 600}, {"state": "TX", "total": 300}, {"state": "ar", "total": 100}]}
+    v = S.parse_fec_by_state(payload, "AR")
+    assert v["in_state_share"] == 0.7 and v["itemized_total"] == 1000
+
+
+def test_site_has_no_218_vote_error():
+    """A bill passes the House with a majority of members voting; 218 is that majority only when all 435 vote.
+    Guards the wording that was wrong in the prototype."""
+    import pathlib, re
+    root = pathlib.Path(__file__).resolve().parent.parent
+    bad = re.compile(r"218 House votes|218 when all seats|218 votes[^.]{0,40}(needed|required)", re.I)
+    hits = []
+    for f in list((root / "site-src").glob("*")) + [root / "docs" / "index.html"]:
+        if f.is_file() and f.suffix in {".js", ".html", ".py"}:
+            for i, line in enumerate(f.read_text(errors="ignore").splitlines(), 1):
+                if bad.search(line) and "re.compile" not in line and "re.search" not in line:
+                    hits.append(f"{f.name}:{i}")
+    assert not hits, hits

@@ -1,15 +1,27 @@
-/* ===== Stump League — app ===== */
+/* ===== Stump League — app =====
+   Stats, not standings: five KPIs per candidate, peer-relative category labels, no overall grade.
+   A ranking appears only when a voter asks for one, using only stats every candidate in the race has. */
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const esc = (t) => String(t == null ? "" : t).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const store = {
-    get(k, d) { try { const v = localStorage.getItem("sl:" + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
-    set(k, v) { try { localStorage.setItem("sl:" + k, JSON.stringify(v)); } catch (e) {} }
+    get(k, d) { try { const v = localStorage.getItem("sl2:" + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem("sl2:" + k, JSON.stringify(v)); } catch (e) {} }
   };
+  const REPO_URL = "https://github.com/Ai-Prince-1/stump-league";
+  const ASOF = typeof DATA_AS_OF !== "undefined" ? DATA_AS_OF : AS_OF;
 
   const SRC_IDS = Object.keys(SOURCES);
-  /* Merge Arkansas races into the race list, ordered the way they appear on the ballot. */
+  const srcNum = (id) => SRC_IDS.indexOf(id) + 1;
+  function sup(id) {
+    if (!id || !SOURCES[id]) return "";
+    const s = SOURCES[id];
+    return `<a class="sup" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.pub + " — " + s.title + " (" + s.date + ")")}">[${srcNum(id)}]</a>`;
+  }
+  const sups = (o) => (o ? sup(o.src) + sup(o.src2) : "");
+
+  /* ---------- races ---------- */
   const LEVELS = { congress: ["Arkansas · Congress", 1], statewide: ["Arkansas · Statewide offices", 2], issues: ["Arkansas · Ballot issues", 3], "state-senate": ["Arkansas · State Senate", 4], "state-house": ["Arkansas · State House", 5], pilot: ["Other pilot races", 6] };
   if (typeof AR_RACES !== "undefined") {
     const congressOrder = ["ar-sen", "ar1", "ar2", "ar3", "ar4"];
@@ -18,89 +30,68 @@
     all.sort((a, b) => { const x = key(a), y = key(b); return x[0] - y[0] || x[1] - y[1] || x[2] - y[2]; });
     RACES.length = 0; RACES.push(...all);
   }
-  const srcNum = (id) => SRC_IDS.indexOf(id) + 1;
-  function sup(id) {
-    if (!id || !SOURCES[id]) return "";
-    const s = SOURCES[id];
-    return `<a class="sup" href="${esc(s.url)}" target="_blank" rel="noopener" title="${esc(s.pub + " — " + s.title + " (" + s.date + ")")}">[${srcNum(id)}]</a>`;
-  }
-  const sups = (o) => (o ? sup(o.src) + sup(o.src2) : "");
   const RACE = (id) => RACES.find((r) => r.id === id);
+  const AR = RACES.filter((r) => r.state === "Arkansas");
+  const AR_CONTESTED = AR.filter((r) => !r.issues);
+  const AR_CANDS = AR_CONTESTED.reduce((a, r) => a + r.candidates.length, 0);
+  const UNOPP_N = typeof AR_UNOPPOSED !== "undefined" ? Object.values(AR_UNOPPOSED).reduce((a, v) => a + v.length, 0) : 0;
+  const lastName = (n) => n.replace(/ (Jr\.|Sr\.|II|III)$/, "").split(" ").pop();
 
-  /* ---------- scoring engine ---------- */
-  const OUTCOME_VAL = { Kept: 1, Compromise: 0.5, Broken: 0 };
-  const specOf = (p) => p.spec ? p.spec.m + p.spec.t + p.spec.c + p.spec.p : 0;
-
-  function derived(c, key) {
-    const ps = c.promises || [];
-    if (key === "specificity") {
-      if (!ps.length) return null;
-      const avg = ps.reduce((a, p) => a + specOf(p), 0) / ps.length;
-      return { norm: avg / 4, display: avg.toFixed(1) + " / 4", sub: "Across " + ps.length + " sourced promise" + (ps.length === 1 ? "" : "s") };
-    }
-    if (key === "promises") {
-      const rated = ps.filter((p) => p.outcome in OUTCOME_VAL);
-      if (!rated.length) return null;
-      let w = 0, v = 0;
-      rated.forEach((p) => { const wt = 1 + specOf(p) / 4; w += wt; v += wt * OUTCOME_VAL[p.outcome]; });
-      const n = (o) => rated.filter((p) => p.outcome === o).length;
-      return { norm: v / w, display: `${n("Kept")} kept · ${n("Compromise")} compromise · ${n("Broken")} broken`, sub: `of ${rated.length} tracked, weighted by specificity` };
-    }
-    return null;
+  /* ---------- stats ---------- */
+  const statFor = (c, key) => (c.kpi && c.kpi[key]) || { status: "pending" };
+  const BADGE = { official: ["o", "Official record"], draft: ["d", "Draft"], pending: ["p", "Not collected yet"], na: ["na", "Doesn't apply"], sample: ["s", "Sample"] };
+  const scored = (st, incDraft) => typeof st.norm === "number" && (st.status === "official" || st.status === "sample" || (incDraft && st.status === "draft"));
+  function leader(st) {
+    if (typeof st.pct !== "number") return "";
+    const band = LEADER_BANDS.find(([t]) => st.pct >= t)[1];
+    return `<span class="leader">${band}</span> <small>of ${esc(st.peer || "peers")}</small>`;
   }
 
-  /* returns {status, norm, display, sub, note, src, src2} with draft values filled in */
-  function statFor(c, key) {
-    const s = (c.stats && c.stats[key]) || { status: "pending" };
-    if (s.from) {
-      const d = derived(c, s.from === "promises" && key === "specificity" ? "specificity" : key);
-      if (!d) return { status: "pending", note: "No sourced promises collected yet." };
-      return Object.assign({}, s, d);
-    }
-    return s;
-  }
-  function counts(st, incDraft) { return st.status === "verified" || (incDraft && st.status === "draft"); }
-
-  function composite(c, weights, incDraft) {
-    let sw = 0, sv = 0, n = 0, drafts = 0;
-    STATS.forEach((d) => {
-      const st = statFor(c, d.key);
-      if (!counts(st, incDraft) || typeof st.norm !== "number") return;
-      n++; if (st.status === "draft") drafts++;
-      const w = weights[d.key] || 0;
-      sw += w; sv += w * st.norm;
-    });
-    const score = sw > 0 ? sv / sw : null;
-    const verified = n - drafts;
-    const enough = verified >= 4 && score != null; /* drafts can move a score but never unlock a tier */
-    let tier = null;
-    if (enough) tier = score >= 0.75 ? "Elite" : score >= 0.55 ? "Starter" : score >= 0.35 ? "Developing" : "Bench";
-    let conf = n >= 7 ? "high" : n >= 5 ? "med" : "low";
-    if (drafts) conf = "low";
-    return { score, n, tier, conf, drafts, verified };
-  }
-  window.__sl = { composite, statFor, derived };
-
-  /* ---------- state ---------- */
-  const DEFAULT_W = Object.fromEntries(STATS.map((s) => [s.key, 5]));
-  let weights = Object.assign({}, DEFAULT_W, store.get("weights", {}));
+  /* ---------- ranking state ---------- */
+  const DEFAULT_ON = Object.fromEntries(STATS.map((s) => [s.key, !!s.defaultOn]));
+  let on = Object.assign({}, DEFAULT_ON, store.get("on", {}));
+  let weights = Object.assign(Object.fromEntries(STATS.map((s) => [s.key, 5])), store.get("weights", {}));
   let incDraft = store.get("incdraft", false);
+  let showRank = false;
   let raceId = store.get("race", "ar3");
   if (!RACE(raceId)) raceId = "ar3";
 
-  /* ---------- routing ---------- */
+  function yourRanking(race) {
+    const cands = race.candidates.map((id) => [id, CANDS[id]]);
+    const shared = STATS.filter((s) => on[s.key] && weights[s.key] > 0 && cands.every(([, c]) => scored(statFor(c, s.key), incDraft)));
+    if (!shared.length) return { shared, rows: null };
+    const rows = cands.map(([id, c]) => {
+      let sw = 0, sv = 0;
+      shared.forEach((s) => { sw += weights[s.key]; sv += weights[s.key] * statFor(c, s.key).norm; });
+      return { id, c, score: sv / sw };
+    }).sort((a, b) => b.score - a.score);
+    return { shared, rows };
+  }
+  window.__sl = { yourRanking, statFor };
+
+  /* ---------- routing: handle clicks directly so tabs work in every host ---------- */
   const VIEWS = ["scout", "races", "h2h", "learn", "play", "method", "about"];
-  function show(view) {
+  let current = "scout";
+  function show(view, scroll = true) {
     if (!VIEWS.includes(view)) view = "scout";
+    current = view;
     $$("section[data-view]").forEach((s) => (s.hidden = s.dataset.view !== view));
     $$("nav.tabs a").forEach((a) => a.setAttribute("aria-current", a.dataset.tab === view ? "page" : "false"));
     if (view === "races") renderRaces();
     if (view === "h2h") renderH2H();
     if (view === "play") renderPlay();
-    window.scrollTo({ top: 0 });
+    if (scroll) window.scrollTo({ top: 0 });
   }
-  window.addEventListener("hashchange", () => show(location.hash.slice(1)));
-  function go(view) { if (location.hash.slice(1) === view) show(view); else location.hash = view; }
+  function go(view) {
+    show(view);
+    try { if (location.hash.slice(1) !== view) history.replaceState(null, "", "#" + view); } catch (e) {}
+  }
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a[data-tab]");
+    if (!a) return;
+    e.preventDefault(); go(a.dataset.tab);
+  });
+  window.addEventListener("hashchange", () => { const v = location.hash.slice(1); if (VIEWS.includes(v) && v !== current) show(v); });
 
   /* ---------- scout ---------- */
   const STATE_NAMES = { AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico" };
@@ -121,13 +112,12 @@
         out.pilot.push("ar-sen");
         cds.forEach((d) => { if (RACE("ar" + d)) out.pilot.push("ar" + d); });
         out.pilot.push("ar-gov", "ar-ltgov", "ar-sos", "ar-lands", "ar-issues");
-        out.other.push(["Arkansas legislature", "Your state House and Senate districts don't follow ZIP codes. All 41 contested legislative races are listed below; find your district with Voter View on the Secretary of State's site."]);
+        out.other.push(["Arkansas legislature", "Your state House and Senate districts don't follow ZIP codes. Every contested legislative race is listed below; find your district with Voter View on the Secretary of State's site."]);
         return;
       }
       if (st === "OH") out.pilot.push("ohgov");
-      cds.forEach((d) => out.other.push(["U.S. House · " + name + " " + (d === "0" ? "at-large" : ord(d) + " District"), "Not in the prototype yet · coming in phase 2"]));
-      out.other.push(["Statewide races · " + name, "Senate, governor and other statewide races where on the ballot · coming in phase 2"]);
-      out.other.push([name + " legislature", "Coming in phase 4"]);
+      cds.forEach((d) => out.other.push(["U.S. House · " + name + " " + (d === "0" ? "at-large" : ord(d) + " District"), "Not in the prototype yet"]));
+      out.other.push(["Statewide races · " + name, "Senate, governor and other statewide races where on the ballot · not in the prototype yet"]);
     });
     return out;
   }
@@ -140,40 +130,37 @@
       return `<a class="ballot-item" href="#races" data-race="${id}"><span class="code">${esc(race.short)}</span><span><b>${esc(race.name)}</b><br><span class="dim" style="font-size:13.5px">${n} · ${esc(race.blurb)}</span></span><span class="btn small">Open</span></a>`;
     });
     r.other.forEach(([t, s]) => items.push(`<div class="ballot-item off"><span class="code">—</span><span><b>${esc(t)}</b><br><span class="dim" style="font-size:13.5px">${esc(s)}</span></span><span></span></div>`));
-    items.push(`<a class="ballot-item" href="#races" data-race="demo"><span class="code">DEMO</span><span><b>See a fully populated race</b><br><span class="dim" style="font-size:13.5px">Fictional sample with every stat filled in</span></span><span class="btn small">Open</span></a>`);
+    items.push(`<a class="ballot-item" href="#races" data-race="demo"><span class="code">DEMO</span><span><b>See a race with every stat filled in</b><br><span class="dim" style="font-size:13.5px">An invented sample, labeled Sample everywhere</span></span><span class="btn small">Open</span></a>`);
     $("#ballot").innerHTML = items.join("");
     $("#arkansas").hidden = r.state !== "AR";
     if (r.state === "AR") renderArkansas();
   }
   function renderArkansas() {
-    const ar = RACES.filter((x) => x.state === "Arkansas");
-    const contested = ar.filter((x) => !x.issues);
-    $("#ar-count").textContent = contested.length + " contested races · " + contested.reduce((a, x) => a + x.candidates.length, 0) + " candidates";
+    $("#ar-count").textContent = AR_CONTESTED.length + " contested races · " + AR_CANDS + " candidates";
     const groups = {};
-    ar.forEach((x) => (groups[x.level] = groups[x.level] || []).push(x));
+    AR.forEach((x) => (groups[x.level] = groups[x.level] || []).push(x));
     $("#ar-list").innerHTML = Object.keys(groups).sort((a, b) => LEVELS[a][1] - LEVELS[b][1]).map((lv) => `<div class="arlevel"><h3>${esc(LEVELS[lv][0].replace("Arkansas · ", ""))} <span class="cov">(${groups[lv].length})</span></h3>` +
       groups[lv].map((x) => {
         const who = x.issues ? x.issues.map((i) => "Issue " + i.n + ": " + i.title).join(" · ") :
-          x.candidates.map((id) => { const c = CANDS[id]; return esc(c.name) + " (" + esc(c.party[0]) + ")" + (c.track === "veteran" && /Incumbent|since/.test(c.role) ? "*" : ""); }).join(" · ");
-        const scored = x.issues ? "Explainer" : x.candidates.filter((id) => STATS.some((d) => statFor(CANDS[id], d.key).status === "verified")).length + " of " + x.candidates.length + " with verified stats";
-        return `<a class="arrow" href="#races" data-race="${x.id}"><span class="code">${esc(x.short)}</span><span class="who">${who}</span><span class="cov">${scored}</span></a>`;
+          x.candidates.map((id) => { const c = CANDS[id]; return esc(c.name) + " (" + esc(c.party[0]) + ")" + (/Incumbent|since/.test(c.role) ? "*" : ""); }).join(" · ");
+        const cov = x.issues ? "Explainer" : x.candidates.map((id) => STATS.filter((s) => statFor(CANDS[id], s.key).status === "official").length).reduce((a, b) => a + b, 0) + " official stats";
+        return `<a class="arrow" href="#races" data-race="${x.id}"><span class="code">${esc(x.short)}</span><span class="who">${who}</span><span class="cov">${cov}</span></a>`;
       }).join("") + `</div>`).join("") + `<p class="dim" style="font-size:12.5px">* incumbent</p>`;
-    const U = typeof AR_UNOPPOSED !== "undefined" ? AR_UNOPPOSED : {};
-    const total = Object.values(U).reduce((a, v) => a + v.length, 0);
-    $("#ar-unopp-sum").textContent = "The other " + total + " Arkansas seats on the ballot are unopposed";
+    $("#ar-unopp-sum").textContent = "The other " + UNOPP_N + " Arkansas seats on the ballot are unopposed";
     $("#ar-unopp-body").innerHTML = `<p class="dim" style="font-size:13px">These candidates face no opponent on Nov 3, so there's no choice to compare. * incumbent</p>` +
-      Object.entries(U).map(([lv, rows]) => `<h3 style="font-size:16px">${esc(lv)} (${rows.length})</h3><div class="unopp">${rows.map(([seat, who]) => `<div><span class="lbl">${esc(seat)}</span><span>${esc(who)}</span></div>`).join("")}</div>`).join("") +
-      `<p class="srcs">Source: ${sup("wiki_arhouse")} ${sup("wiki_arsen")} ${sup("greenpapers_ar")}</p>`;
+      Object.entries(AR_UNOPPOSED).map(([lv, rows]) => `<h3 style="font-size:16px">${esc(lv)} (${rows.length})</h3><div class="unopp">${rows.map(([seat, w]) => `<div><span class="lbl">${esc(seat)}</span><span>${esc(w)}</span></div>`).join("")}</div>`).join("") +
+      `<p class="srcs">Sources: ${sup("wiki_arhouse")} ${sup("wiki_arsen")} ${sup("greenpapers_ar")}</p>`;
   }
-  $("#ar-list").addEventListener("click", (e) => { const a = e.target.closest("[data-race]"); if (!a) return; e.preventDefault(); setRace(a.dataset.race); go("races"); });
   $("#zipform").addEventListener("submit", (e) => { e.preventDefault(); renderBallot($("#zip").value.trim()); });
-  $("#ballot").addEventListener("click", (e) => {
-    const a = e.target.closest("[data-race]"); if (!a) return;
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("[data-race]");
+    if (!a) return;
     e.preventDefault(); setRace(a.dataset.race); go("races");
   });
+  $("#kpilist").innerHTML = STATS.map((s) => `<li><b>${esc(s.label)}</b> <small>· ${esc(s.q)} · ${esc(s.who)}</small></li>`).join("");
 
-  /* ---------- rankings ---------- */
-  function setRace(id) { raceId = id; store.set("race", id); }
+  /* ---------- race pages ---------- */
+  function setRace(id) { raceId = id; store.set("race", id); showRank = false; }
   function raceOptions(sel, filter) {
     const groups = {};
     RACES.filter(filter || (() => true)).forEach((r) => (groups[r.level || "pilot"] = groups[r.level || "pilot"] || []).push(r));
@@ -182,103 +169,102 @@
   }
   function renderRacePick() {
     const i = RACES.findIndex((r) => r.id === raceId);
-    $("#racepick").innerHTML = `<label class="lab" style="flex:1 1 320px;min-width:0">Race <select class="input" id="racesel">${raceOptions(raceId)}</select></label>
+    $("#racepick").innerHTML = `<div class="stack" style="flex:1 1 320px;min-width:0;gap:4px"><label class="lab" for="racesel">Race</label><select class="input" id="racesel">${raceOptions(raceId)}</select></div>
       <button class="btn small" type="button" data-step="-1" ${i <= 0 ? "disabled" : ""}>◀ Previous</button><button class="btn small" type="button" data-step="1" ${i >= RACES.length - 1 ? "disabled" : ""}>Next ▶</button>`;
   }
   $("#racepick").addEventListener("change", (e) => { if (e.target.id === "racesel") { setRace(e.target.value); renderRaces(); } });
   $("#racepick").addEventListener("click", (e) => { const b = e.target.closest("[data-step]"); if (!b) return; const i = RACES.findIndex((r) => r.id === raceId) + +b.dataset.step; if (RACES[i]) { setRace(RACES[i].id); renderRaces(); } });
 
   function renderRaceHead(race) {
-    const can = race.can.map((t) => `<li>${esc(t)}</li>`).join("");
-    const cant = race.cant.map((t) => `<li>${esc(t)}</li>`).join("");
-    const canSrc = (race.canSrc || []).map(sup).join("");
+    const can = race.can.map((t) => `<li>${esc(t)}</li>`).join(""), cant = race.cant.map((t) => `<li>${esc(t)}</li>`).join("");
+    const lvl = (LEVELS[race.level || "pilot"] || ["Pilot race"])[0].replace("Arkansas · ", "").replace("Other pilot races", "Pilot race");
     $("#racehead").innerHTML = `
       <div class="racehead">
-        <div class="row"><span class="tag">${esc(race.state)}</span>${race.sample ? "" : `<span class="tag">Election ${esc(race.election)}</span>`}${race.sample ? '<span class="tag sample">Fictional sample data</span>' : `<span class="tag">${esc((LEVELS[race.level || "pilot"] || ["Pilot race"])[0].replace("Arkansas · ", "").replace("Other pilot races", "Pilot race"))}</span>`}</div>
+        <div class="row"><span class="tag">${esc(race.state)}</span>${race.sample ? '<span class="tag sample">Invented sample data</span>' : `<span class="tag">Election ${esc(race.election)}</span><span class="tag">${esc(lvl)}</span>`}</div>
         <h1>${esc(race.name)}</h1>
         <p class="lede">${esc(race.blurb)}</p>
       </div>
-      ${race.issues ? `<div class="panel" style="margin-top:16px"><div class="eyebrow">About these explainers</div>${race.context.map((c) => `<p class="ctx">${esc(c.text)} ${sups(c)}</p>`).join("")}<p class="dim" style="font-size:13px">Ballot issues aren't candidates, so nothing here is scored or ranked. Each card shows what the measure does, current law, what FOR and AGAINST mean, and one line from each side.</p></div>` : `<div class="twocol" style="margin-top:16px">
-        <div class="panel"><div class="eyebrow">What this office can do ${canSrc}</div><ul>${can}</ul><div class="eyebrow" style="margin-top:6px">What it can't</div><ul>${cant}</ul></div>
+      ${race.issues ? `<div class="panel" style="margin-top:16px"><div class="eyebrow">About these explainers</div>${race.context.map((c) => `<p class="ctx">${esc(c.text)} ${sups(c)}</p>`).join("")}<p class="dim" style="font-size:13px">Ballot issues aren't candidates, so nothing here is scored. Each card shows what the measure does, current law, what FOR and AGAINST mean, and one line from each side.</p></div>` : `<div class="twocol" style="margin-top:16px">
+        <div class="panel"><div class="eyebrow">What this office can do ${(race.canSrc || []).map(sup).join("")}</div><ul>${can}</ul><div class="eyebrow" style="margin-top:6px">What it can't</div><ul>${cant}</ul></div>
         <div class="panel"><div class="eyebrow">Race context</div>${race.context.map((c) => `<p class="ctx">${esc(c.text)} ${sups(c)}</p>`).join("")}</div>
       </div>`}`;
   }
+  function renderIssues(race) {
+    $("#issuesbox").innerHTML = race.issues.map((i) => `<article class="issue"><div class="top"><span class="num">${i.n}</span><div><h3>${esc(i.title)}</h3><small>${esc(i.route)}</small></div></div>
+      <div class="body"><p>${esc(i.does)}</p><p class="ctx"><b>Current law:</b> ${esc(i.now)}</p>
+      <div class="yn"><div><b>Vote FOR</b><span>${esc(i.yes)}</span></div><div><b>Vote AGAINST</b><span>${esc(i.no)}</span></div></div>
+      <div class="args"><p>${esc(i.pro)}</p><p>${esc(i.con)}</p></div><p class="srcs">Source: ${sup("uaex_guide")}</p></div></article>`).join("");
+  }
+
+  function sheetCell(st) {
+    if (st.status === "na") return `<td class="dimcell">—</td>`;
+    if (st.status === "pending") return `<td class="dimcell">Not collected yet</td>`;
+    const b = BADGE[st.status];
+    return `<td>${esc(st.display || "")}${st.status !== "official" ? ` <span class="badge ${b[0]}">${b[1]}</span>` : ""}${typeof st.pct === "number" ? `<br>${leader(st)}` : ""}</td>`;
+  }
+  function renderSheet(race) {
+    const ids = race.candidates.slice().sort((a, b) => lastName(CANDS[a].name).localeCompare(lastName(CANDS[b].name)));
+    $("#sheet").innerHTML = `<tr><th>Candidate</th>${STATS.map((s) => `<th>${esc(s.label)}<small>${esc(s.q)}</small></th>`).join("")}</tr>` +
+      ids.map((id) => { const c = CANDS[id];
+        return `<tr><td><button class="who" type="button" data-card="${id}"><span class="av">${esc(c.initials)}</span><span><b>${esc(c.name)}</b><small>${esc(c.party)} · ${esc(c.role)}</small></span></button></td>${STATS.map((s) => sheetCell(statFor(c, s.key))).join("")}</tr>`; }).join("");
+    const official = ids.reduce((a, id) => a + STATS.filter((s) => statFor(CANDS[id], s.key).status === "official").length, 0);
+    $("#sheet-note").textContent = race.sample ? "Invented sample" : official + " official stats across " + ids.length + " candidates";
+  }
+  $("#sheet").addEventListener("click", (e) => { const b = e.target.closest("[data-card]"); if (b) jumpCard(b.dataset.card); });
+  function jumpCard(id) { const el = document.getElementById("card-" + id); if (el) el.scrollIntoView({ block: "start", behavior: "smooth" }); }
 
   function renderSliders() {
-    $("#sliders").innerHTML = STATS.map((s) => `<label class="sl" for="w-${s.key}"><span>${esc(s.label)}</span><output id="o-${s.key}">${weights[s.key]}</output><input type="range" min="0" max="10" step="1" id="w-${s.key}" data-k="${s.key}" value="${weights[s.key]}"></label>`).join("");
+    $("#sliders").innerHTML = STATS.map((s) => `<div class="sl"><input type="checkbox" id="on-${s.key}" data-on="${s.key}" ${on[s.key] ? "checked" : ""}><label for="on-${s.key}">${esc(s.label)}${s.valueLaden ? ' <span class="vl">values</span>' : ""}</label><output id="o-${s.key}">${weights[s.key]}</output>
+      <input type="range" min="0" max="10" step="1" id="w-${s.key}" data-k="${s.key}" value="${weights[s.key]}" aria-label="How much ${esc(s.label)} counts" ${on[s.key] ? "" : "disabled"}></div>`).join("") +
+      `<p class="dim" style="font-size:12px"><span class="vl">values</span> = starts switched off because voters disagree about whether it matters.</p>`;
     $("#incdraft").checked = incDraft;
   }
   $("#sliders").addEventListener("input", (e) => {
-    const k = e.target.dataset.k; if (!k) return;
-    weights[k] = +e.target.value; $("#o-" + k).textContent = e.target.value; store.set("weights", weights); renderRank(RACE(raceId));
+    const k = e.target.dataset.k, o = e.target.dataset.on;
+    if (k) { weights[k] = +e.target.value; $("#o-" + k).textContent = e.target.value; store.set("weights", weights); }
+    if (o) { on[o] = e.target.checked; $("#w-" + o).disabled = !on[o]; store.set("on", on); }
+    if (showRank) renderRankOut(RACE(raceId));
   });
-  $("#incdraft").addEventListener("change", (e) => { incDraft = e.target.checked; store.set("incdraft", incDraft); renderRank(RACE(raceId)); renderCards(RACE(raceId)); });
-  $("#reset-w").addEventListener("click", () => { weights = Object.assign({}, DEFAULT_W); store.set("weights", weights); renderSliders(); renderRank(RACE(raceId)); });
-
-  const QUIZ = [
-    { q: "Does it matter to you whether officials keep their word?", keys: ["promises", "specificity"] },
-    { q: "Do you care whether they show up for votes?", keys: ["attendance"] },
-    { q: "Do you want leaders who work across party lines?", keys: ["bipartisan"] },
-    { q: "Should candidates face voters in debates and town halls?", keys: ["access", "transparency"] },
-    { q: "How much do accurate claims matter to you?", keys: ["factcheck"] },
-    { q: "Do you care whether lawmakers actually move bills?", keys: ["effectiveness"] }
-  ];
-  $("#open-quiz").addEventListener("click", () => {
-    const box = $("#quizbox"); box.hidden = !box.hidden;
-    if (box.hidden) return;
-    box.innerHTML = QUIZ.map((q, i) => `<div class="qrow"><span>${esc(q.q)}</span><select id="qz-${i}" aria-label="${esc(q.q)}"><option value="8">A lot</option><option value="5" selected>Some</option><option value="2">A little</option><option value="0">Not at all</option></select></div>`).join("") + `<button class="btn small primary" type="button" id="apply-quiz">Apply to sliders</button>`;
-    $("#apply-quiz").onclick = () => {
-      QUIZ.forEach((q, i) => q.keys.forEach((k) => (weights[k] = +$("#qz-" + i).value)));
-      store.set("weights", weights); renderSliders(); renderRank(RACE(raceId)); box.hidden = true;
-    };
-  });
-
-  function tierHTML(r) {
-    if (!r.tier) return `<span class="tier none">Not enough verified data · ${r.verified} of 4</span>`;
-    return `<span class="tier ${r.tier.toLowerCase()}">${r.tier}</span>`;
+  $("#incdraft").addEventListener("change", (e) => { incDraft = e.target.checked; store.set("incdraft", incDraft); if (showRank) renderRankOut(RACE(raceId)); });
+  $("#reset-w").addEventListener("click", () => { on = Object.assign({}, DEFAULT_ON); weights = Object.fromEntries(STATS.map((s) => [s.key, 5])); store.set("on", on); store.set("weights", weights); renderSliders(); if (showRank) renderRankOut(RACE(raceId)); });
+  $("#show-rank").addEventListener("click", () => { showRank = true; renderRankOut(RACE(raceId)); });
+  function renderRankOut(race) {
+    const { shared, rows } = yourRanking(race);
+    if (!rows) {
+      $("#rank-out").innerHTML = `<p class="banner">A fair ranking isn't possible yet: these candidates don't share any switched-on stat. ${race.candidates.length > 1 ? "Challengers have no voting record, so only stats like Answers to voters can compare everyone." : ""}</p>`;
+      return;
+    }
+    $("#rank-out").innerHTML = `<div class="eyebrow">Your ranking${race.sample ? " · sample" : ""}</div>` +
+      rows.map((r, i) => `<div class="rankrow"><span class="n">${rows.findIndex((x) => Math.round(x.score * 100) === Math.round(r.score * 100)) + 1}${rows.filter((x) => Math.round(x.score * 100) === Math.round(r.score * 100)).length > 1 ? "<small>T</small>" : ""}</span><span><b>${esc(r.c.name)}</b> <small class="dim">${esc(r.c.party)}</small></span><span class="cov">${Math.round(r.score * 100)}</span></div>`).join("") +
+      (rows.every((x) => Math.round(x.score * 100) === Math.round(rows[0].score * 100)) ? `<p class="banner">Everyone is tied on the stats you chose, so this ranking doesn't separate them. Names are listed by score, then in ballot order.</p>` : "") +
+      `<p class="dim" style="font-size:12.5px">T = tied. Based only on: ${shared.map((s) => esc(s.label)).join(", ")}. This reflects the weights you chose, not an endorsement.</p>`;
   }
-  function renderRank(race) {
-    const rows = race.candidates.map((id) => ({ id, c: CANDS[id], r: composite(CANDS[id], weights, incDraft) }));
-    rows.sort((a, b) => (b.r.tier ? 1 : 0) - (a.r.tier ? 1 : 0) || (b.r.score || 0) - (a.r.score || 0));
-    let rank = 0;
-    const tiered = rows.filter((x) => x.r.tier).length;
-    $("#rank-note").textContent = tiered ? `${tiered} of ${rows.length} ranked` : "No tiers yet: not enough verified stats";
-    $("#rank-caveat").hidden = !!race.sample || !tiered;
-    $("#ranktable").innerHTML = `<tr><th>#</th><th>Candidate</th><th>Tier</th><th>Score</th><th>Scored stats</th><th>Confidence</th></tr>` +
-      rows.map(({ id, c, r }) => {
-        const pct = r.tier ? Math.round(r.score * 100) : 0;
-        return `<tr class="click" data-id="${id}" tabindex="0"><td class="rk">${r.tier ? ++rank : "—"}</td>
-          <td><div class="who"><span class="av">${esc(c.initials)}</span><span><b>${esc(c.name)}</b><small>${esc(c.party)} · ${esc(c.role)}</small></span></div></td>
-          <td>${tierHTML(r)}</td>
-          <td>${r.tier ? `<div class="meter" title="Weighted score"><i style="width:${pct}%"></i></div>` : '<span class="cov">—</span>'}</td>
-          <td class="cov">${r.n} of ${STATS.length}${r.drafts ? ` · ${r.drafts} draft` : ""}</td>
-          <td class="conf ${r.conf}">${r.conf === "med" ? "Medium" : r.conf[0].toUpperCase() + r.conf.slice(1)}</td></tr>`;
-      }).join("");
-  }
-  $("#ranktable").addEventListener("click", (e) => { const tr = e.target.closest("tr[data-id]"); if (tr) jumpCard(tr.dataset.id); });
-  $("#ranktable").addEventListener("keydown", (e) => { const tr = e.target.closest("tr[data-id]"); if (tr && e.key === "Enter") jumpCard(tr.dataset.id); });
-  function jumpCard(id) { const el = document.getElementById("card-" + id); if (el) { el.scrollIntoView({ block: "start", behavior: "smooth" }); el.querySelector("details")?.setAttribute("open", ""); } }
 
-  const BADGE = { verified: ["v", "Verified"], draft: ["d", "Draft"], pending: ["p", "Not collected yet"], na: ["na", "Not applicable"], fact: ["f", "Fact · not scored"] };
-  function statRow(c, def) {
+  function kpiRow(c, def) {
     const st = statFor(c, def.key);
     const [cls, lab] = BADGE[st.status] || BADGE.pending;
-    let main, sub = "";
-    if (st.status === "na") { main = "Applies to " + def.who.toLowerCase(); }
-    else if (st.status === "pending") { main = st.note || "Not collected yet"; }
-    else { main = esc(st.display); const base = esc(st.sub || ""); sub = base + (st.status === "draft" ? (base ? " · " : "") + "Awaiting reviewer sign-off" : ""); }
-    const meter = typeof st.norm === "number" && (st.status === "verified" || st.status === "draft") ? `<div class="meter"><i style="width:${Math.round(st.norm * 100)}%"></i></div>` : "";
-    const note = st.note && st.status !== "pending" ? `<small>${esc(st.note)}</small>` : "";
-    return `<div class="stat ${st.status}" title="${esc(def.explain)}"><span class="k">${esc(def.short)}</span><div class="v"><b>${st.status === "na" || st.status === "pending" ? esc(main) : main} <span class="badge ${cls}">${lab}</span> ${sups(st)}</b>${sub ? `<small>${sub}</small>` : ""}${note}${meter}</div></div>`;
+    let main;
+    if (st.status === "na") main = esc(st.note || "Doesn't apply");
+    else if (st.status === "pending") main = esc(st.note || "Not collected yet");
+    else main = esc(st.display || "");
+    const parts = st.parts ? `<ul class="parts">${st.parts.map((p) => `<li class="${p.state}"><span class="mk">${{ yes: "✓", no: "✗", pending: "·", na: "–" }[p.state]}</span><span><b>${esc(p.label)}:</b> ${esc(p.value)} ${sups(p)}</span></li>`).join("")}</ul>` : "";
+    return `<div class="kpirow ${st.status}"><div class="k">${esc(def.short)}<b>${esc(def.label)}</b><details class="explain"><summary aria-label="What ${esc(def.label)} means">?</summary><p>${esc(def.explain)}</p></details></div>
+      <div class="v"><span class="main">${main} <span class="badge ${cls}">${lab}</span> ${st.status === "na" || st.status === "pending" ? "" : sups(st)}</span>
+      ${typeof st.pct === "number" ? `<span>${leader(st)}</span>` : ""}${st.sub ? `<small>${esc(st.sub)}</small>` : ""}${st.note && st.status !== "na" && st.status !== "pending" ? `<small>${esc(st.note)}</small>` : ""}${parts}</div></div>`;
   }
-  function promiseHTML(p) {
-    const cls = { Kept: "kept", Compromise: "comp", Broken: "broken" }[p.outcome] || "";
-    const s = p.spec || { m: 0, t: 0, c: 0, p: 0 };
-    const chk = [["M", s.m, "Measurable"], ["T", s.t, "Time-bound"], ["C", s.c, "Costed"], ["P", s.p, "Within the office's power"]]
-      .map(([l, on, t]) => `<span class="${on ? "on" : ""}" title="${t}: ${on ? "yes" : "no"}">${l}</span>`).join("");
-    const eff = p.effort === true ? '<span class="pill">Effort: yes</span>' : "";
-    const ev = (p.evidence || []).map((e) => `<div class="dim" style="font-size:12.5px">↳ ${esc(e.text)} ${sups(e)}</div>`).join("");
-    return `<div class="promise"><div>${esc(p.text)} ${sups(p)}</div><div class="st"><span class="pill ${cls}">${esc(p.outcome)}</span>${eff}<span class="checks" aria-label="Specificity ${specOf(p)} of 4">${chk}</span><span class="badge d">Draft</span></div>${ev}</div>`;
+  function planHTML(p) {
+    const s = p.checks || { m: 0, t: 0, c: 0, p: 0 };
+    const chk = [["M", s.m, "Measurable"], ["T", s.t, "Has a timeline"], ["C", s.c, "Says what it costs"], ["P", s.p, "Within the office's power"]]
+      .map(([l, v, t]) => `<span class="${v ? "on" : ""}" title="${t}: ${v ? "yes" : "no"}">${l}</span>`).join("");
+    const notes = (p.notes || []).map((n) => `<div class="dim" style="font-size:12.5px">↳ ${esc(n.text)} ${sups(n)}</div>`).join("");
+    return `<div class="promise"><div>${esc(p.text)} ${sups(p)}</div><div class="st"><span class="checks" aria-label="Checklist">${chk}</span><span class="badge d">Draft checklist</span></div>${notes}</div>`;
+  }
+  function factcheckHTML(c) {
+    if (!c.ids || !c.ids.factcheck || typeof FACTCHECKS === "undefined") return "";
+    const list = FACTCHECKS[c.ids.factcheck] || [];
+    const body = list.length ? `<div class="fclist">${list.map((r) => `<div><span class="d">${esc(r.d || "undated")}</span><span><b>${esc(r.r)}</b> · ${esc(r.pub)}${r.claim ? ` · <span class="dim">"${esc(r.claim)}"</span>` : ""} ${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">Read</a>` : ""}</span></div>`).join("")}</div>`
+      : `<p class="dim" style="font-size:13px">No rulings found in the shared fact-check database (ClaimReview).</p>`;
+    return `<details class="drawer"><summary>Fact-check rulings (${list.length}) <span class="ctxonly">Listed, never scored</span></summary><div><p class="dim" style="font-size:12.5px">Every ruling the shared fact-check database attributes to this person, newest first. Fact-checkers choose which claims to check, so the count reflects attention as well as accuracy. ${sup("claimreview_src")}</p>${body}</div></details>`;
   }
   function renderCards(race) {
     $("#cards").innerHTML = race.candidates.map((id) => {
@@ -286,21 +272,13 @@
       const facts = (c.facts || []).map((f) => `<div><span class="lbl">${esc(f.label)}</span><span>${esc(f.text)} ${sups(f)}</span></div>`).join("");
       const funds = c.funds ? `<details class="drawer"><summary>Funds for the district <span class="ctxonly">Context only · never scored</span></summary><div>
           <div class="funds">${c.funds.items.map((i) => `<div><small>${esc(i.label)}</small><b>${esc(i.value)}</b><small>${esc(i.sub)} ${sups(i)}</small></div>`).join("")}</div>
-          ${c.funds.context.map((x) => `<p class="ctx" style="font-size:13px">${esc(x.text)} ${sups(x)}</p>`).join("")}
-          <p class="dim" style="font-size:12.5px">${esc(c.funds.peer)}</p></div></details>` : "";
-      const pr = c.promises && c.promises.length
-        ? `<details class="drawer"><summary>Promise ledger (${c.promises.length})</summary><div>${c.promises.map(promiseHTML).join("")}<p class="dim" style="font-size:12px">M measurable · T time-bound · C costed · P within the office's power</p></div></details>`
-        : `<details class="drawer"><summary>Promise ledger (0)</summary><div><p class="dim" style="font-size:13px">No sourced promises collected yet. Submit one through the corrections form on the Methodology page.</p></div></details>`;
+          ${c.funds.context.map((x) => `<p class="ctx" style="font-size:13px">${esc(x.text)} ${sups(x)}</p>`).join("")}<p class="dim" style="font-size:12.5px">${esc(c.funds.peer)}</p></div></details>` : "";
+      const plans = `<details class="drawer"><summary>Plans (${(c.plans || []).length}) <span class="ctxonly">Their words · not scored</span></summary><div>${(c.plans || []).length ? c.plans.map(planHTML).join("") + `<p class="dim" style="font-size:12px">Checklist: M measurable · T has a timeline · C says what it costs · P within the office's power. Drafted with AI help; not yet reviewed.</p>` : `<p class="dim" style="font-size:13px">No plans collected yet. Contributions are welcome through the project's GitHub page.</p>`}</div></details>`;
       return `<article class="pcard" id="card-${id}">
-        <div class="top"><span class="av">${esc(c.initials)}</span><div><h3>${esc(c.name)}</h3><small>${esc(c.party)} · ${esc(c.role)}</small></div><span class="tier ${c.track === "veteran" ? "starter" : "developing"}">${c.track === "veteran" ? "Veteran" : "Rookie"}</span></div>
-        <div class="body">
-          <div class="statline">${STATS.map((d) => statRow(c, d)).join("")}</div>
-          <div class="facts">${facts}</div>
-          ${funds}${c.money ? `<details class="drawer"><summary>Campaign money <span class="ctxonly">Context only · never scored</span></summary><div>
-            <div class="funds">${c.money.items.map((i) => `<div><small>${esc(i.label)}</small><b>${esc(i.value)}</b>${i.sub ? `<small>${esc(i.sub)}</small>` : ""}</div>`).join("")}</div>
-            <p class="dim" style="font-size:12.5px">${esc(c.money.note)} Through ${esc(c.money.asOf)}. ${sup(c.money.src)}</p></div></details>` : ""}${pr}
-          <div class="row"><button class="btn small" type="button" data-cmp="${id}">Compare head-to-head</button></div>
-        </div></article>`;
+        <div class="top"><span class="av">${esc(c.initials)}</span><div><h3>${esc(c.name)}</h3><small>${esc(c.party)} · ${esc(c.role)}</small></div>${c.sample ? '<span class="badge s">Sample</span>' : ""}</div>
+        <div class="body"><div class="statline">${STATS.map((d) => kpiRow(c, d)).join("")}</div>
+          <div class="facts">${facts}</div>${funds}${plans}${factcheckHTML(c)}
+          <div class="row"><button class="btn small" type="button" data-cmp="${id}">Compare head-to-head</button></div></div></article>`;
     }).join("");
   }
   $("#cards").addEventListener("click", (e) => {
@@ -308,12 +286,6 @@
     h2hState = { race: raceId, a: b.dataset.cmp, b: RACE(raceId).candidates.find((x) => x !== b.dataset.cmp) };
     go("h2h");
   });
-  function renderIssues(race) {
-    $("#issuesbox").innerHTML = race.issues.map((i) => `<article class="issue"><div class="top"><span class="num">${i.n}</span><div><h3>${esc(i.title)}</h3><small>${esc(i.route)}</small></div></div>
-      <div class="body"><p>${esc(i.does)}</p><p class="ctx"><b>Current law:</b> ${esc(i.now)}</p>
-      <div class="yn"><div><b>Vote FOR</b><span>${esc(i.yes)}</span></div><div><b>Vote AGAINST</b><span>${esc(i.no)}</span></div></div>
-      <div class="args"><p>${esc(i.pro)}</p><p>${esc(i.con)}</p></div><p class="srcs">Source: ${sup("uaex_guide")}</p></div></article>`).join("");
-  }
   function renderRaces() {
     let race = RACE(raceId);
     if (!race) { raceId = RACES[0].id; race = RACES[0]; }
@@ -321,49 +293,47 @@
     const isIssues = !!race.issues;
     $("#issuesbox").hidden = !isIssues; $("#rankarea").hidden = isIssues; $("#cardarea").hidden = isIssues;
     if (isIssues) { renderIssues(race); return; }
-    renderSliders(); renderRank(race); renderCards(race);
+    renderSheet(race); renderSliders(); renderCards(race);
+    $("#rank-out").innerHTML = showRank ? "" : `<p class="dim" style="font-size:12.5px">No ranking is shown until you ask for one.</p>`;
+    if (showRank) renderRankOut(race);
   }
 
-  /* ---------- head to head ---------- */
+  /* ---------- head to head: no winners declared ---------- */
   let h2hState = null;
   function renderH2H() {
-    if (!h2hState) { const r = RACE(raceId) && !RACE(raceId).issues ? RACE(raceId) : RACE("ar3"); h2hState = { race: r.id, a: r.candidates[0], b: r.candidates[1] }; }
+    if (!h2hState || !RACE(h2hState.race)) { const r = RACE(raceId) && !RACE(raceId).issues && RACE(raceId).candidates.length > 1 ? RACE(raceId) : RACE("ar3"); h2hState = { race: r.id, a: r.candidates[0], b: r.candidates[1] }; }
     const race = RACE(h2hState.race);
     $("#h2h-race").innerHTML = raceOptions(race.id, (r) => !r.issues && r.candidates.length > 1);
     const opts = (sel) => race.candidates.map((id) => `<option value="${id}" ${id === sel ? "selected" : ""}>${esc(CANDS[id].name)} (${esc(CANDS[id].party)})</option>`).join("");
     $("#h2h-a").innerHTML = opts(h2hState.a); $("#h2h-b").innerHTML = opts(h2hState.b);
     const A = CANDS[h2hState.a], B = CANDS[h2hState.b];
-    const cell = (c, st, right) => {
+    const cell = (st, right) => {
       let txt;
-      if (st.status === "na") txt = '<span class="dim">Not applicable</span>';
-      else if (st.status === "pending") txt = '<span class="dim">Not collected yet</span>';
-      else txt = `${esc(st.display)} ${sups(st)}${st.status === "draft" ? ' <span class="badge d">Draft</span>' : ""}${st.status === "fact" ? ' <span class="badge f">Not scored</span>' : ""}`;
-      const m = typeof st.norm === "number" && counts(st, true) ? `<div class="bar2"><div class="meter"><i style="width:${Math.round(st.norm * 100)}%"></i></div></div>` : "";
-      return `<div class="${right ? "r" : ""}">${txt}${m}</div>`;
+      if (st.status === "na") txt = `<span class="dim">Doesn't apply</span>`;
+      else if (st.status === "pending") txt = `<span class="dim">Not collected yet</span>`;
+      else txt = `${esc(st.display)} ${sups(st)}${st.status !== "official" ? ` <span class="badge ${BADGE[st.status][0]}">${BADGE[st.status][1]}</span>` : ""}${typeof st.pct === "number" ? "<br>" + leader(st) : ""}`;
+      return `<div class="${right ? "r" : ""}">${txt}</div>`;
     };
+    const has = (st) => st.status !== "na" && st.status !== "pending";
+    const both = STATS.filter((s) => has(statFor(A, s.key)) && has(statFor(B, s.key)));
+    const rest = STATS.filter((s) => !both.includes(s));
     let html = `<div class="hd"><div><h3>${esc(A.name)}</h3><small style="color:var(--board-muted)">${esc(A.party)} · ${esc(A.role)}</small></div><div class="mid">${race.sample ? "SAMPLE" : esc(race.short)}</div><div class="r"><h3>${esc(B.name)}</h3><small style="color:var(--board-muted)">${esc(B.party)} · ${esc(B.role)}</small></div></div>`;
-    html += `<div class="sec">Track record</div>`;
-    let ea = 0, eb = 0;
-    STATS.forEach((d) => {
-      const sa = statFor(A, d.key), sb = statFor(B, d.key);
-      let mid = esc(d.label);
-      if (counts(sa, incDraft) && counts(sb, incDraft) && Math.abs(sa.norm - sb.norm) > 0.05) {
-        if (sa.norm > sb.norm) { mid = `<span class="edge">◀ edge</span><br>${mid}`; ea++; } else { mid = `<span class="edge">edge ▶</span><br>${mid}`; eb++; }
-      }
-      html += `<div class="ln">${cell(A, sa, false)}<div class="mid">${mid}</div>${cell(B, sb, true)}</div>`;
-    });
-    html += `<div class="ln"><div><b class="num">${ea}</b> edges</div><div class="mid">Scored edges</div><div class="r"><b class="num">${eb}</b> edges</div></div>`;
+    html += `<div class="sec">Stats both have <small>(${both.length})</small></div>`;
+    html += both.length ? both.map((s) => `<div class="ln">${cell(statFor(A, s.key))}<div class="mid">${esc(s.label)}</div>${cell(statFor(B, s.key), true)}</div>`).join("") : `<div class="ln"><div class="dim">None yet</div><div class="mid">—</div><div class="r dim">None yet</div></div>`;
+    html += `<div class="sec">Other stats</div>` + rest.map((s) => `<div class="ln">${cell(statFor(A, s.key))}<div class="mid">${esc(s.label)}</div>${cell(statFor(B, s.key), true)}</div>`).join("");
     html += `<div class="sec">Background</div>`;
     const bg = (c, right) => `<div class="${right ? "r" : ""}" style="font-size:13px">${(c.facts || []).slice(0, 2).map((f) => `<div>${esc(f.text)} ${sups(f)}</div>`).join("")}</div>`;
     html += `<div class="ln">${bg(A)}<div class="mid">Record</div>${bg(B, true)}</div>`;
-    html += `<div class="sec">Positions · side by side, never scored</div>`;
+    const pl = (c, right) => `<div class="${right ? "r" : ""}" style="font-size:13px">${(c.plans || []).length ? c.plans.slice(0, 3).map((p) => `<div>${esc(p.text)} ${sups(p)}</div>`).join("") : '<span class="dim">None collected yet</span>'}</div>`;
+    html += `<div class="ln">${pl(A)}<div class="mid">Plans · their words</div>${pl(B, true)}</div>`;
     const topics = POSITION_TOPICS[race.office] || [];
-    if (!topics.length) html += `<div class="ln"><div class="dim">Not yet sourced</div><div class="mid">Positions</div><div class="r dim">Not yet sourced</div></div>`;
-    topics.forEach((t) => {
-      const pa = A.positions && A.positions[t.key], pb = B.positions && B.positions[t.key];
-      const pc = (p, right) => `<div class="${right ? "r" : ""}">${p ? esc(p.text) + " " + sups(p) : '<span class="dim">Not yet sourced</span>'}</div>`;
-      html += `<div class="ln">${pc(pa)}<div class="mid">${esc(t.label)}</div>${pc(pb, true)}</div>`;
-    });
+    if (topics.length) {
+      html += `<div class="sec">Positions · side by side, never scored</div>`;
+      topics.forEach((t) => {
+        const pc = (p, right) => `<div class="${right ? "r" : ""}">${p ? esc(p.text) + " " + sups(p) : '<span class="dim">Not yet sourced</span>'}</div>`;
+        html += `<div class="ln">${pc(A.positions && A.positions[t.key])}<div class="mid">${esc(t.label)}</div>${pc(B.positions && B.positions[t.key], true)}</div>`;
+      });
+    }
     $("#h2h").innerHTML = html;
   }
   $("#h2h-race").addEventListener("change", (e) => { const r = RACE(e.target.value); h2hState = { race: r.id, a: r.candidates[0], b: r.candidates[1] }; renderH2H(); });
@@ -391,13 +361,13 @@
     renderDaily();
     $("#lessons").innerHTML = LESSONS.map((l, i) => `<details class="lesson"${i === 0 ? " open" : ""}><summary><b>${esc(l.t)}</b><span>${esc(l.m)}</span></summary><div>${l.body.map((p) => `<p>${esc(p)}</p>`).join("")}</div></details>`).join("");
     const G = [["Earmark", "Money a member requests for a specific local project inside a spending bill; the House calls it Community Project Funding."],
-      ["Cosponsor", "A member who formally signs on to support another member's bill."], ["Veto", "A governor's or president's rejection of a bill; legislatures can override with a supermajority."],
-      ["Mill", "One-tenth of a cent per dollar of assessed property value, the unit of property tax rates."], ["LES", "Legislative Effectiveness Score from the Center for Effective Lawmaking; 1.0 is average."],
-      ["Benchmark", "The score expected for a member with the same party status, seniority and committee role."]];
+      ["Cosponsor", "A member who formally signs on to support another member's bill."], ["Veto", "A governor's or president's rejection of a bill; legislatures can override it."],
+      ["Mill", "One-tenth of a cent per dollar of assessed property value, the unit of property tax rates."], ["LES", "Legislative Effectiveness Score from the Center for Effective Lawmaking; 1.0 is the chamber average."],
+      ["Benchmark", "The score expected for a member with the same party status, seniority and committee role."], ["Percentile", "The share of peers in the same chamber an official does better than on one stat."]];
     $("#glossary").innerHTML = G.map(([k, v]) => `<div><span class="lbl">${k}</span><span>${v}</span></div>`).join("");
   }
 
-  /* ---------- play ---------- */
+  /* ---------- play (fictional) ---------- */
   PLAYERS.forEach((p) => (p.pts = Math.round(p.events.reduce((a, e) => a + e[1], 0) * 10) / 10));
   const P = (id) => PLAYERS.find((p) => p.id === id);
   let roster = Object.assign({}, DEFAULT_ROSTER, store.get("roster", {}));
@@ -407,9 +377,8 @@
     const mine = SLOTS.map(([k]) => roster[k]).filter(Boolean).map(P);
     const theirs = OPPONENT.roster.map(P);
     const ms = mine.reduce((a, p) => a + p.pts, 0), ts = theirs.reduce((a, p) => a + p.pts, 0);
-    $("#scoreboard").innerHTML = `<div class="team"><b>Civic Sundays</b><small>You · 4–1 · Midwest Division</small><span class="pts ${ms >= ts ? "lead" : ""} num">${fmt(ms)}</span></div>
-      <div class="mid">Week 6<br>Final Friday</div>
-      <div class="team r"><b>${esc(OPPONENT.name)}</b><small>3–2 · South Division</small><span class="pts ${ts > ms ? "lead" : ""} num">${fmt(ts)}</span></div>`;
+    $("#scoreboard").innerHTML = `<div class="team"><b>Civic Sundays</b><small>You · fictional</small><span class="pts ${ms >= ts ? "lead" : ""} num">${fmt(ms)}</span></div>
+      <div class="mid">Week 6<br>Demo</div><div class="team r"><b>${esc(OPPONENT.name)}</b><small>Fictional</small><span class="pts ${ts > ms ? "lead" : ""} num">${fmt(ts)}</span></div>`;
     $("#roster").innerHTML = SLOTS.map(([k, pos]) => {
       const p = roster[k] && P(roster[k]);
       if (!p) return `<div class="slot empty"><span class="pos">${pos}</span><span class="nm dim">Empty · draft a ${pos === "FLEX" ? "player" : pos}</span><span></span><span></span></div>`;
@@ -420,8 +389,8 @@
     $("#feed").innerHTML = feed.length ? feed.map((e) => `<div><span><b>${esc(e.who)}</b> · ${esc(e.t)}</span><span class="${e.v >= 0 ? "pl" : "mi"}">${e.v >= 0 ? "+" : ""}${fmt(e.v)}</span></div>`).join("") : `<div><span class="dim">Draft players to see their scoring plays.</span><span></span></div>`;
     const taken = new Set(Object.values(roster).concat(OPPONENT.roster));
     const pool = PLAYERS.filter((p) => !taken.has(p.id) && (posFilter === "All" || p.pos === posFilter)).sort((a, b) => b.pts - a.pts);
-    $("#posfilter").innerHTML = ["All", "QB", "WR", "RB"].map((f) => `<button type="button" aria-pressed="${f === posFilter}" data-f="${f}">${f === "QB" ? "QB · Governors" : f === "WR" ? "WR · Senators" : f === "RB" ? "RB · House" : "All"}</button>`).join("");
-    $("#pool").innerHTML = pool.length ? pool.map((p) => `<div class="slot"><span class="pos">${p.pos}</span><span class="nm">${esc(p.name)}<small>Party ${p.party} · ${p.team} · ${fmt(p.pts)} pts last week</small></span><span class="status ${p.status}">${p.status}</span><button class="btn small" type="button" data-draft="${p.id}">Draft</button></div>`).join("") : `<p class="dim">No available players at this position.</p>`;
+    $("#posfilter").innerHTML = ["All", "QB", "WR", "RB"].map((f) => `<button type="button" aria-pressed="${f === posFilter}" data-f="${f}">${{ QB: "QB · Governors", WR: "WR · Senators", RB: "RB · House", All: "All" }[f]}</button>`).join("");
+    $("#pool").innerHTML = pool.length ? pool.map((p) => `<div class="slot"><span class="pos">${p.pos}</span><span class="nm">${esc(p.name)}<small>Party ${p.party} · ${p.team} · ${fmt(p.pts)} pts</small></span><span class="status ${p.status}">${p.status}</span><button class="btn small" type="button" data-draft="${p.id}">Draft</button></div>`).join("") : `<p class="dim">No available players at this position.</p>`;
     $("#scoretable").innerHTML = SCORING.map(([a, b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join("");
   }
   $("#roster").addEventListener("click", (e) => { const b = e.target.closest("[data-drop]"); if (!b) return; roster[b.dataset.drop] = null; store.set("roster", roster); $("#draftmsg").textContent = ""; renderPlay(); });
@@ -429,192 +398,133 @@
   $("#pool").addEventListener("click", (e) => {
     const b = e.target.closest("[data-draft]"); if (!b) return;
     const p = P(b.dataset.draft);
-    const order = SLOTS.filter(([, pos]) => pos === p.pos).map(([k]) => k).concat(["FLEX"]);
-    const slot = order.find((k) => !roster[k]);
+    const slot = SLOTS.filter(([, pos]) => pos === p.pos).map(([k]) => k).concat(["FLEX"]).find((k) => !roster[k]);
     if (!slot) { $("#draftmsg").textContent = `No open ${p.pos} or FLEX slot. Drop someone first.`; return; }
-    roster[slot] = p.id; store.set("roster", roster);
-    $("#draftmsg").textContent = `Drafted ${p.name} into ${slot.replace(/\d/, "")}.`; renderPlay();
+    roster[slot] = p.id; store.set("roster", roster); $("#draftmsg").textContent = `Drafted ${p.name} into ${slot.replace(/\d/, "")}.`; renderPlay();
   });
   $("#reset-roster").addEventListener("click", () => { roster = Object.assign({}, DEFAULT_ROSTER); store.set("roster", roster); $("#draftmsg").textContent = "Demo reset."; renderPlay(); });
 
-  /* ---------- method ---------- */
+  /* ---------- methodology ---------- */
+  let feedState = {};
   function renderMethod() {
-    const statsList = STATS.map((s) => `<li><b>${esc(s.label)}</b> (${esc(s.who)}): ${esc(s.explain)}</li>`).join("");
+    const kpiRows = STATS.map((s) => `<tr><td><b>${esc(s.label)}</b><br><span class="dim" style="font-size:12.5px">${esc(s.q)}</span></td><td>${esc(s.who)}</td><td style="font-size:13px">${esc(s.explain)}</td><td>${s.defaultOn ? "On" : "Off"}</td></tr>`).join("");
     const srcList = SRC_IDS.map((id, i) => { const s = SOURCES[id]; return `<div><span class="id">[${i + 1}]</span><span>${esc(s.pub)}, “${esc(s.title)},” ${esc(s.date)}. <a href="${esc(s.url)}" target="_blank" rel="noopener">Link</a></span></div>`; }).join("");
-    const subs = store.get("corrections", []);
+    const feedRows = FEEDS.map((f) => {
+      const e = feedState[f.key];
+      let label, cls;
+      if (f.next) { label = "Not connected"; cls = "next"; }
+      else if (f.manualDraft) { label = "AI draft"; cls = "manual"; }
+      else if (f.manual) { label = "Imported by hand"; cls = "manual"; }
+      else if (e && e.state === "error") { label = "Last run failed"; cls = "partial"; }
+      else { label = "Nightly"; cls = "live"; }
+      const last = e && e.last ? e.last : (f.next || f.manualDraft ? "—" : ASOF);
+      return `<tr><td><b>${esc(f.name)}</b><br><span class="dim" style="font-size:12.5px">${esc(f.org)} · ${esc(f.how)}</span></td><td>${esc(f.stat)}</td><td><span class="feed ${cls}">${label}</span></td><td class="cov">${esc(last)}</td></tr><tr class="sub"><td colspan="4" class="dim" style="font-size:12.5px;padding-top:0">${esc(f.note)}</td></tr>`;
+    }).join("");
     $("#methodbody").innerHTML = `
       <h3 id="m-principles">Principles</h3>
       <ol>
-        <li>Score performance and transparency, never policy positions or the direction of any vote.</li>
-        <li>No editorial "best candidate." Rankings come from the weights each visitor chooses; the default weighs every category equally.</li>
-        <li>Every number links to a source. Unsourced values are labeled and left out of scores.</li>
-        <li>Show context with every number: league average, peers, and the predecessor in the seat when available.</li>
-        <li>Show sample sizes. Don't grade a candidate until there is enough verified data to do it honestly.</li>
+        <li><b>Stats, not standings.</b> Candidates get box scores and category labels, never one overall grade. In sports everyone agrees the goal is winning; in politics there's no shared goal, so any single ranking builds in someone's values.</li>
+        <li>Measure whether people face voters and do the job. Never score policy positions or how anyone voted on an issue.</li>
+        <li>Every number links to a public source. Anything that took judgment is labeled Draft until reviewed.</li>
+        <li>Compare officials with peers in the same chamber, and show the peer group beside every comparison.</li>
+        <li>Rank only when a voter asks, using only stats every candidate in the race has.</li>
       </ol>
-      <h3 id="m-stats">The stats</h3>
-      <ul>${statsList}</ul>
-      <p>Governors and legislators get different stat sets. In the full build, governors are measured on budgets proposed against those enacted, vetoes, executive actions and appointments tied to promises, rather than bills sponsored.</p>
-      <h3 id="m-score">Scoring and tiers</h3>
-      <p>Each stat is scaled from 0 to 1 against a league baseline. The composite is the weighted average of every scored stat the candidate has:</p>
-      <div class="formula">composite = Σ (weightᵢ × statᵢ) / Σ weightᵢ     over scored stats only
-
-tier:  ≥ 0.75 Elite · ≥ 0.55 Starter · ≥ 0.35 Developing · otherwise Bench
-gate:  no tier until at least 4 verified stats exist (draft ratings never count toward it)
-confidence:  7–8 stats High · 5–6 Medium · 4 Low · any draft stat → Low</div>
-      <p>How raw numbers become 0–1 stats:</p>
-      <div class="formula">effectiveness = min(1, (LES ÷ CEL benchmark) ÷ 2)     meeting the benchmark = 0.50
-attendance    = max(0, 1 − missed% ÷ 20)            league median (2.2% missed) ≈ 0.89
-fact-checks   = average of ratings, where True 1 · Mostly True 0.75 · Half True 0.5
-                · Mostly False 0.25 · False 0 · Pants on Fire 0
-specificity   = average promise checklist score ÷ 4</div>
-      <p>This prototype scales stats against fixed league baselines. The production method computes z-scores within peer groups of the same chamber, majority or minority status and seniority band, the way the Center for Effective Lawmaking compares each member to a benchmark ${sup("cel_faq")}.</p>
-      <h3 id="m-promises">Promise rules</h3>
+      <h3 id="m-kpis">The five stats</h3>
+      <div class="tablebox"><table class="rank-table"><tr><th>Stat</th><th>Applies to</th><th>How it's measured</th><th>In Your ranking by default</th></tr>${kpiRows}</table></div>
+      <div class="formula" tabindex="0" role="region" aria-label="Formulas">Shows up, Gets results, Works across lines: the stat used for ranking is the official's percentile in their peer group
+  (1.0 = best in the chamber, 0.5 = middle). Gets results compares LES ÷ benchmark across the chamber.
+Answers to voters: share of collected parts the candidate did (debates accepted, questionnaires answered, ...).
+Who funds them: average of small-donor share, in-state share (when available) and (1 − PAC share).</div>
+      <h3 id="m-answers">Answers to voters: what counts</h3>
       <ul>
-        <li>A promise is a specific, verifiable statement of a future action or outcome, sourced to the candidate's own words.</li>
-        <li><b>Outcome</b> uses established fact-checking categories: Kept, Compromise, In progress, Stalled, Broken, Not yet rated ${sup("pf_promise")}.</li>
-        <li><b>Effort</b> is tracked separately (introduced the bill, voted for it, issued an order, publicly pushed), because minority-party members can't control outcomes.</li>
-        <li>Each promise gets a 0–4 specificity score: measurable, time-bound, costed, within the office's power. Promises are weighted by it, so a few vague promises can't inflate a kept rate.</li>
-        <li>Every ledger entry in this prototype is a <b>draft</b> awaiting two-reviewer sign-off.</li>
+        <li><b>Debates</b> count only when a nonpartisan host invited every qualifying candidate. Accepting counts; declining counts against. Invitations that left out a qualifying candidate are listed but not counted.</li>
+        <li><b>Questionnaires</b> count when a nonpartisan voter guide sent the same questions to every candidate on the ballot: the League of Women Voters' Vote411, Ballotpedia's Candidate Connection, or a nonprofit or newspaper guide that publishes which candidates didn't respond.</li>
+        <li><b>Town halls</b> count when announced publicly at least two days ahead and open to any constituent, in person or online.</li>
+        <li><b>Disclosures</b> count when a required financial-disclosure report was filed by its legal deadline.</li>
+        <li>Each card lists every part, including parts not collected yet. Today only debates (and one Ohio questionnaire) are collected.</li>
       </ul>
-      <h3 id="m-fair">Fairness rules</h3>
+      <h3 id="m-leaders">Category leaders</h3>
+      <p>Labels compare an official with everyone in the same peer group on one stat: Top 10%, Top 25%, Middle 50%, Bottom 25% or Bottom 10%. Peer groups: every House member or senator with recorded votes in the 119th Congress (attendance); every member scored in the 118th Congress (effectiveness); every member ranked in the 2023 Bipartisan Index; every Arkansas House or Senate member scored for 2023–24 (state effectiveness).</p>
+      <h3 id="m-ranking">Your ranking</h3>
       <ul>
-        <li><b>Debates</b> count only when a recognized nonpartisan host formally invited every qualifying candidate. Otherwise the debate history is shown as a fact. In the Ohio governor's race, that's why debate history appears on every card but scores no one.</li>
-        <li><b>Earmark dollars</b> are context only. Totals track seniority and committee seats, and some members refuse earmarks on principle.</li>
-        <li><b>Attendance</b> counts officially recorded roll calls. When an official has a documented family or medical absence, the stat is held as a draft until reviewers label those votes, so caregiving isn't silently penalized.</li>
-        <li><b>Fact-check rates</b> appear only after 5 rated claims. The pilot uses PolitiFact rulings; the full build adds other fact-checkers through the shared ClaimReview format. Fact-checkers choose which claims to check, so every fact-check stat carries that caveat.</li>
-        <li>Campaigns may submit a sourced response to any stat, shown beside it after review.</li>
+        <li>Appears only after you select "Show my ranking."</li>
+        <li>Uses only stats you switched on <i>and</i> every candidate in the race has. Challengers usually have only Answers to voters and Who funds them, so they're never ranked on a voting record they can't have.</li>
+        <li>Who funds them and Works across lines start switched off because voters disagree about whether they matter.</li>
+        <li>Drafts are left out unless you include them.</li>
       </ul>
-      <h3 id="m-audit">Symmetry audit</h3>
-      <p>The same code path scores every candidate; there is no party input anywhere in the scoring function. The full build will publish an audit each cycle that runs the rules on candidates from every party and reports the distribution of tiers, so anyone can check the rules treat them alike.</p>
-      <h3 id="m-limits">Limitations of this prototype</h3>
+      <h3 id="m-plans">Plans and fact-checks</h3>
+      <p><b>Plans</b> are each candidate's own statements with links, plus a four-point checklist: measurable, has a timeline, says what it costs, within the office's power. There are no kept-or-broken verdicts. The checklists are AI-drafted and unreviewed.</p>
+      <p><b>Fact-checks</b> appear as a dated list of every ruling the shared ClaimReview database attributes to a person. They're never turned into a rate or a score, because fact-checkers choose which claims to check.</p>
+      <h3 id="m-review">Who reviews</h3>
+      <p>No one yet. This is an AI-assisted prototype. Official-record stats are imported automatically by code anyone can read. Everything that took judgment (plan checklists, backgrounds, debate classifications) is marked Draft. The proposed review protocol, borrowed from Wikipedia's model of public sourcing, public edit history and extra protection for pages about living people, is in the contributor guide: <a href="${REPO_URL}/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">CONTRIBUTING.md</a>.</p>
+      <h3 id="m-evidence">Evidence behind the design</h3>
       <ul>
-        <li>Only two real races, sourced by hand from news coverage and campaign sites on ${AS_OF}.</li>
-        <li>Promise ledgers are incomplete and unreviewed.</li>
-        <li>Effectiveness, campaign finance and fact-check data are now imported for the pilot. Bipartisanship, direct House Clerk vote records and questionnaires are not connected yet, so real candidates still show "Not enough verified data." That is the method working as designed.</li>
-        <li>CEL scores cover the 118th Congress (2023–24). Scores for the current Congress publish after it ends.</li>
-        <li>Tiers for real candidates come from prototype formulas that haven't had outside review. Incumbents can be graded before challengers because they have public records, so a missing tier says nothing about a candidate.</li>
-        <li>Arkansas legislative attendance and bill records aren't connected yet, so state legislators are scored on effectiveness only for now.</li>
-        <li>ZIP lookup uses Census ZIP tabulation areas, which don't match postal ZIPs exactly. ZIPs that span two districts ask you to confirm with your county clerk.</li>
+        <li>Pew Research Center (2023): 80% of Americans say big campaign donors have too much influence on Congress, and 85% say elected officials don't care what people like them think. These findings shaped Who funds them and Answers to voters.</li>
+        <li>A 2020 national poll split exactly evenly on whether lawmakers should compromise or hold firm, with 72% of liberals and 35% of conservatives preferring compromisers. That's why Works across lines starts switched off.</li>
+        <li>Vote Smart's candidate questionnaire response rate fell from 72% in 1996 to 24% in 2020, which is why answering voters is the lead stat.</li>
+        <li>Frese, Hix and Lachat (British Journal of Political Science, 2025) ran field experiments with 6,501 voters in three countries: a voting-advice tool didn't change turnout or push users toward any camp, and made them up to 6 points more likely to vote for the party closest to their own views. Your ranking is inspired by that approach; it isn't the same tool.</li>
+        <li>Fowler and Hall's reassessment found little evidence for the claim that shark attacks swing elections, but the broader lesson stands: voters struggle to separate what officials did from what happened on their watch. So every stat here is about an official's own actions.</li>
+        <li>A University of Georgia study, "Pick Your Poison: On Selecting Roll Calls to Say Whatever You Want," shows how choosing which votes to highlight can produce almost any picture of a lawmaker. That's why key votes will only appear on topics a voter picks.</li>
+      </ul>
+      <h3 id="m-limits">Limitations</h3>
+      <ul>
+        <li>Answers to voters has only one of four parts collected for most candidates (debates).</li>
+        <li>Effectiveness scores cover 2023–24; the current term's scores publish after it ends. Majority-party members advance more bills; benchmarks reduce that advantage but don't remove it.</li>
+        <li>The Bipartisan Index is the 2023 release and covers members of Congress only.</li>
+        <li>Arkansas legislature votes, state campaign finance and executive records (budgets, vetoes) aren't connected, so state and executive cards are thin.</li>
+        <li>Constituent service matters to voters but has no public data; it isn't measured.</li>
+        <li>ZIP lookup uses Census ZIP areas; about 15% of ZIPs span two districts and the page asks you to confirm.</li>
       </ul>
       <h3 id="m-feeds">Data feeds</h3>
-      <div class="tablebox"><table class="rank-table feeds">
-        <tr><th>Feed</th><th>Feeds this stat</th><th>Status</th><th>Last pulled</th></tr>
-        ${FEEDS.map((f) => `<tr><td><b>${esc(f.name)}</b><br><span class="dim" style="font-size:12.5px">${esc(f.org)} · ${esc(f.how)}</span></td><td>${esc(f.stat)}</td><td><span class="feed ${f.state}">${{ live: "Live", partial: "Partial", next: "Next", manual: "Reviewed by hand" }[f.state]}</span></td><td class="cov">${esc(f.last)}</td></tr><tr class="sub"><td colspan="4" class="dim" style="font-size:12.5px;padding-top:0">${esc(f.note)}</td></tr>`).join("")}
-      </table></div>
+      <div class="tablebox"><table class="rank-table feeds"><tr><th>Feed</th><th>Feeds</th><th>Status</th><th>Last pulled</th></tr>${feedRows}</table></div>
       <h3 id="m-corr">Corrections</h3>
-      <p>Anyone can submit a sourced correction. Every change is reviewed and logged publicly.</p>
-      <div class="log">
-        <div><span class="d">Oct 23, 2026</span><span>Corrected Womack's attendance. The card showed only his 8,823-vote career streak; it now shows the current term (72 of 676 roll calls missed), held as draft until absences tied to his wife's illness are labeled from official records.</span></div>
-        <div><span class="d">Oct 23, 2026</span><span>Imported CEL effectiveness scores, FEC campaign summaries, PolitiFact rulings and the Census ZIP-to-district map. Renamed to Stump League.</span></div>
-        <div><span class="d">Oct 23, 2026</span><span>Prototype launched with AR-3 and OH-GOV pilot data. All promise ratings marked draft.</span></div>
-        ${subs.map((s) => `<div><span class="d">Your draft</span><span>${esc(s.who)} · ${esc(s.stat)}: ${esc(s.text)} ${s.url ? `(<a href="${esc(s.url)}" target="_blank" rel="noopener">source</a>)` : ""}</span></div>`).join("")}
-      </div>
+      <p>Corrections happen in public on GitHub: every report is an issue anyone can read, and every change is a commit anyone can inspect. <a href="${REPO_URL}/issues" target="_blank" rel="noopener">See open corrections</a> · <a href="${REPO_URL}/commits/main" target="_blank" rel="noopener">See the change history</a></p>
       <form class="corr" id="corrform">
         <div class="g">
-          <label class="lab">Candidate <select class="input" id="c-who">${Object.entries(CANDS).filter(([, c]) => !c.sample).map(([id, c]) => `<option>${esc(c.name)}</option>`).join("")}</select></label>
-          <label class="lab">Stat or fact <select class="input" id="c-stat">${STATS.map((s) => `<option>${esc(s.label)}</option>`).join("")}<option>Promise ledger</option><option>Background fact</option></select></label>
+          <div class="stack" style="gap:4px"><label class="lab" for="c-who">Candidate</label><select class="input" id="c-who">${Object.values(CANDS).filter((c) => !c.sample).map((c) => `<option>${esc(c.name)}</option>`).join("")}</select></div>
+          <div class="stack" style="gap:4px"><label class="lab" for="c-stat">Stat or fact</label><select class="input" id="c-stat">${STATS.map((s) => `<option>${esc(s.label)}</option>`).join("")}<option>Plans</option><option>Background fact</option></select></div>
         </div>
-        <label class="lab">What should change <input class="input" id="c-text" required placeholder="Describe the correction"></label>
-        <label class="lab">Source link <input class="input" id="c-url" type="url" placeholder="https://"></label>
-        <div class="row"><button class="btn primary" type="submit">Save correction</button><span class="toast" id="c-msg" aria-live="polite"></span></div>
-        <p class="dim" style="font-size:12.5px">In this prototype, corrections are saved on this device only. In the full build they go to the public review queue.</p>
+        <div class="stack" style="gap:4px"><label class="lab" for="c-text">What should change</label><input class="input" id="c-text" required placeholder="Describe the correction"></div>
+        <div class="stack" style="gap:4px"><label class="lab" for="c-url">Source link (required)</label><input class="input" id="c-url" type="url" required placeholder="https://"></div>
+        <div class="row"><button class="btn primary" type="submit">Prepare GitHub issue</button><span class="toast" id="c-msg" aria-live="polite"></span></div>
+        <p class="dim" style="font-size:12.5px">Opens a pre-filled public issue on GitHub (free account required). Nothing is saved here.</p>
       </form>
       <h3 id="m-src">Sources</h3>
-      <div class="srclist">${srcList}</div>
-      <p class="dim" style="font-size:12.5px">Election totals in the ticker: NCSL reports 6,139 of 7,386 state legislative seats and 36 governorships on the ballot ${sup("ballotpedia_counts")}.</p>`;
+      <div class="srclist">${srcList}</div>`;
     $("#corrform").addEventListener("submit", (e) => {
       e.preventDefault();
-      const s = { who: $("#c-who").value, stat: $("#c-stat").value, text: $("#c-text").value.trim(), url: $("#c-url").value.trim() };
-      if (!s.text) return;
-      const all = store.get("corrections", []); all.push(s); store.set("corrections", all);
-      renderMethod(); $("#c-msg").textContent = "Saved on this device and added to the log above.";
+      const who = $("#c-who").value, stat = $("#c-stat").value, text = $("#c-text").value.trim(), url = $("#c-url").value.trim();
+      if (!text || !url) return;
+      const href = `${REPO_URL}/issues/new?labels=correction&title=${encodeURIComponent("Correction: " + who + " · " + stat)}&body=${encodeURIComponent("**Candidate:** " + who + "\n**Stat or fact:** " + stat + "\n**What should change:** " + text + "\n**Source:** " + url)}`;
+      $("#c-msg").innerHTML = `<a href="${esc(href)}" target="_blank" rel="noopener">Open the pre-filled issue on GitHub</a>`;
     });
   }
   $(".toc").addEventListener("click", (e) => { const a = e.target.closest("[data-jump]"); if (!a) return; e.preventDefault(); document.getElementById(a.dataset.jump)?.scrollIntoView({ behavior: "smooth", block: "start" }); });
 
-  /* ---------- boot ---------- */
-  $("#asof").textContent = AS_OF; $$(".asof2").forEach((x) => (x.textContent = AS_OF));
-  renderBallot($("#zip").value);
-  renderLearn(); renderMethod();
-  show(location.hash.slice(1) || "scout");
+  /* ---------- about ---------- */
+  function renderAbout() {
+    $("#about-real").innerHTML = [
+      `Every contested race on Arkansas's Nov 3 ballot: ${AR_CONTESTED.length} races and ${AR_CANDS} candidates, plus the ${UNOPP_N} unopposed seats and plain-language explainers for the 4 statewide ballot issues.`,
+      "Ohio's governor race as a second pilot: three first-time candidates, shown as profiles and plans.",
+      "Official data refreshed nightly: congressional and state legislative effectiveness, House and Senate roll calls, FEC campaign money, fact-check rulings, and the Census ZIP-to-district map. The Bipartisan Index is imported by hand.",
+      "The page itself is rebuilt from that data every night, so the numbers shown match the latest pull."
+    ].map((t) => `<li>${esc(t)}</li>`).join("");
+    $("#repo-link").href = REPO_URL;
+  }
 
-  /* When hosted next to the pipeline's output (GitHub Pages), read the latest nightly files and
-     update feed status and candidate stats. Elsewhere the files aren't there and the embedded
-     data stays as is. Live data never upgrades a draft to verified: review rules still apply. */
-  const FEED_KEYS = { members: "Member IDs", zips: "ZIP to district", cel: "Legislative Effectiveness Scores", cel_state: "State legislative effectiveness", fec: "Campaign finance", votes: "Roll-call votes", senate_votes: "Senate roll-call votes", bills: "Bills and cosponsors", factchecks: "Fact-check rulings" };
-  const fmtDate = (d) => { try { return new Date(String(d).slice(0, 10) + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); } catch (e) { return d; } };
-  const getJSON = (f) => fetch("data/" + f + ".json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
-  const pct = (x, d = 0) => (100 * x).toFixed(d) + "%";
-  const money = (x) => (x >= 1e6 ? "$" + (x / 1e6).toFixed(2) + "M" : "$" + (x / 1e3).toFixed(1) + "K");
-  function liveSource(key, dp, title) {
-    if (!SOURCES[key]) SRC_IDS.push(key);
-    SOURCES[key] = { pub: dp.publisher, title: title, date: "retrieved " + fmtDate(dp.retrieved_at), url: dp.source_url };
-    return key;
-  }
-  function setStat(c, key, upd) {
-    const cur = c.stats[key] || {};
-    c.stats[key] = Object.assign({}, cur, upd, { status: cur.status === "draft" ? "draft" : "verified" });
-  }
-  Promise.all(["manifest", "cel", "attendance", "bipartisanship", "fec", "factchecks", "cel_state", "senate_attendance"].map(getJSON)).then(([m, cel, att, bip, fec, fc, cels, satt]) => {
+  /* ---------- boot ---------- */
+  $("#tk-races").textContent = AR_CONTESTED.length;
+  $("#asof").textContent = "data as of " + ASOF; $$(".asof2").forEach((x) => (x.textContent = "Data as of " + ASOF));
+  renderBallot($("#zip").value); renderLearn(); renderMethod(); renderAbout();
+  show(VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "scout", false);
+
+  /* On GitHub Pages the nightly job publishes data/manifest.json next to the page; show each feed's real status. */
+  fetch("data/manifest.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((m) => {
     if (!m) return;
-    Object.entries(FEED_KEYS).forEach(([k, name]) => {
-      const f = FEEDS.find((x) => x.name === name), e = m[k];
-      if (!f || !e) return;
-      if (e.state === "live") { f.state = "live"; f.last = fmtDate(e.last); }
-      else if (e.state === "error") { f.state = "partial"; f.note = "Last nightly run couldn't reach this source (" + fmtDate(e.checked) + "). Showing the most recent good data. " + f.note; }
-    });
-    if (m._run) { const a = $("#asof"); if (a) a.textContent = fmtDate(m._run.date); $$(".asof2").forEach((x) => (x.textContent = fmtDate(m._run.date))); }
-    Object.entries(CANDS).forEach(([id, c]) => {
-      const ids = c.ids; if (!ids) return;
-      const b = ids.bioguide;
-      if (b && cel && cel[b]) {
-        const v = cel[b].value, word = { MEETS: "meets", EXCEEDS: "exceeds", BELOW: "below" }[v.expectation] + " expectations";
-        setStat(c, "effectiveness", { norm: v.norm, display: v.les.toFixed(2) + " LES · " + word,
-          sub: "Benchmark for members like this: " + v.benchmark.toFixed(2) + " · " + ord(v.party_rank) + " of " + v.party_total + " in the same party · " + v.congress + "th Congress",
-          src: liveSource("live_cel", cel[b], "Legislative Effectiveness Scores, " + v.congress + "th Congress") });
-      }
-      if (b && att && att[b]) {
-        const v = att[b].value;
-        setStat(c, "attendance", { norm: v.norm, display: v.missed + " of " + v.total + " roll calls missed (" + pct(v.missed / v.total, 1) + ")",
-          src: liveSource("live_votes", att[b], "Roll-call votes, " + v.years.join("–")) });
-      } else if (b && satt && satt[b]) {
-        const v = satt[b].value;
-        setStat(c, "attendance", { norm: v.norm, display: v.missed + " of " + v.total + " roll calls missed (" + pct(v.missed / v.total, 1) + ")",
-          src: liveSource("live_svotes", satt[b], "Senate roll-call votes, " + v.congress + "th Congress") });
-      }
-      if (ids.sles && cels && cels[ids.sles]) {
-        const v = cels[ids.sles].value, word = { MEETS: "meets", EXCEEDS: "exceeds", BELOW: "below" }[v.expectation] + " expectations";
-        setStat(c, "effectiveness", { norm: v.norm, display: v.sles.toFixed(2) + " SLES · " + word,
-          sub: "Benchmark " + v.benchmark.toFixed(2) + " · " + ord(v.party_rank) + " of " + v.party_total + " " + (v.majority ? "majority" : "minority") + "-party members · Arkansas " + (v.chamber === "lower" ? "House" : "Senate") + " " + v.term.replace("-", "–"),
-          src: liveSource("live_cels", cels[ids.sles], "State Legislative Effectiveness Scores, Arkansas " + v.term) });
-      }
-      if (b && bip && bip[b]) {
-        const v = bip[b].value, n = Math.round(v.share * v.bills);
-        setStat(c, "bipartisan", { norm: v.share, display: pct(v.share) + " of bills",
-          sub: n + " of " + v.bills + " bills and joint resolutions drew a cosponsor from another party · " + v.congress + "th Congress",
-          src: liveSource("live_bills_" + b, bip[b], "Sponsored legislation and cosponsors, " + v.congress + "th Congress") });
-      }
-      if (ids.fec && fec && fec[ids.fec] && c.money) {
-        const v = fec[ids.fec].value, r = v.receipts;
-        c.money.items = [
-          { label: "Raised this cycle", value: money(r) },
-          { label: "From PACs and party committees", value: pct(v.pac_share, 1), sub: money(r * v.pac_share) },
-          { label: "From donors giving $200 or less", value: pct(v.small_donor_share, 1), sub: money(r * v.small_donor_share) } ];
-        c.money.note = "Larger individual donors gave " + pct(v.large_donor_share) + " (" + money(r * v.large_donor_share) + ").";
-        c.money.asOf = fmtDate(v.coverage_end_date);
-        c.money.src = liveSource("live_fec_" + ids.fec, fec[ids.fec], "Campaign finance summary, 2025–2026");
-      }
-      if (ids.factcheck && fc && fc[ids.factcheck] && fc[ids.factcheck].value.norm != null) {
-        const v = fc[ids.factcheck].value, pubs = {};
-        let good = 0;
-        v.reviews.forEach((r) => { const t = (r.rating || "").toLowerCase(); if (["true", "mostly true", "correct", "accurate", "mostly correct", "mostly accurate", "geppetto checkmark", "one pinocchio"].includes(t)) good++; pubs[r.publisher] = (pubs[r.publisher] || 0) + 1; });
-        setStat(c, "factcheck", { norm: v.norm, display: good + " of " + v.n + " rated mostly true or better",
-          sub: v.n + " scored rulings from " + Object.keys(pubs).join(", ") + (v.unmapped ? " · " + v.unmapped + " more use labels outside the standard scale and aren't scored" : ""),
-          src: liveSource("live_fc_" + id, fc[ids.factcheck], "Fact-check rulings on " + c.name), src2: null });
-      }
-    });
+    const fmtDate = (d) => { try { return new Date(String(d).slice(0, 10) + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); } catch (e) { return d; } };
+    Object.entries(m).forEach(([k, v]) => { if (!k.startsWith("_")) feedState[k] = { state: v.state, last: v.last ? fmtDate(v.last) : (v.checked ? fmtDate(v.checked) : null) }; });
+    $("#tk-mode").textContent = "Nightly";
+    if (m._run) $("#asof").textContent = "refreshed " + fmtDate(m._run.date);
     renderMethod();
-    const v = location.hash.slice(1);   // re-render in place, without scrolling the reader
-    if (v === "races") renderRaces(); else if (v === "h2h") renderH2H();
   }).catch(() => {});
 })();
