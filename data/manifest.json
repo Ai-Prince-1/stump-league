@@ -1,0 +1,57 @@
+{
+ "_run": {
+  "date": "2026-10-24",
+  "scope": "pilot"
+ },
+ "bills": {
+  "last": "2026-10-24",
+  "records": 1,
+  "seconds": 6,
+  "state": "live"
+ },
+ "cel": {
+  "last": "2026-10-24",
+  "records": 550,
+  "seconds": 1,
+  "state": "live"
+ },
+ "factchecks": {
+  "last": "2026-10-24",
+  "records": 6,
+  "seconds": 4,
+  "state": "live"
+ },
+ "fec": {
+  "last": "2026-10-24",
+  "records": 2,
+  "seconds": 1,
+  "state": "live"
+ },
+ "members": {
+  "last": "2026-10-24",
+  "records": 539,
+  "seconds": 3,
+  "state": "live"
+ },
+ "votes": {
+  "last": "2026-10-24",
+  "progress": {
+   "fetched_this_run": 676,
+   "last_roll": {
+    "2025": 362,
+    "2026": 314
+   },
+   "minutes": 1.4,
+   "stopped": "complete"
+  },
+  "records": 452,
+  "seconds": 81,
+  "state": "live"
+ },
+ "zips": {
+  "last": "2026-10-24",
+  "records": 33774,
+  "seconds": 0,
+  "state": "live"
+ }
+}

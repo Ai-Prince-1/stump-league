@@ -1,0 +1,30 @@
+{
+ "H0AR03055": {
+  "publisher": "Federal Election Commission",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://www.fec.gov/data/candidate/H0AR03055/?cycle=2026",
+  "value": {
+   "coverage_end_date": "2026-10-14T00:00:00",
+   "large_donor_share": 0.4675,
+   "pac_share": 0.4531,
+   "receipts": 2363074.02,
+   "self_funding": 0.0,
+   "small_donor_share": 0.016
+  },
+  "verified": true
+ },
+ "H6AR03128": {
+  "publisher": "Federal Election Commission",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://www.fec.gov/data/candidate/H6AR03128/?cycle=2026",
+  "value": {
+   "coverage_end_date": "2026-10-14T00:00:00",
+   "large_donor_share": 0.5281,
+   "pac_share": 0.0472,
+   "receipts": 160833.51,
+   "self_funding": 250.0,
+   "small_donor_share": 0.4231
+  },
+  "verified": true
+ }
+}

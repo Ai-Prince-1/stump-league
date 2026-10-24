@@ -1,0 +1,256 @@
+{
+ "Amy Acton": {
+  "note": "Fact-checkers choose which claims to check; shown with that caveat. Hidden below 5 rated claims.",
+  "publisher": "ClaimReview (multiple fact-checkers)",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://toolbox.google.com/factcheck/explorer",
+  "value": {
+   "n": 0,
+   "norm": null,
+   "reviews": [],
+   "unmapped": 0
+  },
+  "verified": false
+ },
+ "Bobby Wilson": {
+  "note": "Fact-checkers choose which claims to check; shown with that caveat. Hidden below 5 rated claims.",
+  "publisher": "ClaimReview (multiple fact-checkers)",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://toolbox.google.com/factcheck/explorer",
+  "value": {
+   "n": 0,
+   "norm": null,
+   "reviews": [],
+   "unmapped": 0
+  },
+  "verified": false
+ },
+ "Don Kissick": {
+  "note": "Fact-checkers choose which claims to check; shown with that caveat. Hidden below 5 rated claims.",
+  "publisher": "ClaimReview (multiple fact-checkers)",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://toolbox.google.com/factcheck/explorer",
+  "value": {
+   "n": 0,
+   "norm": null,
+   "reviews": [],
+   "unmapped": 0
+  },
+  "verified": false
+ },
+ "Robb Ryerse": {
+  "note": "Fact-checkers choose which claims to check; shown with that caveat. Hidden below 5 rated claims.",
+  "publisher": "ClaimReview (multiple fact-checkers)",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://toolbox.google.com/factcheck/explorer",
+  "value": {
+   "n": 0,
+   "norm": null,
+   "reviews": [],
+   "unmapped": 0
+  },
+  "verified": false
+ },
+ "Steve Womack": {
+  "note": "Fact-checkers choose which claims to check; shown with that caveat. Hidden below 5 rated claims.",
+  "publisher": "ClaimReview (multiple fact-checkers)",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://toolbox.google.com/factcheck/explorer",
+  "value": {
+   "n": 0,
+   "norm": null,
+   "reviews": [],
+   "unmapped": 0
+  },
+  "verified": false
+ },
+ "Vivek Ramaswamy": {
+  "note": "Fact-checkers choose which claims to check; shown with that caveat. Hidden below 5 rated claims.",
+  "publisher": "ClaimReview (multiple fact-checkers)",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://toolbox.google.com/factcheck/explorer",
+  "value": {
+   "n": 17,
+   "norm": 0.176,
+   "reviews": [
+    {
+     "claim": "In 2020, “Amy Acton called off Ohio’s election at the last minute.”",
+     "date": "2026-05-13T00:00:00Z",
+     "publisher": "PolitiFact",
+     "rating": "Mostly False",
+     "url": "https://politifact.com/factchecks/2026/may/13/vivek-ramaswamy/amy-acton-ohio-2020-covid-primary-senate/"
+    },
+    {
+     "claim": "\"These are big changes that the next president can deliver without asking Congress for permission or for forgiveness.”",
+     "date": "2023-12-07T16:00:03Z",
+     "publisher": "The Washington Post",
+     "rating": "False",
+     "url": "https://www.washingtonpost.com/politics/2023/12/07/fact-check-republican-debate/"
+    },
+    {
+     "claim": "“Why am I the only person on this stage at least who can say that Jan. 6 now does look like it was an inside job?”",
+     "date": "2023-12-07T16:00:03Z",
+     "publisher": "The Washington Post",
+     "rating": "No evidence",
+     "url": "https://www.washingtonpost.com/politics/2023/12/07/fact-check-republican-debate/"
+    },
+    {
+     "claim": "“January 6 now does look like it was an inside job.”",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "Pants on Fire",
+     "url": "https://politifact.com/factchecks/2023/dec/07/vivek-ramaswamy/vivek-ramaswamy-said-jan-6-was-an-inside-job-at-al/"
+    },
+    {
+     "claim": "“These people want to send your sons and daughters to go die in Ukraine, they’ve been arguing for it for a year.”",
+     "date": "2023-12-07T06:52:01Z",
+     "publisher": "PolitiFact",
+     "rating": "None of the candidates said that",
+     "url": "https://politifact.com/article/2023/dec/07/fourth-gop-presidential-debate-fact-check/"
+    },
+    {
+     "claim": "“These people want to send your sons and daughters to go die in Ukraine, they’ve been arguing for it for a year.”",
+     "date": "2023-12-07T16:00:03Z",
+     "publisher": "The Washington Post",
+     "rating": "False",
+     "url": "https://www.washingtonpost.com/politics/2023/12/07/fact-check-republican-debate/"
+    },
+    {
+     "claim": "\"There was enough fentanyl that was captured just on the northern border last year to kill 3 million Americans.\"",
+     "date": "2023-11-09T13:43:40Z",
+     "publisher": "PolitiFact",
+     "rating": "Needs context",
+     "url": "https://politifact.com/article/2023/nov/09/fact-checking-the-third-gop-presidential-debate-in/"
+    },
+    {
+     "claim": "“Joe Biden’s son Hunter Biden got a $5 million bribe from Ukraine. That’s why we’re sending $200 billion back to that same country.”",
+     "date": "2023-11-09T05:27:42Z",
+     "publisher": "The Washington Post",
+     "rating": "Baseless",
+     "url": "https://www.washingtonpost.com/politics/2023/11/08/fact-check-republican-debate/"
+    },
+    {
+     "claim": "An exemption in a new Florida law “allowed Chinese nationals to buy land within a 20-mile radius of a military base, lobbied for by one of (Gov. Ron DeSantis’) donors.”",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "Half True",
+     "url": "https://politifact.com/factchecks/2023/nov/15/vivek-ramaswamy/ramaswamy-misses-details-in-debate-story-about-des/"
+    },
+    {
+     "claim": "Gov. Ron DeSantis signed “a last-minute exception into an anti-discrimination law for anyone who also operates a theme park more than 25 acres in Florida,” benefiting Walt Disney Co.",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "Mostly True",
+     "url": "https://politifact.com/factchecks/2023/may/04/vivek-ramaswamy/vivek-ramaswamy-is-largely-correct-about-ron-desan/"
+    },
+    {
+     "claim": "\"It’s a fact that those who perform well on math & reading tests tend to perform more poorly on the 1-mile run, and vice versa.\"",
+     "date": null,
+     "publisher": "FactCheck.org",
+     "rating": "No Evidence",
+     "url": "https://www.factcheck.org/2023/09/ramaswamys-flawed-college-fitness-idea/"
+    },
+    {
+     "claim": "\"The climate change agenda is a hoax.\"",
+     "date": "2023-08-24T09:43:08Z",
+     "publisher": "PolitiFact",
+     "rating": "False",
+     "url": "https://politifact.com/article/2023/aug/24/fact-checks-first-republican-presidential-debate/"
+    },
+    {
+     "claim": "As president, I will \"reduce the federal employee headcount by 75%.\"",
+     "date": "2023-09-28T16:44:10Z",
+     "publisher": "PolitiFact",
+     "rating": "Legal experts are dubious",
+     "url": "https://politifact.com/article/2023/sep/28/second-gop-presidential-debate-fact-check/"
+    },
+    {
+     "claim": "\"The amount of carbon dioxide in the atmosphere is actually close to an all-time low ever in human history.\"",
+     "date": null,
+     "publisher": "FactCheck.org",
+     "rating": "False",
+     "url": "https://www.factcheck.org/2023/09/scicheck-ramaswamys-climate-change-spin/"
+    },
+    {
+     "claim": "“Gen Z is divided 50-50 on whether they support Hamas or Israel.”",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "Mostly False",
+     "url": "https://politifact.com/factchecks/2023/nov/02/vivek-ramaswamy/do-half-of-gen-z-americans-support-hamas/"
+    },
+    {
+     "claim": "Vice President Mike Pence on Jan. 6, 2021, could have approved the 2020 electoral votes on the condition that Congress pass an overhaul of election law.",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "False",
+     "url": "https://politifact.com/factchecks/2023/aug/29/vivek-ramaswamy/vivek-ramaswamys-flawed-argument-about-vp-mike-pen/"
+    },
+    {
+     "claim": "Being transgender is a \"mental health disorder.\"",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "False",
+     "url": "https://politifact.com/factchecks/2023/sep/28/vivek-ramaswamy/vivek-ramaswamy-got-it-wrong-being-trans-isnt-a-me/"
+    },
+    {
+     "claim": "“I did not grow up in money.”",
+     "date": "2023-08-25T18:47:33Z",
+     "publisher": "The Washington Post",
+     "rating": "Mostly False",
+     "url": "https://www.washingtonpost.com/politics/2023/08/24/fact-checking-first-republican-primary-debate/"
+    },
+    {
+     "claim": "\"The reality is the anti-carbon agenda is the wet blanket on our economy. And so the reality is more people are dying of bad climate change policies than they are of actual climate change.\"",
+     "date": "2023-08-24T09:43:08Z",
+     "publisher": "PolitiFact",
+     "rating": "Lacks evidence",
+     "url": "https://politifact.com/article/2023/aug/24/fact-checks-first-republican-presidential-debate/"
+    },
+    {
+     "claim": "“The reality is more people are dying of bad climate change policies than they are of actual climate change.”",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "Pants on Fire",
+     "url": "https://politifact.com/factchecks/2023/aug/24/vivek-ramaswamy/vivek-ramsaswamys-misleading-gop-debate-claim-abou/"
+    },
+    {
+     "claim": "\"We don’t have an Iron Dome in this country, yet, we’re vulnerable to nuclear missile attacks any given day.\"",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "This is misleading",
+     "url": "https://politifact.com/article/2023/oct/13/us-may-not-have-iron-dome-but-military/"
+    },
+    {
+     "claim": "“The climate change agenda is a hoax … The reality is more people are dying of bad climate change policies than they are of actual climate change.”",
+     "date": null,
+     "publisher": "The Washington Post",
+     "rating": "Four Pinocchios",
+     "url": "https://www.washingtonpost.com/politics/2023/08/25/vivek-ramaswamy-says-hoax-agenda-kills-more-people-than-climate-change/"
+    },
+    {
+     "claim": "\"95% of over-the-counter pharmaceuticals\" in the U.S. come from China.",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "False",
+     "url": "https://politifact.com/factchecks/2023/oct/26/vivek-ramaswamy/vivek-ramaswamy-offers-dubious-figure-for-chin/"
+    },
+    {
+     "claim": "\"Transgenderism, especially in kids, is a mental health disorder.\"",
+     "date": "2023-09-28T16:44:10Z",
+     "publisher": "PolitiFact",
+     "rating": "Medical experts disagree",
+     "url": "https://politifact.com/article/2023/sep/28/second-gop-presidential-debate-fact-check/"
+    },
+    {
+     "claim": "\"Russia has hypersonic missile capabilities ahead of that of the U.S.”",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "Half True",
+     "url": "https://politifact.com/factchecks/2023/oct/20/vivek-ramaswamy/vivek-ramaswamy-claims-russia-leads-the-us-in-hype/"
+    }
+   ],
+   "unmapped": 8
+  },
+  "verified": false
+ }
+}
