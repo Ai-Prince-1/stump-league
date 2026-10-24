@@ -238,12 +238,14 @@ details.drawer > div{padding-top:10px;display:grid;gap:10px}
 .r .bar2 .meter i{margin-left:auto}
 
 /* Learn */
-.lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.lessons{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;align-items:start}
 details.lesson{background:var(--raise);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
 details.lesson summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
 details.lesson summary::-webkit-details-marker{display:none}
 details.lesson summary b{font-family:var(--f-display);font-size:21px;text-transform:uppercase;font-weight:800;line-height:1.05}
 details.lesson summary span{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+details.lesson summary span::after{content:"  + Read";color:var(--field);font-weight:500}
+details.lesson[open] summary span::after{content:"  − Close"}
 details.lesson > div{display:grid;gap:8px;padding-top:10px;font-size:14px;max-width:62ch}
 .daily{background:var(--board);color:var(--board-ink);border-radius:10px;padding:22px;display:grid;gap:14px}
 .daily .eyebrow{color:var(--accent-fill)}
