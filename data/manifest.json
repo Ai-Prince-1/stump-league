@@ -6,13 +6,13 @@
  "bills": {
   "last": "2026-10-24",
   "records": 5,
-  "seconds": 40,
+  "seconds": 57,
   "state": "live"
  },
  "cel": {
   "last": "2026-10-24",
   "records": 550,
-  "seconds": 1,
+  "seconds": 0,
   "state": "live"
  },
  "cel_state": {
@@ -24,13 +24,13 @@
  "factchecks": {
   "last": "2026-10-24",
   "records": 26,
-  "seconds": 21,
+  "seconds": 15,
   "state": "live"
  },
  "fec": {
   "last": "2026-10-24",
   "records": 20,
-  "seconds": 7,
+  "seconds": 9,
   "state": "live"
  },
  "members": {
@@ -46,7 +46,7 @@
    "source": "voteview"
   },
   "records": 104,
-  "seconds": 1,
+  "seconds": 2,
   "state": "live"
  },
  "votes": {
