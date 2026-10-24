@@ -172,7 +172,7 @@ label.lab{font-size:13px;font-weight:600;display:grid;gap:5px}
 .toggle{display:flex;gap:8px;align-items:flex-start;font-size:13px}
 .toggle input{margin-top:3px;accent-color:var(--draft)}
 
-/* Player card */
+/* Scouting report (candidate card) */
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
 .pcard{background:var(--raise);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:grid;align-content:start}
 .pcard .top{background:var(--board);color:var(--board-ink);padding:16px;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center}
@@ -483,7 +483,7 @@ details.explain > p{font-size:12.5px;color:var(--muted);margin-top:6px;max-width
     <div class="stack">
       <div class="row" style="justify-content:space-between"><h2>Stat sheet</h2><span class="cov" id="sheet-note"></span></div>
       <div class="tablebox"><table class="sheet" id="sheet"></table></div>
-      <p class="dim" style="font-size:13px">Candidates are listed alphabetically. Select a name to jump to their player card.</p>
+      <p class="dim" style="font-size:13px">Candidates are listed alphabetically. Select a name to jump to their scouting report.</p>
     </div>
     <aside class="sliders" aria-label="Your ranking">
       <div class="eyebrow">Your ranking</div>
@@ -495,7 +495,7 @@ details.explain > p{font-size:12.5px;color:var(--muted);margin-top:6px;max-width
     </aside>
   </div>
   <div class="stack" id="cardarea">
-    <h2>Player cards</h2>
+    <h2>Scouting reports</h2>
     <div class="cards" id="cards"></div>
   </div>
 </section>
@@ -986,8 +986,8 @@ const DAILY = [
 ];
 
 const LESSONS = [
-  { t: "How to read a player card", m: "2 min", body: [
-    "Each card has five stats. Every number shows its source, and stats from public records are labeled \"Official record.\" Draft items were written with AI help and haven't been reviewed. Grey means not collected yet.",
+  { t: "How to read a scouting report", m: "2 min", body: [
+    "Each scouting report has five stats. Every number shows its source, and stats from public records are labeled \"Official record.\" Draft items were written with AI help and haven't been reviewed. Grey means not collected yet.",
     "Category labels like \"Top 25%\" compare an official with everyone in the same chamber, inside one stat. There is no overall grade." ] },
   { t: "Building Your ranking", m: "2 min", body: [
     "Switch on the stats you care about and set how much each one counts. The ranking uses only stats every candidate in the race has, so challengers aren't punished for not having a voting record.",

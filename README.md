@@ -2,7 +2,7 @@
 
 **Know your ballot like you know your fantasy roster.**
 
-Stump League is a nonpartisan prototype that presents candidates' records the way sports media presents players: what they promised, what they did, and how each number compares to the league. Every stat links to its official source. It scores performance and transparency, never policy positions, and it never tells anyone who to vote for.
+Stump League is a nonpartisan prototype that presents candidates' records the way sports media scouts players: who they are, what they did, and what they plan, with each stat compared to a named peer group. Every stat links to its official source. It measures whether candidates face voters and do the job, never their policy positions; it gives no overall grade, and it never tells anyone who to vote for.
 
 - **Website:** `docs/`, served by GitHub Pages
 - **Data pipeline:** `pipeline/`, run nightly by GitHub Actions

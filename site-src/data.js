@@ -316,8 +316,8 @@ const DAILY = [
 ];
 
 const LESSONS = [
-  { t: "How to read a player card", m: "2 min", body: [
-    "Each card has five stats. Every number shows its source, and stats from public records are labeled \"Official record.\" Draft items were written with AI help and haven't been reviewed. Grey means not collected yet.",
+  { t: "How to read a scouting report", m: "2 min", body: [
+    "Each scouting report has five stats. Every number shows its source, and stats from public records are labeled \"Official record.\" Draft items were written with AI help and haven't been reviewed. Grey means not collected yet.",
     "Category labels like \"Top 25%\" compare an official with everyone in the same chamber, inside one stat. There is no overall grade." ] },
   { t: "Building Your ranking", m: "2 min", body: [
     "Switch on the stats you care about and set how much each one counts. The ranking uses only stats every candidate in the race has, so challengers aren't punished for not having a voting record.",
