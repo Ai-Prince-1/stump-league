@@ -135,20 +135,47 @@ def add_roll(tally_for_year: dict, roll: dict) -> None:
             c["total"] += 1
 
 
-def fetch_house_attendance(years: list[int], max_rolls: int = 2000) -> dict:
+VOTE_PROGRESS: dict = {}   # filled in for the run manifest
+
+
+def fetch_house_attendance(years: list[int], max_rolls: int = 2000, budget_min: float = 20.0) -> dict:
     """Incremental: keeps a per-year running tally and the last roll call counted, so each
-    nightly run only downloads new roll calls."""
-    from .common import read_json, write_json
+    nightly run only downloads new roll calls. Stops at the end of each year's votes, after
+    3 failed downloads in a row, or when the time budget runs out (it resumes next run)."""
+    import time as _t
+    from .common import read_json, write_json, FetchError
     cache = read_json("house_votes_tally.json", {}) or {}
+    t0, fetched, stopped = _t.monotonic(), 0, "complete"
     for y in years:
         yc = cache.setdefault(str(y), {"last": 0, "tally": {}})
+        fails = 0
         for n in range(yc["last"] + 1, max_rolls):
-            r = http_get(CLERK_URL.format(year=y, num=n))
-            if r.status_code == 404:
+            if (_t.monotonic() - t0) / 60 > budget_min:
+                stopped = "time budget reached; resumes next run"
                 break
+            try:
+                r = http_get(CLERK_URL.format(year=y, num=n), tries=2, timeout=15)
+            except FetchError:
+                fails += 1
+                if fails >= 3:
+                    stopped = f"3 failed downloads in a row at {y} roll {n}"
+                    break
+                continue
+            if r.status_code == 404 or "<rollcall-vote" not in r.text[:2000]:
+                break          # past the last roll call of the year
+            fails = 0
             add_roll(yc["tally"], parse_house_roll(r.text))
             yc["last"] = n
-    write_json("house_votes_tally.json", cache)
+            fetched += 1
+            if fetched % 50 == 0:
+                write_json("house_votes_tally.json", cache)
+        write_json("house_votes_tally.json", cache)
+        if stopped != "complete":
+            break
+    VOTE_PROGRESS.update({"fetched_this_run": fetched, "last_roll": {y: cache.get(str(y), {}).get("last", 0) for y in years},
+                          "stopped": stopped, "minutes": round((_t.monotonic() - t0) / 60, 1)})
+    if fetched == 0 and not any(cache.get(str(y), {}).get("tally") for y in years):
+        raise FetchError("No House roll calls could be downloaded: " + stopped)
     combined: dict = {}
     for y in years:
         for bid, c in cache.get(str(y), {}).get("tally", {}).items():

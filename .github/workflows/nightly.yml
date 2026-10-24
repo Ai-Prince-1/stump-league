@@ -24,17 +24,21 @@ jobs:
       - name: Test parsers and formulas
         run: pytest -q
       - name: Pull official data
+        timeout-minutes: 45
+        continue-on-error: true
         env:
           API_DATA_GOV_KEY: ${{ secrets.API_DATA_GOV_KEY }}
           GOOGLE_FACTCHECK_KEY: ${{ secrets.GOOGLE_FACTCHECK_KEY }}
         run: python -m pipeline.build
       - name: Publish feed status and stats to the website
+        if: always()
         run: |
           mkdir -p docs/data
           for f in manifest cel fec attendance bipartisanship factchecks; do
             [ -f "data/$f.json" ] && cp "data/$f.json" docs/data/ || true
           done
       - name: Commit changed data
+        if: always()
         run: |
           git config user.name "stump-league-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

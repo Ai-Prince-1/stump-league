@@ -18,9 +18,13 @@ VOTE_YEARS = CONFIG["vote_years"]
 
 
 def run_step(manifest: dict, name: str, fn):
+    import time
+    t0 = time.monotonic()
+    print(f"[{name}] starting", flush=True)
     try:
         result = fn()
-        manifest[name] = {"state": "live", "last": today(), "records": len(result or {})}
+        manifest[name] = {"state": "live", "last": today(), "records": len(result or {}), "seconds": round(time.monotonic() - t0)}
+        print(f"[{name}] ok: {len(result or {})} records in {round(time.monotonic() - t0)}s", flush=True)
         return result
     except Exception as e:  # keep going; the site shows the feed as stale
         prev = manifest.get(name, {})
@@ -76,8 +80,6 @@ def main(argv=None):
         extra = read_json("candidates.json", {}) or {}   # challengers: {fec_id: {...}} maintained by the roster team
         all_ids = list(dict.fromkeys(fec_ids + list(extra)))
         merge_file("fec.json", run_step(manifest, "fec", lambda: S.fetch_fec(all_ids, CYCLE)))
-    if "votes" in want:
-        merge_file("attendance.json", run_step(manifest, "votes", lambda: S.fetch_house_attendance(VOTE_YEARS)))
     if "bills" in want:
         def bills():
             return {b: dp for b, m in scope.items() if (dp := S.fetch_bipartisanship(b, m["party"], CONGRESS))}
@@ -89,6 +91,11 @@ def main(argv=None):
             return {name: dp for name in people if (dp := S.fetch_factchecks(name))}
         merge_file("factchecks.json", run_step(manifest, "factchecks", fc))
 
+    if "votes" in want:   # last: the first run downloads every roll call of the Congress
+        write_json("manifest.json", manifest)
+        merge_file("attendance.json", run_step(manifest, "votes", lambda: S.fetch_house_attendance(VOTE_YEARS)))
+        if "votes" in manifest:
+            manifest["votes"]["progress"] = dict(S.VOTE_PROGRESS)
     manifest["_run"] = {"date": today(), "scope": a.scope}
     write_json("manifest.json", manifest)
     for k, v in manifest.items():
