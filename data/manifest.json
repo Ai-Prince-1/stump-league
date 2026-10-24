@@ -6,7 +6,7 @@
  "bills": {
   "last": "2026-10-24",
   "records": 5,
-  "seconds": 59,
+  "seconds": 49,
   "state": "live"
  },
  "cel": {
@@ -24,13 +24,13 @@
  "factchecks": {
   "last": "2026-10-24",
   "records": 26,
-  "seconds": 16,
+  "seconds": 15,
   "state": "live"
  },
  "fec": {
   "last": "2026-10-24",
   "records": 20,
-  "seconds": 3,
+  "seconds": 12,
   "state": "live"
  },
  "members": {

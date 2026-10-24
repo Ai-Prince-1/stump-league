@@ -1,5 +1,27 @@
 {
  "H0AR01083": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H0AR01083/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "01",
+    "home_state": "AR",
+    "in_state_share": 0.7952,
+    "itemized_total": 328049.0,
+    "large_donor_share": 0.3396,
+    "name": "CRAWFORD, ERIC ALAN RICK",
+    "office": "H",
+    "pac_share": 0.6021,
+    "party": "REPUBLICAN PARTY",
+    "receipts": 1135655.28,
+    "self_funding": 0.0,
+    "small_donor_share": 0.012,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H0AR01083/?cycle=2026",
@@ -26,6 +48,9 @@
    "value": {
     "coverage_end_date": "2026-10-14T00:00:00",
     "district": "03",
+    "home_state": "AR",
+    "in_state_share": 0.4128,
+    "itemized_total": 864192.43,
     "large_donor_share": 0.4675,
     "name": "WOMACK, STEPHEN A THE HON",
     "office": "H",
@@ -52,6 +77,28 @@
   "verified": true
  },
  "H4AR02141": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H4AR02141/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "02",
+    "home_state": "AR",
+    "in_state_share": 0.1942,
+    "itemized_total": 3162353.28,
+    "large_donor_share": 0.4122,
+    "name": "HILL, JAMES FRENCH",
+    "office": "H",
+    "pac_share": 0.3418,
+    "party": "REPUBLICAN PARTY",
+    "receipts": 5264024.47,
+    "self_funding": 0.0,
+    "small_donor_share": 0.007,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H4AR02141/?cycle=2026",
@@ -71,6 +118,28 @@
   "verified": true
  },
  "H4AR04048": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H4AR04048/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "04",
+    "home_state": "AR",
+    "in_state_share": 0.2794,
+    "itemized_total": 1405249.37,
+    "large_donor_share": 0.3147,
+    "name": "WESTERMAN, BRUCE",
+    "office": "H",
+    "pac_share": 0.4233,
+    "party": "REPUBLICAN PARTY",
+    "receipts": 2975232.54,
+    "self_funding": 0.0,
+    "small_donor_share": 0.0132,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H4AR04048/?cycle=2026",
@@ -90,6 +159,28 @@
   "verified": true
  },
  "H6AR01155": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H6AR01155/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "01",
+    "home_state": "AR",
+    "in_state_share": 0.8416,
+    "itemized_total": 28716.7,
+    "large_donor_share": 0.5609,
+    "name": "GREEN, TERRI YARBROUGH DR.",
+    "office": "H",
+    "pac_share": 0.0551,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 124313.99,
+    "self_funding": 0.0,
+    "small_donor_share": 0.2193,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H6AR01155/?cycle=2026",
@@ -109,6 +200,28 @@
   "verified": true
  },
  "H6AR02278": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H6AR02278/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-04-12T00:00:00",
+    "district": "02",
+    "home_state": "AR",
+    "in_state_share": 0.0307,
+    "itemized_total": 37577.3,
+    "large_donor_share": 0.2304,
+    "name": "MCDOWELL, CHASE",
+    "office": "H",
+    "pac_share": 0.0,
+    "party": "REPUBLICAN PARTY",
+    "receipts": 163105.11,
+    "self_funding": 0.0,
+    "small_donor_share": 0.7696,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H6AR02278/?cycle=2026",
@@ -128,6 +241,28 @@
   "verified": true
  },
  "H6AR02286": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H6AR02286/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "02",
+    "home_state": "AR",
+    "in_state_share": 0.7823,
+    "itemized_total": 847780.37,
+    "large_donor_share": 0.689,
+    "name": "JONES, CHRIS",
+    "office": "H",
+    "pac_share": 0.0493,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 1959018.06,
+    "self_funding": 0.0,
+    "small_donor_share": 0.2533,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H6AR02286/?cycle=2026",
@@ -147,6 +282,28 @@
   "verified": true
  },
  "H6AR02294": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H6AR02294/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-04-18T00:00:00",
+    "district": "02",
+    "home_state": "AR",
+    "in_state_share": 0.4332,
+    "itemized_total": 2952.52,
+    "large_donor_share": 0.2381,
+    "name": "HUFFMAN, ZACKARY BLAKE",
+    "office": "H",
+    "pac_share": 0.1008,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 12402.59,
+    "self_funding": 2827.93,
+    "small_donor_share": 0.261,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H6AR02294/?cycle=2026",
@@ -173,6 +330,9 @@
    "value": {
     "coverage_end_date": "2026-10-14T00:00:00",
     "district": "03",
+    "home_state": "AR",
+    "in_state_share": 0.6195,
+    "itemized_total": 56549.56,
     "large_donor_share": 0.5281,
     "name": "RYERSE, ROBB",
     "office": "H",
@@ -199,6 +359,28 @@
   "verified": true
  },
  "H6AR03136": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H6AR03136/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-09-30T00:00:00",
+    "district": "03",
+    "home_state": "AR",
+    "in_state_share": 1.0,
+    "itemized_total": 350.0,
+    "large_donor_share": 0.0271,
+    "name": "LAWRENCE, DIANA LYNNE",
+    "office": "H",
+    "pac_share": 0.0,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 12930.72,
+    "self_funding": 0.0,
+    "small_donor_share": 0.1756,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H6AR03136/?cycle=2026",
@@ -237,6 +419,28 @@
   "verified": true
  },
  "H6AR04084": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/H6AR04084/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "04",
+    "home_state": "AR",
+    "in_state_share": 0.7823,
+    "itemized_total": 6889.03,
+    "large_donor_share": 0.3226,
+    "name": "RUSSELL, JAMES RICHARD MR III",
+    "office": "H",
+    "pac_share": 0.1485,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 21553.8,
+    "self_funding": 0.0,
+    "small_donor_share": 0.5289,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/H6AR04084/?cycle=2026",
@@ -256,6 +460,28 @@
   "verified": true
  },
  "S0AR00218": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/S0AR00218/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-09-30T00:00:00",
+    "district": "00",
+    "home_state": "AR",
+    "in_state_share": 0.8,
+    "itemized_total": 1250.0,
+    "large_donor_share": 0.0,
+    "name": "WHITFIELD, DANIEL ALLEN",
+    "office": "S",
+    "pac_share": 0.0,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 353.41,
+    "self_funding": 0.0,
+    "small_donor_share": 0.999,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/S0AR00218/?cycle=2026",
@@ -275,6 +501,28 @@
   "verified": true
  },
  "S4AR00103": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/S4AR00103/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "00",
+    "home_state": "AR",
+    "in_state_share": 0.131,
+    "itemized_total": 9796212.55,
+    "large_donor_share": 0.4091,
+    "name": "COTTON, THOMAS",
+    "office": "S",
+    "pac_share": 0.1939,
+    "party": "REPUBLICAN PARTY",
+    "receipts": 7149643.47,
+    "self_funding": 0.0,
+    "small_donor_share": 0.093,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/S4AR00103/?cycle=2026",
@@ -294,6 +542,28 @@
   "verified": true
  },
  "S6AR00173": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/S6AR00173/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-03-27T00:00:00",
+    "district": "00",
+    "home_state": "AR",
+    "in_state_share": 0.1752,
+    "itemized_total": 11779.64,
+    "large_donor_share": 0.6295,
+    "name": "DUNBAR, ETHAN N SR.",
+    "office": "S",
+    "pac_share": 0.0046,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 17461.7,
+    "self_funding": 420.0,
+    "small_donor_share": 0.3418,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/S6AR00173/?cycle=2026",
@@ -313,6 +583,28 @@
   "verified": true
  },
  "S6AR00181": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/S6AR00181/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2025-11-15T00:00:00",
+    "district": "00",
+    "home_state": "AR",
+    "in_state_share": 1.0,
+    "itemized_total": 1500.0,
+    "large_donor_share": 0.4859,
+    "name": "RUSSELL, JAMES RICHARD MR III",
+    "office": "S",
+    "pac_share": 0.0,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 3086.9,
+    "self_funding": 0.0,
+    "small_donor_share": 0.1901,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/S6AR00181/?cycle=2026",
@@ -332,6 +624,28 @@
   "verified": true
  },
  "S6AR00199": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/S6AR00199/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-10-14T00:00:00",
+    "district": "00",
+    "home_state": "AR",
+    "in_state_share": 0.8202,
+    "itemized_total": 1437888.24,
+    "large_donor_share": 0.6476,
+    "name": "SHOFFNER, HALLIE",
+    "office": "S",
+    "pac_share": 0.0206,
+    "party": "DEMOCRATIC PARTY",
+    "receipts": 4042810.83,
+    "self_funding": 0.0,
+    "small_donor_share": 0.3301,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/S6AR00199/?cycle=2026",
@@ -370,6 +684,28 @@
   "verified": true
  },
  "S6AR00215": {
+  "pending_update": {
+   "publisher": "Federal Election Commission",
+   "retrieved_at": "2026-10-24",
+   "source_url": "https://www.fec.gov/data/candidate/S6AR00215/?cycle=2026",
+   "value": {
+    "coverage_end_date": "2026-03-31T00:00:00",
+    "district": "00",
+    "home_state": "AR",
+    "in_state_share": 0.5436,
+    "itemized_total": 6990.16,
+    "large_donor_share": 0.0755,
+    "name": "LITTLE, JEB",
+    "office": "S",
+    "pac_share": 0.0,
+    "party": "REPUBLICAN PARTY",
+    "receipts": 92531.55,
+    "self_funding": 37139.1,
+    "small_donor_share": 0.0137,
+    "state": "AR"
+   },
+   "verified": true
+  },
   "publisher": "Federal Election Commission",
   "retrieved_at": "2026-10-24",
   "source_url": "https://www.fec.gov/data/candidate/S6AR00215/?cycle=2026",
@@ -396,6 +732,9 @@
    "value": {
     "coverage_end_date": "2026-10-14T00:00:00",
     "district": "00",
+    "home_state": "AR",
+    "in_state_share": 0.5185,
+    "itemized_total": 6750.0,
     "large_donor_share": 0.0937,
     "name": "WADLIN, JEFFREY FRANCIS",
     "office": "S",

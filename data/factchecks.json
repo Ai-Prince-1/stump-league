@@ -700,6 +700,13 @@
      "url": "https://www.washingtonpost.com/politics/2023/12/07/fact-check-republican-debate/"
     },
     {
+     "claim": "An exemption in a new Florida law “allowed Chinese nationals to buy land within a 20-mile radius of a military base, lobbied for by one of (Gov. Ron DeSantis’) donors.”",
+     "date": null,
+     "publisher": "PolitiFact",
+     "rating": "Half True",
+     "url": "https://politifact.com/factchecks/2023/nov/15/vivek-ramaswamy/ramaswamy-misses-details-in-debate-story-about-des/"
+    },
+    {
      "claim": "\"There was enough fentanyl that was captured just on the northern border last year to kill 3 million Americans.\"",
      "date": "2023-11-09T13:43:40Z",
      "publisher": "PolitiFact",
@@ -714,18 +721,18 @@
      "url": "https://www.washingtonpost.com/politics/2023/11/08/fact-check-republican-debate/"
     },
     {
-     "claim": "An exemption in a new Florida law “allowed Chinese nationals to buy land within a 20-mile radius of a military base, lobbied for by one of (Gov. Ron DeSantis’) donors.”",
-     "date": null,
-     "publisher": "PolitiFact",
-     "rating": "Half True",
-     "url": "https://politifact.com/factchecks/2023/nov/15/vivek-ramaswamy/ramaswamy-misses-details-in-debate-story-about-des/"
-    },
-    {
-     "claim": "Being transgender is a \"mental health disorder.\"",
+     "claim": "Vice President Mike Pence on Jan. 6, 2021, could have approved the 2020 electoral votes on the condition that Congress pass an overhaul of election law.",
      "date": null,
      "publisher": "PolitiFact",
      "rating": "False",
-     "url": "https://politifact.com/factchecks/2023/sep/28/vivek-ramaswamy/vivek-ramaswamy-got-it-wrong-being-trans-isnt-a-me/"
+     "url": "https://politifact.com/factchecks/2023/aug/29/vivek-ramaswamy/vivek-ramaswamys-flawed-argument-about-vp-mike-pen/"
+    },
+    {
+     "claim": "\"It’s a fact that those who perform well on math & reading tests tend to perform more poorly on the 1-mile run, and vice versa.\"",
+     "date": null,
+     "publisher": "FactCheck.org",
+     "rating": "No Evidence",
+     "url": "https://www.factcheck.org/2023/09/ramaswamys-flawed-college-fitness-idea/"
     },
     {
      "claim": "As president, I will \"reduce the federal employee headcount by 75%.\"",
@@ -749,18 +756,11 @@
      "url": "https://www.factcheck.org/2023/09/scicheck-ramaswamys-climate-change-spin/"
     },
     {
-     "claim": "Vice President Mike Pence on Jan. 6, 2021, could have approved the 2020 electoral votes on the condition that Congress pass an overhaul of election law.",
+     "claim": "Being transgender is a \"mental health disorder.\"",
      "date": null,
      "publisher": "PolitiFact",
      "rating": "False",
-     "url": "https://politifact.com/factchecks/2023/aug/29/vivek-ramaswamy/vivek-ramaswamys-flawed-argument-about-vp-mike-pen/"
-    },
-    {
-     "claim": "\"It’s a fact that those who perform well on math & reading tests tend to perform more poorly on the 1-mile run, and vice versa.\"",
-     "date": null,
-     "publisher": "FactCheck.org",
-     "rating": "No Evidence",
-     "url": "https://www.factcheck.org/2023/09/ramaswamys-flawed-college-fitness-idea/"
+     "url": "https://politifact.com/factchecks/2023/sep/28/vivek-ramaswamy/vivek-ramaswamy-got-it-wrong-being-trans-isnt-a-me/"
     },
     {
      "claim": "“I did not grow up in money.”",
@@ -805,13 +805,6 @@
      "url": "https://politifact.com/article/2023/aug/24/fact-checks-first-republican-presidential-debate/"
     },
     {
-     "claim": "“Gen Z is divided 50-50 on whether they support Hamas or Israel.”",
-     "date": null,
-     "publisher": "PolitiFact",
-     "rating": "Mostly False",
-     "url": "https://politifact.com/factchecks/2023/nov/02/vivek-ramaswamy/do-half-of-gen-z-americans-support-hamas/"
-    },
-    {
      "claim": "\"The climate change agenda is a hoax.\"",
      "date": "2023-08-24T09:43:08Z",
      "publisher": "PolitiFact",
@@ -819,11 +812,11 @@
      "url": "https://politifact.com/article/2023/aug/24/fact-checks-first-republican-presidential-debate/"
     },
     {
-     "claim": "\"Transgenderism, especially in kids, is a mental health disorder.\"",
-     "date": "2023-09-28T16:44:10Z",
+     "claim": "“Gen Z is divided 50-50 on whether they support Hamas or Israel.”",
+     "date": null,
      "publisher": "PolitiFact",
-     "rating": "Medical experts disagree",
-     "url": "https://politifact.com/article/2023/sep/28/second-gop-presidential-debate-fact-check/"
+     "rating": "Mostly False",
+     "url": "https://politifact.com/factchecks/2023/nov/02/vivek-ramaswamy/do-half-of-gen-z-americans-support-hamas/"
     },
     {
      "claim": "\"Russia has hypersonic missile capabilities ahead of that of the U.S.”",
@@ -831,6 +824,13 @@
      "publisher": "PolitiFact",
      "rating": "Half True",
      "url": "https://politifact.com/factchecks/2023/oct/20/vivek-ramaswamy/vivek-ramaswamy-claims-russia-leads-the-us-in-hype/"
+    },
+    {
+     "claim": "\"Transgenderism, especially in kids, is a mental health disorder.\"",
+     "date": "2023-09-28T16:44:10Z",
+     "publisher": "PolitiFact",
+     "rating": "Medical experts disagree",
+     "url": "https://politifact.com/article/2023/sep/28/second-gop-presidential-debate-fact-check/"
     }
    ],
    "unmapped": 8
