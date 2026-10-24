@@ -5,26 +5,32 @@
  },
  "bills": {
   "last": "2026-10-24",
-  "records": 1,
-  "seconds": 6,
+  "records": 5,
+  "seconds": 118,
   "state": "live"
  },
  "cel": {
   "last": "2026-10-24",
   "records": 550,
-  "seconds": 1,
+  "seconds": 0,
+  "state": "live"
+ },
+ "cel_state": {
+  "last": "2026-10-24",
+  "records": 135,
+  "seconds": 0,
   "state": "live"
  },
  "factchecks": {
   "last": "2026-10-24",
-  "records": 6,
-  "seconds": 4,
+  "records": 26,
+  "seconds": 16,
   "state": "live"
  },
  "fec": {
   "last": "2026-10-24",
-  "records": 2,
-  "seconds": 1,
+  "records": 20,
+  "seconds": 11,
   "state": "live"
  },
  "members": {
@@ -33,19 +39,32 @@
   "seconds": 3,
   "state": "live"
  },
+ "senate_votes": {
+  "checked": "2026-10-24",
+  "error": "FetchError: No Senate roll calls could be downloaded: 3 failed downloads in a row at session 1 vote 3",
+  "progress": {
+   "fetched_this_run": 0,
+   "last_vote": {
+    "119-1": 0
+   },
+   "minutes": 0.2,
+   "stopped": "3 failed downloads in a row at session 1 vote 3"
+  },
+  "state": "error"
+ },
  "votes": {
   "last": "2026-10-24",
   "progress": {
-   "fetched_this_run": 676,
+   "fetched_this_run": 0,
    "last_roll": {
     "2025": 362,
     "2026": 314
    },
-   "minutes": 1.4,
+   "minutes": 0.0,
    "stopped": "complete"
   },
   "records": 452,
-  "seconds": 81,
+  "seconds": 0,
   "state": "live"
  },
  "zips": {

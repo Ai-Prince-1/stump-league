@@ -1,4 +1,37 @@
 {
+ "C001087": {
+  "publisher": "Congress.gov",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://www.congress.gov/member/C001087",
+  "value": {
+   "bills": 17,
+   "congress": 119,
+   "share": 0.412
+  },
+  "verified": true
+ },
+ "C001095": {
+  "publisher": "Congress.gov",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://www.congress.gov/member/C001095",
+  "value": {
+   "bills": 93,
+   "congress": 119,
+   "share": 0.161
+  },
+  "verified": true
+ },
+ "H001072": {
+  "publisher": "Congress.gov",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://www.congress.gov/member/H001072",
+  "value": {
+   "bills": 28,
+   "congress": 119,
+   "share": 0.571
+  },
+  "verified": true
+ },
  "W000809": {
   "publisher": "Congress.gov",
   "retrieved_at": "2026-10-24",
@@ -7,6 +40,17 @@
    "bills": 10,
    "congress": 119,
    "share": 0.6
+  },
+  "verified": true
+ },
+ "W000821": {
+  "publisher": "Congress.gov",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://www.congress.gov/member/W000821",
+  "value": {
+   "bills": 9,
+   "congress": 119,
+   "share": 0.667
   },
   "verified": true
  }
