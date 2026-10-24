@@ -1,0 +1,1458 @@
+{
+ "A000382": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 900,
+   "congress": 119,
+   "missed": 15,
+   "norm": 0.918,
+   "total": 915
+  },
+  "verified": true
+ },
+ "A000383": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 191,
+   "congress": 119,
+   "missed": 0,
+   "norm": 1.0,
+   "total": 191
+  },
+  "verified": true
+ },
+ "B001230": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 914,
+   "congress": 119,
+   "missed": 1,
+   "norm": 0.995,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001236": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 901,
+   "congress": 119,
+   "missed": 14,
+   "norm": 0.923,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001243": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 862,
+   "congress": 119,
+   "missed": 53,
+   "norm": 0.71,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001261": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 911,
+   "congress": 119,
+   "missed": 4,
+   "norm": 0.978,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001267": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 833,
+   "congress": 119,
+   "missed": 82,
+   "norm": 0.552,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001277": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 904,
+   "congress": 119,
+   "missed": 11,
+   "norm": 0.94,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001288": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 875,
+   "congress": 119,
+   "missed": 40,
+   "norm": 0.781,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001299": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 903,
+   "congress": 119,
+   "missed": 12,
+   "norm": 0.934,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001303": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 909,
+   "congress": 119,
+   "missed": 6,
+   "norm": 0.967,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001305": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 890,
+   "congress": 119,
+   "missed": 25,
+   "norm": 0.863,
+   "total": 915
+  },
+  "verified": true
+ },
+ "B001319": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 894,
+   "congress": 119,
+   "missed": 21,
+   "norm": 0.885,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C000127": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 913,
+   "congress": 119,
+   "missed": 2,
+   "norm": 0.989,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C000880": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 904,
+   "congress": 119,
+   "missed": 11,
+   "norm": 0.94,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001035": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 915,
+   "congress": 119,
+   "missed": 0,
+   "norm": 1.0,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001047": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 898,
+   "congress": 119,
+   "missed": 17,
+   "norm": 0.907,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001056": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 902,
+   "congress": 119,
+   "missed": 13,
+   "norm": 0.929,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001075": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 865,
+   "congress": 119,
+   "missed": 50,
+   "norm": 0.727,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001088": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 863,
+   "congress": 119,
+   "missed": 52,
+   "norm": 0.716,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001095": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 901,
+   "congress": 119,
+   "missed": 14,
+   "norm": 0.923,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001096": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 883,
+   "congress": 119,
+   "missed": 32,
+   "norm": 0.825,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001098": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 868,
+   "congress": 119,
+   "missed": 47,
+   "norm": 0.743,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001113": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 897,
+   "congress": 119,
+   "missed": 18,
+   "norm": 0.902,
+   "total": 915
+  },
+  "verified": true
+ },
+ "C001114": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 896,
+   "congress": 119,
+   "missed": 19,
+   "norm": 0.896,
+   "total": 915
+  },
+  "verified": true
+ },
+ "D000563": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 890,
+   "congress": 119,
+   "missed": 25,
+   "norm": 0.863,
+   "total": 915
+  },
+  "verified": true
+ },
+ "D000618": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 889,
+   "congress": 119,
+   "missed": 26,
+   "norm": 0.858,
+   "total": 915
+  },
+  "verified": true
+ },
+ "D000622": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 855,
+   "congress": 119,
+   "missed": 60,
+   "norm": 0.672,
+   "total": 915
+  },
+  "verified": true
+ },
+ "E000295": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 894,
+   "congress": 119,
+   "missed": 21,
+   "norm": 0.885,
+   "total": 915
+  },
+  "verified": true
+ },
+ "F000463": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 906,
+   "congress": 119,
+   "missed": 9,
+   "norm": 0.951,
+   "total": 915
+  },
+  "verified": true
+ },
+ "F000479": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 856,
+   "congress": 119,
+   "missed": 59,
+   "norm": 0.678,
+   "total": 915
+  },
+  "verified": true
+ },
+ "G000359": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 794,
+   "congress": 119,
+   "missed": 57,
+   "norm": 0.665,
+   "total": 851
+  },
+  "verified": true
+ },
+ "G000386": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 891,
+   "congress": 119,
+   "missed": 24,
+   "norm": 0.869,
+   "total": 915
+  },
+  "verified": true
+ },
+ "G000555": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 897,
+   "congress": 119,
+   "missed": 18,
+   "norm": 0.902,
+   "total": 915
+  },
+  "verified": true
+ },
+ "G000574": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 799,
+   "congress": 119,
+   "missed": 116,
+   "norm": 0.366,
+   "total": 915
+  },
+  "verified": true
+ },
+ "G000608": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 57,
+   "congress": 119,
+   "missed": 5,
+   "norm": 0.597,
+   "total": 62
+  },
+  "verified": true
+ },
+ "H000273": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 905,
+   "congress": 119,
+   "missed": 10,
+   "norm": 0.945,
+   "total": 915
+  },
+  "verified": true
+ },
+ "H000601": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 883,
+   "congress": 119,
+   "missed": 32,
+   "norm": 0.825,
+   "total": 915
+  },
+  "verified": true
+ },
+ "H001042": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 911,
+   "congress": 119,
+   "missed": 4,
+   "norm": 0.978,
+   "total": 915
+  },
+  "verified": true
+ },
+ "H001046": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 881,
+   "congress": 119,
+   "missed": 34,
+   "norm": 0.814,
+   "total": 915
+  },
+  "verified": true
+ },
+ "H001061": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 906,
+   "congress": 119,
+   "missed": 9,
+   "norm": 0.951,
+   "total": 915
+  },
+  "verified": true
+ },
+ "H001076": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 901,
+   "congress": 119,
+   "missed": 14,
+   "norm": 0.923,
+   "total": 915
+  },
+  "verified": true
+ },
+ "H001079": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 898,
+   "congress": 119,
+   "missed": 17,
+   "norm": 0.907,
+   "total": 915
+  },
+  "verified": true
+ },
+ "H001089": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 878,
+   "congress": 119,
+   "missed": 37,
+   "norm": 0.798,
+   "total": 915
+  },
+  "verified": true
+ },
+ "H001104": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 907,
+   "congress": 119,
+   "missed": 0,
+   "norm": 1.0,
+   "total": 907
+  },
+  "verified": true
+ },
+ "J000293": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 903,
+   "congress": 119,
+   "missed": 12,
+   "norm": 0.934,
+   "total": 915
+  },
+  "verified": true
+ },
+ "J000312": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 875,
+   "congress": 119,
+   "missed": 38,
+   "norm": 0.792,
+   "total": 913
+  },
+  "verified": true
+ },
+ "K000367": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 902,
+   "congress": 119,
+   "missed": 13,
+   "norm": 0.929,
+   "total": 915
+  },
+  "verified": true
+ },
+ "K000377": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 865,
+   "congress": 119,
+   "missed": 50,
+   "norm": 0.727,
+   "total": 915
+  },
+  "verified": true
+ },
+ "K000383": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 901,
+   "congress": 119,
+   "missed": 14,
+   "norm": 0.923,
+   "total": 915
+  },
+  "verified": true
+ },
+ "K000384": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 904,
+   "congress": 119,
+   "missed": 11,
+   "norm": 0.94,
+   "total": 915
+  },
+  "verified": true
+ },
+ "K000393": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 899,
+   "congress": 119,
+   "missed": 16,
+   "norm": 0.913,
+   "total": 915
+  },
+  "verified": true
+ },
+ "K000394": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 906,
+   "congress": 119,
+   "missed": 9,
+   "norm": 0.951,
+   "total": 915
+  },
+  "verified": true
+ },
+ "L000570": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 903,
+   "congress": 119,
+   "missed": 12,
+   "norm": 0.934,
+   "total": 915
+  },
+  "verified": true
+ },
+ "L000571": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 885,
+   "congress": 119,
+   "missed": 30,
+   "norm": 0.836,
+   "total": 915
+  },
+  "verified": true
+ },
+ "L000575": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 909,
+   "congress": 119,
+   "missed": 6,
+   "norm": 0.967,
+   "total": 915
+  },
+  "verified": true
+ },
+ "L000577": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 887,
+   "congress": 119,
+   "missed": 28,
+   "norm": 0.847,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M000133": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 908,
+   "congress": 119,
+   "missed": 7,
+   "norm": 0.962,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M000355": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 778,
+   "congress": 119,
+   "missed": 137,
+   "norm": 0.251,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M000934": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 862,
+   "congress": 119,
+   "missed": 53,
+   "norm": 0.71,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M001111": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 864,
+   "congress": 119,
+   "missed": 51,
+   "norm": 0.721,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M001153": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 877,
+   "congress": 119,
+   "missed": 38,
+   "norm": 0.792,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M001169": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 890,
+   "congress": 119,
+   "missed": 25,
+   "norm": 0.863,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M001176": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 908,
+   "congress": 119,
+   "missed": 7,
+   "norm": 0.962,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M001190": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 683,
+   "congress": 119,
+   "missed": 40,
+   "norm": 0.723,
+   "total": 723
+  },
+  "verified": true
+ },
+ "M001198": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 907,
+   "congress": 119,
+   "missed": 8,
+   "norm": 0.956,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M001242": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 910,
+   "congress": 119,
+   "missed": 5,
+   "norm": 0.973,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M001243": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 889,
+   "congress": 119,
+   "missed": 26,
+   "norm": 0.858,
+   "total": 915
+  },
+  "verified": true
+ },
+ "M001244": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 896,
+   "congress": 119,
+   "missed": 11,
+   "norm": 0.939,
+   "total": 907
+  },
+  "verified": true
+ },
+ "O000174": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 864,
+   "congress": 119,
+   "missed": 51,
+   "norm": 0.721,
+   "total": 915
+  },
+  "verified": true
+ },
+ "P000145": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 882,
+   "congress": 119,
+   "missed": 33,
+   "norm": 0.82,
+   "total": 915
+  },
+  "verified": true
+ },
+ "P000595": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 896,
+   "congress": 119,
+   "missed": 19,
+   "norm": 0.896,
+   "total": 915
+  },
+  "verified": true
+ },
+ "P000603": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 874,
+   "congress": 119,
+   "missed": 41,
+   "norm": 0.776,
+   "total": 915
+  },
+  "verified": true
+ },
+ "R000122": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 907,
+   "congress": 119,
+   "missed": 8,
+   "norm": 0.956,
+   "total": 915
+  },
+  "verified": true
+ },
+ "R000584": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 889,
+   "congress": 119,
+   "missed": 26,
+   "norm": 0.858,
+   "total": 915
+  },
+  "verified": true
+ },
+ "R000595": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 8,
+   "congress": 119,
+   "missed": 0,
+   "norm": 1.0,
+   "total": 8
+  },
+  "verified": true
+ },
+ "R000605": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 907,
+   "congress": 119,
+   "missed": 8,
+   "norm": 0.956,
+   "total": 915
+  },
+  "verified": true
+ },
+ "R000608": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 901,
+   "congress": 119,
+   "missed": 14,
+   "norm": 0.923,
+   "total": 915
+  },
+  "verified": true
+ },
+ "R000618": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 906,
+   "congress": 119,
+   "missed": 9,
+   "norm": 0.951,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S000033": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 851,
+   "congress": 119,
+   "missed": 64,
+   "norm": 0.65,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S000148": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 911,
+   "congress": 119,
+   "missed": 4,
+   "norm": 0.978,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001150": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 893,
+   "congress": 119,
+   "missed": 22,
+   "norm": 0.88,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001181": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 878,
+   "congress": 119,
+   "missed": 37,
+   "norm": 0.798,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001184": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 888,
+   "congress": 119,
+   "missed": 27,
+   "norm": 0.852,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001194": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 904,
+   "congress": 119,
+   "missed": 11,
+   "norm": 0.94,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001198": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 887,
+   "congress": 119,
+   "missed": 28,
+   "norm": 0.847,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001203": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 873,
+   "congress": 119,
+   "missed": 42,
+   "norm": 0.77,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001208": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 890,
+   "congress": 119,
+   "missed": 25,
+   "norm": 0.863,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001217": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 913,
+   "congress": 119,
+   "missed": 2,
+   "norm": 0.989,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001227": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 904,
+   "congress": 119,
+   "missed": 11,
+   "norm": 0.94,
+   "total": 915
+  },
+  "verified": true
+ },
+ "S001232": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 891,
+   "congress": 119,
+   "missed": 24,
+   "norm": 0.869,
+   "total": 915
+  },
+  "verified": true
+ },
+ "T000250": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 914,
+   "congress": 119,
+   "missed": 1,
+   "norm": 0.995,
+   "total": 915
+  },
+  "verified": true
+ },
+ "T000278": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 855,
+   "congress": 119,
+   "missed": 60,
+   "norm": 0.672,
+   "total": 915
+  },
+  "verified": true
+ },
+ "T000476": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 801,
+   "congress": 119,
+   "missed": 114,
+   "norm": 0.377,
+   "total": 915
+  },
+  "verified": true
+ },
+ "V000128": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 901,
+   "congress": 119,
+   "missed": 14,
+   "norm": 0.923,
+   "total": 915
+  },
+  "verified": true
+ },
+ "V000137": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 1,
+   "congress": 119,
+   "missed": 0,
+   "norm": 1.0,
+   "total": 1
+  },
+  "verified": true
+ },
+ "W000437": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 883,
+   "congress": 119,
+   "missed": 32,
+   "norm": 0.825,
+   "total": 915
+  },
+  "verified": true
+ },
+ "W000779": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 898,
+   "congress": 119,
+   "missed": 17,
+   "norm": 0.907,
+   "total": 915
+  },
+  "verified": true
+ },
+ "W000790": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 889,
+   "congress": 119,
+   "missed": 26,
+   "norm": 0.858,
+   "total": 915
+  },
+  "verified": true
+ },
+ "W000800": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 862,
+   "congress": 119,
+   "missed": 53,
+   "norm": 0.71,
+   "total": 915
+  },
+  "verified": true
+ },
+ "W000802": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 879,
+   "congress": 119,
+   "missed": 36,
+   "norm": 0.803,
+   "total": 915
+  },
+  "verified": true
+ },
+ "W000805": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 875,
+   "congress": 119,
+   "missed": 40,
+   "norm": 0.781,
+   "total": 915
+  },
+  "verified": true
+ },
+ "W000817": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 901,
+   "congress": 119,
+   "missed": 14,
+   "norm": 0.923,
+   "total": 915
+  },
+  "verified": true
+ },
+ "Y000064": {
+  "note": "Paired and announced positions count as absences; they aren't recorded votes.",
+  "publisher": "Voteview (UCLA), from U.S. Senate roll calls",
+  "retrieved_at": "2026-10-24",
+  "source_url": "https://voteview.com/congress/senate/119",
+  "value": {
+   "cast": 907,
+   "congress": 119,
+   "missed": 8,
+   "norm": 0.956,
+   "total": 915
+  },
+  "verified": true
+ }
+}
