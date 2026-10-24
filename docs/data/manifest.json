@@ -6,7 +6,7 @@
  "bills": {
   "last": "2026-10-24",
   "records": 5,
-  "seconds": 34,
+  "seconds": 40,
   "state": "live"
  },
  "cel": {
@@ -18,25 +18,25 @@
  "cel_state": {
   "last": "2026-10-24",
   "records": 135,
-  "seconds": 1,
+  "seconds": 0,
   "state": "live"
  },
  "factchecks": {
   "last": "2026-10-24",
   "records": 26,
-  "seconds": 15,
+  "seconds": 21,
   "state": "live"
  },
  "fec": {
   "last": "2026-10-24",
   "records": 20,
-  "seconds": 5,
+  "seconds": 7,
   "state": "live"
  },
  "members": {
   "last": "2026-10-24",
   "records": 539,
-  "seconds": 2,
+  "seconds": 3,
   "state": "live"
  },
  "senate_votes": {
