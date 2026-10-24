@@ -1,0 +1,45 @@
+name: Nightly data refresh
+on:
+  schedule:
+    - cron: "17 8 * * *"   # 08:17 UTC daily (about 3 a.m. Central)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nightly-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Test parsers and formulas
+        run: pytest -q
+      - name: Pull official data
+        env:
+          API_DATA_GOV_KEY: ${{ secrets.API_DATA_GOV_KEY }}
+          GOOGLE_FACTCHECK_KEY: ${{ secrets.GOOGLE_FACTCHECK_KEY }}
+        run: python -m pipeline.build
+      - name: Publish feed status and stats to the website
+        run: |
+          mkdir -p docs/data
+          for f in manifest cel fec attendance bipartisanship factchecks; do
+            [ -f "data/$f.json" ] && cp "data/$f.json" docs/data/ || true
+          done
+      - name: Commit changed data
+        run: |
+          git config user.name "stump-league-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs/data
+          git diff --cached --quiet && echo "No data changes" && exit 0
+          git commit -m "Nightly data refresh $(date -u +%F)"
+          git pull --rebase
+          git push

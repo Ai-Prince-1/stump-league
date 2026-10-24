@@ -1,0 +1,1 @@
+"""Stump League data pipeline."""

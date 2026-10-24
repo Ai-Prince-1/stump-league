@@ -1,0 +1,7634 @@
+{
+ "A000055": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H6AL04098"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400004,
+  "lis": null,
+  "name": "Robert B. Aderholt",
+  "party": "Republican",
+  "state": "AL",
+  "terms": 15
+ },
+ "A000148": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H0MA04192"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456825,
+  "lis": null,
+  "name": "Jake Auchincloss",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 3
+ },
+ "A000369": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2NV02395",
+   "H1NV02017",
+   "S0NV00237"
+  ],
+  "first_term_start": "2011-09-13",
+  "govtrack": 412500,
+  "lis": null,
+  "name": "Mark E. Amodei",
+  "party": "Republican",
+  "state": "NV",
+  "terms": 8
+ },
+ "A000370": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H4NC12100"
+  ],
+  "first_term_start": "2014-11-12",
+  "govtrack": 412607,
+  "lis": null,
+  "name": "Alma S. Adams",
+  "party": "Democrat",
+  "state": "NC",
+  "terms": 7
+ },
+ "A000371": {
+  "chamber": "house",
+  "district": 33,
+  "fec_ids": [
+   "H2CA31125"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412615,
+  "lis": null,
+  "name": "Pete Aguilar",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 6
+ },
+ "A000372": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H2GA12121"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412625,
+  "lis": null,
+  "name": "Rick W. Allen",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 6
+ },
+ "A000375": {
+  "chamber": "house",
+  "district": 19,
+  "fec_ids": [
+   "H6TX19099"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412726,
+  "lis": null,
+  "name": "Jodey C. Arrington",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 5
+ },
+ "A000379": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2MO04207"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456909,
+  "lis": null,
+  "name": "Mark Alford",
+  "party": "Republican",
+  "state": "MO",
+  "terms": 2
+ },
+ "A000380": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H4RI01265"
+  ],
+  "first_term_start": "2023-11-07",
+  "govtrack": 456955,
+  "lis": null,
+  "name": "Gabe Amo",
+  "party": "Democrat",
+  "state": "RI",
+  "terms": 2
+ },
+ "A000381": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4AZ03109"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456972,
+  "lis": null,
+  "name": "Yassamin Ansari",
+  "party": "Democrat",
+  "state": "AZ",
+  "terms": 1
+ },
+ "A000382": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4MD00327"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456965,
+  "lis": "S428",
+  "name": "Angela D. Alsobrooks",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 1
+ },
+ "A000383": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [],
+  "first_term_start": "2026-03-24",
+  "govtrack": 457040,
+  "lis": "S440",
+  "name": "Alan Armstrong",
+  "party": "Republican",
+  "state": "OK",
+  "terms": 1
+ },
+ "B000490": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2GA02031"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 400030,
+  "lis": null,
+  "name": "Sanford D. Bishop, Jr.",
+  "party": "Democrat",
+  "state": "GA",
+  "terms": 17
+ },
+ "B000668": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H0OR02127"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456842,
+  "lis": null,
+  "name": "Cliff Bentz",
+  "party": "Republican",
+  "state": "OR",
+  "terms": 3
+ },
+ "B000740": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H0OK05205"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456841,
+  "lis": null,
+  "name": "Stephanie I. Bice",
+  "party": "Republican",
+  "state": "OK",
+  "terms": 3
+ },
+ "B000825": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H0CO03165"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456805,
+  "lis": null,
+  "name": "Lauren Boebert",
+  "party": "Republican",
+  "state": "CO",
+  "terms": 3
+ },
+ "B001230": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8WI00018",
+   "S2WI00219"
+  ],
+  "first_term_start": "1999-01-06",
+  "govtrack": 400013,
+  "lis": "S354",
+  "name": "Tammy Baldwin",
+  "party": "Democrat",
+  "state": "WI",
+  "terms": 10
+ },
+ "B001236": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H2AR03176",
+   "S0AR00150"
+  ],
+  "first_term_start": "2001-11-29",
+  "govtrack": 400040,
+  "lis": "S343",
+  "name": "John Boozman",
+  "party": "Republican",
+  "state": "AR",
+  "terms": 8
+ },
+ "B001243": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H2TN06030",
+   "S8TN00337"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400032,
+  "lis": "S396",
+  "name": "Marsha Blackburn",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 10
+ },
+ "B001257": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H6FL09070"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412250,
+  "lis": null,
+  "name": "Gus M. Bilirakis",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 10
+ },
+ "B001260": {
+  "chamber": "house",
+  "district": 16,
+  "fec_ids": [
+   "H6FL13148"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412196,
+  "lis": null,
+  "name": "Vern Buchanan",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 10
+ },
+ "B001261": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6WY00068"
+  ],
+  "first_term_start": "2007-06-25",
+  "govtrack": 412251,
+  "lis": "S317",
+  "name": "John Barrasso",
+  "party": "Republican",
+  "state": "WY",
+  "terms": 4
+ },
+ "B001267": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0CO00211"
+  ],
+  "first_term_start": "2009-01-22",
+  "govtrack": 412330,
+  "lis": "S330",
+  "name": "Michael F. Bennet",
+  "party": "Democrat",
+  "state": "CO",
+  "terms": 4
+ },
+ "B001277": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0CT00177"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412490,
+  "lis": "S341",
+  "name": "Richard Blumenthal",
+  "party": "Democrat",
+  "state": "CT",
+  "terms": 3
+ },
+ "B001278": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2OR01133"
+  ],
+  "first_term_start": "2012-02-07",
+  "govtrack": 412501,
+  "lis": null,
+  "name": "Suzanne Bonamici",
+  "party": "Democrat",
+  "state": "OR",
+  "terms": 8
+ },
+ "B001281": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H2OH03125"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412565,
+  "lis": null,
+  "name": "Joyce Beatty",
+  "party": "Democrat",
+  "state": "OH",
+  "terms": 7
+ },
+ "B001282": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H0KY06104",
+   "S6KY00286"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412541,
+  "lis": null,
+  "name": "Andy Barr",
+  "party": "Republican",
+  "state": "KY",
+  "terms": 7
+ },
+ "B001285": {
+  "chamber": "house",
+  "district": 26,
+  "fec_ids": [
+   "H2CA00120"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412516,
+  "lis": null,
+  "name": "Julia Brownley",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 7
+ },
+ "B001287": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H0CA03078"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412512,
+  "lis": null,
+  "name": "Ami Bera",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 7
+ },
+ "B001288": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4NJ00185"
+  ],
+  "first_term_start": "2013-10-31",
+  "govtrack": 412598,
+  "lis": "S370",
+  "name": "Cory A. Booker",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 3
+ },
+ "B001291": {
+  "chamber": "house",
+  "district": 36,
+  "fec_ids": [
+   "H6TX02079"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412655,
+  "lis": null,
+  "name": "Brian Babin",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 6
+ },
+ "B001292": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4VA08224"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412657,
+  "lis": null,
+  "name": "Donald S. Beyer, Jr.",
+  "party": "Democrat",
+  "state": "VA",
+  "terms": 6
+ },
+ "B001295": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H4IL12060"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412629,
+  "lis": null,
+  "name": "Mike Bost",
+  "party": "Republican",
+  "state": "IL",
+  "terms": 6
+ },
+ "B001296": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4PA13199"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412652,
+  "lis": null,
+  "name": "Brendan F. Boyle",
+  "party": "Democrat",
+  "state": "PA",
+  "terms": 6
+ },
+ "B001298": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H6NE02125"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412713,
+  "lis": null,
+  "name": "Don Bacon",
+  "party": "Republican",
+  "state": "NE",
+  "terms": 5
+ },
+ "B001299": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6IN03229",
+   "S4IN00196"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412702,
+  "lis": "S429",
+  "name": "Jim Banks",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 5
+ },
+ "B001300": {
+  "chamber": "house",
+  "district": 44,
+  "fec_ids": [
+   "H6CA44103"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412687,
+  "lis": null,
+  "name": "Nanette Diaz Barragán",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 5
+ },
+ "B001301": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H6MI01226"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412709,
+  "lis": null,
+  "name": "Jack Bergman",
+  "party": "Republican",
+  "state": "MI",
+  "terms": 5
+ },
+ "B001302": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H6AZ05083"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412683,
+  "lis": null,
+  "name": "Andy Biggs",
+  "party": "Republican",
+  "state": "AZ",
+  "terms": 5
+ },
+ "B001303": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6DE00206",
+   "S4DE00060"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412689,
+  "lis": "S430",
+  "name": "Lisa Blunt Rochester",
+  "party": "Democrat",
+  "state": "DE",
+  "terms": 5
+ },
+ "B001305": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6NC13129",
+   "S2NC00505"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412712,
+  "lis": "S417",
+  "name": "Ted Budd",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 4
+ },
+ "B001306": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H8OH12180"
+  ],
+  "first_term_start": "2018-09-05",
+  "govtrack": 412747,
+  "lis": null,
+  "name": "Troy Balderson",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 5
+ },
+ "B001307": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8IN04199"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412777,
+  "lis": null,
+  "name": "James R. Baird",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 4
+ },
+ "B001309": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H8TN02119"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412817,
+  "lis": null,
+  "name": "Tim Burchett",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 4
+ },
+ "B001313": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H2OH11169"
+  ],
+  "first_term_start": "2021-11-04",
+  "govtrack": 456863,
+  "lis": null,
+  "name": "Shontel M. Brown",
+  "party": "Democrat",
+  "state": "OH",
+  "terms": 3
+ },
+ "B001314": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2FL04211"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456888,
+  "lis": null,
+  "name": "Aaron Bean",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 2
+ },
+ "B001315": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H2IL13153"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456901,
+  "lis": null,
+  "name": "Nikki Budzinski",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 2
+ },
+ "B001316": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H2MO07143"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456910,
+  "lis": null,
+  "name": "Eric Burlison",
+  "party": "Republican",
+  "state": "MO",
+  "terms": 2
+ },
+ "B001317": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2OK02315"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456931,
+  "lis": null,
+  "name": "Josh Brecheen",
+  "party": "Republican",
+  "state": "OK",
+  "terms": 2
+ },
+ "B001318": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H2VT01076"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456948,
+  "lis": null,
+  "name": "Becca Balint",
+  "party": "Democrat",
+  "state": "VT",
+  "terms": 2
+ },
+ "B001319": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2AL00145"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456874,
+  "lis": "S416",
+  "name": "Katie Boyd Britt",
+  "party": "Republican",
+  "state": "AL",
+  "terms": 1
+ },
+ "B001321": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H2MI07123"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456994,
+  "lis": null,
+  "name": "Tom Barrett",
+  "party": "Republican",
+  "state": "MI",
+  "terms": 1
+ },
+ "B001322": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H4WA05234"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457029,
+  "lis": null,
+  "name": "Michael Baumgartner",
+  "party": "Republican",
+  "state": "WA",
+  "terms": 1
+ },
+ "B001323": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H2AK01083"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456970,
+  "lis": null,
+  "name": "Nicholas J. Begich III",
+  "party": "Republican",
+  "state": "AK",
+  "terms": 1
+ },
+ "B001324": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H4MO01134",
+   "S4MO00250"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456997,
+  "lis": null,
+  "name": "Wesley Bell",
+  "party": "Democrat",
+  "state": "MO",
+  "terms": 1
+ },
+ "B001325": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4SC01313"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457020,
+  "lis": null,
+  "name": "Sheri Biggs",
+  "party": "Republican",
+  "state": "SC",
+  "terms": 1
+ },
+ "B001326": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H4OR05304"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457016,
+  "lis": null,
+  "name": "Janelle S. Bynum",
+  "party": "Democrat",
+  "state": "OR",
+  "terms": 1
+ },
+ "B001327": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4PA08124"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457018,
+  "lis": null,
+  "name": "Robert P. Bresnahan, Jr.",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 1
+ },
+ "B001328": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H6GA13062"
+  ],
+  "first_term_start": "2026-09-01",
+  "govtrack": 457045,
+  "lis": null,
+  "name": "Everton Blair Jr.",
+  "party": "Democrat",
+  "state": "GA",
+  "terms": 1
+ },
+ "C000059": {
+  "chamber": "house",
+  "district": 41,
+  "fec_ids": [
+   "H2CA37023"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 400057,
+  "lis": null,
+  "name": "Ken Calvert",
+  "party": "Republican",
+  "state": "CA",
+  "terms": 17
+ },
+ "C000127": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8WA00194",
+   "H2WA01054"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 300018,
+  "lis": "S275",
+  "name": "Maria Cantwell",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 6
+ },
+ "C000537": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H2SC02042"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 400075,
+  "lis": null,
+  "name": "James E. Clyburn",
+  "party": "Democrat",
+  "state": "SC",
+  "terms": 17
+ },
+ "C000880": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8ID00027",
+   "H2ID02034"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 300030,
+  "lis": "S266",
+  "name": "Mike Crapo",
+  "party": "Republican",
+  "state": "ID",
+  "terms": 8
+ },
+ "C001035": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6ME00159"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 300025,
+  "lis": "S252",
+  "name": "Susan M. Collins",
+  "party": "Republican",
+  "state": "ME",
+  "terms": 5
+ },
+ "C001039": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0FL03175"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456806,
+  "lis": null,
+  "name": "Kat Cammack",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 3
+ },
+ "C001047": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H0WV02138",
+   "S4WV00159"
+  ],
+  "first_term_start": "2001-01-03",
+  "govtrack": 400061,
+  "lis": "S372",
+  "name": "Shelley Moore Capito",
+  "party": "Republican",
+  "state": "WV",
+  "terms": 9
+ },
+ "C001051": {
+  "chamber": "house",
+  "district": 31,
+  "fec_ids": [
+   "H2TX31044"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400068,
+  "lis": null,
+  "name": "John R. Carter",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 12
+ },
+ "C001053": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2OK04055"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400077,
+  "lis": null,
+  "name": "Tom Cole",
+  "party": "Republican",
+  "state": "OK",
+  "terms": 12
+ },
+ "C001055": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2HI02128"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400069,
+  "lis": null,
+  "name": "Ed Case",
+  "party": "Democrat",
+  "state": "HI",
+  "terms": 6
+ },
+ "C001056": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2TX00106"
+  ],
+  "first_term_start": "2002-11-30",
+  "govtrack": 300027,
+  "lis": "S287",
+  "name": "John Cornyn",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 5
+ },
+ "C001059": {
+  "chamber": "house",
+  "district": 21,
+  "fec_ids": [
+   "H4CA20082"
+  ],
+  "first_term_start": "2005-01-04",
+  "govtrack": 400618,
+  "lis": null,
+  "name": "Jim Costa",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 11
+ },
+ "C001061": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H4MO05234"
+  ],
+  "first_term_start": "2005-01-04",
+  "govtrack": 400639,
+  "lis": null,
+  "name": "Emanuel Cleaver",
+  "party": "Democrat",
+  "state": "MO",
+  "terms": 11
+ },
+ "C001063": {
+  "chamber": "house",
+  "district": 28,
+  "fec_ids": [
+   "H2TX23082"
+  ],
+  "first_term_start": "2005-01-04",
+  "govtrack": 400657,
+  "lis": null,
+  "name": "Henry Cuellar",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 11
+ },
+ "C001066": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H6FL11126",
+   "H6FL11134"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412195,
+  "lis": null,
+  "name": "Kathy Castor",
+  "party": "Democrat",
+  "state": "FL",
+  "terms": 10
+ },
+ "C001067": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H4NY11138"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412221,
+  "lis": null,
+  "name": "Yvette D. Clarke",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 10
+ },
+ "C001068": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H6TN09068"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412236,
+  "lis": null,
+  "name": "Steve Cohen",
+  "party": "Democrat",
+  "state": "TN",
+  "terms": 10
+ },
+ "C001069": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2CT02112"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412193,
+  "lis": null,
+  "name": "Joe Courtney",
+  "party": "Democrat",
+  "state": "CT",
+  "terms": 10
+ },
+ "C001072": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H8IN07184"
+  ],
+  "first_term_start": "2008-03-13",
+  "govtrack": 412258,
+  "lis": null,
+  "name": "André Carson",
+  "party": "Democrat",
+  "state": "IN",
+  "terms": 10
+ },
+ "C001075": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8LA00017",
+   "S4LA00107"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412269,
+  "lis": "S373",
+  "name": "Bill Cassidy",
+  "party": "Republican",
+  "state": "LA",
+  "terms": 5
+ },
+ "C001080": {
+  "chamber": "house",
+  "district": 28,
+  "fec_ids": [
+   "H0CA32101"
+  ],
+  "first_term_start": "2009-07-16",
+  "govtrack": 412379,
+  "lis": null,
+  "name": "Judy Chu",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 9
+ },
+ "C001087": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H0AR01083"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412400,
+  "lis": null,
+  "name": "Eric A. \"Rick\" Crawford",
+  "party": "Republican",
+  "state": "AR",
+  "terms": 8
+ },
+ "C001088": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0DE00092"
+  ],
+  "first_term_start": "2010-11-15",
+  "govtrack": 412390,
+  "lis": "S337",
+  "name": "Christopher A. Coons",
+  "party": "Democrat",
+  "state": "DE",
+  "terms": 3
+ },
+ "C001091": {
+  "chamber": "house",
+  "district": 20,
+  "fec_ids": [
+   "H2TX35011"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412576,
+  "lis": null,
+  "name": "Joaquin Castro",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 7
+ },
+ "C001095": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H2AR04083",
+   "S4AR00103"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412508,
+  "lis": "S374",
+  "name": "Tom Cotton",
+  "party": "Republican",
+  "state": "AR",
+  "terms": 3
+ },
+ "C001096": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H0ND01026",
+   "H6ND00074",
+   "S8ND00120"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412555,
+  "lis": "S398",
+  "name": "Kevin Cramer",
+  "party": "Republican",
+  "state": "ND",
+  "terms": 5
+ },
+ "C001098": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2TX00312"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412573,
+  "lis": "S355",
+  "name": "Ted Cruz",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 3
+ },
+ "C001101": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H4MA05084"
+  ],
+  "first_term_start": "2013-12-12",
+  "govtrack": 412600,
+  "lis": null,
+  "name": "Katherine M. Clark",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 7
+ },
+ "C001103": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H4GA01039",
+   "S6GA00374"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412622,
+  "lis": null,
+  "name": "Earl L. \"Buddy\" Carter",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 6
+ },
+ "C001108": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H6KY01110"
+  ],
+  "first_term_start": "2016-11-14",
+  "govtrack": 412676,
+  "lis": null,
+  "name": "James Comer",
+  "party": "Republican",
+  "state": "KY",
+  "terms": 6
+ },
+ "C001110": {
+  "chamber": "house",
+  "district": 46,
+  "fec_ids": [
+   "H6CA46116"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412688,
+  "lis": null,
+  "name": "J. Luis Correa",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 5
+ },
+ "C001112": {
+  "chamber": "house",
+  "district": 24,
+  "fec_ids": [
+   "H6CA24303"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412686,
+  "lis": null,
+  "name": "Salud O. Carbajal",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 5
+ },
+ "C001113": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6NV00200"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412681,
+  "lis": "S385",
+  "name": "Catherine Cortez Masto",
+  "party": "Democrat",
+  "state": "NV",
+  "terms": 2
+ },
+ "C001114": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8UT03238",
+   "S4UT00282"
+  ],
+  "first_term_start": "2017-11-13",
+  "govtrack": 412740,
+  "lis": "S431",
+  "name": "John R. Curtis",
+  "party": "Republican",
+  "state": "UT",
+  "terms": 5
+ },
+ "C001115": {
+  "chamber": "house",
+  "district": 27,
+  "fec_ids": [
+   "H8TX27049"
+  ],
+  "first_term_start": "2018-07-10",
+  "govtrack": 412746,
+  "lis": null,
+  "name": "Michael Cloud",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 5
+ },
+ "C001116": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H0GA09246"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456813,
+  "lis": null,
+  "name": "Andrew S. Clyde",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 3
+ },
+ "C001117": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H8IL06139"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412775,
+  "lis": null,
+  "name": "Sean Casten",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 4
+ },
+ "C001118": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H8VA06104"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412832,
+  "lis": null,
+  "name": "Ben Cline",
+  "party": "Republican",
+  "state": "VA",
+  "terms": 4
+ },
+ "C001119": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H6MN02131",
+   "S6MN00499"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412789,
+  "lis": null,
+  "name": "Angie Craig",
+  "party": "Democrat",
+  "state": "MN",
+  "terms": 4
+ },
+ "C001120": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H8TX02166"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412820,
+  "lis": null,
+  "name": "Dan Crenshaw",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 4
+ },
+ "C001121": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H8CO06229"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412762,
+  "lis": null,
+  "name": "Jason Crow",
+  "party": "Democrat",
+  "state": "CO",
+  "terms": 4
+ },
+ "C001123": {
+  "chamber": "house",
+  "district": 31,
+  "fec_ids": [
+   "H8CA39174",
+   "H4CA31170"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412757,
+  "lis": null,
+  "name": "Gilbert Ray Cisneros, Jr.",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 2
+ },
+ "C001125": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2LA02149"
+  ],
+  "first_term_start": "2021-05-11",
+  "govtrack": 456860,
+  "lis": null,
+  "name": "Troy A. Carter",
+  "party": "Democrat",
+  "state": "LA",
+  "terms": 3
+ },
+ "C001126": {
+  "chamber": "house",
+  "district": 15,
+  "fec_ids": [
+   "H2OH15228"
+  ],
+  "first_term_start": "2021-11-04",
+  "govtrack": 456864,
+  "lis": null,
+  "name": "Mike Carey",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 3
+ },
+ "C001129": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H4GA10071",
+   "S6GA00390"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456895,
+  "lis": null,
+  "name": "Mike Collins",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 2
+ },
+ "C001130": {
+  "chamber": "house",
+  "district": 30,
+  "fec_ids": [
+   "H2TX30178",
+   "S6TX00552"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456944,
+  "lis": null,
+  "name": "Jasmine Crockett",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 2
+ },
+ "C001131": {
+  "chamber": "house",
+  "district": 35,
+  "fec_ids": [
+   "H2TX35144"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456945,
+  "lis": null,
+  "name": "Greg Casar",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 2
+ },
+ "C001132": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2AZ01354"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456879,
+  "lis": null,
+  "name": "Elijah Crane",
+  "party": "Republican",
+  "state": "AZ",
+  "terms": 2
+ },
+ "C001133": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H2AZ02360"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456880,
+  "lis": null,
+  "name": "Juan Ciscomani",
+  "party": "Republican",
+  "state": "AZ",
+  "terms": 2
+ },
+ "C001136": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4NJ03080"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457008,
+  "lis": null,
+  "name": "Herbert C. Conaway, Jr.",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 1
+ },
+ "C001137": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H6CO05142"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456983,
+  "lis": null,
+  "name": "Jeff Crank",
+  "party": "Republican",
+  "state": "CO",
+  "terms": 1
+ },
+ "D000032": {
+  "chamber": "house",
+  "district": 19,
+  "fec_ids": [
+   "H2FL14186"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456808,
+  "lis": null,
+  "name": "Byron Donalds",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 3
+ },
+ "D000096": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H4IL07037"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400093,
+  "lis": null,
+  "name": "Danny K. Davis",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 15
+ },
+ "D000197": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H6CO01141"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400101,
+  "lis": null,
+  "name": "Diana DeGette",
+  "party": "Democrat",
+  "state": "CO",
+  "terms": 15
+ },
+ "D000216": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0CT03072"
+  ],
+  "first_term_start": "1991-01-03",
+  "govtrack": 400103,
+  "lis": null,
+  "name": "Rosa L. DeLauro",
+  "party": "Democrat",
+  "state": "CT",
+  "terms": 18
+ },
+ "D000230": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2NC02287"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456912,
+  "lis": null,
+  "name": "Donald G. Davis",
+  "party": "Democrat",
+  "state": "NC",
+  "terms": 2
+ },
+ "D000399": {
+  "chamber": "house",
+  "district": 37,
+  "fec_ids": [
+   "H4TX10028"
+  ],
+  "first_term_start": "1995-01-04",
+  "govtrack": 400111,
+  "lis": null,
+  "name": "Lloyd Doggett",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 16
+ },
+ "D000530": {
+  "chamber": "house",
+  "district": 17,
+  "fec_ids": [
+   "H2PA17103"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456936,
+  "lis": null,
+  "name": "Christopher R. Deluzio",
+  "party": "Democrat",
+  "state": "PA",
+  "terms": 2
+ },
+ "D000563": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6IL00151",
+   "H2IL20026"
+  ],
+  "first_term_start": "1983-01-03",
+  "govtrack": 300038,
+  "lis": "S253",
+  "name": "Richard J. Durbin",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 12
+ },
+ "D000594": {
+  "chamber": "house",
+  "district": 15,
+  "fec_ids": [
+   "H0TX15124"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456943,
+  "lis": null,
+  "name": "Monica De La Cruz",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 2
+ },
+ "D000600": {
+  "chamber": "house",
+  "district": 26,
+  "fec_ids": [
+   "H2FL25018"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400108,
+  "lis": null,
+  "name": "Mario Diaz-Balart",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 12
+ },
+ "D000616": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H0TN04195"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412477,
+  "lis": null,
+  "name": "Scott DesJarlais",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 8
+ },
+ "D000617": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H0WA08046"
+  ],
+  "first_term_start": "2012-11-13",
+  "govtrack": 412505,
+  "lis": null,
+  "name": "Suzan K. DelBene",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 8
+ },
+ "D000618": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H2MT01060",
+   "S2MT00096"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412549,
+  "lis": "S375",
+  "name": "Steve Daines",
+  "party": "Republican",
+  "state": "MT",
+  "terms": 3
+ },
+ "D000622": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6IL06141",
+   "S6IL00292"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412533,
+  "lis": "S386",
+  "name": "Tammy Duckworth",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 4
+ },
+ "D000623": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H0CA10073"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412613,
+  "lis": null,
+  "name": "Mark DeSaulnier",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 6
+ },
+ "D000624": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4MI12079"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412637,
+  "lis": null,
+  "name": "Debbie Dingell",
+  "party": "Democrat",
+  "state": "MI",
+  "terms": 6
+ },
+ "D000626": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H6OH08315"
+  ],
+  "first_term_start": "2016-06-09",
+  "govtrack": 412675,
+  "lis": null,
+  "name": "Warren Davidson",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 6
+ },
+ "D000628": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H6FL02208"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412691,
+  "lis": null,
+  "name": "Neal P. Dunn",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 5
+ },
+ "D000629": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H8KS03155"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412780,
+  "lis": null,
+  "name": "Sharice Davids",
+  "party": "Democrat",
+  "state": "KS",
+  "terms": 4
+ },
+ "D000631": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8PA04116"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412809,
+  "lis": null,
+  "name": "Madeleine Dean",
+  "party": "Democrat",
+  "state": "PA",
+  "terms": 4
+ },
+ "D000634": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4MT02098"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457000,
+  "lis": null,
+  "name": "Troy Downing",
+  "party": "Republican",
+  "state": "MT",
+  "terms": 1
+ },
+ "D000635": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4OR03192"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457015,
+  "lis": null,
+  "name": "Maxine Dexter",
+  "party": "Democrat",
+  "state": "OR",
+  "terms": 1
+ },
+ "E000071": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H8TX06266"
+  ],
+  "first_term_start": "2021-07-30",
+  "govtrack": 456862,
+  "lis": null,
+  "name": "Jake Ellzey",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 3
+ },
+ "E000235": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2MS04258"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456911,
+  "lis": null,
+  "name": "Mike Ezell",
+  "party": "Republican",
+  "state": "MS",
+  "terms": 2
+ },
+ "E000246": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H2NC14050"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456914,
+  "lis": null,
+  "name": "Chuck Edwards",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 2
+ },
+ "E000294": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4MN06087"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412639,
+  "lis": null,
+  "name": "Tom Emmer",
+  "party": "Republican",
+  "state": "MN",
+  "terms": 6
+ },
+ "E000295": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4IA00129"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412667,
+  "lis": "S376",
+  "name": "Joni Ernst",
+  "party": "Republican",
+  "state": "IA",
+  "terms": 2
+ },
+ "E000296": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H6PA02171"
+  ],
+  "first_term_start": "2016-11-14",
+  "govtrack": 412677,
+  "lis": null,
+  "name": "Dwight Evans",
+  "party": "Democrat",
+  "state": "PA",
+  "terms": 6
+ },
+ "E000297": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H2NY13096"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412718,
+  "lis": null,
+  "name": "Adriano Espaillat",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 5
+ },
+ "E000298": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8KS04112"
+  ],
+  "first_term_start": "2017-04-25",
+  "govtrack": 412735,
+  "lis": null,
+  "name": "Ron Estes",
+  "party": "Republican",
+  "state": "KS",
+  "terms": 5
+ },
+ "E000299": {
+  "chamber": "house",
+  "district": 16,
+  "fec_ids": [
+   "H8TX16109"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412825,
+  "lis": null,
+  "name": "Veronica Escobar",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 4
+ },
+ "E000300": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4CO08034"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456984,
+  "lis": null,
+  "name": "Gabe Evans",
+  "party": "Republican",
+  "state": "CO",
+  "terms": 1
+ },
+ "E000301": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4MD03156"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456992,
+  "lis": null,
+  "name": "Sarah Elfreth",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 1
+ },
+ "F000110": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4LA06211"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 404067,
+  "lis": null,
+  "name": "Cleo Fields",
+  "party": "Democrat",
+  "state": "LA",
+  "terms": 3
+ },
+ "F000246": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H0TX04219"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456845,
+  "lis": null,
+  "name": "Pat Fallon",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 3
+ },
+ "F000446": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H0IA04145"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456818,
+  "lis": null,
+  "name": "Randy Feenstra",
+  "party": "Republican",
+  "state": "IA",
+  "terms": 3
+ },
+ "F000450": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H4NC05146"
+  ],
+  "first_term_start": "2005-01-04",
+  "govtrack": 400643,
+  "lis": null,
+  "name": "Virginia Foxx",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 11
+ },
+ "F000454": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H8IL14067",
+   "H2IL11124"
+  ],
+  "first_term_start": "2008-03-08",
+  "govtrack": 412257,
+  "lis": null,
+  "name": "Bill Foster",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 9
+ },
+ "F000459": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0TN03254"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412476,
+  "lis": null,
+  "name": "Charles J. \"Chuck\" Fleischmann",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 8
+ },
+ "F000462": {
+  "chamber": "house",
+  "district": 22,
+  "fec_ids": [
+   "H2FL14053",
+   "H2FL22080"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412529,
+  "lis": null,
+  "name": "Lois Frankel",
+  "party": "Democrat",
+  "state": "FL",
+  "terms": 7
+ },
+ "F000463": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2NE00094"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412556,
+  "lis": "S357",
+  "name": "Deb Fischer",
+  "party": "Republican",
+  "state": "NE",
+  "terms": 3
+ },
+ "F000466": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H6PA08277"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412721,
+  "lis": null,
+  "name": "Brian K. Fitzpatrick",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 5
+ },
+ "F000468": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H8TX07140"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412824,
+  "lis": null,
+  "name": "Lizzie Fletcher",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 4
+ },
+ "F000469": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8ID01124"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412773,
+  "lis": null,
+  "name": "Russ Fulcher",
+  "party": "Republican",
+  "state": "ID",
+  "terms": 4
+ },
+ "F000470": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H0MN07091"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456828,
+  "lis": null,
+  "name": "Michelle Fischbach",
+  "party": "Republican",
+  "state": "MN",
+  "terms": 3
+ },
+ "F000471": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H0WI05113"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456855,
+  "lis": null,
+  "name": "Scott Fitzgerald",
+  "party": "Republican",
+  "state": "WI",
+  "terms": 3
+ },
+ "F000472": {
+  "chamber": "house",
+  "district": 18,
+  "fec_ids": [
+   "H0FL15104"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456807,
+  "lis": null,
+  "name": "Scott Franklin",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 3
+ },
+ "F000474": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2NE01118"
+  ],
+  "first_term_start": "2022-07-12",
+  "govtrack": 456868,
+  "lis": null,
+  "name": "Mike Flood",
+  "party": "Republican",
+  "state": "NE",
+  "terms": 3
+ },
+ "F000475": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2MN01223"
+  ],
+  "first_term_start": "2022-08-12",
+  "govtrack": 456869,
+  "lis": null,
+  "name": "Brad Finstad",
+  "party": "Republican",
+  "state": "MN",
+  "terms": 3
+ },
+ "F000476": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H2FL10259"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456890,
+  "lis": null,
+  "name": "Maxwell Frost",
+  "party": "Democrat",
+  "state": "FL",
+  "terms": 2
+ },
+ "F000477": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2NC06114"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456913,
+  "lis": null,
+  "name": "Valerie P. Foushee",
+  "party": "Democrat",
+  "state": "NC",
+  "terms": 2
+ },
+ "F000478": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H2SC07280",
+   "S6SC04403"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456938,
+  "lis": null,
+  "name": "Russell Fry",
+  "party": "Republican",
+  "state": "SC",
+  "terms": 2
+ },
+ "F000479": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6PA00274"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456877,
+  "lis": "S418",
+  "name": "John Fetterman",
+  "party": "Democrat",
+  "state": "PA",
+  "terms": 1
+ },
+ "F000480": {
+  "chamber": "house",
+  "district": 20,
+  "fec_ids": [
+   "H4CA20181"
+  ],
+  "first_term_start": "2024-06-03",
+  "govtrack": 456958,
+  "lis": null,
+  "name": "Vince Fong",
+  "party": "Republican",
+  "state": "CA",
+  "terms": 2
+ },
+ "F000481": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4AL02170"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456971,
+  "lis": null,
+  "name": "Shomari Figures",
+  "party": "Democrat",
+  "state": "AL",
+  "terms": 1
+ },
+ "F000482": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H4ND00061"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457006,
+  "lis": null,
+  "name": "Julie Fedorchak",
+  "party": "Republican",
+  "state": "ND",
+  "terms": 1
+ },
+ "F000483": {
+  "chamber": "house",
+  "district": 30,
+  "fec_ids": [
+   "H4CA30149"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456979,
+  "lis": null,
+  "name": "Laura Friedman",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "F000484": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H6FL06258"
+  ],
+  "first_term_start": "2025-04-02",
+  "govtrack": 457035,
+  "lis": null,
+  "name": "Randy Fine",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 1
+ },
+ "F000485": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H0GA14030"
+  ],
+  "first_term_start": "2026-04-14",
+  "govtrack": 457041,
+  "lis": null,
+  "name": "Clay Fuller",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 1
+ },
+ "G000386": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0IA00028"
+  ],
+  "first_term_start": "1975-01-14",
+  "govtrack": 300048,
+  "lis": "S153",
+  "name": "Chuck Grassley",
+  "party": "Republican",
+  "state": "IA",
+  "terms": 11
+ },
+ "G000546": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H0MO06073"
+  ],
+  "first_term_start": "2001-01-03",
+  "govtrack": 400158,
+  "lis": null,
+  "name": "Sam Graves",
+  "party": "Republican",
+  "state": "MO",
+  "terms": 13
+ },
+ "G000553": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H4TX09095"
+  ],
+  "first_term_start": "2005-01-04",
+  "govtrack": 400653,
+  "lis": null,
+  "name": "Al Green",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 11
+ },
+ "G000555": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6NY20167",
+   "S0NY00410"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412223,
+  "lis": "S331",
+  "name": "Kirsten E. Gillibrand",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 6
+ },
+ "G000558": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H8KY02031"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412278,
+  "lis": null,
+  "name": "Brett Guthrie",
+  "party": "Republican",
+  "state": "KY",
+  "terms": 9
+ },
+ "G000559": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H0CA10149"
+  ],
+  "first_term_start": "2009-11-03",
+  "govtrack": 412382,
+  "lis": null,
+  "name": "John Garamendi",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 9
+ },
+ "G000565": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H0AZ01259"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412397,
+  "lis": null,
+  "name": "Paul A. Gosar",
+  "party": "Republican",
+  "state": "AZ",
+  "terms": 8
+ },
+ "G000568": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H0VA09055"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412485,
+  "lis": null,
+  "name": "H. Morgan Griffith",
+  "party": "Republican",
+  "state": "VA",
+  "terms": 8
+ },
+ "G000574": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H4AZ07043",
+   "S4AZ00139"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412612,
+  "lis": "S432",
+  "name": "Ruben Gallego",
+  "party": "Democrat",
+  "state": "AZ",
+  "terms": 6
+ },
+ "G000576": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4WI06048"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412661,
+  "lis": null,
+  "name": "Glenn Grothman",
+  "party": "Republican",
+  "state": "WI",
+  "terms": 6
+ },
+ "G000581": {
+  "chamber": "house",
+  "district": 34,
+  "fec_ids": [
+   "H6TX15162"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412725,
+  "lis": null,
+  "name": "Vicente Gonzalez",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 5
+ },
+ "G000583": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H6NJ05171"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412714,
+  "lis": null,
+  "name": "Josh Gottheimer",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 5
+ },
+ "G000585": {
+  "chamber": "house",
+  "district": 34,
+  "fec_ids": [
+   "H8CA34266"
+  ],
+  "first_term_start": "2017-07-11",
+  "govtrack": 412739,
+  "lis": null,
+  "name": "Jimmy Gomez",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 5
+ },
+ "G000586": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8IL04134"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412774,
+  "lis": null,
+  "name": "Jesús G. \"Chuy\" García",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 4
+ },
+ "G000587": {
+  "chamber": "house",
+  "district": 29,
+  "fec_ids": [
+   "H8TX29052"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412827,
+  "lis": null,
+  "name": "Sylvia R. Garcia",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 4
+ },
+ "G000589": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H8TX05144"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412822,
+  "lis": null,
+  "name": "Lance Gooden",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 4
+ },
+ "G000591": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H8MS03125"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412793,
+  "lis": null,
+  "name": "Michael Guest",
+  "party": "Republican",
+  "state": "MS",
+  "terms": 4
+ },
+ "G000592": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H8ME02185"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412842,
+  "lis": null,
+  "name": "Jared F. Golden",
+  "party": "Democrat",
+  "state": "ME",
+  "terms": 4
+ },
+ "G000593": {
+  "chamber": "house",
+  "district": 28,
+  "fec_ids": [
+   "H0FL26036"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456809,
+  "lis": null,
+  "name": "Carlos A. Gimenez",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 3
+ },
+ "G000597": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H0NY02234"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456836,
+  "lis": null,
+  "name": "Andrew R. Garbarino",
+  "party": "Republican",
+  "state": "NY",
+  "terms": 3
+ },
+ "G000598": {
+  "chamber": "house",
+  "district": 42,
+  "fec_ids": [
+   "H2CA47188"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456885,
+  "lis": null,
+  "name": "Robert Garcia",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 2
+ },
+ "G000599": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H2NY10308"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456923,
+  "lis": null,
+  "name": "Daniel S. Goldman",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 2
+ },
+ "G000600": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H2WA03217"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456949,
+  "lis": null,
+  "name": "Marie Gluesenkamp Perez",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 2
+ },
+ "G000601": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H4TX12065"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457021,
+  "lis": null,
+  "name": "Craig A. Goldman",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 1
+ },
+ "G000602": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H4NY04158",
+   "H2NY04244"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457010,
+  "lis": null,
+  "name": "Laura Gillen",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 1
+ },
+ "G000603": {
+  "chamber": "house",
+  "district": 26,
+  "fec_ids": [
+   "H4TX26149"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457023,
+  "lis": null,
+  "name": "Brandon Gill",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 1
+ },
+ "G000604": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4NH02399"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457007,
+  "lis": null,
+  "name": "Maggie Goodlander",
+  "party": "Democrat",
+  "state": "NH",
+  "terms": 1
+ },
+ "G000605": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H2CA13115"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456975,
+  "lis": null,
+  "name": "Adam Gray",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "G000606": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H6AZ07121"
+  ],
+  "first_term_start": "2025-11-12",
+  "govtrack": 457037,
+  "lis": null,
+  "name": "Adelita S. Grijalva",
+  "party": "Democrat",
+  "state": "AZ",
+  "terms": 1
+ },
+ "G000607": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H6CA01285"
+  ],
+  "first_term_start": "2026-06-10",
+  "govtrack": 457043,
+  "lis": null,
+  "name": "James Gallagher",
+  "party": "Republican",
+  "state": "CA",
+  "terms": 1
+ },
+ "G000608": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [],
+  "first_term_start": "2026-07-14",
+  "govtrack": 457044,
+  "lis": "S441",
+  "name": "Darline Graham",
+  "party": "Republican",
+  "state": "SC",
+  "terms": 1
+ },
+ "H000273": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0CO00575"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456797,
+  "lis": "S408",
+  "name": "John W. Hickenlooper",
+  "party": "Democrat",
+  "state": "CO",
+  "terms": 1
+ },
+ "H000601": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0TN00169"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456798,
+  "lis": "S407",
+  "name": "Bill Hagerty",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 1
+ },
+ "H000874": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H2MD05155"
+  ],
+  "first_term_start": "1981-01-05",
+  "govtrack": 400189,
+  "lis": null,
+  "name": "Steny H. Hoyer",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 23
+ },
+ "H001042": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6HI02251",
+   "S2HI00106"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412200,
+  "lis": "S361",
+  "name": "Mazie K. Hirono",
+  "party": "Democrat",
+  "state": "HI",
+  "terms": 6
+ },
+ "H001046": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8NM01224",
+   "S2NM00088"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412281,
+  "lis": "S359",
+  "name": "Martin Heinrich",
+  "party": "Democrat",
+  "state": "NM",
+  "terms": 5
+ },
+ "H001047": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8CT04172"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412282,
+  "lis": null,
+  "name": "James A. Himes",
+  "party": "Democrat",
+  "state": "CT",
+  "terms": 9
+ },
+ "H001052": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8MD01094"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412434,
+  "lis": null,
+  "name": "Andy Harris",
+  "party": "Republican",
+  "state": "MD",
+  "terms": 8
+ },
+ "H001058": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H0MI02094"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412437,
+  "lis": null,
+  "name": "Bill Huizenga",
+  "party": "Republican",
+  "state": "MI",
+  "terms": 8
+ },
+ "H001061": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0ND00093"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412494,
+  "lis": "S344",
+  "name": "John Hoeven",
+  "party": "Republican",
+  "state": "ND",
+  "terms": 3
+ },
+ "H001066": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2NV04011"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412559,
+  "lis": null,
+  "name": "Steven Horsford",
+  "party": "Democrat",
+  "state": "NV",
+  "terms": 5
+ },
+ "H001067": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H2NC08185"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412550,
+  "lis": null,
+  "name": "Richard Hudson",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 7
+ },
+ "H001068": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2CA06259"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412511,
+  "lis": null,
+  "name": "Jared Huffman",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 7
+ },
+ "H001072": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4AR02141"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412609,
+  "lis": null,
+  "name": "J. French Hill",
+  "party": "Republican",
+  "state": "AR",
+  "terms": 6
+ },
+ "H001076": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6NH00091"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412680,
+  "lis": "S388",
+  "name": "Margaret Wood Hassan",
+  "party": "Democrat",
+  "state": "NH",
+  "terms": 2
+ },
+ "H001077": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H6LA03148"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412705,
+  "lis": null,
+  "name": "Clay Higgins",
+  "party": "Republican",
+  "state": "LA",
+  "terms": 5
+ },
+ "H001079": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8MS00261"
+  ],
+  "first_term_start": "2018-04-09",
+  "govtrack": 412743,
+  "lis": "S395",
+  "name": "Cindy Hyde-Smith",
+  "party": "Republican",
+  "state": "MS",
+  "terms": 3
+ },
+ "H001081": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H8CT05245"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412763,
+  "lis": null,
+  "name": "Jahana Hayes",
+  "party": "Democrat",
+  "state": "CT",
+  "terms": 4
+ },
+ "H001082": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8OK01157",
+   "S6OK04247"
+  ],
+  "first_term_start": "2018-11-13",
+  "govtrack": 412748,
+  "lis": null,
+  "name": "Kevin Hern",
+  "party": "Republican",
+  "state": "OK",
+  "terms": 5
+ },
+ "H001085": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H8PA06087"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412810,
+  "lis": null,
+  "name": "Chrissy Houlahan",
+  "party": "Democrat",
+  "state": "PA",
+  "terms": 4
+ },
+ "H001086": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H0TN01118"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456844,
+  "lis": null,
+  "name": "Diana Harshbarger",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 3
+ },
+ "H001089": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8MO00160"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412840,
+  "lis": "S399",
+  "name": "Josh Hawley",
+  "party": "Republican",
+  "state": "MO",
+  "terms": 2
+ },
+ "H001090": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H8CA10126"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412754,
+  "lis": null,
+  "name": "Josh Harder",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 4
+ },
+ "H001091": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H0IA01174"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456816,
+  "lis": null,
+  "name": "Ashley Hinson",
+  "party": "Republican",
+  "state": "IA",
+  "terms": 3
+ },
+ "H001093": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H6IN09143"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456903,
+  "lis": null,
+  "name": "Erin Houchin",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 2
+ },
+ "H001094": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2OR04095"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456932,
+  "lis": null,
+  "name": "Val T. Hoyle",
+  "party": "Democrat",
+  "state": "OR",
+  "terms": 2
+ },
+ "H001095": {
+  "chamber": "house",
+  "district": 38,
+  "fec_ids": [
+   "H0TX07170",
+   "S6TX00511"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456946,
+  "lis": null,
+  "name": "Wesley Hunt",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 2
+ },
+ "H001096": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H2WY00166",
+   "S6WY00209"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456951,
+  "lis": null,
+  "name": "Harriet M. Hageman",
+  "party": "Republican",
+  "state": "WY",
+  "terms": 2
+ },
+ "H001098": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4AZ08108"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456973,
+  "lis": null,
+  "name": "Abraham J. Hamadeh",
+  "party": "Republican",
+  "state": "AZ",
+  "terms": 1
+ },
+ "H001099": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4FL08168"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456986,
+  "lis": null,
+  "name": "Mike Haridopolos",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 1
+ },
+ "H001100": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4CO03357"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456982,
+  "lis": null,
+  "name": "Jeff Hurd",
+  "party": "Republican",
+  "state": "CO",
+  "terms": 1
+ },
+ "H001101": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H2NC13243"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457003,
+  "lis": null,
+  "name": "Pat Harrigan",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 1
+ },
+ "H001102": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H6NC09200",
+   "H4NC08066"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457002,
+  "lis": null,
+  "name": "Mark Harris",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 1
+ },
+ "H001103": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H4PR01010"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457019,
+  "lis": null,
+  "name": "Pablo José Hernández",
+  "party": "Democrat",
+  "state": "PR",
+  "terms": 1
+ },
+ "H001104": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6OH00304"
+  ],
+  "first_term_start": "2025-01-21",
+  "govtrack": 457032,
+  "lis": "S438",
+  "name": "Jon Husted",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 1
+ },
+ "I000056": {
+  "chamber": "house",
+  "district": 48,
+  "fec_ids": [
+   "H0CA48024",
+   "S8CA00135"
+  ],
+  "first_term_start": "2001-01-03",
+  "govtrack": 400196,
+  "lis": null,
+  "name": "Darrell Issa",
+  "party": "Republican",
+  "state": "CA",
+  "terms": 12
+ },
+ "I000058": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2MD04315",
+   "H2MD04232"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456905,
+  "lis": null,
+  "name": "Glenn Ivey",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 2
+ },
+ "J000288": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H6GA04129"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412199,
+  "lis": null,
+  "name": "Henry C. \"Hank\" Johnson, Jr.",
+  "party": "Democrat",
+  "state": "GA",
+  "terms": 10
+ },
+ "J000289": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H6OH04082"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412226,
+  "lis": null,
+  "name": "Jim Jordan",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 10
+ },
+ "J000293": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0WI00197"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412496,
+  "lis": "S345",
+  "name": "Ron Johnson",
+  "party": "Republican",
+  "state": "WI",
+  "terms": 3
+ },
+ "J000294": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H2NY10092"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412561,
+  "lis": null,
+  "name": "Hakeem S. Jeffries",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 7
+ },
+ "J000295": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H2OH14064"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412566,
+  "lis": null,
+  "name": "David P. Joyce",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 7
+ },
+ "J000298": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H6WA07458"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412730,
+  "lis": null,
+  "name": "Pramila Jayapal",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 5
+ },
+ "J000299": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H6LA04138"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412706,
+  "lis": null,
+  "name": "Mike Johnson",
+  "party": "Republican",
+  "state": "LA",
+  "terms": 5
+ },
+ "J000301": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H8SD01055"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412816,
+  "lis": null,
+  "name": "Dusty Johnson",
+  "party": "Republican",
+  "state": "SD",
+  "terms": 4
+ },
+ "J000302": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H8PA13125"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412812,
+  "lis": null,
+  "name": "John Joyce",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 4
+ },
+ "J000304": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H0TX13228"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456847,
+  "lis": null,
+  "name": "Ronny Jackson",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 3
+ },
+ "J000305": {
+  "chamber": "house",
+  "district": 51,
+  "fec_ids": [
+   "H8CA49074"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456804,
+  "lis": null,
+  "name": "Sara Jacobs",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 3
+ },
+ "J000307": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H2MI10150",
+   "S8MI00372"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456907,
+  "lis": null,
+  "name": "John James",
+  "party": "Republican",
+  "state": "MI",
+  "terms": 2
+ },
+ "J000309": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2IL01349"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456899,
+  "lis": null,
+  "name": "Jonathan L. Jackson",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 2
+ },
+ "J000310": {
+  "chamber": "house",
+  "district": 32,
+  "fec_ids": [
+   "H4TX32089"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457024,
+  "lis": null,
+  "name": "Julie Johnson",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 1
+ },
+ "J000311": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4GA03126"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456987,
+  "lis": null,
+  "name": "Brian Jack",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 1
+ },
+ "J000312": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4WV00332"
+  ],
+  "first_term_start": "2025-01-14",
+  "govtrack": 456969,
+  "lis": "S437",
+  "name": "James C. Justice",
+  "party": "Republican",
+  "state": "WV",
+  "terms": 1
+ },
+ "K000009": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H2OH09031"
+  ],
+  "first_term_start": "1983-01-03",
+  "govtrack": 400211,
+  "lis": null,
+  "name": "Marcy Kaptur",
+  "party": "Democrat",
+  "state": "OH",
+  "terms": 22
+ },
+ "K000367": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6MN00267"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412242,
+  "lis": "S311",
+  "name": "Amy Klobuchar",
+  "party": "Democrat",
+  "state": "MN",
+  "terms": 4
+ },
+ "K000375": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H0MA10082"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412435,
+  "lis": null,
+  "name": "William R. Keating",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 8
+ },
+ "K000376": {
+  "chamber": "house",
+  "district": 16,
+  "fec_ids": [
+   "H0PA03271"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412465,
+  "lis": null,
+  "name": "Mike Kelly",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 8
+ },
+ "K000377": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0AZ00350"
+  ],
+  "first_term_start": "2020-12-02",
+  "govtrack": 456794,
+  "lis": "S406",
+  "name": "Mark Kelly",
+  "party": "Democrat",
+  "state": "AZ",
+  "terms": 2
+ },
+ "K000383": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2ME00109"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412545,
+  "lis": "S363",
+  "name": "Angus S. King, Jr.",
+  "party": "Independent",
+  "state": "ME",
+  "terms": 3
+ },
+ "K000384": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2VA00142"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412582,
+  "lis": "S362",
+  "name": "Tim Kaine",
+  "party": "Democrat",
+  "state": "VA",
+  "terms": 3
+ },
+ "K000385": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2IL02172",
+   "S6IL00474"
+  ],
+  "first_term_start": "2013-04-09",
+  "govtrack": 412595,
+  "lis": null,
+  "name": "Robin L. Kelly",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 7
+ },
+ "K000388": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H6MS01131"
+  ],
+  "first_term_start": "2015-06-09",
+  "govtrack": 412673,
+  "lis": null,
+  "name": "Trent Kelly",
+  "party": "Republican",
+  "state": "MS",
+  "terms": 6
+ },
+ "K000389": {
+  "chamber": "house",
+  "district": 17,
+  "fec_ids": [
+   "H4CA12055"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412684,
+  "lis": null,
+  "name": "Ro Khanna",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 5
+ },
+ "K000391": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H6IL08147",
+   "S6IL00482"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412701,
+  "lis": null,
+  "name": "Raja Krishnamoorthi",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 5
+ },
+ "K000392": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H2TN07103"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412724,
+  "lis": null,
+  "name": "David Kustoff",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 5
+ },
+ "K000393": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4LA00065"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412679,
+  "lis": "S389",
+  "name": "John Kennedy",
+  "party": "Republican",
+  "state": "LA",
+  "terms": 2
+ },
+ "K000394": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8NJ03206",
+   "S4NJ00466"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412797,
+  "lis": "S426",
+  "name": "Andy Kim",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 5
+ },
+ "K000397": {
+  "chamber": "house",
+  "district": 40,
+  "fec_ids": [
+   "H8CA39240"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456802,
+  "lis": null,
+  "name": "Young Kim",
+  "party": "Republican",
+  "state": "CA",
+  "terms": 3
+ },
+ "K000398": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H0NJ07261"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456917,
+  "lis": null,
+  "name": "Thomas H. Kean, Jr.",
+  "party": "Republican",
+  "state": "NJ",
+  "terms": 2
+ },
+ "K000399": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2VA02064"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456947,
+  "lis": null,
+  "name": "Jennifer A. Kiggans",
+  "party": "Republican",
+  "state": "VA",
+  "terms": 2
+ },
+ "K000400": {
+  "chamber": "house",
+  "district": 37,
+  "fec_ids": [
+   "H2CA37304"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456884,
+  "lis": null,
+  "name": "Sydney Kamlager-Dove",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 2
+ },
+ "K000401": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H2CA03157"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456881,
+  "lis": null,
+  "name": "Kevin Kiley",
+  "party": "Independent",
+  "state": "CA",
+  "terms": 2
+ },
+ "K000402": {
+  "chamber": "house",
+  "district": 26,
+  "fec_ids": [
+   "H4NY26078"
+  ],
+  "first_term_start": "2024-05-06",
+  "govtrack": 456957,
+  "lis": null,
+  "name": "Timothy M. Kennedy",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 2
+ },
+ "K000403": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4UT03260"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457025,
+  "lis": null,
+  "name": "Mike Kennedy",
+  "party": "Republican",
+  "state": "UT",
+  "terms": 1
+ },
+ "K000404": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H4MP01022"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456999,
+  "lis": null,
+  "name": "Kimberlyn King-Hinds",
+  "party": "Republican",
+  "state": "MP",
+  "terms": 1
+ },
+ "K000405": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H4NC13116"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457004,
+  "lis": null,
+  "name": "Brad Knott",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 1
+ },
+ "L000273": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0NM03102"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456835,
+  "lis": null,
+  "name": "Teresa Leger Fernandez",
+  "party": "Democrat",
+  "state": "NM",
+  "terms": 3
+ },
+ "L000397": {
+  "chamber": "house",
+  "district": 18,
+  "fec_ids": [
+   "H4CA16049"
+  ],
+  "first_term_start": "1995-01-04",
+  "govtrack": 400245,
+  "lis": null,
+  "name": "Zoe Lofgren",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 16
+ },
+ "L000491": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4OK06056"
+  ],
+  "first_term_start": "1993-05-10",
+  "govtrack": 400247,
+  "lis": null,
+  "name": "Frank D. Lucas",
+  "party": "Republican",
+  "state": "OK",
+  "terms": 17
+ },
+ "L000557": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8CT01046"
+  ],
+  "first_term_start": "1999-01-06",
+  "govtrack": 400233,
+  "lis": null,
+  "name": "John B. Larson",
+  "party": "Democrat",
+  "state": "CT",
+  "terms": 14
+ },
+ "L000560": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H0WA02080"
+  ],
+  "first_term_start": "2001-01-03",
+  "govtrack": 400232,
+  "lis": null,
+  "name": "Rick Larsen",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 13
+ },
+ "L000562": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H2MA09072",
+   "S0MA00083"
+  ],
+  "first_term_start": "2001-10-23",
+  "govtrack": 400249,
+  "lis": null,
+  "name": "Stephen F. Lynch",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 13
+ },
+ "L000566": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H8OH05036"
+  ],
+  "first_term_start": "2007-12-13",
+  "govtrack": 412256,
+  "lis": null,
+  "name": "Robert E. Latta",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 10
+ },
+ "L000570": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8NM03196",
+   "S0NM00058"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412293,
+  "lis": "S409",
+  "name": "Ben Ray Luján",
+  "party": "Democrat",
+  "state": "NM",
+  "terms": 7
+ },
+ "L000571": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8WY00148",
+   "S0WY00137"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412294,
+  "lis": "S410",
+  "name": "Cynthia M. Lummis",
+  "party": "Republican",
+  "state": "WY",
+  "terms": 5
+ },
+ "L000575": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H0OK05114",
+   "S4OK00232"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412464,
+  "lis": "S378",
+  "name": "James Lankford",
+  "party": "Republican",
+  "state": "OK",
+  "terms": 5
+ },
+ "L000577": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0UT00165"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412495,
+  "lis": "S346",
+  "name": "Mike Lee",
+  "party": "Republican",
+  "state": "UT",
+  "terms": 3
+ },
+ "L000582": {
+  "chamber": "house",
+  "district": 36,
+  "fec_ids": [
+   "H4CA33119"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412616,
+  "lis": null,
+  "name": "Ted Lieu",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 6
+ },
+ "L000583": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H4GA11061"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412624,
+  "lis": null,
+  "name": "Barry Loudermilk",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 6
+ },
+ "L000585": {
+  "chamber": "house",
+  "district": 16,
+  "fec_ids": [
+   "H6IL18088"
+  ],
+  "first_term_start": "2015-09-17",
+  "govtrack": 412674,
+  "lis": null,
+  "name": "Darin LaHood",
+  "party": "Republican",
+  "state": "IL",
+  "terms": 6
+ },
+ "L000590": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H6NV04020"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412802,
+  "lis": null,
+  "name": "Susie Lee",
+  "party": "Democrat",
+  "state": "NV",
+  "terms": 4
+ },
+ "L000593": {
+  "chamber": "house",
+  "district": 49,
+  "fec_ids": [
+   "H8CA49058"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412760,
+  "lis": null,
+  "name": "Mike Levin",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 4
+ },
+ "L000595": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H2LA05126",
+   "S6LA00664"
+  ],
+  "first_term_start": "2021-04-14",
+  "govtrack": 456859,
+  "lis": null,
+  "name": "Julia Letlow",
+  "party": "Republican",
+  "state": "LA",
+  "terms": 3
+ },
+ "L000596": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H0FL13158"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456891,
+  "lis": null,
+  "name": "Anna Paulina Luna",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 2
+ },
+ "L000597": {
+  "chamber": "house",
+  "district": 15,
+  "fec_ids": [
+   "H2FL15241"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456892,
+  "lis": null,
+  "name": "Laurel M. Lee",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 2
+ },
+ "L000598": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2NY01190"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456920,
+  "lis": null,
+  "name": "Nick LaLota",
+  "party": "Republican",
+  "state": "NY",
+  "terms": 2
+ },
+ "L000599": {
+  "chamber": "house",
+  "district": 17,
+  "fec_ids": [
+   "H2NY17162"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456924,
+  "lis": null,
+  "name": "Michael Lawler",
+  "party": "Republican",
+  "state": "NY",
+  "terms": 2
+ },
+ "L000600": {
+  "chamber": "house",
+  "district": 23,
+  "fec_ids": [
+   "H2NY23228"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456927,
+  "lis": null,
+  "name": "Nicholas A. Langworthy",
+  "party": "Republican",
+  "state": "NY",
+  "terms": 2
+ },
+ "L000601": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2OH01194"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456928,
+  "lis": null,
+  "name": "Greg Landsman",
+  "party": "Democrat",
+  "state": "OH",
+  "terms": 2
+ },
+ "L000602": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H2PA18200"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456935,
+  "lis": null,
+  "name": "Summer L. Lee",
+  "party": "Democrat",
+  "state": "PA",
+  "terms": 2
+ },
+ "L000603": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H2TX08182"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456942,
+  "lis": null,
+  "name": "Morgan Luttrell",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 2
+ },
+ "L000606": {
+  "chamber": "house",
+  "district": 16,
+  "fec_ids": [
+   "H4NY16087"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457011,
+  "lis": null,
+  "name": "George Latimer",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 1
+ },
+ "L000607": {
+  "chamber": "house",
+  "district": 16,
+  "fec_ids": [
+   "H4CA16197"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456976,
+  "lis": null,
+  "name": "Sam T. Liccardo",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "M000133": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6MA07101",
+   "S4MA00028"
+  ],
+  "first_term_start": "1975-01-14",
+  "govtrack": 400253,
+  "lis": "S369",
+  "name": "Edward J. Markey",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 23
+ },
+ "M000194": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H0SC01394"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456843,
+  "lis": null,
+  "name": "Nancy Mace",
+  "party": "Republican",
+  "state": "SC",
+  "terms": 3
+ },
+ "M000312": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4MA03022"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400263,
+  "lis": null,
+  "name": "James P. McGovern",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 15
+ },
+ "M000317": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H0NY11078"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456837,
+  "lis": null,
+  "name": "Nicole Malliotakis",
+  "party": "Republican",
+  "state": "NY",
+  "terms": 3
+ },
+ "M000355": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2KY00012"
+  ],
+  "first_term_start": "1985-01-03",
+  "govtrack": 300072,
+  "lis": "S174",
+  "name": "Mitch McConnell",
+  "party": "Republican",
+  "state": "KY",
+  "terms": 7
+ },
+ "M000687": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "S6MD03185",
+   "H6MD07020",
+   "H0MD07114"
+  ],
+  "first_term_start": "1987-01-06",
+  "govtrack": 407672,
+  "lis": null,
+  "name": "Kweisi Mfume",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 9
+ },
+ "M000871": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H0KS01123"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456823,
+  "lis": null,
+  "name": "Tracey Mann",
+  "party": "Republican",
+  "state": "KS",
+  "terms": 3
+ },
+ "M000934": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6KS01096",
+   "S0KS00091"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400284,
+  "lis": "S347",
+  "name": "Jerry Moran",
+  "party": "Republican",
+  "state": "KS",
+  "terms": 10
+ },
+ "M001111": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2WA00189"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 300076,
+  "lis": "S229",
+  "name": "Patty Murray",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 6
+ },
+ "M001136": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H0MI10287"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456827,
+  "lis": null,
+  "name": "Lisa C. McClain",
+  "party": "Republican",
+  "state": "MI",
+  "terms": 3
+ },
+ "M001137": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H8NY06048"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400271,
+  "lis": null,
+  "name": "Gregory W. Meeks",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 15
+ },
+ "M001143": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H0MN04049"
+  ],
+  "first_term_start": "2001-01-03",
+  "govtrack": 400259,
+  "lis": null,
+  "name": "Betty McCollum",
+  "party": "Democrat",
+  "state": "MN",
+  "terms": 13
+ },
+ "M001153": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4AK00099"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 300075,
+  "lis": "S288",
+  "name": "Lisa Murkowski",
+  "party": "Republican",
+  "state": "AK",
+  "terms": 5
+ },
+ "M001157": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H4TX10093"
+  ],
+  "first_term_start": "2005-01-04",
+  "govtrack": 400654,
+  "lis": null,
+  "name": "Michael T. McCaul",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 11
+ },
+ "M001160": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H4WI04183"
+  ],
+  "first_term_start": "2005-01-04",
+  "govtrack": 400661,
+  "lis": null,
+  "name": "Gwen Moore",
+  "party": "Democrat",
+  "state": "WI",
+  "terms": 11
+ },
+ "M001163": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H6CA05195"
+  ],
+  "first_term_start": "2005-03-10",
+  "govtrack": 400663,
+  "lis": null,
+  "name": "Doris O. Matsui",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 11
+ },
+ "M001169": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6CT05124",
+   "S2CT00132"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412194,
+  "lis": "S364",
+  "name": "Christopher Murphy",
+  "party": "Democrat",
+  "state": "CT",
+  "terms": 6
+ },
+ "M001176": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8OR00207"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412325,
+  "lis": "S322",
+  "name": "Jeff Merkley",
+  "party": "Democrat",
+  "state": "OR",
+  "terms": 3
+ },
+ "M001177": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H8CA04152",
+   "H6CA21135"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412295,
+  "lis": null,
+  "name": "Tom McClintock",
+  "party": "Republican",
+  "state": "CA",
+  "terms": 9
+ },
+ "M001184": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H2KY04121"
+  ],
+  "first_term_start": "2012-11-13",
+  "govtrack": 412503,
+  "lis": null,
+  "name": "Thomas Massie",
+  "party": "Republican",
+  "state": "KY",
+  "terms": 8
+ },
+ "M001188": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H2NY06116"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412560,
+  "lis": null,
+  "name": "Grace Meng",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 7
+ },
+ "M001194": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4MI04126"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412634,
+  "lis": null,
+  "name": "John R. Moolenaar",
+  "party": "Republican",
+  "state": "MI",
+  "terms": 6
+ },
+ "M001196": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4MA06090",
+   "S6MA00296"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412632,
+  "lis": null,
+  "name": "Seth Moulton",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 6
+ },
+ "M001198": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6KS01179",
+   "S0KS00315"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412704,
+  "lis": "S411",
+  "name": "Roger Marshall",
+  "party": "Republican",
+  "state": "KS",
+  "terms": 3
+ },
+ "M001199": {
+  "chamber": "house",
+  "district": 21,
+  "fec_ids": [
+   "H6FL18097"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412698,
+  "lis": null,
+  "name": "Brian J. Mast",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 5
+ },
+ "M001204": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H8PA10147"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412811,
+  "lis": null,
+  "name": "Daniel Meuser",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 4
+ },
+ "M001205": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8WV03097"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412837,
+  "lis": null,
+  "name": "Carol D. Miller",
+  "party": "Republican",
+  "state": "WV",
+  "terms": 4
+ },
+ "M001206": {
+  "chamber": "house",
+  "district": 25,
+  "fec_ids": [
+   "H8NY25105"
+  ],
+  "first_term_start": "2018-11-13",
+  "govtrack": 412749,
+  "lis": null,
+  "name": "Joseph D. Morelle",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 5
+ },
+ "M001208": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H8GA06393"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412769,
+  "lis": null,
+  "name": "Lucy McBath",
+  "party": "Democrat",
+  "state": "GA",
+  "terms": 4
+ },
+ "M001210": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0NC03172"
+  ],
+  "first_term_start": "2019-09-17",
+  "govtrack": 412845,
+  "lis": null,
+  "name": "Gregory F. Murphy",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 4
+ },
+ "M001211": {
+  "chamber": "house",
+  "district": 15,
+  "fec_ids": [
+   "H0IL15129"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456820,
+  "lis": null,
+  "name": "Mary E. Miller",
+  "party": "Republican",
+  "state": "IL",
+  "terms": 3
+ },
+ "M001212": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8AL02171",
+   "S6AL00476"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456800,
+  "lis": null,
+  "name": "Barry Moore",
+  "party": "Republican",
+  "state": "AL",
+  "terms": 3
+ },
+ "M001213": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H0UT01205"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456851,
+  "lis": null,
+  "name": "Blake D. Moore",
+  "party": "Republican",
+  "state": "UT",
+  "terms": 3
+ },
+ "M001214": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H0IN01150"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456821,
+  "lis": null,
+  "name": "Frank J. Mrvan",
+  "party": "Democrat",
+  "state": "IN",
+  "terms": 3
+ },
+ "M001215": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8IA02043"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456817,
+  "lis": null,
+  "name": "Mariannette Miller-Meeks",
+  "party": "Republican",
+  "state": "IA",
+  "terms": 3
+ },
+ "M001216": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H2FL07156"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456889,
+  "lis": null,
+  "name": "Cory Mills",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 2
+ },
+ "M001217": {
+  "chamber": "house",
+  "district": 23,
+  "fec_ids": [
+   "H2FL22171"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456893,
+  "lis": null,
+  "name": "Jared Moskowitz",
+  "party": "Democrat",
+  "state": "FL",
+  "terms": 2
+ },
+ "M001218": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H0GA07273"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456894,
+  "lis": null,
+  "name": "Richard McCormick",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 2
+ },
+ "M001219": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H2GU01031"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456896,
+  "lis": null,
+  "name": "James C. Moylan",
+  "party": "Republican",
+  "state": "GU",
+  "terms": 2
+ },
+ "M001220": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H2KY03206"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456904,
+  "lis": null,
+  "name": "Morgan McGarvey",
+  "party": "Democrat",
+  "state": "KY",
+  "terms": 2
+ },
+ "M001222": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H2OH16051"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456929,
+  "lis": null,
+  "name": "Max L. Miller",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 2
+ },
+ "M001223": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2RI02184"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456937,
+  "lis": null,
+  "name": "Seth Magaziner",
+  "party": "Democrat",
+  "state": "RI",
+  "terms": 2
+ },
+ "M001224": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2TX01112"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456940,
+  "lis": null,
+  "name": "Nathaniel Moran",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 2
+ },
+ "M001225": {
+  "chamber": "house",
+  "district": 15,
+  "fec_ids": [
+   "H2CA14162"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456883,
+  "lis": null,
+  "name": "Kevin Mullin",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 2
+ },
+ "M001226": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H2NJ08232"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456918,
+  "lis": null,
+  "name": "Robert Menendez",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 2
+ },
+ "M001227": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H4VA04066"
+  ],
+  "first_term_start": "2023-03-07",
+  "govtrack": 456953,
+  "lis": null,
+  "name": "Jennifer L. McClellan",
+  "party": "Democrat",
+  "state": "VA",
+  "terms": 2
+ },
+ "M001228": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4UT02296"
+  ],
+  "first_term_start": "2023-11-21",
+  "govtrack": 456956,
+  "lis": null,
+  "name": "Celeste Maloy",
+  "party": "Republican",
+  "state": "UT",
+  "terms": 2
+ },
+ "M001229": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H4NJ10176"
+  ],
+  "first_term_start": "2024-09-18",
+  "govtrack": 456962,
+  "lis": null,
+  "name": "LaMonica McIver",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 2
+ },
+ "M001230": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H8PA15195"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457017,
+  "lis": null,
+  "name": "Ryan Mackenzie",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 1
+ },
+ "M001231": {
+  "chamber": "house",
+  "district": 22,
+  "fec_ids": [
+   "H4NY22085"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457013,
+  "lis": null,
+  "name": "John W. Mannion",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 1
+ },
+ "M001232": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4MD06340"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456993,
+  "lis": null,
+  "name": "April McClain Delaney",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 1
+ },
+ "M001233": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4IN08249"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456989,
+  "lis": null,
+  "name": "Mark B. Messmer",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 1
+ },
+ "M001234": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H4MN03118"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456996,
+  "lis": null,
+  "name": "Kelly Morrison",
+  "party": "Democrat",
+  "state": "MN",
+  "terms": 1
+ },
+ "M001235": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4WV02205"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457031,
+  "lis": null,
+  "name": "Riley M. Moore",
+  "party": "Republican",
+  "state": "WV",
+  "terms": 1
+ },
+ "M001236": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H4NC14015"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457005,
+  "lis": null,
+  "name": "Tim Moore",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 1
+ },
+ "M001237": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4MI08218"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456995,
+  "lis": null,
+  "name": "Kristen McDonald Rivet",
+  "party": "Democrat",
+  "state": "MI",
+  "terms": 1
+ },
+ "M001238": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H4DE00045"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456985,
+  "lis": null,
+  "name": "Sarah McBride",
+  "party": "Democrat",
+  "state": "DE",
+  "terms": 1
+ },
+ "M001239": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H2VA07196",
+   "H0VA07133"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457026,
+  "lis": null,
+  "name": "John J. McGuire III",
+  "party": "Republican",
+  "state": "VA",
+  "terms": 1
+ },
+ "M001240": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4NC06177"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457001,
+  "lis": null,
+  "name": "Addison P. McDowell",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 1
+ },
+ "M001241": {
+  "chamber": "house",
+  "district": 47,
+  "fec_ids": [
+   "H4CA47085"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456981,
+  "lis": null,
+  "name": "Dave Min",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "M001242": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4OH00192"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456967,
+  "lis": "S434",
+  "name": "Bernie Moreno",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 1
+ },
+ "M001243": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2PA00661"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456968,
+  "lis": "S433",
+  "name": "David McCormick",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 1
+ },
+ "M001244": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6FL00640"
+  ],
+  "first_term_start": "2025-01-21",
+  "govtrack": 457033,
+  "lis": "S439",
+  "name": "Ashley Moody",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 1
+ },
+ "M001245": {
+  "chamber": "house",
+  "district": 18,
+  "fec_ids": [
+   "H6TX18232"
+  ],
+  "first_term_start": "2026-02-02",
+  "govtrack": 457039,
+  "lis": null,
+  "name": "Christian D. Menefee",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 1
+ },
+ "M001246": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H6NJ11286"
+  ],
+  "first_term_start": "2026-04-20",
+  "govtrack": 457042,
+  "lis": null,
+  "name": "Analilia Mejia",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 1
+ },
+ "N000002": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H2NY17071"
+  ],
+  "first_term_start": "1992-11-03",
+  "govtrack": 400289,
+  "lis": null,
+  "name": "Jerrold Nadler",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 18
+ },
+ "N000015": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8MA02041"
+  ],
+  "first_term_start": "1989-01-03",
+  "govtrack": 400291,
+  "lis": null,
+  "name": "Richard E. Neal",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 19
+ },
+ "N000026": {
+  "chamber": "house",
+  "district": 22,
+  "fec_ids": [
+   "H0TX22302"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456848,
+  "lis": null,
+  "name": "Troy E. Nehls",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 3
+ },
+ "N000147": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H0DC00058"
+  ],
+  "first_term_start": "1991-01-03",
+  "govtrack": 400295,
+  "lis": null,
+  "name": "Eleanor Holmes Norton",
+  "party": "Democrat",
+  "state": "DC",
+  "terms": 18
+ },
+ "N000188": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H4NJ01084"
+  ],
+  "first_term_start": "2014-11-12",
+  "govtrack": 412606,
+  "lis": null,
+  "name": "Donald Norcross",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 7
+ },
+ "N000189": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H4WA04104"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412660,
+  "lis": null,
+  "name": "Dan Newhouse",
+  "party": "Republican",
+  "state": "WA",
+  "terms": 6
+ },
+ "N000190": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H8SC05158",
+   "S6SC04445"
+  ],
+  "first_term_start": "2017-06-26",
+  "govtrack": 412738,
+  "lis": null,
+  "name": "Ralph Norman",
+  "party": "Republican",
+  "state": "SC",
+  "terms": 5
+ },
+ "N000191": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H8CO02160"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412761,
+  "lis": null,
+  "name": "Joe Neguse",
+  "party": "Democrat",
+  "state": "CO",
+  "terms": 4
+ },
+ "N000193": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H2IA03119"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456898,
+  "lis": null,
+  "name": "Zachary Nunn",
+  "party": "Republican",
+  "state": "IA",
+  "terms": 2
+ },
+ "O000019": {
+  "chamber": "house",
+  "district": 23,
+  "fec_ids": [
+   "H0CA08135"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456801,
+  "lis": null,
+  "name": "Jay Obernolte",
+  "party": "Republican",
+  "state": "CA",
+  "terms": 3
+ },
+ "O000086": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H0UT04076"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456852,
+  "lis": null,
+  "name": "Burgess Owens",
+  "party": "Republican",
+  "state": "UT",
+  "terms": 3
+ },
+ "O000172": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H8NY15148"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412804,
+  "lis": null,
+  "name": "Alexandria Ocasio-Cortez",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 4
+ },
+ "O000173": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H8MN05239"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412791,
+  "lis": null,
+  "name": "Ilhan Omar",
+  "party": "Democrat",
+  "state": "MN",
+  "terms": 4
+ },
+ "O000174": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8GA06195",
+   "S8GA00180"
+  ],
+  "first_term_start": "2021-01-20",
+  "govtrack": 456857,
+  "lis": "S414",
+  "name": "Jon Ossoff",
+  "party": "Democrat",
+  "state": "GA",
+  "terms": 1
+ },
+ "O000175": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H2TN05446"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456939,
+  "lis": null,
+  "name": "Andrew Ogles",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 2
+ },
+ "O000176": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4MD02232"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456991,
+  "lis": null,
+  "name": "Johnny Olszewski, Jr.",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 1
+ },
+ "O000177": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H8MO09146",
+   "H4MO03221"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456998,
+  "lis": null,
+  "name": "Robert F. Onder, Jr.",
+  "party": "Republican",
+  "state": "MO",
+  "terms": 1
+ },
+ "P000034": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H8NJ03073",
+   "S6NJ00263"
+  ],
+  "first_term_start": "1987-01-06",
+  "govtrack": 400308,
+  "lis": null,
+  "name": "Frank Pallone, Jr.",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 20
+ },
+ "P000048": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H0TX11230"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456846,
+  "lis": null,
+  "name": "August Pfluger",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 3
+ },
+ "P000145": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2CA00955"
+  ],
+  "first_term_start": "2021-01-20",
+  "govtrack": 456856,
+  "lis": "S413",
+  "name": "Alex Padilla",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 3
+ },
+ "P000197": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H8CA05035"
+  ],
+  "first_term_start": "1987-01-06",
+  "govtrack": 400314,
+  "lis": null,
+  "name": "Nancy Pelosi",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 20
+ },
+ "P000595": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8MI09068",
+   "S4MI00355"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412305,
+  "lis": "S380",
+  "name": "Gary C. Peters",
+  "party": "Democrat",
+  "state": "MI",
+  "terms": 5
+ },
+ "P000597": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8ME01120",
+   "S0ME00038"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412307,
+  "lis": null,
+  "name": "Chellie Pingree",
+  "party": "Democrat",
+  "state": "ME",
+  "terms": 9
+ },
+ "P000603": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0KY00156"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412492,
+  "lis": "S348",
+  "name": "Rand Paul",
+  "party": "Republican",
+  "state": "KY",
+  "terms": 3
+ },
+ "P000605": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H2PA04135"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412569,
+  "lis": null,
+  "name": "Scott Perry",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 7
+ },
+ "P000607": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2WI02124"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412585,
+  "lis": null,
+  "name": "Mark Pocan",
+  "party": "Democrat",
+  "state": "WI",
+  "terms": 7
+ },
+ "P000608": {
+  "chamber": "house",
+  "district": 50,
+  "fec_ids": [
+   "H2CA52089"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412523,
+  "lis": null,
+  "name": "Scott H. Peters",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 7
+ },
+ "P000609": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4AL06098"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412608,
+  "lis": null,
+  "name": "Gary J. Palmer",
+  "party": "Republican",
+  "state": "AL",
+  "terms": 6
+ },
+ "P000610": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H2VI00082"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412659,
+  "lis": null,
+  "name": "Stacey E. Plaskett",
+  "party": "Democrat",
+  "state": "VI",
+  "terms": 6
+ },
+ "P000613": {
+  "chamber": "house",
+  "district": 19,
+  "fec_ids": [
+   "H6CA20152"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412685,
+  "lis": null,
+  "name": "Jimmy Panetta",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 5
+ },
+ "P000614": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8NH01210",
+   "S6NH00141"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412795,
+  "lis": null,
+  "name": "Chris Pappas",
+  "party": "Democrat",
+  "state": "NH",
+  "terms": 4
+ },
+ "P000617": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H8MA07032"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412782,
+  "lis": null,
+  "name": "Ayanna Pressley",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 4
+ },
+ "P000620": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H8CO07045"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456886,
+  "lis": null,
+  "name": "Brittany Pettersen",
+  "party": "Democrat",
+  "state": "CO",
+  "terms": 2
+ },
+ "P000621": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H4NJ09194"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457009,
+  "lis": null,
+  "name": "Nellie Pou",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 1
+ },
+ "P000622": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H6FL01390"
+  ],
+  "first_term_start": "2025-04-02",
+  "govtrack": 457034,
+  "lis": null,
+  "name": "Jimmy Patronis",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 1
+ },
+ "Q000023": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H0IL05096"
+  ],
+  "first_term_start": "2009-04-07",
+  "govtrack": 412331,
+  "lis": null,
+  "name": "Mike Quigley",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 9
+ },
+ "R000122": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6RI00163",
+   "H0RI02071"
+  ],
+  "first_term_start": "1991-01-03",
+  "govtrack": 300081,
+  "lis": "S259",
+  "name": "Jack Reed",
+  "party": "Democrat",
+  "state": "RI",
+  "terms": 8
+ },
+ "R000305": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H0NC02125"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456831,
+  "lis": null,
+  "name": "Deborah K. Ross",
+  "party": "Democrat",
+  "state": "NC",
+  "terms": 3
+ },
+ "R000395": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H0KY05015"
+  ],
+  "first_term_start": "1981-01-05",
+  "govtrack": 400340,
+  "lis": null,
+  "name": "Harold Rogers",
+  "party": "Republican",
+  "state": "KY",
+  "terms": 23
+ },
+ "R000575": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H2AL03032"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400341,
+  "lis": null,
+  "name": "Mike Rogers",
+  "party": "Republican",
+  "state": "AL",
+  "terms": 12
+ },
+ "R000579": {
+  "chamber": "house",
+  "district": 18,
+  "fec_ids": [
+   "H8NY19223"
+  ],
+  "first_term_start": "2022-09-13",
+  "govtrack": 456871,
+  "lis": null,
+  "name": "Patrick Ryan",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 3
+ },
+ "R000584": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8ID00092"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412322,
+  "lis": "S323",
+  "name": "James E. Risch",
+  "party": "Republican",
+  "state": "ID",
+  "terms": 3
+ },
+ "R000599": {
+  "chamber": "house",
+  "district": 25,
+  "fec_ids": [
+   "H2CA36439"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412519,
+  "lis": null,
+  "name": "Raul Ruiz",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 7
+ },
+ "R000600": {
+  "chamber": "house",
+  "district": 0,
+  "fec_ids": [
+   "H4AS00036"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412664,
+  "lis": null,
+  "name": "Aumua Amata Coleman Radewagen",
+  "party": "Republican",
+  "state": "AS",
+  "terms": 6
+ },
+ "R000603": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H2NC07096"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412641,
+  "lis": null,
+  "name": "David Rouzer",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 6
+ },
+ "R000605": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4SD00049"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412669,
+  "lis": "S381",
+  "name": "Mike Rounds",
+  "party": "Republican",
+  "state": "SD",
+  "terms": 2
+ },
+ "R000606": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H6MD08457"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412708,
+  "lis": null,
+  "name": "Jamie Raskin",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 5
+ },
+ "R000608": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6NV03139",
+   "S8NV00156"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412715,
+  "lis": "S402",
+  "name": "Jacky Rosen",
+  "party": "Democrat",
+  "state": "NV",
+  "terms": 3
+ },
+ "R000609": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H6FL04105"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412692,
+  "lis": null,
+  "name": "John H. Rutherford",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 5
+ },
+ "R000610": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H8PA18199"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412813,
+  "lis": null,
+  "name": "Guy Reschenthaler",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 4
+ },
+ "R000612": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H8TN06094"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412818,
+  "lis": null,
+  "name": "John W. Rose",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 4
+ },
+ "R000614": {
+  "chamber": "house",
+  "district": 21,
+  "fec_ids": [
+   "H8TX21307"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412826,
+  "lis": null,
+  "name": "Chip Roy",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 4
+ },
+ "R000617": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H2IL03162"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456900,
+  "lis": null,
+  "name": "Delia C. Ramirez",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 2
+ },
+ "R000618": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6NE00129"
+  ],
+  "first_term_start": "2023-01-23",
+  "govtrack": 456952,
+  "lis": "S423",
+  "name": "Pete Ricketts",
+  "party": "Republican",
+  "state": "NE",
+  "terms": 2
+ },
+ "R000619": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4OH06165"
+  ],
+  "first_term_start": "2024-06-11",
+  "govtrack": 456959,
+  "lis": null,
+  "name": "Michael A. Rulli",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 2
+ },
+ "R000620": {
+  "chamber": "house",
+  "district": 29,
+  "fec_ids": [
+   "H4CA29141"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456978,
+  "lis": null,
+  "name": "Luz M. Rivas",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "R000621": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4WA06117"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457030,
+  "lis": null,
+  "name": "Emily Randall",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 1
+ },
+ "R000622": {
+  "chamber": "house",
+  "district": 19,
+  "fec_ids": [
+   "H8NY22177"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457012,
+  "lis": null,
+  "name": "Josh Riley",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 1
+ },
+ "S000033": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8VT01016",
+   "S4VT00033"
+  ],
+  "first_term_start": "1991-01-03",
+  "govtrack": 400357,
+  "lis": "S313",
+  "name": "Bernard Sanders",
+  "party": "Independent",
+  "state": "VT",
+  "terms": 12
+ },
+ "S000148": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8NY00082",
+   "H0NY16010"
+  ],
+  "first_term_start": "1981-01-05",
+  "govtrack": 300087,
+  "lis": "S270",
+  "name": "Charles E. Schumer",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 14
+ },
+ "S000168": {
+  "chamber": "house",
+  "district": 27,
+  "fec_ids": [
+   "H8FL27185"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456810,
+  "lis": null,
+  "name": "Maria Elvira Salazar",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 3
+ },
+ "S000185": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H6VA01117"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 400364,
+  "lis": null,
+  "name": "Robert C. \"Bobby\" Scott",
+  "party": "Democrat",
+  "state": "VA",
+  "terms": 17
+ },
+ "S000250": {
+  "chamber": "house",
+  "district": 17,
+  "fec_ids": [
+   "H2TX03126"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400367,
+  "lis": null,
+  "name": "Pete Sessions",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 14
+ },
+ "S000344": {
+  "chamber": "house",
+  "district": 32,
+  "fec_ids": [
+   "H6CA24113"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400371,
+  "lis": null,
+  "name": "Brad Sherman",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 15
+ },
+ "S000510": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H6WA09025"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400379,
+  "lis": null,
+  "name": "Adam Smith",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 15
+ },
+ "S000522": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8NJ04014"
+  ],
+  "first_term_start": "1981-01-05",
+  "govtrack": 400380,
+  "lis": null,
+  "name": "Christopher H. Smith",
+  "party": "Republican",
+  "state": "NJ",
+  "terms": 23
+ },
+ "S000929": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H0IN05326"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456822,
+  "lis": null,
+  "name": "Victoria Spartz",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 3
+ },
+ "S001145": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H8IL09067"
+  ],
+  "first_term_start": "1999-01-06",
+  "govtrack": 400360,
+  "lis": null,
+  "name": "Janice D. Schakowsky",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 14
+ },
+ "S001148": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H8ID02064"
+  ],
+  "first_term_start": "1999-01-06",
+  "govtrack": 400376,
+  "lis": null,
+  "name": "Michael K. Simpson",
+  "party": "Republican",
+  "state": "ID",
+  "terms": 14
+ },
+ "S001150": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H0CA27085",
+   "S4CA00555"
+  ],
+  "first_term_start": "2001-01-03",
+  "govtrack": 400361,
+  "lis": "S427",
+  "name": "Adam B. Schiff",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 14
+ },
+ "S001156": {
+  "chamber": "house",
+  "district": 38,
+  "fec_ids": [
+   "H2CA39078"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400355,
+  "lis": null,
+  "name": "Linda T. Sánchez",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 12
+ },
+ "S001159": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H0WA10034"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456854,
+  "lis": null,
+  "name": "Marilyn Strickland",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 3
+ },
+ "S001172": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H6NE03115"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412217,
+  "lis": null,
+  "name": "Adrian Smith",
+  "party": "Republican",
+  "state": "NE",
+  "terms": 10
+ },
+ "S001176": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H0LA01087"
+  ],
+  "first_term_start": "2008-05-07",
+  "govtrack": 412261,
+  "lis": null,
+  "name": "Steve Scalise",
+  "party": "Republican",
+  "state": "LA",
+  "terms": 10
+ },
+ "S001181": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0NH00219"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412323,
+  "lis": "S324",
+  "name": "Jeanne Shaheen",
+  "party": "Democrat",
+  "state": "NH",
+  "terms": 3
+ },
+ "S001183": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H4AZ06045",
+   "H8AZ05097"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412399,
+  "lis": null,
+  "name": "David Schweikert",
+  "party": "Republican",
+  "state": "AZ",
+  "terms": 8
+ },
+ "S001184": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H0SC01279",
+   "S4SC00240"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412471,
+  "lis": "S365",
+  "name": "Tim Scott",
+  "party": "Republican",
+  "state": "SC",
+  "terms": 5
+ },
+ "S001185": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H0AL07086"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412396,
+  "lis": null,
+  "name": "Terri A. Sewell",
+  "party": "Democrat",
+  "state": "AL",
+  "terms": 8
+ },
+ "S001188": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0IN03198",
+   "S0IN00095"
+  ],
+  "first_term_start": "2010-11-16",
+  "govtrack": 412392,
+  "lis": null,
+  "name": "Marlin A. Stutzman",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 5
+ },
+ "S001189": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H0GA08099"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412417,
+  "lis": null,
+  "name": "Austin Scott",
+  "party": "Republican",
+  "state": "GA",
+  "terms": 8
+ },
+ "S001190": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H2IL10068"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412534,
+  "lis": null,
+  "name": "Bradley Scott Schneider",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 6
+ },
+ "S001194": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4HI00136",
+   "H6HI02244"
+  ],
+  "first_term_start": "2012-12-27",
+  "govtrack": 412507,
+  "lis": "S353",
+  "name": "Brian Schatz",
+  "party": "Democrat",
+  "state": "HI",
+  "terms": 4
+ },
+ "S001195": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4MO08162"
+  ],
+  "first_term_start": "2013-06-04",
+  "govtrack": 412596,
+  "lis": null,
+  "name": "Jason Smith",
+  "party": "Republican",
+  "state": "MO",
+  "terms": 7
+ },
+ "S001196": {
+  "chamber": "house",
+  "district": 21,
+  "fec_ids": [
+   "H4NY21079"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412648,
+  "lis": null,
+  "name": "Elise M. Stefanik",
+  "party": "Republican",
+  "state": "NY",
+  "terms": 6
+ },
+ "S001198": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4AK00214"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412665,
+  "lis": "S383",
+  "name": "Dan Sullivan",
+  "party": "Republican",
+  "state": "AK",
+  "terms": 2
+ },
+ "S001199": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H6PA16320"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412722,
+  "lis": null,
+  "name": "Lloyd Smucker",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 5
+ },
+ "S001200": {
+  "chamber": "house",
+  "district": 9,
+  "fec_ids": [
+   "H6FL09179"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412695,
+  "lis": null,
+  "name": "Darren Soto",
+  "party": "Democrat",
+  "state": "FL",
+  "terms": 5
+ },
+ "S001201": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H6NY03247"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412717,
+  "lis": null,
+  "name": "Thomas R. Suozzi",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 5
+ },
+ "S001203": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8MN00578"
+  ],
+  "first_term_start": "2018-01-03",
+  "govtrack": 412742,
+  "lis": "S394",
+  "name": "Tina Smith",
+  "party": "Democrat",
+  "state": "MN",
+  "terms": 3
+ },
+ "S001205": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H8PA07200"
+  ],
+  "first_term_start": "2018-11-13",
+  "govtrack": 412750,
+  "lis": null,
+  "name": "Mary Gay Scanlon",
+  "party": "Democrat",
+  "state": "PA",
+  "terms": 5
+ },
+ "S001208": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H8MI08102",
+   "S4MI00470"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412784,
+  "lis": "S436",
+  "name": "Elissa Slotkin",
+  "party": "Democrat",
+  "state": "MI",
+  "terms": 4
+ },
+ "S001211": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8AZ09040"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412753,
+  "lis": null,
+  "name": "Greg Stanton",
+  "party": "Democrat",
+  "state": "AZ",
+  "terms": 4
+ },
+ "S001212": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H8MN08043"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412792,
+  "lis": null,
+  "name": "Pete Stauber",
+  "party": "Republican",
+  "state": "MN",
+  "terms": 4
+ },
+ "S001213": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8WI01156"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412836,
+  "lis": null,
+  "name": "Bryan Steil",
+  "party": "Republican",
+  "state": "WI",
+  "terms": 4
+ },
+ "S001214": {
+  "chamber": "house",
+  "district": 17,
+  "fec_ids": [
+   "H8FL17053"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412766,
+  "lis": null,
+  "name": "W. Gregory Steube",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 4
+ },
+ "S001215": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H8MI11254",
+   "S6MI00426"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412786,
+  "lis": null,
+  "name": "Haley M. Stevens",
+  "party": "Democrat",
+  "state": "MI",
+  "terms": 4
+ },
+ "S001216": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H8WA08189"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412835,
+  "lis": null,
+  "name": "Kim Schrier",
+  "party": "Democrat",
+  "state": "WA",
+  "terms": 4
+ },
+ "S001217": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S8FL00273"
+  ],
+  "first_term_start": "2019-01-08",
+  "govtrack": 412838,
+  "lis": "S404",
+  "name": "Rick Scott",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 2
+ },
+ "S001218": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H2NM01144"
+  ],
+  "first_term_start": "2021-06-14",
+  "govtrack": 456861,
+  "lis": null,
+  "name": "Melanie A. Stansbury",
+  "party": "Democrat",
+  "state": "NM",
+  "terms": 3
+ },
+ "S001220": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H2AL05102"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456878,
+  "lis": null,
+  "name": "Dale W. Strong",
+  "party": "Republican",
+  "state": "AL",
+  "terms": 2
+ },
+ "S001221": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0MI03316"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456906,
+  "lis": null,
+  "name": "Hillary J. Scholten",
+  "party": "Democrat",
+  "state": "MI",
+  "terms": 2
+ },
+ "S001223": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H2OH13264"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456930,
+  "lis": null,
+  "name": "Emilia Strong Sykes",
+  "party": "Democrat",
+  "state": "OH",
+  "terms": 2
+ },
+ "S001224": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H2TX03290",
+   "H2TX00064"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456941,
+  "lis": null,
+  "name": "Keith Self",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 2
+ },
+ "S001225": {
+  "chamber": "house",
+  "district": 17,
+  "fec_ids": [
+   "H2IL17147"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456902,
+  "lis": null,
+  "name": "Eric Sorensen",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 2
+ },
+ "S001226": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H2OR06066"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456934,
+  "lis": null,
+  "name": "Andrea Salinas",
+  "party": "Democrat",
+  "state": "OR",
+  "terms": 2
+ },
+ "S001227": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2MO00544"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456875,
+  "lis": "S420",
+  "name": "Eric Schmitt",
+  "party": "Republican",
+  "state": "MO",
+  "terms": 1
+ },
+ "S001228": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4KS02164"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456990,
+  "lis": null,
+  "name": "Derek Schmidt",
+  "party": "Republican",
+  "state": "KS",
+  "terms": 1
+ },
+ "S001229": {
+  "chamber": "house",
+  "district": 6,
+  "fec_ids": [
+   "H4IN06185"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456988,
+  "lis": null,
+  "name": "Jefferson Shreve",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 1
+ },
+ "S001230": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H4VA10279"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457028,
+  "lis": null,
+  "name": "Suhas Subramanyam",
+  "party": "Democrat",
+  "state": "VA",
+  "terms": 1
+ },
+ "S001231": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H4CA12154"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456974,
+  "lis": null,
+  "name": "Lateefah Simon",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "S001232": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4MT00183"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456966,
+  "lis": "S435",
+  "name": "Tim Sheehy",
+  "party": "Republican",
+  "state": "MT",
+  "terms": 1
+ },
+ "T000165": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H0WI07101"
+  ],
+  "first_term_start": "2020-05-19",
+  "govtrack": 456791,
+  "lis": null,
+  "name": "Thomas P. Tiffany",
+  "party": "Republican",
+  "state": "WI",
+  "terms": 4
+ },
+ "T000193": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4MS02068"
+  ],
+  "first_term_start": "1993-04-13",
+  "govtrack": 400402,
+  "lis": null,
+  "name": "Bennie G. Thompson",
+  "party": "Democrat",
+  "state": "MS",
+  "terms": 17
+ },
+ "T000250": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2SD00068",
+   "H6SD00085"
+  ],
+  "first_term_start": "1997-01-07",
+  "govtrack": 400546,
+  "lis": "S303",
+  "name": "John Thune",
+  "party": "Republican",
+  "state": "SD",
+  "terms": 7
+ },
+ "T000278": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0AL00230"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456796,
+  "lis": "S412",
+  "name": "Tommy Tuberville",
+  "party": "Republican",
+  "state": "AL",
+  "terms": 1
+ },
+ "T000460": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8CA01109"
+  ],
+  "first_term_start": "1999-01-06",
+  "govtrack": 400403,
+  "lis": null,
+  "name": "Mike Thompson",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 14
+ },
+ "T000463": {
+  "chamber": "house",
+  "district": 10,
+  "fec_ids": [
+   "H2OH03067",
+   "H2OH03091"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400411,
+  "lis": null,
+  "name": "Michael R. Turner",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 12
+ },
+ "T000467": {
+  "chamber": "house",
+  "district": 15,
+  "fec_ids": [
+   "H8PA05071"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412317,
+  "lis": null,
+  "name": "Glenn Thompson",
+  "party": "Republican",
+  "state": "PA",
+  "terms": 9
+ },
+ "T000468": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8NV03036"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412318,
+  "lis": null,
+  "name": "Dina Titus",
+  "party": "Democrat",
+  "state": "NV",
+  "terms": 8
+ },
+ "T000469": {
+  "chamber": "house",
+  "district": 20,
+  "fec_ids": [
+   "H8NY21203"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412319,
+  "lis": null,
+  "name": "Paul Tonko",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 9
+ },
+ "T000472": {
+  "chamber": "house",
+  "district": 39,
+  "fec_ids": [
+   "H2CA43245"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412520,
+  "lis": null,
+  "name": "Mark Takano",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 7
+ },
+ "T000474": {
+  "chamber": "house",
+  "district": 35,
+  "fec_ids": [
+   "H4CA35031"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412617,
+  "lis": null,
+  "name": "Norma J. Torres",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 6
+ },
+ "T000476": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S4NC00162"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412668,
+  "lis": "S384",
+  "name": "Thom Tillis",
+  "party": "Republican",
+  "state": "NC",
+  "terms": 2
+ },
+ "T000478": {
+  "chamber": "house",
+  "district": 24,
+  "fec_ids": [
+   "H4NY22051"
+  ],
+  "first_term_start": "2017-01-03",
+  "govtrack": 412720,
+  "lis": null,
+  "name": "Claudia Tenney",
+  "party": "Republican",
+  "state": "NY",
+  "terms": 4
+ },
+ "T000480": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H8SC04250"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412815,
+  "lis": null,
+  "name": "William R. Timmons IV",
+  "party": "Republican",
+  "state": "SC",
+  "terms": 4
+ },
+ "T000481": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H8MI13250"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412787,
+  "lis": null,
+  "name": "Rashida Tlaib",
+  "party": "Democrat",
+  "state": "MI",
+  "terms": 4
+ },
+ "T000482": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H8MA03106"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412781,
+  "lis": null,
+  "name": "Lori Trahan",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 4
+ },
+ "T000486": {
+  "chamber": "house",
+  "district": 15,
+  "fec_ids": [
+   "H0NY15160"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456838,
+  "lis": null,
+  "name": "Ritchie Torres",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 3
+ },
+ "T000487": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2HI02581"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456897,
+  "lis": null,
+  "name": "Jill N. Tokuda",
+  "party": "Democrat",
+  "state": "HI",
+  "terms": 2
+ },
+ "T000488": {
+  "chamber": "house",
+  "district": 13,
+  "fec_ids": [
+   "H2MI13204"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456908,
+  "lis": null,
+  "name": "Shri Thanedar",
+  "party": "Democrat",
+  "state": "MI",
+  "terms": 2
+ },
+ "T000490": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H4OH02248"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457014,
+  "lis": null,
+  "name": "David J. Taylor",
+  "party": "Republican",
+  "state": "OH",
+  "terms": 1
+ },
+ "T000491": {
+  "chamber": "house",
+  "district": 45,
+  "fec_ids": [
+   "H4CA45170"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456980,
+  "lis": null,
+  "name": "Derek Tran",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "U000040": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H8IL14174"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412776,
+  "lis": null,
+  "name": "Lauren Underwood",
+  "party": "Democrat",
+  "state": "IL",
+  "terms": 4
+ },
+ "V000081": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H2NY00010"
+  ],
+  "first_term_start": "1993-01-05",
+  "govtrack": 400416,
+  "lis": null,
+  "name": "Nydia M. Velázquez",
+  "party": "Democrat",
+  "state": "NY",
+  "terms": 17
+ },
+ "V000128": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H2MD08126",
+   "S6MD03441"
+  ],
+  "first_term_start": "2003-01-07",
+  "govtrack": 400415,
+  "lis": "S390",
+  "name": "Chris Van Hollen",
+  "party": "Democrat",
+  "state": "MD",
+  "terms": 9
+ },
+ "V000129": {
+  "chamber": "house",
+  "district": 22,
+  "fec_ids": [
+   "H2CA20094"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412515,
+  "lis": null,
+  "name": "David G. Valadao",
+  "party": "Republican",
+  "state": "CA",
+  "terms": 6
+ },
+ "V000130": {
+  "chamber": "house",
+  "district": 52,
+  "fec_ids": [
+   "H2CA50026"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412522,
+  "lis": null,
+  "name": "Juan Vargas",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 7
+ },
+ "V000131": {
+  "chamber": "house",
+  "district": 33,
+  "fec_ids": [
+   "H2TX33073"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412579,
+  "lis": null,
+  "name": "Marc A. Veasey",
+  "party": "Democrat",
+  "state": "TX",
+  "terms": 7
+ },
+ "V000133": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H8NJ02166"
+  ],
+  "first_term_start": "2019-01-03",
+  "govtrack": 412796,
+  "lis": null,
+  "name": "Jefferson Van Drew",
+  "party": "Republican",
+  "state": "NJ",
+  "terms": 4
+ },
+ "V000134": {
+  "chamber": "house",
+  "district": 24,
+  "fec_ids": [
+   "H0TX24209"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456850,
+  "lis": null,
+  "name": "Beth Van Duyne",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 3
+ },
+ "V000135": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0WI03175"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456950,
+  "lis": null,
+  "name": "Derrick Van Orden",
+  "party": "Republican",
+  "state": "WI",
+  "terms": 2
+ },
+ "V000136": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2NM02191"
+  ],
+  "first_term_start": "2023-01-03",
+  "govtrack": 456919,
+  "lis": null,
+  "name": "Gabe Vasquez",
+  "party": "Democrat",
+  "state": "NM",
+  "terms": 2
+ },
+ "V000138": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H4VA07234"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 457027,
+  "lis": null,
+  "name": "Eugene Simon Vindman",
+  "party": "Democrat",
+  "state": "VA",
+  "terms": 1
+ },
+ "V000139": {
+  "chamber": "house",
+  "district": 7,
+  "fec_ids": [
+   "H6TN07161"
+  ],
+  "first_term_start": "2025-12-04",
+  "govtrack": 457038,
+  "lis": null,
+  "name": "Matt Van Epps",
+  "party": "Republican",
+  "state": "TN",
+  "terms": 1
+ },
+ "W000187": {
+  "chamber": "house",
+  "district": 43,
+  "fec_ids": [
+   "H4CA23011"
+  ],
+  "first_term_start": "1991-01-03",
+  "govtrack": 400422,
+  "lis": null,
+  "name": "Maxine Waters",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 18
+ },
+ "W000437": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H4MS01078",
+   "S8MS00196"
+  ],
+  "first_term_start": "1995-01-04",
+  "govtrack": 400432,
+  "lis": "S318",
+  "name": "Roger F. Wicker",
+  "party": "Republican",
+  "state": "MS",
+  "terms": 11
+ },
+ "W000779": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6OR00110",
+   "H0OR03026"
+  ],
+  "first_term_start": "1981-01-05",
+  "govtrack": 300100,
+  "lis": "S247",
+  "name": "Ron Wyden",
+  "party": "Democrat",
+  "state": "OR",
+  "terms": 14
+ },
+ "W000788": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H0GA05301"
+  ],
+  "first_term_start": "2021-01-03",
+  "govtrack": 456811,
+  "lis": null,
+  "name": "Nikema Williams",
+  "party": "Democrat",
+  "state": "GA",
+  "terms": 3
+ },
+ "W000790": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S0GA00559"
+  ],
+  "first_term_start": "2021-01-20",
+  "govtrack": 456858,
+  "lis": "S415",
+  "name": "Raphael G. Warnock",
+  "party": "Democrat",
+  "state": "GA",
+  "terms": 2
+ },
+ "W000795": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2SC02059"
+  ],
+  "first_term_start": "2001-12-18",
+  "govtrack": 400433,
+  "lis": null,
+  "name": "Joe Wilson",
+  "party": "Republican",
+  "state": "SC",
+  "terms": 13
+ },
+ "W000797": {
+  "chamber": "house",
+  "district": 25,
+  "fec_ids": [
+   "H4FL20023"
+  ],
+  "first_term_start": "2005-01-04",
+  "govtrack": 400623,
+  "lis": null,
+  "name": "Debbie Wasserman Schultz",
+  "party": "Democrat",
+  "state": "FL",
+  "terms": 11
+ },
+ "W000798": {
+  "chamber": "house",
+  "district": 5,
+  "fec_ids": [
+   "H4MI07103"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412213,
+  "lis": null,
+  "name": "Tim Walberg",
+  "party": "Republican",
+  "state": "MI",
+  "terms": 9
+ },
+ "W000800": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H6VT00160",
+   "H8VT00034",
+   "S2VT00235"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412239,
+  "lis": "S422",
+  "name": "Peter Welch",
+  "party": "Democrat",
+  "state": "VT",
+  "terms": 9
+ },
+ "W000802": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6RI00221"
+  ],
+  "first_term_start": "2007-01-04",
+  "govtrack": 412247,
+  "lis": "S316",
+  "name": "Sheldon Whitehouse",
+  "party": "Democrat",
+  "state": "RI",
+  "terms": 4
+ },
+ "W000804": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H8VA01147"
+  ],
+  "first_term_start": "2007-12-13",
+  "govtrack": 412255,
+  "lis": null,
+  "name": "Robert J. Wittman",
+  "party": "Republican",
+  "state": "VA",
+  "terms": 10
+ },
+ "W000805": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S6VA00093",
+   "P80003023"
+  ],
+  "first_term_start": "2009-01-06",
+  "govtrack": 412321,
+  "lis": "S327",
+  "name": "Mark R. Warner",
+  "party": "Democrat",
+  "state": "VA",
+  "terms": 3
+ },
+ "W000806": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H0FL08208",
+   "S4FL00256"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412410,
+  "lis": null,
+  "name": "Daniel Webster",
+  "party": "Republican",
+  "state": "FL",
+  "terms": 8
+ },
+ "W000808": {
+  "chamber": "house",
+  "district": 24,
+  "fec_ids": [
+   "H0FL17068"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412412,
+  "lis": null,
+  "name": "Frederica S. Wilson",
+  "party": "Democrat",
+  "state": "FL",
+  "terms": 8
+ },
+ "W000809": {
+  "chamber": "house",
+  "district": 3,
+  "fec_ids": [
+   "H0AR03055"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412402,
+  "lis": null,
+  "name": "Steve Womack",
+  "party": "Republican",
+  "state": "AR",
+  "terms": 8
+ },
+ "W000812": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2MO02102"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412548,
+  "lis": null,
+  "name": "Ann Wagner",
+  "party": "Republican",
+  "state": "MO",
+  "terms": 7
+ },
+ "W000814": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H2TX14149"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412574,
+  "lis": null,
+  "name": "Randy K. Weber, Sr.",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 7
+ },
+ "W000816": {
+  "chamber": "house",
+  "district": 25,
+  "fec_ids": [
+   "H2TX33040",
+   "S2TX00270"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412578,
+  "lis": null,
+  "name": "Roger Williams",
+  "party": "Republican",
+  "state": "TX",
+  "terms": 7
+ },
+ "W000817": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "S2MA00170"
+  ],
+  "first_term_start": "2013-01-03",
+  "govtrack": 412542,
+  "lis": "S366",
+  "name": "Elizabeth Warren",
+  "party": "Democrat",
+  "state": "MA",
+  "terms": 3
+ },
+ "W000821": {
+  "chamber": "house",
+  "district": 4,
+  "fec_ids": [
+   "H4AR04048"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412610,
+  "lis": null,
+  "name": "Bruce Westerman",
+  "party": "Republican",
+  "state": "AR",
+  "terms": 6
+ },
+ "W000822": {
+  "chamber": "house",
+  "district": 12,
+  "fec_ids": [
+   "H4NJ12149"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412644,
+  "lis": null,
+  "name": "Bonnie Watson Coleman",
+  "party": "Democrat",
+  "state": "NJ",
+  "terms": 6
+ },
+ "W000829": {
+  "chamber": "house",
+  "district": 8,
+  "fec_ids": [
+   "H4WI08119"
+  ],
+  "first_term_start": "2024-11-05",
+  "govtrack": 456963,
+  "lis": null,
+  "name": "Tony Wied",
+  "party": "Republican",
+  "state": "WI",
+  "terms": 2
+ },
+ "W000830": {
+  "chamber": "house",
+  "district": 27,
+  "fec_ids": [
+   "H4CA27111"
+  ],
+  "first_term_start": "2025-01-03",
+  "govtrack": 456977,
+  "lis": null,
+  "name": "George Whitesides",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "W000831": {
+  "chamber": "house",
+  "district": 11,
+  "fec_ids": [
+   "H6VA11066"
+  ],
+  "first_term_start": "2025-09-10",
+  "govtrack": 457036,
+  "lis": null,
+  "name": "James R. Walkinshaw",
+  "party": "Democrat",
+  "state": "VA",
+  "terms": 1
+ },
+ "W000832": {
+  "chamber": "house",
+  "district": 14,
+  "fec_ids": [
+   "H0CA15213"
+  ],
+  "first_term_start": "2026-09-02",
+  "govtrack": 457046,
+  "lis": null,
+  "name": "Aisha Wahab",
+  "party": "Democrat",
+  "state": "CA",
+  "terms": 1
+ },
+ "Y000064": {
+  "chamber": "senate",
+  "district": null,
+  "fec_ids": [
+   "H0IN09070",
+   "S6IN00191"
+  ],
+  "first_term_start": "2011-01-05",
+  "govtrack": 412428,
+  "lis": "S391",
+  "name": "Todd Young",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 5
+ },
+ "Y000067": {
+  "chamber": "house",
+  "district": 2,
+  "fec_ids": [
+   "H2IN02295"
+  ],
+  "first_term_start": "2022-11-14",
+  "govtrack": 456873,
+  "lis": null,
+  "name": "Rudy Yakym III",
+  "party": "Republican",
+  "state": "IN",
+  "terms": 3
+ },
+ "Z000018": {
+  "chamber": "house",
+  "district": 1,
+  "fec_ids": [
+   "H4MT01041"
+  ],
+  "first_term_start": "2015-01-06",
+  "govtrack": 412640,
+  "lis": null,
+  "name": "Ryan K. Zinke",
+  "party": "Republican",
+  "state": "MT",
+  "terms": 4
+ }
+}

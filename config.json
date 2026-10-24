@@ -1,0 +1,13 @@
+{
+  "cycle": 2026,
+  "congress": 119,
+  "cel_congress": 118,
+  "vote_years": [2025, 2026],
+  "scope": "pilot",
+  "pilot": {
+    "races": ["AR-3", "OH-GOV"],
+    "bioguide": ["W000809"],
+    "fec_ids": ["H0AR03055", "H6AR03128", "H4AR03081"],
+    "people": ["Steve Womack", "Robb Ryerse", "Bobby Wilson", "Vivek Ramaswamy", "Amy Acton", "Don Kissick"]
+  }
+}
