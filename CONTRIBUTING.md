@@ -1,5 +1,7 @@
 # Contributing to Stump League
 
+Live site: https://ai-prince-1.github.io/stump-league/
+
 Stump League is an AI-assisted, open-source prototype. It has **no editors and no human reviewers yet**. This guide proposes how a community (for example political science students and civic-tech volunteers) can run it without one, borrowing from how Wikipedia works: every claim is sourced in public, every change is visible in public history, and pages about living people get extra protection.
 
 Nothing here is a final policy. Propose changes to it by opening an issue.
@@ -42,7 +44,7 @@ Use **Issues → New issue → Correction** (or the form on the Methodology page
 
 Most Arkansas legislative cards are thin because state data isn't connected yet. A good first contribution:
 
-1. Pick one contested race on the Races tab and comment on the "Adopt a district" issue so nobody duplicates it.
+1. Pick one contested race on the Races tab. Search the open issues to make sure nobody has claimed it, then open an issue titled "Adopt: <race>" (for example "Adopt: AR House 12") so nobody duplicates it.
 2. For each candidate, collect: their campaign website, whether they answered the League of Women Voters' Vote411 or Ballotpedia's Candidate Connection questionnaire, and any nonpartisan debate or forum invitations (who hosted, who was invited, who accepted).
 3. Add plans in the candidate's own words with links. Fill the checklist but leave it marked Draft.
 4. Open one pull request per race. Ask someone else to confirm it (two-person rule).
