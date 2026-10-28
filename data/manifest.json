@@ -1,46 +1,46 @@
 {
  "_run": {
-  "date": "2026-10-27",
+  "date": "2026-10-28",
   "scope": "pilot"
  },
  "bills": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "records": 5,
-  "seconds": 110,
+  "seconds": 85,
   "state": "live"
  },
  "cel": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "records": 550,
   "seconds": 1,
   "state": "live"
  },
  "cel_state": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "records": 135,
   "seconds": 1,
   "state": "live"
  },
  "factchecks": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "records": 26,
-  "seconds": 18,
+  "seconds": 19,
   "state": "live"
  },
  "fec": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "records": 20,
-  "seconds": 17,
+  "seconds": 23,
   "state": "live"
  },
  "members": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "records": 539,
   "seconds": 2,
   "state": "live"
  },
  "senate_votes": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "progress": {
    "members": 104,
    "source": "voteview"
@@ -50,7 +50,7 @@
   "state": "live"
  },
  "votes": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "progress": {
    "fetched_this_run": 0,
    "last_roll": {
@@ -65,7 +65,7 @@
   "state": "live"
  },
  "zips": {
-  "last": "2026-10-27",
+  "last": "2026-10-28",
   "records": 33774,
   "seconds": 0,
   "state": "live"
