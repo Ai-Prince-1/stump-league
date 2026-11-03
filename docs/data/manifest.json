@@ -1,46 +1,48 @@
 {
  "_run": {
-  "date": "2026-11-02",
+  "date": "2026-11-03",
   "scope": "pilot"
  },
  "bills": {
+  "checked": "2026-11-03",
+  "error": "FetchError: GET https://api.congress.gov/v3/bill/119/hr/4320/cosponsors failed after 3 tries: HTTPSConnectionPool(host='api.congress.gov', port=443): Read timed out. (read timeout=30)",
   "last": "2026-11-02",
   "records": 5,
   "seconds": 118,
-  "state": "live"
+  "state": "error"
  },
  "cel": {
-  "last": "2026-11-02",
+  "last": "2026-11-03",
   "records": 550,
   "seconds": 0,
   "state": "live"
  },
  "cel_state": {
-  "last": "2026-11-02",
+  "last": "2026-11-03",
   "records": 135,
   "seconds": 0,
   "state": "live"
  },
  "factchecks": {
-  "last": "2026-11-02",
+  "last": "2026-11-03",
   "records": 26,
-  "seconds": 14,
+  "seconds": 15,
   "state": "live"
  },
  "fec": {
-  "last": "2026-11-02",
+  "last": "2026-11-03",
   "records": 20,
-  "seconds": 37,
+  "seconds": 46,
   "state": "live"
  },
  "members": {
-  "last": "2026-11-02",
+  "last": "2026-11-03",
   "records": 539,
   "seconds": 3,
   "state": "live"
  },
  "senate_votes": {
-  "last": "2026-11-02",
+  "last": "2026-11-03",
   "progress": {
    "members": 104,
    "source": "voteview"
@@ -50,7 +52,7 @@
   "state": "live"
  },
  "votes": {
-  "last": "2026-11-02",
+  "last": "2026-11-03",
   "progress": {
    "fetched_this_run": 0,
    "last_roll": {
@@ -65,7 +67,7 @@
   "state": "live"
  },
  "zips": {
-  "last": "2026-11-02",
+  "last": "2026-11-03",
   "records": 33774,
   "seconds": 0,
   "state": "live"
