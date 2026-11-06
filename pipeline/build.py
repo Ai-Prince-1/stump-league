@@ -1,4 +1,4 @@
-"""Nightly build: pull each feed, merge safely, and write data/*.json plus a manifest
+"""Scheduled build (monthly after the 2026 election): pull each feed, merge safely, and write data/*.json plus a manifest
 the site's Data Feeds table reads. One failing feed never stops the others."""
 from __future__ import annotations
 

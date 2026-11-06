@@ -1,6 +1,6 @@
 """Generate ar.js: every contested race on Arkansas's Nov 3, 2026 ballot, the unopposed list, the
 ballot issues, and dated fact-check lists. Stats come from the pipeline's data files (official
-sources). Run by the nightly job after each data refresh:  python3 gen_ar.py ..  (repo root)."""
+sources). Run by the monthly refresh job after each data refresh:  python3 gen_ar.py ..  (repo root)."""
 import json, re, sys
 from datetime import date
 from pathlib import Path
@@ -21,17 +21,17 @@ SRC = {
   "senate_debate_off": ["Arkansas Advocate", "Debate in Arkansas U.S. Senate race won't take place", "Oct 14, 2026", "https://www.newsfromthestates.com/article/debate-arkansas-us-senate-race-wont-take-place-cotton-and-shoffner-campaigns-say"],
   "hd8_special": ["Arkansas Advocate", "2 candidates file for Arkansas House vacancy", "Aug 28, 2026", "https://www.newsfromthestates.com/article/2-candidates-file-arkansas-house-vacancy-created-lawmakers-resignation"],
   "uaex_guide": ["University of Arkansas Cooperative Extension Service", "2026 Arkansas Ballot Issues Voter Guide", "Oct 2026", "https://www.uaex.uada.edu/business-communities/voter-education/docs/2026-Arkansas-Ballot-Issues-Voter-Guide.pdf"],
-  "cel_state_src": ["Center for Effective Lawmaking", "State Legislative Effectiveness Scores, Arkansas 2023–24", "nightly", "https://thelawmakers.org/state-highlights"],
-  "cel_fed_src": ["Center for Effective Lawmaking", "Legislative Effectiveness Scores, 118th Congress", "nightly", "https://thelawmakers.org/find-representatives"],
-  "clerk_src": ["Office of the Clerk, U.S. House", "Roll-call votes, 2025–2026", "nightly", "https://clerk.house.gov/Votes"],
-  "voteview_src": ["Voteview (UCLA), from U.S. Senate roll calls", "Senate roll-call votes, 119th Congress", "nightly", "https://voteview.com/congress/senate/119"],
+  "cel_state_src": ["Center for Effective Lawmaking", "State Legislative Effectiveness Scores, Arkansas 2023–24", "monthly", "https://thelawmakers.org/state-highlights"],
+  "cel_fed_src": ["Center for Effective Lawmaking", "Legislative Effectiveness Scores, 118th Congress", "monthly", "https://thelawmakers.org/find-representatives"],
+  "clerk_src": ["Office of the Clerk, U.S. House", "Roll-call votes, 2025–2026", "monthly", "https://clerk.house.gov/Votes"],
+  "voteview_src": ["Voteview (UCLA), from U.S. Senate roll calls", "Senate roll-call votes, 119th Congress", "monthly", "https://voteview.com/congress/senate/119"],
   "lugar_house": ["The Lugar Center and Georgetown McCourt School", "Bipartisan Index, House, 2023", "retrieved Oct 24, 2026", "https://www.thelugarcenter.org/ourwork-86.html"],
   "lugar_senate": ["The Lugar Center and Georgetown McCourt School", "Bipartisan Index, Senate, 2023", "retrieved Oct 24, 2026", "https://www.thelugarcenter.org/ourwork-85.html"],
-  "claimreview_src": ["Google Fact Check Tools (ClaimReview)", "Fact-check rulings from PolitiFact, The Washington Post, FactCheck.org and others", "nightly", "https://toolbox.google.com/factcheck/explorer"],
+  "claimreview_src": ["Google Fact Check Tools (ClaimReview)", "Fact-check rulings from PolitiFact, The Washington Post, FactCheck.org and others", "monthly", "https://toolbox.google.com/factcheck/explorer"],
 }
 def fec_src(cid):
     key = "fec_" + cid
-    SRC[key] = ["Federal Election Commission", f"{cid} 2025–2026 financial summary", "nightly", f"https://www.fec.gov/data/candidate/{cid}/?cycle=2026"]
+    SRC[key] = ["Federal Election Commission", f"{cid} 2025–2026 financial summary", "monthly", f"https://www.fec.gov/data/candidate/{cid}/?cycle=2026"]
     return key
 
 # ---------------------------------------------------------------- helpers
@@ -104,7 +104,7 @@ def k_funding(cid):
     ins = f' · {pct(d["in_state_share"])} of itemized individual money from in-state' if d.get("in_state_share") is not None else ""
     return {"status": "official", "norm": round(sum(parts) / len(parts), 3),
             "display": f'{pct(d["pac_share"])} from PACs and party committees · {pct(d["small_donor_share"])} from donors giving $200 or less{ins}',
-            "sub": f'Raised {money(d["receipts"])} through {fmt_date(d.get("coverage_end_date"))}' + ("" if d.get("in_state_share") is not None else " · in-state share arrives with the next nightly run"),
+            "sub": f'Raised {money(d["receipts"])} through {fmt_date(d.get("coverage_end_date"))}' + ("" if d.get("in_state_share") is not None else " · in-state share arrives with the next monthly run"),
             "src": fec_src(cid)}
 
 def find_sles(last, chamber, district):
