@@ -10,7 +10,19 @@ It gives **no overall grade**, never scores policy positions or how anyone voted
 
 **Coverage:** every contested race on Arkansas's Nov 3, 2026 ballot (50 races, 105 candidates), the 80 unopposed seats, plain-language explainers for the 4 statewide ballot issues, and Ohio's governor race as a second pilot.
 
+> **Post-election status (Nov 2026):** The Nov 3, 2026 election is over. The site stays online as a working demo of the 2026 Arkansas ballot, with a notice at the top of the page. The data job now runs **monthly** (and on demand), and the page shows the date of the last refresh.
+>
 > **Status:** AI-assisted prototype. No human has reviewed it yet. Official-record stats are imported automatically by code anyone can read; everything that took judgment is marked **Draft** on the site. It's built for people with more technical and political expertise (civic-tech groups, newsrooms, university centers, political science students) to adopt, check and extend.
+
+## What this project demonstrates
+
+| Area | Where to look |
+|---|---|
+| Product judgment: a hard, contested problem (rating politicians) framed so it stays nonpartisan | "The five stats" below; the site's Methodology tab |
+| Data engineering: 10 public feeds, safe merges, resumable downloads, a run manifest | `pipeline/` |
+| Automation: scheduled GitHub Actions job that tests, pulls, rebuilds and publishes | `.github/workflows/data-refresh.yml` |
+| Quality gates: unit tests plus page checks that block a broken publish | `tests/test_pipeline.py` |
+| Front end: a single static page with ZIP lookup, head-to-head and voter-chosen ranking | `site-src/`, published to `docs/` |
 
 ## The five stats
 
@@ -27,19 +39,19 @@ It gives **no overall grade**, never scores policy positions or how anyone voted
 ## How it works
 
 ```
-official records ──► pipeline/ (nightly) ──► data/*.json ──► site-src/gen_ar.py ──► docs/index.html ──► GitHub Pages
+official records ──► pipeline/ (monthly) ──► data/*.json ──► site-src/gen_ar.py ──► docs/index.html ──► GitHub Pages
                      tests + safe merge                       rebuilds the page,
                                                               checks counts and wording
 ```
 
-A GitHub Actions job (`.github/workflows/nightly.yml`) runs every night at 08:17 UTC:
+A GitHub Actions job (`.github/workflows/data-refresh.yml`) runs at 08:17 UTC on the 1st of every month. To refresh before a demo, open **Actions → Monthly data refresh → Run workflow**. During an election season, change the cron line back to daily (`17 8 * * *`).
 
 1. Runs the tests.
 2. Pulls every feed. A failed or empty pull never overwrites a saved value.
 3. Rebuilds the website from the new data and runs the tests again. If any check fails, it keeps the previous page instead of publishing a broken one.
 4. Commits the data and page, and GitHub Pages republishes the site.
 
-The page also reads `docs/data/manifest.json` so the Methodology tab shows each feed's real status and last pull date.
+The page also reads `docs/data/manifest.json`, so the top bar shows the last refresh date and the Methodology tab shows each feed's real status.
 
 ## Data feeds
 
@@ -63,13 +75,13 @@ The page also reads `docs/data/manifest.json` so the Methodology tab shows each 
 1. **Get two free keys:** an api.data.gov key (covers Congress.gov and OpenFEC) at https://api.data.gov/signup/, and a Google Fact Check Tools API key from Google Cloud Console.
 2. **Add them as repository secrets** (Settings → Secrets and variables → Actions) named `API_DATA_GOV_KEY` and `GOOGLE_FACTCHECK_KEY`. Never commit a key.
 3. **Turn on GitHub Pages:** Settings → Pages → Deploy from a branch → `main`, folder `/docs`.
-4. **Run it:** Actions → Nightly data refresh → Run workflow. After that it runs every night.
+4. **Run it:** Actions → Monthly data refresh → Run workflow. After that it runs on the 1st of each month.
 
 Without keys, the free feeds still run, and FEC falls back to a heavily rate-limited demo key.
 
 ## Scope
 
-`config.json` sets what the nightly job covers. `"scope": "pilot"` (the default) covers Arkansas's federal delegation and candidates, Arkansas's legislature and the Ohio governor pilot, which keeps API use within free limits. `"all"` covers every member of Congress (about 539) and needs your own api.data.gov key.
+`config.json` sets what the refresh job covers. `"scope": "pilot"` (the default) covers Arkansas's federal delegation and candidates, Arkansas's legislature and the Ohio governor pilot, which keeps API use within free limits. `"all"` covers every member of Congress (about 539) and needs your own api.data.gov key.
 
 ## Website source
 

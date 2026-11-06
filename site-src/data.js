@@ -255,7 +255,7 @@ const POSITION_TOPICS = {
   governor: [{ key: "taxes", label: "Taxes" }, { key: "health", label: "Health care" }, { key: "schools", label: "Schools" }, { key: "energy", label: "Energy and data centers" }]
 };
 
-/* Data feeds. "Nightly" = refreshed by the nightly job, not real-time. */
+/* Data feeds. "Monthly" = refreshed by the monthly job, not real-time. */
 const FEEDS = [
   { key: "cel", name: "Legislative Effectiveness Scores", org: "Center for Effective Lawmaking", stat: "Gets results (Congress)", how: "CEL scores API", note: "118th Congress (2023–24); 119th scores publish after the term ends." },
   { key: "cel_state", name: "State legislative effectiveness", org: "Center for Effective Lawmaking", stat: "Gets results (Arkansas legislature)", how: "CEL state scores API", note: "Arkansas House and Senate, 2023–24 term." },

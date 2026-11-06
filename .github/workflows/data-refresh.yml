@@ -1,7 +1,9 @@
-name: Nightly data refresh
+name: Monthly data refresh
 on:
   schedule:
-    - cron: "17 8 * * *"   # 08:17 UTC daily (about 3 a.m. Central)
+    # Post-election: refresh once a month (08:17 UTC on the 1st, about 2-3 a.m. Central).
+    # Run it any time from Actions -> Monthly data refresh -> Run workflow (e.g. before a demo).
+    - cron: "17 8 1 * *"
   workflow_dispatch: {}
 
 permissions:
@@ -37,7 +39,7 @@ jobs:
           for f in manifest cel cel_state fec attendance senate_attendance bipartisanship factchecks; do
             [ -f "data/$f.json" ] && cp "data/$f.json" docs/data/ || true
           done
-      - name: Rebuild the website from tonight's data
+      - name: Rebuild the website from the new data
         if: always()
         id: site
         continue-on-error: true
@@ -54,6 +56,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data docs/data docs/index.html site-src/ar.js
           git diff --cached --quiet && echo "No data changes" && exit 0
-          git commit -m "Nightly data refresh $(date -u +%F)"
+          git commit -m "Monthly data refresh $(date -u +%F)"
           git pull --rebase
           git push

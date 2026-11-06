@@ -16,11 +16,11 @@ Nothing here is a final policy. Propose changes to it by opening an issue.
 ## Two kinds of changes
 
 ### 1. Official-record data (automated)
-Stats with the **Official record** badge come from public datasets through the nightly pipeline (`pipeline/`). To change one, change the code, not the number:
+Stats with the **Official record** badge come from public datasets through the scheduled pipeline (`pipeline/`). To change one, change the code, not the number:
 
 1. Open a pull request against `pipeline/`.
 2. Add or update a test in `tests/` that shows the change is correct.
-3. The pull request passes if the tests pass and the nightly build's checks (race and candidate counts, wording guards) still pass.
+3. The pull request passes if the tests pass and the refresh build's checks (race and candidate counts, wording guards) still pass.
 
 A number is never edited by hand in the page.
 
@@ -34,7 +34,7 @@ Anything that takes judgment — background facts, plan checklists (measurable /
 5. **Campaign responses.** A campaign may submit a sourced response to any stat. After confirmation it appears beside the stat, not in place of it.
 
 ### Election freeze window
-In the **14 days before an election**, judgment items for that election can only be *corrected* (a sourced factual error), not added. This limits last-minute pile-ons. Official-record data keeps updating nightly.
+In the **14 days before an election**, judgment items for that election can only be *corrected* (a sourced factual error), not added. This limits last-minute pile-ons. Official-record data keeps updating on the refresh schedule.
 
 ## Corrections
 
