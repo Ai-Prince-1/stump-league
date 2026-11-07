@@ -147,7 +147,7 @@
         return `<a class="arrow" href="#races" data-race="${x.id}"><span class="code">${esc(x.short)}</span><span class="who">${who}</span><span class="cov">${cov}</span></a>`;
       }).join("") + `</div>`).join("") + `<p class="dim" style="font-size:12.5px">* incumbent</p>`;
     $("#ar-unopp-sum").textContent = "The other " + UNOPP_N + " Arkansas seats on the ballot are unopposed";
-    $("#ar-unopp-body").innerHTML = `<p class="dim" style="font-size:13px">These candidates face no opponent on Nov 3, so there's no choice to compare. * incumbent</p>` +
+    $("#ar-unopp-body").innerHTML = `<p class="dim" style="font-size:13px">These candidates faced no opponent on Nov 3, so there was no choice to compare. * incumbent</p>` +
       Object.entries(AR_UNOPPOSED).map(([lv, rows]) => `<h3 style="font-size:16px">${esc(lv)} (${rows.length})</h3><div class="unopp">${rows.map(([seat, w]) => `<div><span class="lbl">${esc(seat)}</span><span>${esc(w)}</span></div>`).join("")}</div>`).join("") +
       `<p class="srcs">Sources: ${sup("wiki_arhouse")} ${sup("wiki_arsen")} ${sup("greenpapers_ar")}</p>`;
   }
@@ -416,7 +416,7 @@
       else if (f.manualDraft) { label = "AI draft"; cls = "manual"; }
       else if (f.manual) { label = "Imported by hand"; cls = "manual"; }
       else if (e && e.state === "error") { label = "Last run failed"; cls = "partial"; }
-      else { label = "Nightly"; cls = "live"; }
+      else { label = "Monthly"; cls = "live"; }
       const last = e && e.last ? e.last : (f.next || f.manualDraft ? "—" : ASOF);
       return `<tr><td><b>${esc(f.name)}</b><br><span class="dim" style="font-size:12.5px">${esc(f.org)} · ${esc(f.how)}</span></td><td>${esc(f.stat)}</td><td><span class="feed ${cls}">${label}</span></td><td class="cov">${esc(last)}</td></tr><tr class="sub"><td colspan="4" class="dim" style="font-size:12.5px;padding-top:0">${esc(f.note)}</td></tr>`;
     }).join("");
@@ -504,27 +504,30 @@ Who funds them: average of small-donor share, in-state share (when available) an
   /* ---------- about ---------- */
   function renderAbout() {
     $("#about-real").innerHTML = [
-      `Every contested race on Arkansas's Nov 3 ballot: ${AR_CONTESTED.length} races and ${AR_CANDS} candidates, plus the ${UNOPP_N} unopposed seats and plain-language explainers for the 4 statewide ballot issues.`,
+      `Every contested race on Arkansas's Nov 3, 2026 ballot: ${AR_CONTESTED.length} races and ${AR_CANDS} candidates, plus the ${UNOPP_N} unopposed seats and plain-language explainers for the 4 statewide ballot issues.`,
       "Ohio's governor race as a second pilot: three first-time candidates, shown as profiles and plans.",
-      "Official data refreshed nightly: congressional and state legislative effectiveness, House and Senate roll calls, FEC campaign money, fact-check rulings, and the Census ZIP-to-district map. The Bipartisan Index is imported by hand.",
-      "The page itself is rebuilt from that data every night, so the numbers shown match the latest pull."
+      "Official data refreshed monthly: congressional and state legislative effectiveness, House and Senate roll calls, FEC campaign money, fact-check rulings, and the Census ZIP-to-district map. The Bipartisan Index is imported by hand.",
+      "The page itself is rebuilt from that data on every refresh, so the numbers shown match the latest pull."
     ].map((t) => `<li>${esc(t)}</li>`).join("");
     $("#repo-link").href = REPO_URL;
   }
 
   /* ---------- boot ---------- */
   $("#tk-races").textContent = AR_CONTESTED.length;
-  $("#asof").textContent = "data as of " + ASOF; $$(".asof2").forEach((x) => (x.textContent = "Data as of " + ASOF));
+  $("#asof").textContent = "data as of " + ASOF; { const rn = $("#refreshed-note"); if (rn) rn.textContent = "data as of " + ASOF; } $$(".asof2").forEach((x) => (x.textContent = "Data as of " + ASOF));
   renderBallot($("#zip").value); renderLearn(); renderMethod(); renderAbout();
   show(VIEWS.includes(location.hash.slice(1)) ? location.hash.slice(1) : "scout", false);
 
-  /* On GitHub Pages the nightly job publishes data/manifest.json next to the page; show each feed's real status. */
+  /* On GitHub Pages the monthly refresh job publishes data/manifest.json next to the page; show each feed's real status. */
   fetch("data/manifest.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null)).then((m) => {
     if (!m) return;
     const fmtDate = (d) => { try { return new Date(String(d).slice(0, 10) + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); } catch (e) { return d; } };
     Object.entries(m).forEach(([k, v]) => { if (!k.startsWith("_")) feedState[k] = { state: v.state, last: v.last ? fmtDate(v.last) : (v.checked ? fmtDate(v.checked) : null) }; });
-    $("#tk-mode").textContent = "Nightly";
-    if (m._run) $("#asof").textContent = "refreshed " + fmtDate(m._run.date);
+    $("#tk-mode").textContent = "Data";
+    if (m._run) {
+      $("#asof").textContent = "last refreshed " + fmtDate(m._run.date);
+      const rn = $("#refreshed-note"); if (rn) rn.textContent = "data last refreshed " + fmtDate(m._run.date);
+    }
     renderMethod();
   }).catch(() => {});
 })();

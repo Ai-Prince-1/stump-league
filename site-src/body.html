@@ -14,16 +14,18 @@
 </header>
 <div class="ticker" aria-label="Election facts">
   <div class="wrap" tabindex="0" role="region" aria-label="Election facts, scrollable">
-    <span><b>General election</b> Nov 3, 2026</span>
+    <span><b>General election</b> held Nov 3, 2026</span>
+    <span><b id="tk-mode">Snapshot</b> <span id="asof"></span></span>
     <span><b>Arkansas</b> <span id="tk-races"></span> contested races · 4 ballot issues</span>
     <span><b>435</b> House seats</span>
     <span><b>35</b> Senate seats</span>
     <span><b>36</b> governors</span>
-    <span><b id="tk-mode">Snapshot</b> <span id="asof"></span></span>
   </div>
 </div>
 
 <main class="wrap">
+
+<p class="banner post-election" role="note" style="margin:18px 0 26px"><b>The Nov 3, 2026 election is over.</b> Stump League stays online as a working demo of the 2026 Arkansas ballot. Officeholder data is refreshed monthly; <span id="refreshed-note">see the date in the bar above</span>. For official results, see the <a href="https://www.sos.arkansas.gov/elections" target="_blank" rel="noopener">Arkansas Secretary of State</a>.</p>
 
 <!-- SCOUT -->
 <section data-view="scout">
@@ -34,7 +36,7 @@
       <p class="lede">Stump League turns candidates' public records into stat lines you can read in five minutes: whether they face voters, who funds them, whether they show up, and whether they get things done. Every number links to its source. There's no overall grade, and nothing here tells you who to vote for.</p>
     </div>
     <div class="zipbox">
-      <div class="eyebrow">Look up your ballot</div>
+      <div class="eyebrow">Look up a 2026 ballot</div>
       <form id="zipform">
         <label for="zip" class="sr">ZIP code</label>
         <input class="input" id="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code" value="72712">
@@ -242,7 +244,7 @@
   <div class="twocol">
     <div class="panel">
       <div class="eyebrow">For builders</div>
-      <p>The code is MIT-licensed: anyone can copy, change and build on it. The data pipeline runs nightly on GitHub Actions for free, and the methodology is published in full. Best-fit homes are nonpartisan: university research centers, civic-tech groups, nonprofit newsrooms and voter-information organizations.</p>
+      <p>The code is MIT-licensed: anyone can copy, change and build on it. The data pipeline runs monthly on GitHub Actions for free, and the methodology is published in full. Best-fit homes are nonpartisan: university research centers, civic-tech groups, nonprofit newsrooms and voter-information organizations.</p>
       <p><a id="repo-link" href="#" target="_blank" rel="noopener">View the code and contributor guide</a></p>
     </div>
     <div class="panel">
