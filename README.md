@@ -38,6 +38,18 @@ It gives **no overall grade**, never scores policy positions or how anyone voted
 
 ## How it works
 
+**In plain English:** three layers, all free to run.
+
+| Layer | What it is | In this project |
+|---|---|---|
+| **1. Data sources** | Public government and research APIs | Congress.gov, OpenFEC (campaign money), House and Senate roll-call votes, Center for Effective Lawmaking, Google Fact Check, Census ZIP-to-district files ([full list](#data-feeds)) |
+| **2. Processing (the middle)** | A Python pipeline run by GitHub Actions, GitHub's free scheduled robot | Once a month it downloads every feed, cleans and merges the data into JSON files, computes the five stats, rebuilds the web page, and runs 26 tests. If anything fails, it keeps the last good version. |
+| **3. Front end** | One static web page hosted free on GitHub Pages | HTML, CSS and JavaScript in the visitor's browser: ZIP lookup, scouting cards, head-to-head and rankings. No server, no database, no logins. |
+
+API keys for the data sources live in GitHub's encrypted secrets, never in the code or the page.
+
+The technical flow:
+
 ```
 official records ──► pipeline/ (monthly) ──► data/*.json ──► site-src/gen_ar.py ──► docs/index.html ──► GitHub Pages
                      tests + safe merge                       rebuilds the page,
@@ -137,3 +149,7 @@ Corrections happen in public. Open an issue with the **Correction** template (or
 ## License
 
 Code is MIT-licensed. Data comes from the public sources above, each under its own terms.
+
+---
+
+*Founding contributor: **Prince***
